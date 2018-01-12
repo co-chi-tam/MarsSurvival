@@ -1,0 +1,10 @@
+Mars survival: 
+Story mode:
+	Bạn vào vai một phi hành gia có hiệm vụ thám hiểm và cố gắn trở về trái đất sau khi bị
+	trai nạn và bỏ lại trên Sao hỏa.
+	
+Gameplay:
+	Sinh tồn các chỉ số Health, Hunger, Sanity, Power sun.
+	Scrafting chế đồ.
+	Ngày đêm, ... 
+	Infinite map ( Thế giới mở)...
