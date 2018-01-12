@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UICustomize;
 
 public class CCharacterEntity : CEntity {
 
+	[SerializeField]	protected UIJoytick m_Joytick;
 	[SerializeField]	protected CMoveComponent m_MoveComponent;
+	[SerializeField]	protected CDataPointComponent m_SolarPoint;
 
 	protected override void Start ()
 	{
@@ -15,14 +18,9 @@ public class CCharacterEntity : CEntity {
 	protected override void Update ()
 	{
 		base.Update ();
-		if (Input.GetMouseButtonUp (0)) {
-			RaycastHit hitInfo;
-			Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
-			if (Physics.Raycast (ray, out hitInfo)) {
-				var movePoint = hitInfo.point;
-				movePoint.y = 0f;
-				this.m_MoveComponent.targetPosition = movePoint;
-			}
+		if (this.m_Joytick != null) {
+			var movePoint = this.transform.position + this.m_Joytick.InputDirectionXZ;
+			this.m_MoveComponent.targetPosition = movePoint;
 		}
 	}
 

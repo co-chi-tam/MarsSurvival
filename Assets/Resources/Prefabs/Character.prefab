@@ -49,7 +49,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4269342157295882}
-  - component: {fileID: 114391483909678248}
   - component: {fileID: 114617059177336552}
   - component: {fileID: 114641186756525052}
   - component: {fileID: 114665941294259726}
@@ -132,7 +131,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1833698780043526}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: 0}
+  m_LocalPosition: {x: 0, y: 5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4156591646409786}
@@ -179,8 +178,8 @@ MeshRenderer:
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
-  m_LightProbeUsage: 0
-  m_ReflectionProbeUsage: 0
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: 430303217c002384782d9251fa1c7810, type: 2}
   m_StaticBatchInfo:
@@ -213,8 +212,8 @@ MeshRenderer:
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
-  m_LightProbeUsage: 0
-  m_ReflectionProbeUsage: 0
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: 430303217c002384782d9251fa1c7810, type: 2}
   m_StaticBatchInfo:
@@ -407,33 +406,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_FSMTextAsset: {fileID: 4900000, guid: f182e39d1dba6e04d830a918794732ef, type: 3}
   m_CurrentStateName: 
---- !u!114 &114391483909678248
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1833698780043526}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8fbe07c34558d7479886d95fd2b9ba4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_DataName: HungerPoint
-  m_IsUpdate: 1
-  m_ValuePoint: 100
-  m_MaxValuePoint: 100
-  m_ConsumeSpeed: 1
-  m_ConsumePerSecond: 1
-  OnLowValue:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  OnMaxValue:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!114 &114465870578483098
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -446,7 +418,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Components: []
+  m_Joytick: {fileID: 0}
   m_MoveComponent: {fileID: 114617059177336552}
+  m_SolarPoint: {fileID: 0}
 --- !u!114 &114617059177336552
 MonoBehaviour:
   m_ObjectHideFlags: 1
