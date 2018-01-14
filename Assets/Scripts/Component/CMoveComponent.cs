@@ -102,20 +102,20 @@ public class CMoveComponent : CComponent {
 		// Position
 		this.m_Transform.position = this.m_MovePoint;
 		// Rotation
-		if (dirNormal != Vector3.up) {
-			var dirRotation = Quaternion.AngleAxis (this.m_RotationPoint, dirNormal);
-			var normalGround = Quaternion.FromToRotation (Vector3.up, dirNormal);
-			var combineRot = dirRotation * normalGround;
-			this.m_Transform.rotation = Quaternion.Lerp (
+//		if (dirNormal != Vector3.up) {
+		var dirRotation = Quaternion.AngleAxis (this.m_RotationPoint, dirNormal);
+		var normalGround = Quaternion.FromToRotation (Vector3.up, dirNormal);
+		var combineRot = dirRotation * normalGround;
+		this.m_Transform.rotation = Quaternion.Lerp (
 											this.m_Transform.rotation, 
 											combineRot,
 											this.m_RotationSpeed * dt);
-		} else {
-			this.m_Transform.rotation = Quaternion.Lerp (
-											this.m_Transform.rotation, 
-											Quaternion.AngleAxis (this.m_RotationPoint, dirNormal),
-											this.m_RotationSpeed * dt);
-		}
+//		} else {
+//			this.m_Transform.rotation = Quaternion.Lerp (
+//											this.m_Transform.rotation, 
+//											Quaternion.AngleAxis (this.m_RotationPoint, dirNormal),
+//											this.m_RotationSpeed * dt);
+//		}
 
 	}
 
@@ -147,7 +147,8 @@ public class CMoveComponent : CComponent {
 	public override void Reset ()
 	{
 		base.Reset ();
-		this.m_TargetPosition = this.m_Transform.position;
+
+		this.m_TargetPosition = this.transform.position;
 		this.m_MoveSpeed = this.m_PreviousMoveSpeed;
 	}
 

@@ -1,9 +1,10 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Manager\CDayNightManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Component\CFollowObjectComponent.cs">
     <Files>
-      <File FileName="Assets\Scripts\Manager\CDayNightManager.cs" Line="80" Column="116" />
-      <File FileName="Assets\Scripts\Util\CDayNightLight.cs" Line="52" Column="3" />
+      <File FileName="Assets\Scripts\Component\CFollowObjectComponent.cs" Line="21" Column="1" />
+      <File FileName="Assets\Scripts\Entity\CCharacterEntity.cs" Line="16" Column="17" />
+      <File FileName="Assets\Scripts\Component\CMoveComponent.cs" Line="6" Column="36" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

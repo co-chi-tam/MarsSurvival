@@ -24,7 +24,7 @@ public class CFSMComponent : CComponent {
 	{
 		base.Awake ();
 		this.m_FSMManager = new FSMManager ();
-		this.m_FSMManager.LoadFSM (this.m_FSMTextAsset.text);
+//		this.m_FSMManager.LoadFSM (this.m_FSMTextAsset.text);
 	}
 
 	protected override void Update ()

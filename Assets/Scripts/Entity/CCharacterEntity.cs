@@ -14,7 +14,6 @@ public class CCharacterEntity : CEntity {
 	protected override void Start ()
 	{
 		base.Start ();
-		this.m_MoveComponent.isActive = true;
 	}
 
 	protected override void Update ()
