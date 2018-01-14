@@ -9,8 +9,8 @@ public class CMoveComponent : CComponent {
 
 	[Header("Target")]
 	[SerializeField]	protected LayerMask m_Ground = -1;
-	[SerializeField]	protected Transform m_Head;
-	[SerializeField]	protected Transform m_Feet;
+	[SerializeField]	protected Transform m_Top;
+	[SerializeField]	protected Transform m_Bottom;
 
 	[Header ("Value")]
 	[SerializeField]	protected float m_MoveSpeed = 5f;
@@ -51,7 +51,6 @@ public class CMoveComponent : CComponent {
 	protected Transform m_Transform;
 	protected Vector3 m_MovePoint;
 	protected float m_RotationPoint;
-	protected Vector3 m_DirRotation;
 
 	#endregion
 
@@ -86,21 +85,38 @@ public class CMoveComponent : CComponent {
 	#region Main methods
 
 	public virtual void UpdateStepOnGround(float dt) {
-		if (this.m_Head != null && this.m_Feet != null) {
+		var dirNormal = Vector3.up;
+		if (this.m_Top != null && this.m_Bottom != null) {
 			RaycastHit hitInfo;
-			if (Physics.Raycast (this.m_Head.position, -Vector3.up, out hitInfo, Mathf.Infinity, this.m_Ground)) {
-				var feet = this.m_Feet.position;
+			if (Physics.Raycast (this.m_Top.position, -Vector3.up, out hitInfo, Mathf.Infinity, this.m_Ground)) {
+				// Position
+				var feet = this.m_Bottom.position;
 				feet.x = this.m_MovePoint.x;
 				feet.y = hitInfo.point.y;
 				feet.z = this.m_MovePoint.z;
 				this.m_MovePoint = feet;
+				// Rotation
+				dirNormal = hitInfo.normal;
 			}
 		}
+		// Position
 		this.m_Transform.position = this.m_MovePoint;
-		this.m_Transform.rotation = Quaternion.Lerp (
-										this.m_Transform.rotation, 
-										Quaternion.AngleAxis (this.m_RotationPoint, this.m_Transform.up),
-										this.m_RotationSpeed * dt);
+		// Rotation
+		if (dirNormal != Vector3.up) {
+			var dirRotation = Quaternion.AngleAxis (this.m_RotationPoint, dirNormal);
+			var normalGround = Quaternion.FromToRotation (Vector3.up, dirNormal);
+			var combineRot = dirRotation * normalGround;
+			this.m_Transform.rotation = Quaternion.Lerp (
+											this.m_Transform.rotation, 
+											combineRot,
+											this.m_RotationSpeed * dt);
+		} else {
+			this.m_Transform.rotation = Quaternion.Lerp (
+											this.m_Transform.rotation, 
+											Quaternion.AngleAxis (this.m_RotationPoint, dirNormal),
+											this.m_RotationSpeed * dt);
+		}
+
 	}
 
 	public virtual void SetupMove(float dt) {
@@ -125,7 +141,7 @@ public class CMoveComponent : CComponent {
 
 	public virtual bool IsNearestTarget() {
 		var direction = this.m_TargetPosition - this.m_Transform.position;
-		return direction.sqrMagnitude < this.m_MinDistance * this.m_MinDistance * this.m_MoveSpeed;
+		return direction.sqrMagnitude <= this.m_MinDistance * this.m_MinDistance * this.m_MoveSpeed;
 	}
 
 	public override void Reset ()

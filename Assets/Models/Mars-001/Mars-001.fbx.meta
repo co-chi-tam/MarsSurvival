@@ -1,0 +1,440 @@
+fileFormatVersion: 2
+guid: 6f4d1ae87cb33804bb79bd610e58bc74
+timeCreated: 1515929621
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Arm.L.001
+    100002: Arm.L.001 1
+    100004: Arm.L.002
+    100006: Arm.L.002 1
+    100008: Arm.L.002_end
+    100010: Arm.R.001
+    100012: Arm.R.001 1
+    100014: Arm.R.002
+    100016: Arm.R.002 1
+    100018: Arm.R.002_end
+    100020: BackBone.001
+    100022: BackBox.001
+    100024: BackBoxBone.001
+    100026: Body
+    100028: BottomBox.001
+    100030: Core.001
+    100032: CoreBone.001
+    100034: CoreBone.001_end
+    100036: FronBox.001
+    100038: FrontBoxBone.001
+    100040: FrontBoxBone.001_end
+    100042: LeftBox.001
+    100044: LeftBoxBone.001
+    100046: LeftBoxBone.001_end
+    100048: LeftBoxBone.002
+    100050: LeftBoxBone.002_end
+    100052: Leg.L.001
+    100054: Leg.L.001 1
+    100056: Leg.L.002
+    100058: Leg.L.002_end
+    100060: Leg.R.001
+    100062: Leg.R.001 1
+    100064: Leg.R.002
+    100066: Leg.R.002_end
+    100068: //RootNode
+    100070: NeckBone.001
+    100072: RightBox.001
+    100074: RootBone
+    100076: ShoulderBone.L.001
+    100078: ShoulderBone.R.001
+    100080: TopBox.001
+    100082: TopBoxBone.001
+    100084: TopBoxBone.001_end
+    400000: Arm.L.001
+    400002: Arm.L.001 1
+    400004: Arm.L.002
+    400006: Arm.L.002 1
+    400008: Arm.L.002_end
+    400010: Arm.R.001
+    400012: Arm.R.001 1
+    400014: Arm.R.002
+    400016: Arm.R.002 1
+    400018: Arm.R.002_end
+    400020: BackBone.001
+    400022: BackBox.001
+    400024: BackBoxBone.001
+    400026: Body
+    400028: BottomBox.001
+    400030: Core.001
+    400032: CoreBone.001
+    400034: CoreBone.001_end
+    400036: FronBox.001
+    400038: FrontBoxBone.001
+    400040: FrontBoxBone.001_end
+    400042: LeftBox.001
+    400044: LeftBoxBone.001
+    400046: LeftBoxBone.001_end
+    400048: LeftBoxBone.002
+    400050: LeftBoxBone.002_end
+    400052: Leg.L.001
+    400054: Leg.L.001 1
+    400056: Leg.L.002
+    400058: Leg.L.002_end
+    400060: Leg.R.001
+    400062: Leg.R.001 1
+    400064: Leg.R.002
+    400066: Leg.R.002_end
+    400068: //RootNode
+    400070: NeckBone.001
+    400072: RightBox.001
+    400074: RootBone
+    400076: ShoulderBone.L.001
+    400078: ShoulderBone.R.001
+    400080: TopBox.001
+    400082: TopBoxBone.001
+    400084: TopBoxBone.001_end
+    2100000: Mars001-Material
+    2100002: Solar-Material
+    2300000: Arm.L.001 1
+    2300002: Arm.L.002 1
+    2300004: Arm.R.001 1
+    2300006: Arm.R.002 1
+    2300008: BackBox.001
+    2300010: Body
+    2300012: BottomBox.001
+    2300014: Core.001
+    2300016: FronBox.001
+    2300018: LeftBox.001
+    2300020: Leg.L.001 1
+    2300022: Leg.R.001 1
+    2300024: RightBox.001
+    2300026: TopBox.001
+    3300000: Arm.L.001 1
+    3300002: Arm.L.002 1
+    3300004: Arm.R.001 1
+    3300006: Arm.R.002 1
+    3300008: BackBox.001
+    3300010: Body
+    3300012: BottomBox.001
+    3300014: Core.001
+    3300016: FronBox.001
+    3300018: LeftBox.001
+    3300020: Leg.L.001 1
+    3300022: Leg.R.001 1
+    3300024: RightBox.001
+    3300026: TopBox.001
+    4300000: Body
+    4300002: Leg.L.001
+    4300004: Leg.R.001
+    4300006: Arm.L.001
+    4300008: Arm.L.002
+    4300010: Arm.R.001
+    4300012: Arm.R.002
+    4300014: BottomBox.001
+    4300016: Core.001
+    4300018: FronBox.001
+    4300020: BackBox.001
+    4300022: TopBox.001
+    4300024: LeftBox.001
+    4300026: RightBox.001
+    7400000: Idle.001
+    7400002: Move
+    7400004: Action
+    7400006: EnterCharge
+    7400008: Charging
+    7400010: Death
+    7400012: Talk
+    7400014: Armature|Action
+    7400016: Armature|Charging
+    7400018: Armature|Death
+    7400020: Armature|EnterCharge
+    7400022: Armature|Idle.001
+    7400024: Armature|Move
+    7400026: Armature|Talk
+    7400028: TopBox.001|Action
+    7400030: FronBox.001|Action
+    9500000: //RootNode
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mars001-Material
+    second: {fileID: 2100000, guid: 0688dbdd030ff71448ee1acb73893ae4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Solar-Material
+    second: {fileID: 2100000, guid: ee44f929b5a0bb84e95fbf42721eecae, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Idle.001
+      takeName: Idle.001
+      firstFrame: 0
+      lastFrame: 59
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Move
+      takeName: Move
+      firstFrame: 0
+      lastFrame: 59
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Action
+      takeName: Action
+      firstFrame: 0
+      lastFrame: 59
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: EnterCharge
+      takeName: EnterCharge
+      firstFrame: 0
+      lastFrame: 9
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Charging
+      takeName: Charging
+      firstFrame: 0
+      lastFrame: 59
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Death
+      takeName: Death
+      firstFrame: 0
+      lastFrame: 59
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Talk
+      takeName: Talk
+      firstFrame: 0
+      lastFrame: 59
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 0
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -13,11 +13,16 @@ public class CDayNightManager : CMonoSingleton<CDayNightManager> {
 		get { return this.m_IsActive; }
 		set { this.m_IsActive = value; }
 	}
-	[SerializeField]	protected float m_TimePerDay = 20;
-	public float timePerDay {
-		get { return this.m_TimePerDay; }
-		set { this.m_TimePerDay = value; }
+	[SerializeField]	protected float m_MinusPerDay = 20;
+	public float minusPerDay {
+		get { return this.m_MinusPerDay; }
+		set { this.m_MinusPerDay = value; }
 	}
+	[SerializeField]	protected Light m_Sun;
+	[SerializeField]	protected float m_MinIntensity = 0f;
+	[SerializeField]	protected float m_MaxIntensity = 1f;
+	[SerializeField]	protected AnimationCurve m_LightCurve;
+	[SerializeField]	protected Gradient m_DayNightLightColor;
 	[Header("Data")]
 	[SerializeField]	protected int m_Day = 0;
 	public int day {
@@ -35,9 +40,10 @@ public class CDayNightManager : CMonoSingleton<CDayNightManager> {
 		get { return this.m_Date; }
 		set { this.m_Date = value; }
 	}
-	[SerializeField]	protected float m_TimerDayInterval = 0f;
+	protected float m_TimerDayInterval = 0f;
 	protected float m_ADay = 0f;
 	protected float m_AHour24 = 0f;
+	protected float m_DeltaHour = 0f;
 
 	protected string m_WORLD_TIME = "M01_WORLD_TIME";
 	protected string m_WORLD_DAY = "M01_WORLD_DAY";
@@ -62,6 +68,19 @@ public class CDayNightManager : CMonoSingleton<CDayNightManager> {
 		this.m_Date = this.m_Hour24 < 12f ? "AM" : "PM";
 	}
 
+	protected virtual void LateUpdate() {
+		this.m_DeltaHour = this.m_Hour24 / 24f;
+		var deltaIntensity = this.m_LightCurve.Evaluate (this.m_DeltaHour);
+		var lightIntensity = (this.m_MaxIntensity - this.m_MinIntensity) * deltaIntensity + this.m_MinIntensity;
+
+		var sunIntensity = Mathf.Lerp (this.m_Sun.intensity, lightIntensity, Time.deltaTime);
+		this.m_Sun.intensity = sunIntensity;
+		RenderSettings.ambientIntensity = sunIntensity;
+
+		var sunColor = Color.Lerp (this.m_Sun.color, this.m_DayNightLightColor.Evaluate(this.m_DeltaHour), Time.deltaTime);
+		this.m_Sun.color = RenderSettings.ambientLight = sunColor;
+	}
+
 	protected virtual void OnApplication() {
 		this.Save ();
 	}
@@ -75,12 +94,12 @@ public class CDayNightManager : CMonoSingleton<CDayNightManager> {
 	#region Main methods
 
 	public virtual void Setup() {
-		this.m_ADay = this.m_TimePerDay * 60f;
+		this.m_ADay = this.m_MinusPerDay * 60f;
 		this.m_AHour24 = this.m_ADay / 24f;
 	}
 
 	public virtual void Load() {
-		this.m_TimerDayInterval = PlayerPrefs.GetFloat (this.m_WORLD_TIME, this.m_TimePerDay * 10f);
+		this.m_TimerDayInterval = PlayerPrefs.GetFloat (this.m_WORLD_TIME, this.m_MinusPerDay * 10f);
 		this.m_DaySaved = PlayerPrefs.GetInt (this.m_WORLD_DAY, this.m_DaySaved);
 		this.m_Hour24 = (int)(this.m_TimerDayInterval / this.m_AHour24) % 24;
 		this.m_Date = this.m_Hour24 < 12f ? "AM" : "PM";
@@ -94,8 +113,8 @@ public class CDayNightManager : CMonoSingleton<CDayNightManager> {
 	}
 
 	public virtual void Reset() {
-		PlayerPrefs.SetFloat (this.m_WORLD_TIME, this.m_TimePerDay * 10f);
-		PlayerPrefs.SetInt (this.m_WORLD_DAY, 0);
+		PlayerPrefs.DeleteKey (this.m_WORLD_TIME);
+		PlayerPrefs.DeleteKey (this.m_WORLD_DAY);
 		PlayerPrefs.Save ();
 	}
 
