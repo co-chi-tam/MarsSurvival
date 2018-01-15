@@ -8,6 +8,7 @@ using System.Collections;
 namespace UnityEngine.UICustomize {
 	public class UIJoytick : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerDownHandler, IPointerUpHandler
 	{
+		#region Fields
 
 		[SerializeField]	private Image m_BackgroundImage;
 		[SerializeField]	private Image m_KnobImage;
@@ -19,6 +20,10 @@ namespace UnityEngine.UICustomize {
 		private RectTransform m_RectTransform;
 		private bool m_EnableJoytick;
 
+		#endregion
+
+		#region Implementation MonoBehaviour
+
 		protected virtual void Awake() {
 			this.m_RectTransform = this.transform as RectTransform;
 			this.m_EnableJoytick = false;
@@ -29,6 +34,10 @@ namespace UnityEngine.UICustomize {
 			this.InputDirectionXY = Vector3.zero;
 			this.SetEnableJoytick (this.m_AlwayShow);
 		}
+
+		#endregion
+
+		#region Main methods
 
 		public virtual void SetEnable(bool value) {
 			this.gameObject.SetActive (value);
@@ -51,6 +60,8 @@ namespace UnityEngine.UICustomize {
 			this.m_BackgroundImage.rectTransform.anchoredPosition = Vector2.zero;
 			this.m_KnobImage.rectTransform.anchoredPosition = Vector2.zero;
 		}
+
+		#endregion
 
 		#region Interface implementation
 

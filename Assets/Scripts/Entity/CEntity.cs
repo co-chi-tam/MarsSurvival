@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,8 +10,8 @@ public class CEntity : MonoBehaviour {
 	[Header("Components")]
 	[SerializeField]	protected CComponent[] m_Components;
 
-	protected bool m_IsActive;
-	public bool isActive {
+	[SerializeField]	protected bool m_IsActive;
+	public virtual bool isActive {
 		get { return this.m_IsActive; }
 		set { this.m_IsActive = value; }
 	}
@@ -41,6 +42,18 @@ public class CEntity : MonoBehaviour {
 
 	protected virtual void LateUpdate() {
 
+	}
+
+	#endregion
+
+	#region Getter && Setter
+
+	public virtual void SetActive(bool value) {
+		this.m_IsActive = value;
+	}
+
+	public virtual bool GetActive() {
+		return this.m_IsActive;
 	}
 
 	#endregion

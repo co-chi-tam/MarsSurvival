@@ -52,6 +52,11 @@ public class CMoveComponent : CComponent {
 	protected Vector3 m_MovePoint;
 	protected float m_RotationPoint;
 
+	public bool isNearestTarget {
+		get { return this.IsNearestTarget(); }
+		set {  }
+	}
+
 	#endregion
 
 	#region Implementation Component

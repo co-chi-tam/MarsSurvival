@@ -8,11 +8,23 @@ public class CFSMComponent : CComponent {
 
 	#region Fields
 
-	[Header("FSM Data")]
+	[Header("FSM Configs")]
 	[SerializeField]	protected TextAsset m_FSMTextAsset;
 #if UNITY_EDITOR
 	[SerializeField]	protected string m_CurrentStateName;
 #endif
+	[Header("States")]
+	[SerializeField]	protected FSMMonoBaseState[] m_CurrentStates;
+	public FSMMonoBaseState[] currentStates {
+		get { return this.m_CurrentStates; }
+		set { this.m_CurrentStates = value; }
+	}
+	[Header("Conditions")]
+	[SerializeField]	protected FSMMonoBaseCondition[] m_CurrentConditions;
+	public FSMMonoBaseCondition[] currentConditions {
+		get { return this.m_CurrentConditions; }
+		set { this.m_CurrentConditions = value; }
+	}
 
 	protected FSMManager m_FSMManager;
 
@@ -23,8 +35,7 @@ public class CFSMComponent : CComponent {
 	protected override void Awake ()
 	{
 		base.Awake ();
-		this.m_FSMManager = new FSMManager ();
-//		this.m_FSMManager.LoadFSM (this.m_FSMTextAsset.text);
+		this.InitState ();
 	}
 
 	protected override void Update ()
@@ -42,18 +53,37 @@ public class CFSMComponent : CComponent {
 
 	#region Main methods
 
+	protected virtual void InitState() {
+		this.m_FSMManager = new FSMManager ();
+		// State
+		for (int i = 0; i < this.m_CurrentStates.Length; i++) {
+			var state = this.m_CurrentStates [i];
+			this.ApplyState (state.GetName (), state); 
+		}
+		// Condition
+		for (int i = 0; i < this.m_CurrentConditions.Length; i++) {
+			var condition = this.m_CurrentConditions [i];
+			this.ApplyCondition (condition.conditionName, condition.conditionVariable.Get<bool>);
+		}
+		// Load FSM
+		this.m_FSMManager.LoadFSM (this.m_FSMTextAsset.text);
+	}
+
 	public override void UpdateFromOwner (float dt)
 	{
 		base.UpdateFromOwner (dt);
-
 	}
 
 	#endregion
 
-	#region State
+ 	#region State
 
 	public virtual void ApplyState(IState fsmState) {
 		this.m_FSMManager.RegisterState (fsmState.GetName(), fsmState);
+	}
+
+	public virtual void ApplyState(string name, IState fsmState) {
+		this.m_FSMManager.RegisterState (name, fsmState);
 	}
 
 	public virtual void ApplyStates(Dictionary<string, IState> fsmStates) {

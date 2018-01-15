@@ -1,19 +1,29 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UICustomize;
+using FSM;
 
-public class CCharacterEntity : CEntity {
+public class CCharacterEntity : CEntity, IContext {
 
 	[SerializeField]	protected UIJoytick m_Joytick;
 	[SerializeField]	protected CMoveComponent m_MoveComponent;
 	[SerializeField]	protected CAnimatorComponent m_Animator;
+	[SerializeField]	protected CFSMComponent m_FSMComponent;
+
+	public override bool isActive {
+		get { return this.m_IsActive; }
+		set { this.m_IsActive = value; }
+	}
 
 	protected int m_AnimParam = 0;
 
 	protected override void Start ()
 	{
 		base.Start ();
+		this.m_MoveComponent.isActive = true;
+		this.m_FSMComponent.isActive = true;
 	}
 
 	protected override void Update ()

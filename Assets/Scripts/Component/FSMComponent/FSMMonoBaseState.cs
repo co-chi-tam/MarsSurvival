@@ -1,8 +1,10 @@
-﻿using UnityEngine;
-using System;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 using FSM;
 
-public class FSMBaseState : IState {
+public class FSMMonoBaseState : MonoBehaviour, IState {
 
 	#region Fields
 
@@ -16,24 +18,19 @@ public class FSMBaseState : IState {
 
 	#region Implementation IState
 
-	public FSMBaseState(IContext context)
-	{
-		this.m_FSMStateName = "FSMBaseState";
-	}
-	
 	public virtual void StartState()
 	{
 
 	}
-	
+
 	public virtual void UpdateState(float dt)
 	{
-		
+
 	}
-	
+
 	public virtual void ExitState()
 	{
-		
+
 	}
 
 	#endregion

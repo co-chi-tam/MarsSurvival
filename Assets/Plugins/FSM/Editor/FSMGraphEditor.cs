@@ -8,6 +8,8 @@ using System.Collections.Generic;
 namespace FSM.GraphNode {
 	public class FSMGraphEditor : EditorWindow {
 
+		#region Fields
+
 		public static List<FSMNodeEditor> nodeList;
 		public static List<FSMConditionLineEditor> lineList;
 
@@ -18,6 +20,10 @@ namespace FSM.GraphNode {
 		private static string graphName = "FSMGraph";
 		private static int nodeTotalCount;
 		private static Dictionary<string, FSMNodeEditor> m_Map;
+
+		#endregion
+
+		#region Implementation EditorWindow
 
 		[MenuItem("FSM/Grapth Editor Window")]
 		static void Init() {
@@ -54,6 +60,10 @@ namespace FSM.GraphNode {
 			}
 		}
 
+		#endregion
+
+		#region Main methods
+
 		private void CreateNewNode(object obj) {
 			nodeTotalCount++;
 			var node = new FSMNodeEditor ("FSMState" + nodeTotalCount, 
@@ -83,6 +93,24 @@ namespace FSM.GraphNode {
 			}
 			json = json.Replace ("<<0>>", string.Empty);
 			json += "]}";
+			// CLASS
+			var classDirectory = Application.dataPath + "/Scripts/FSMState";
+			if (Directory.Exists(classDirectory) == false) {
+				Directory.CreateDirectory (classDirectory);
+			}
+			var curreProgress = 0f;
+			var maxProgress = m_Map.Count;
+			foreach (var item in m_Map) {
+				var classText = this.GenerateStateFile (item.Key);
+				var classPath = classDirectory + "/" + item.Key + ".cs";
+				if (File.Exists (classPath) == false) {
+					File.WriteAllText (classPath, classText);
+				} else {
+					Debug.Log ("[DUPLICATE CLASS] " + classPath);
+				}
+				curreProgress++;
+				EditorUtility.DisplayProgressBar ("Generate FSM State", classPath, curreProgress / maxProgress);
+			}
 			m_Map.Clear ();
 			Debug.Log (json);
 			File.WriteAllText(path, json);
@@ -101,6 +129,23 @@ namespace FSM.GraphNode {
 				json = json.Replace ("<<0>>", GenerateJson (string.Empty, condition.targetNode));
 			}
 			return json;
+		}
+
+		public virtual string GenerateStateFile(string name) {
+			return 
+				"using UnityEngine;\n" +
+				"using System.Collections;\n" +
+				"using FSM;\n\n" +
+				"public class "+name+" : FSMBaseState\n{" +
+				"\n\tpublic "+name+"(IContext context) : base (context)\n\t" +
+				"{\n\t\tthis.m_FSMStateName = \""+name+"\";" +
+				"\n\t}\n\t\n\t" +
+				"public override void StartState()\n\t" +
+				"{\n\t\tbase.StartState ();\n\t}\n\t\n\t" +
+				"public override void UpdateState(float dt)\n\t" +
+				"{\n\t\tbase.UpdateState (dt);\n\t}\n\t\n\t" +
+				"public override void ExitState()\n\t" +
+				"{\n\t\tbase.ExitState ();\n\t}\n}";
 		}
 
 		public virtual void DeleteNode(FSMNodeEditor node) {
@@ -128,6 +173,8 @@ namespace FSM.GraphNode {
 				+ condition + "\",\"state_name\":\"" 
 				+ name + "\",\"states\": [<<0>>]}";
 		}
+
+		#endregion
 
 	}
 }

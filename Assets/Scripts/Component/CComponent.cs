@@ -6,7 +6,8 @@ public class CComponent : MonoBehaviour {
 
 	#region Fields
 
-	protected bool m_IsActive = true;
+	[Header("Component")]
+	[SerializeField]	protected bool m_IsActive = true;
 	public bool isActive {
 		get { return this.m_IsActive; }
 		set { this.m_IsActive = value; }
