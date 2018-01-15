@@ -5,11 +5,11 @@
       "state_name": "FSMIdleState",
       "states": [
         {
-          "condition_name": "!IsNearestTarget",
+          "condition_name": "IsMoving",
           "state_name": "FSMMoveState",
           "states": [
           	{
-	          "condition_name": "IsNearestTarget",
+	          "condition_name": "!IsMoving",
 	          "state_name": "FSMIdleState",
 	          "states": []
 	        }

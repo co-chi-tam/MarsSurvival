@@ -14,11 +14,24 @@ namespace UnityEngine.UICustomize {
 		[SerializeField]	private Image m_KnobImage;
 		[SerializeField]	private bool m_AlwayShow;
 
-		public Vector3 InputDirectionXZ { get; set; }
-		public Vector3 InputDirectionXY { get; set; }
+		[Header("Events")]
+		public UnityEventVector3 OnChange;
+
+		protected Vector3 m_inputDirectionXZ = Vector3.zero;
+		public Vector3 InputDirectionXZ { 
+			get { return this.m_inputDirectionXZ; } 
+			set { this.m_inputDirectionXZ = value; } 
+		}
 
 		private RectTransform m_RectTransform;
 		private bool m_EnableJoytick;
+
+		#endregion
+
+		#region Internal class
+
+		[Serializable]
+		public class UnityEventVector3 : UnityEvent<Vector3> {}
 
 		#endregion
 
@@ -31,7 +44,6 @@ namespace UnityEngine.UICustomize {
 
 		protected virtual void Start() {
 			this.InputDirectionXZ = Vector3.zero;
-			this.InputDirectionXY = Vector3.zero;
 			this.SetEnableJoytick (this.m_AlwayShow);
 		}
 
@@ -55,10 +67,13 @@ namespace UnityEngine.UICustomize {
 		}
 
 		protected virtual void Reset() {
-			this.InputDirectionXZ = Vector3.zero;
-			this.InputDirectionXY = Vector3.zero;
+			this.m_inputDirectionXZ = Vector3.zero;
 			this.m_BackgroundImage.rectTransform.anchoredPosition = Vector2.zero;
 			this.m_KnobImage.rectTransform.anchoredPosition = Vector2.zero;
+			// Call event.
+			if (this.OnChange != null) {
+				this.OnChange.Invoke (m_inputDirectionXZ);
+			}
 		}
 
 		#endregion
@@ -81,12 +96,18 @@ namespace UnityEngine.UICustomize {
 				pos.x = (pos.x / m_BackgroundImage.rectTransform.sizeDelta.x);	
 				pos.y = (pos.y / m_BackgroundImage.rectTransform.sizeDelta.y);	
 
-				InputDirectionXZ = new Vector3 (pos.x * 2f, 0f, pos.y * 2f);
-				InputDirectionXY = new Vector3 (pos.x * 2f, pos.y * 2f, 0f);
-				InputDirectionXZ = InputDirectionXZ.magnitude > 1f ? InputDirectionXZ.normalized : InputDirectionXZ;
-				InputDirectionXY = InputDirectionXY.magnitude > 1f ? InputDirectionXY.normalized : InputDirectionXY;
-				m_KnobImage.rectTransform.anchoredPosition = new Vector2 (InputDirectionXZ.x * (m_BackgroundImage.rectTransform.sizeDelta.x / 3f) , 
-					InputDirectionXZ.z * (m_BackgroundImage.rectTransform.sizeDelta.y / 3f));
+				m_inputDirectionXZ.x = pos.x * 2f; 
+				m_inputDirectionXZ.y = 0f;
+				m_inputDirectionXZ.z = pos.y * 2f;
+				m_inputDirectionXZ = m_inputDirectionXZ.magnitude > 1f ? m_inputDirectionXZ.normalized : m_inputDirectionXZ;
+				m_KnobImage.rectTransform.anchoredPosition = new Vector2 (
+					m_inputDirectionXZ.x * (m_BackgroundImage.rectTransform.sizeDelta.x / 3f) , 
+					m_inputDirectionXZ.z * (m_BackgroundImage.rectTransform.sizeDelta.y / 3f));
+
+				// Call event.
+				if (this.OnChange != null) {
+					this.OnChange.Invoke (m_inputDirectionXZ);
+				}
 			}
 		}
 
@@ -113,7 +134,6 @@ namespace UnityEngine.UICustomize {
 		}
 
 		#endregion
-
 
 	}
 }

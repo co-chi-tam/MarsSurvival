@@ -26,12 +26,8 @@ public class CMoveComponent : CComponent {
 	protected float m_PreviousMoveSpeed;
 	[SerializeField]	protected float m_MinDistance = 0.1f;
 	public Vector3 currentPosition {
-		get { 
-			return this.transform.position; 
-		}
-		set { 
-			this.transform.position = value;
-		}
+		get { return this.transform.position; }
+		set { this.transform.position = value; }
 	}
 	[SerializeField]	protected Vector3 m_TargetPosition;
 	public Vector3 targetPosition {
@@ -52,9 +48,13 @@ public class CMoveComponent : CComponent {
 	protected Vector3 m_MovePoint;
 	protected float m_RotationPoint;
 
-	public bool isNearestTarget {
-		get { return this.IsNearestTarget(); }
-		set {  }
+	public bool IsStand {
+		get { 
+			return CGameSettingManager.Instance.movePoint != Vector3.zero;
+		}
+		set { 
+			// TODO
+		}
 	}
 
 	#endregion
@@ -107,7 +107,6 @@ public class CMoveComponent : CComponent {
 		// Position
 		this.m_Transform.position = this.m_MovePoint;
 		// Rotation
-//		if (dirNormal != Vector3.up) {
 		var dirRotation = Quaternion.AngleAxis (this.m_RotationPoint, dirNormal);
 		var normalGround = Quaternion.FromToRotation (Vector3.up, dirNormal);
 		var combineRot = dirRotation * normalGround;
@@ -115,13 +114,6 @@ public class CMoveComponent : CComponent {
 											this.m_Transform.rotation, 
 											combineRot,
 											this.m_RotationSpeed * dt);
-//		} else {
-//			this.m_Transform.rotation = Quaternion.Lerp (
-//											this.m_Transform.rotation, 
-//											Quaternion.AngleAxis (this.m_RotationPoint, dirNormal),
-//											this.m_RotationSpeed * dt);
-//		}
-
 	}
 
 	public virtual void SetupMove(float dt) {
@@ -145,7 +137,11 @@ public class CMoveComponent : CComponent {
 	}
 
 	public virtual bool IsNearestTarget() {
-		var direction = this.m_TargetPosition - this.m_Transform.position;
+		return this.IsNearestTarget(this.m_TargetPosition);
+	}
+
+	public virtual bool IsNearestTarget(Vector3 target) {
+		var direction = target - this.m_Transform.position;
 		return direction.sqrMagnitude <= this.m_MinDistance * this.m_MinDistance * this.m_MoveSpeed;
 	}
 

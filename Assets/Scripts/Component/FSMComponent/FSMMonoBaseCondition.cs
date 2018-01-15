@@ -10,6 +10,7 @@ using Ludiq.Reflection;
 public class FSMMonoBaseCondition {
 
 	public string conditionName;
+
 	[Filter(Fields = true, Properties = true)]
 	public UnityMember conditionVariable;
 

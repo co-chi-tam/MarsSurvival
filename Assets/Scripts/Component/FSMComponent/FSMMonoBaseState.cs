@@ -16,6 +16,26 @@ public class FSMMonoBaseState : MonoBehaviour, IState {
 
 	#endregion
 
+	#region Implementation MonoBehaviour
+
+	protected virtual void Awake() {
+	
+	}
+
+	protected virtual void Start() {
+	
+	}
+
+	protected virtual void Update() {
+		
+	}
+
+	protected virtual void LateUpdate() {
+	
+	}
+
+	#endregion
+
 	#region Implementation IState
 
 	public virtual void StartState()
