@@ -692,8 +692,8 @@ MonoBehaviour:
 Transform:
   m_PrefabParentObject: {fileID: 4269342157295882, guid: b70a1508e9af8f642befc1a87dd6e823,
     type: 2}
-  m_PrefabInternal: {fileID: 751119857}
---- !u!1001 &751119857
+  m_PrefabInternal: {fileID: 785597554}
+--- !u!1001 &785597554
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -967,6 +967,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &1655056674
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4506756856719756, guid: ac4dbf08754d82d439e7c98597ff2ed6, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4506756856719756, guid: ac4dbf08754d82d439e7c98597ff2ed6, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4506756856719756, guid: ac4dbf08754d82d439e7c98597ff2ed6, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4506756856719756, guid: ac4dbf08754d82d439e7c98597ff2ed6, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4506756856719756, guid: ac4dbf08754d82d439e7c98597ff2ed6, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4506756856719756, guid: ac4dbf08754d82d439e7c98597ff2ed6, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4506756856719756, guid: ac4dbf08754d82d439e7c98597ff2ed6, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4506756856719756, guid: ac4dbf08754d82d439e7c98597ff2ed6, type: 2}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: ac4dbf08754d82d439e7c98597ff2ed6, type: 2}
+  m_IsPrefabParent: 0
 --- !u!114 &1688178867 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114070270078496006, guid: a44e09723cb5cb04b8d48383ba3e2e61,
@@ -1084,12 +1126,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: Cinemachine.CinemachineBrain+BrainEvent, Assembly-CSharp-firstpass,
-      Version=1.0.6589.25815, Culture=neutral, PublicKeyToken=null
+      Version=1.0.6590.28187, Culture=neutral, PublicKeyToken=null
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: Cinemachine.CinemachineBrain+VcamEvent, Assembly-CSharp-firstpass,
-      Version=1.0.6589.25815, Culture=neutral, PublicKeyToken=null
+      Version=1.0.6590.28187, Culture=neutral, PublicKeyToken=null
 --- !u!1 &1981255790
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,7 +10,7 @@ public class CInventoryComponent : CComponent {
 	#region Fields
 
 	[Header("Configs")]
-	[SerializeField]	protected bool m_AutoPick;
+	[SerializeField]	protected LayerMask m_ItemLayerMask = -1;
 	[SerializeField]	protected List<CItemData> m_Items;
 	public List<CItemData> items {
 		get { 
@@ -44,11 +44,14 @@ public class CInventoryComponent : CComponent {
 			return;
 		var sampleColliders = this.m_PhysicDetect.sampleColliders;
 		var coll = sampleColliders.FirstOrDefault ((x) => {
-			return x != null && x.GetComponent <CItemEntity> () != null;
+			return x != null 
+				&& x.GetComponent <CItemEntity> () != null;
 		});
-		var item = coll.GetComponent <CItemEntity> ();
-		if (item != null) {
-			this.PickItem (item);
+		if (coll != null) {
+			var item = coll.GetComponent <CItemEntity> ();
+			if (item != null) {
+				this.PickItem (item);
+			}
 		}
 	}
 
@@ -60,13 +63,15 @@ public class CInventoryComponent : CComponent {
 			this.m_Items.Add (new CItemData() {
 				itemName = item.itemData.itemName,
 				itemAvatar = item.itemData.itemAvatar,
-				itemAmount = item.itemData.itemAmount
+				itemAmount = 1
 			});
 		} else {
 //			storedItem.itemName = item.itemData.itemName;
 //			storedItem.itemAvatar = item.itemData.itemAvatar;
 			storedItem.itemAmount += item.itemData.itemAmount;
 		}
+
+		Debug.Log (storedItem != null);
 	}
 
 	public virtual void RemoveDuplicateItem() {

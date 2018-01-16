@@ -44,9 +44,9 @@ public class CMoveComponent : CComponent {
 	public UnityEvent OnNearestTarget;
 	public UnityEvent OnMove;
 
-	protected Transform m_Transform;
 	protected Vector3 m_MovePoint;
 	protected float m_RotationPoint;
+	protected Vector2 m_DirNormal;
 
 	public bool IsStand {
 		get { 
@@ -64,7 +64,6 @@ public class CMoveComponent : CComponent {
 	protected override void Awake ()
 	{
 		base.Awake ();
-		this.m_Transform = this.transform;
 		this.m_PreviousMoveSpeed = this.m_MoveSpeed;
 		this.m_TargetPosition = this.transform.position;
 	}
@@ -90,7 +89,7 @@ public class CMoveComponent : CComponent {
 	#region Main methods
 
 	public virtual void UpdateStepOnGround(float dt) {
-		var dirNormal = Vector3.up;
+		this.m_DirNormal = Vector3.up;
 		if (this.m_Top != null && this.m_Bottom != null) {
 			RaycastHit hitInfo;
 			if (Physics.Raycast (this.m_Top.position, -Vector3.up, out hitInfo, Mathf.Infinity, this.m_Ground)) {
@@ -101,14 +100,14 @@ public class CMoveComponent : CComponent {
 				feet.z = this.m_MovePoint.z;
 				this.m_MovePoint = feet;
 				// Rotation
-				dirNormal = hitInfo.normal;
+				this.m_DirNormal = hitInfo.normal;
 			}
 		}
 		// Position
 		this.m_Transform.position = this.m_MovePoint;
 		// Rotation
-		var dirRotation = Quaternion.AngleAxis (this.m_RotationPoint, dirNormal);
-		var normalGround = Quaternion.FromToRotation (Vector3.up, dirNormal);
+		var dirRotation = Quaternion.AngleAxis (this.m_RotationPoint, this.m_DirNormal);
+		var normalGround = Quaternion.FromToRotation (Vector3.up, this.m_DirNormal);
 		var combineRot = dirRotation * normalGround;
 		this.m_Transform.rotation = Quaternion.Lerp (
 											this.m_Transform.rotation, 

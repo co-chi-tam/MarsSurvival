@@ -13,12 +13,14 @@ public class CComponent : MonoBehaviour {
 		set { this.m_IsActive = value; }
 	}
 
+	protected Transform m_Transform;
+
 	#endregion
 
 	#region Implementation MonoBehaviour
 
 	protected virtual void Awake() {
-		
+		this.m_Transform = this.transform;
 	}
 
 	protected virtual void Start() {

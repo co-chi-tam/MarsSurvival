@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4892648584163540}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Leg.L.002_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34,7 +34,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4116900383589002}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: NeckBone.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49,7 +49,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4781326601086344}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LeftBoxBone.002_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -64,7 +64,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4993231156266956}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CoreBone.001_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -81,7 +81,7 @@ GameObject:
   - component: {fileID: 4754797028325672}
   - component: {fileID: 33947853695622938}
   - component: {fileID: 23158513685210590}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Arm.L.002 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 4116618626114294}
   - component: {fileID: 33747009811349360}
   - component: {fileID: 23260514731091008}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Arm.R.002 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,7 +113,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4983632169285344}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Arm.R.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -128,7 +128,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4816449040712366}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Leg.R.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -143,7 +143,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4367294434136706}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TopBoxBone.001_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -160,7 +160,7 @@ GameObject:
   - component: {fileID: 4293224183249374}
   - component: {fileID: 33128768476311934}
   - component: {fileID: 23645176945760190}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Arm.R.001 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -175,7 +175,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4267180833387882}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FrontBoxBone.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -190,7 +190,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4372243522293064}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Feet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -206,7 +206,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4253398014792488}
   - component: {fileID: 114959442673456468}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FSMIdleState
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -223,7 +223,7 @@ GameObject:
   - component: {fileID: 4295817030391128}
   - component: {fileID: 95051393119375780}
   - component: {fileID: 114611649157505112}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Mars-001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -238,7 +238,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4422280727854934}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Arm.L.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -255,7 +255,7 @@ GameObject:
   - component: {fileID: 4600336224337454}
   - component: {fileID: 33943272670184758}
   - component: {fileID: 23600437497343466}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LeftBox.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -270,7 +270,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4190920160426308}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Arm.L.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -285,7 +285,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4969092230041368}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Leg.L.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -302,7 +302,7 @@ GameObject:
   - component: {fileID: 4143423168570088}
   - component: {fileID: 33574984060279140}
   - component: {fileID: 23188665128078818}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FronBox.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -319,7 +319,7 @@ GameObject:
   - component: {fileID: 4032283286497588}
   - component: {fileID: 33395164339040330}
   - component: {fileID: 23000935338819784}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Leg.L.001 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -334,7 +334,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4004129952302450}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LeftBoxBone.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -349,7 +349,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4117602851685520}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BackBoxBone.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -364,7 +364,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4690663746083658}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Leg.L.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -379,7 +379,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4322270992612588}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Arm.L.002_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -394,7 +394,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4009238968284892}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FrontBoxBone.001_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -411,7 +411,7 @@ GameObject:
   - component: {fileID: 4312502683594456}
   - component: {fileID: 33563005067170010}
   - component: {fileID: 23651249343950874}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Arm.L.001 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -428,7 +428,7 @@ GameObject:
   - component: {fileID: 4989893996249338}
   - component: {fileID: 33151965385385812}
   - component: {fileID: 23113878380878380}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Leg.R.001 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -443,7 +443,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4168154567973288}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Leg.R.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -459,7 +459,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4404648841887344}
   - component: {fileID: 114531483245967648}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FSMMoveState
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -474,7 +474,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4656326590984602}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LeftBoxBone.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -489,7 +489,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4701490688559450}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -504,7 +504,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4391156839619938}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TopBoxBone.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -521,7 +521,7 @@ GameObject:
   - component: {fileID: 4475513025514384}
   - component: {fileID: 33274269401059828}
   - component: {fileID: 23508775541088086}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RightBox.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -536,7 +536,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4015705075051708}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LeftBoxBone.001_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -551,7 +551,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4331565113923334}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CoreBone.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -568,7 +568,7 @@ GameObject:
   - component: {fileID: 4194928234154782}
   - component: {fileID: 33196656825257204}
   - component: {fileID: 23362064398054362}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Core.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -583,7 +583,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4203754488622472}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Arm.R.002_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -600,7 +600,7 @@ GameObject:
   - component: {fileID: 4388573650625052}
   - component: {fileID: 33592971685387188}
   - component: {fileID: 23892719695607656}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BackBox.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -617,7 +617,7 @@ GameObject:
   - component: {fileID: 4276363050498932}
   - component: {fileID: 33315821333808082}
   - component: {fileID: 23626284554320270}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -634,7 +634,7 @@ GameObject:
   - component: {fileID: 4309082947082208}
   - component: {fileID: 33400022057497482}
   - component: {fileID: 23908527755459494}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BottomBox.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -649,7 +649,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4603890224629960}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ShoulderBone.L.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -664,7 +664,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4182108482574710}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Arm.R.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -679,7 +679,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4355666007710184}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RootBone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -695,14 +695,15 @@ GameObject:
   m_Component:
   - component: {fileID: 4269342157295882}
   - component: {fileID: 114617059177336552}
-  - component: {fileID: 114641186756525052}
   - component: {fileID: 114173193190775472}
   - component: {fileID: 114151746997459282}
   - component: {fileID: 114465870578483098}
-  m_Layer: 0
+  - component: {fileID: 114641186756525052}
+  - component: {fileID: 114336831925416738}
+  m_Layer: 8
   m_Name: Character
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -714,7 +715,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4067316222255752}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ShoulderBone.R.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -731,7 +732,7 @@ GameObject:
   - component: {fileID: 4436649728057866}
   - component: {fileID: 33912598280663268}
   - component: {fileID: 23648930651358714}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TopBox.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -746,7 +747,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4310561072771056}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Leg.R.002_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -762,7 +763,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4991326672911992}
   - component: {fileID: 114153671330175800}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FSM
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -777,7 +778,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4189459407693890}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BackBone.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1338,7 +1339,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1581179911462062}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: 0}
+  m_LocalPosition: {x: 0, y: 5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4269342157295882}
@@ -2226,6 +2227,22 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   IsOnShadow_state: 0
   Last_IsOnShadow_state: 0
+--- !u!114 &114336831925416738
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1833698780043526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d1b61e87b95941468315c7345fb85bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsActive: 1
+  m_ItemLayerMask:
+    serializedVersion: 2
+    m_Bits: 512
+  m_Items: []
 --- !u!114 &114465870578483098
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2239,7 +2256,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Components: []
   m_IsActive: 1
-  m_FSMComponent: {fileID: 114153671330175800}
 --- !u!114 &114531483245967648
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2252,6 +2268,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_FSMStateName: FSMMoveState
+  OnEnterState:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnUpdateState:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.Utils.CEventUtil+UnityEventFloat, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  OnEndState:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   m_Target: {fileID: 4269342157295882}
   m_MoveComponent: {fileID: 114617059177336552}
   m_Animator: {fileID: 114611649157505112}
@@ -2316,7 +2347,7 @@ MonoBehaviour:
   m_AutoDetect: 1
   m_DetectLayerMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 512
   m_ColliderCount: 0
   m_MaximumDetect: 20
   m_SampleColliders:
@@ -2362,5 +2393,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_FSMStateName: FSMIdleState
-  m_MoveComponent: {fileID: 114617059177336552}
+  OnEnterState:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnUpdateState:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.Utils.CEventUtil+UnityEventFloat, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  OnEndState:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   m_Animator: {fileID: 114611649157505112}

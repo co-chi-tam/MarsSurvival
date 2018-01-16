@@ -17,5 +17,8 @@ namespace UnityEngine.Events.Utils {
 		[Serializable]
 		public class UnityEventString: UnityEvent<string> {}
 
+		[Serializable]	
+		public class UnityEventSendMessage: UnityEvent<string, object> {}
+
 	}
 }

@@ -9,7 +9,9 @@ public class FSMMonoMoveState : FSMMonoBaseState {
 
 	#region Fields
 
+	[Header("Configs")]
 	[SerializeField]	protected Transform m_Target;
+	[Header("Components")]
 	[SerializeField]	protected CMoveComponent m_MoveComponent;
 	[SerializeField]	protected CAnimatorComponent m_Animator;
 
