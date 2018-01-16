@@ -3,24 +3,33 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.Events.Utils;
 
 [RequireComponent(typeof(CPhysicDetectComponent))]
 public class CInventoryComponent : CComponent {
 
 	#region Fields
 
-	[Header("Configs")]
+	[Header("Inventory")]
 	[SerializeField]	protected LayerMask m_ItemLayerMask = -1;
 	[SerializeField]	protected List<CItemData> m_Items;
 	public List<CItemData> items {
 		get { 
 			if (this.m_Items == null) {
-				this.m_Items = new List<CItemData> ();
+				this.m_Items = CGameDataManager.Instance.items;
 			}
 			return this.m_Items;
 		}
-		set { this.m_Items = new List<CItemData> (value); }
+		set { 
+			CGameDataManager.Instance.items = new List<CItemData> (value);
+			this.m_Items = CGameDataManager.Instance.items; 
+		}
 	}
+
+	[Header("Events")]
+	public UnityEvent OnNothingCanPick;
+	public UnityEvent OnPickItem;
 
 	protected CPhysicDetectComponent m_PhysicDetect;
 
@@ -32,7 +41,7 @@ public class CInventoryComponent : CComponent {
 	{
 		base.Awake ();
 		this.m_PhysicDetect = this.GetComponent<CPhysicDetectComponent> ();
-		this.m_Items = new List<CItemData> ();
+		this.m_Items = CGameDataManager.Instance.items; 
 	}
 
 	#endregion
@@ -40,42 +49,59 @@ public class CInventoryComponent : CComponent {
 	#region Main methods
 
 	public virtual void PickItem() {
-		if (this.m_PhysicDetect.colliderCount == 0)
+		if (this.m_PhysicDetect.colliderCount == 0) {
+			if (this.OnNothingCanPick != null) {
+				this.OnNothingCanPick.Invoke ();
+			}
 			return;
+		} 
+		// FIND FIRST ITEM
 		var sampleColliders = this.m_PhysicDetect.sampleColliders;
 		var coll = sampleColliders.FirstOrDefault ((x) => {
 			return x != null 
-				&& x.GetComponent <CItemEntity> () != null;
+				&& x.GetComponent <CItemComponent> () != null;
 		});
+		// ITEM IS AVAILABLE 
 		if (coll != null) {
-			var item = coll.GetComponent <CItemEntity> ();
+			var item = coll.GetComponent <CItemComponent> ();
 			if (item != null) {
 				this.PickItem (item);
+			} else {
+				if (this.OnNothingCanPick != null) {
+					this.OnNothingCanPick.Invoke ();
+				}
 			}
-		}
+		} else {
+			if (this.OnNothingCanPick != null) {
+				this.OnNothingCanPick.Invoke ();
+			}
+		} 
 	}
 
-	public virtual void PickItem(CItemEntity item) {
-		var storedItem = this.m_Items.Find ((x) => {
+	public virtual void PickItem(CItemComponent item) {
+		var storedItem = this.items.Find ((x) => {
 			return x.itemName == item.name;
 		});
+		// CHECK IF ITEM EXIST 
 		if (storedItem == null) {
-			this.m_Items.Add (new CItemData() {
-				itemName = item.itemData.itemName,
-				itemAvatar = item.itemData.itemAvatar,
-				itemAmount = 1
-			});
+			storedItem = ScriptableObject.CreateInstance<CItemData> ();
+			storedItem.itemName = item.itemData.itemName;
+			storedItem.itemAvatar = item.itemData.itemAvatar;
+			storedItem.itemModel = item.itemData.itemModel;
+			storedItem.itemAmount = 1;
+			this.m_Items.Add (storedItem);
 		} else {
-//			storedItem.itemName = item.itemData.itemName;
-//			storedItem.itemAvatar = item.itemData.itemAvatar;
 			storedItem.itemAmount += item.itemData.itemAmount;
 		}
-
-		Debug.Log (storedItem != null);
+		// ITEM PICKED
+		item.Picked ();
+		if (this.OnPickItem != null) {
+			this.OnPickItem.Invoke ();
+		}
 	}
 
 	public virtual void RemoveDuplicateItem() {
-		this.m_Items = items
+		this.m_Items = this.m_Items 
 			.GroupBy ((x) => new { 
 				name = x.itemName,
 				avatar = x.itemAvatar,

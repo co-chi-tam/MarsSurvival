@@ -8,7 +8,7 @@ public class CEntity : MonoBehaviour {
 	#region Fields
 
 	[Header("Components")]
-	[SerializeField]	protected CComponent[] m_Components;
+	[SerializeField]	protected CComponent[] m_Components = new CComponent[0];
 
 	[SerializeField]	protected bool m_IsActive;
 	public virtual bool isActive {
@@ -21,7 +21,7 @@ public class CEntity : MonoBehaviour {
 	#region Implementation MonoBehaviour
 
 	protected virtual void Awake() {
-		this.m_Components = this.GetComponents<CComponent> ();
+		
 	}
 
 	protected virtual void Start() {
@@ -35,13 +35,21 @@ public class CEntity : MonoBehaviour {
 	protected virtual void Update() {
 		if (this.m_IsActive == false)
 			return;
-		for (int i = 0; i < this.m_Components.Length; i++) {
-			this.m_Components [i].UpdateFromOwner (Time.deltaTime);
-		}
+		
 	}
 
 	protected virtual void LateUpdate() {
 
+	}
+
+	#endregion
+
+	#region Main methods
+
+	protected virtual void UpdateComponents() {
+		for (int i = 0; i < this.m_Components.Length; i++) {
+			this.m_Components [i].UpdateFromOwner (Time.deltaTime);
+		}
 	}
 
 	#endregion

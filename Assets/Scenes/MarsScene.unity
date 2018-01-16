@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1718518530}
-  m_IndirectSpecularColor: {r: 0.444794, g: 0.49434167, b: 0.5735402, a: 1}
+  m_IndirectSpecularColor: {r: 0.44479376, g: 0.49434102, b: 0.57353944, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -114,6 +114,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &128280554 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114526738190509534, guid: a44e09723cb5cb04b8d48383ba3e2e61,
+    type: 2}
+  m_PrefabInternal: {fileID: 529297090}
+  m_Script: {fileID: 11500000, guid: 879cc597c733b7440b420c372730c532, type: 3}
 --- !u!1 &240010534
 GameObject:
   m_ObjectHideFlags: 0
@@ -735,48 +741,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b70a1508e9af8f642befc1a87dd6e823, type: 2}
   m_IsPrefabParent: 0
---- !u!1001 &945960838
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4506756856719756, guid: ac4dbf08754d82d439e7c98597ff2ed6, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 9.57
-      objectReference: {fileID: 0}
-    - target: {fileID: 4506756856719756, guid: ac4dbf08754d82d439e7c98597ff2ed6, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4506756856719756, guid: ac4dbf08754d82d439e7c98597ff2ed6, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4506756856719756, guid: ac4dbf08754d82d439e7c98597ff2ed6, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4506756856719756, guid: ac4dbf08754d82d439e7c98597ff2ed6, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4506756856719756, guid: ac4dbf08754d82d439e7c98597ff2ed6, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4506756856719756, guid: ac4dbf08754d82d439e7c98597ff2ed6, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4506756856719756, guid: ac4dbf08754d82d439e7c98597ff2ed6, type: 2}
-      propertyPath: m_RootOrder
-      value: 6
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: ac4dbf08754d82d439e7c98597ff2ed6, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1001 &953471516
 Prefab:
   m_ObjectHideFlags: 0
@@ -911,7 +875,7 @@ MonoBehaviour:
   OnChange:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1688178867}
+      - m_Target: {fileID: 128280554}
         m_MethodName: set_movePoint
         m_Mode: 0
         m_Arguments:
@@ -924,6 +888,48 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UICustomize.UIJoytick+UnityEventVector3, Assembly-CSharp,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+--- !u!1001 &1386595377
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4506756856719756, guid: ac4dbf08754d82d439e7c98597ff2ed6, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4506756856719756, guid: ac4dbf08754d82d439e7c98597ff2ed6, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4506756856719756, guid: ac4dbf08754d82d439e7c98597ff2ed6, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4506756856719756, guid: ac4dbf08754d82d439e7c98597ff2ed6, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4506756856719756, guid: ac4dbf08754d82d439e7c98597ff2ed6, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4506756856719756, guid: ac4dbf08754d82d439e7c98597ff2ed6, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4506756856719756, guid: ac4dbf08754d82d439e7c98597ff2ed6, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4506756856719756, guid: ac4dbf08754d82d439e7c98597ff2ed6, type: 2}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: ac4dbf08754d82d439e7c98597ff2ed6, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1397375812
 GameObject:
   m_ObjectHideFlags: 3
@@ -1009,12 +1015,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1688178867 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114070270078496006, guid: a44e09723cb5cb04b8d48383ba3e2e61,
-    type: 2}
-  m_PrefabInternal: {fileID: 529297090}
-  m_Script: {fileID: 11500000, guid: 7801471ac21dd1f4395b96182a362b57, type: 3}
 --- !u!108 &1718518530 stripped
 Light:
   m_PrefabParentObject: {fileID: 108662102786880992, guid: 936aa3bec33254b4aa123967fe94b8da,
@@ -1126,12 +1126,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: Cinemachine.CinemachineBrain+BrainEvent, Assembly-CSharp-firstpass,
-      Version=1.0.6590.28187, Culture=neutral, PublicKeyToken=null
+      Version=1.0.6590.38067, Culture=neutral, PublicKeyToken=null
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: Cinemachine.CinemachineBrain+VcamEvent, Assembly-CSharp-firstpass,
-      Version=1.0.6590.28187, Culture=neutral, PublicKeyToken=null
+      Version=1.0.6590.38067, Culture=neutral, PublicKeyToken=null
 --- !u!1 &1981255790
 GameObject:
   m_ObjectHideFlags: 0

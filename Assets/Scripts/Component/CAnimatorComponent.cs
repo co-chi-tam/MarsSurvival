@@ -55,4 +55,12 @@ public class CAnimatorComponent : CComponent {
 
 	#endregion
 
+	#region Getter && Setter 
+
+	public void SetTrigger(string value) {
+		this.m_Animator.SetTrigger(value);
+	}
+
+	#endregion
+
 }

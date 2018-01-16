@@ -19,7 +19,8 @@ public class FSMMonoIdleState : FSMMonoBaseState {
 	public override void StartState ()
 	{
 		base.StartState ();
-		this.m_Animator.ApplyAnimation ("AnimParam", 0);
+		this.m_Animator.ApplyAnimation ("IsMoved", false);
+		this.m_Animator.ApplyAnimation ("IsDeath", false);
 	}
 
 	#endregion

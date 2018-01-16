@@ -50,7 +50,7 @@ public class CMoveComponent : CComponent {
 
 	public bool IsStand {
 		get { 
-			return CGameSettingManager.Instance.movePoint != Vector3.zero;
+			return CGameDataManager.Instance.movePoint != Vector3.zero;
 		}
 		set { 
 			// TODO

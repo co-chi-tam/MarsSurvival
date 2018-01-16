@@ -15,7 +15,7 @@ public class FSMMonoMoveState : FSMMonoBaseState {
 	[SerializeField]	protected CMoveComponent m_MoveComponent;
 	[SerializeField]	protected CAnimatorComponent m_Animator;
 
-	protected CGameSettingManager m_GameSetting;
+	protected CGameDataManager m_GameSetting;
 
 	#endregion
 
@@ -24,7 +24,7 @@ public class FSMMonoMoveState : FSMMonoBaseState {
 	protected override void Start ()
 	{
 		base.Start ();
-		this.m_GameSetting = CGameSettingManager.GetInstance ();
+		this.m_GameSetting = CGameDataManager.GetInstance ();
 	}
 
 	#endregion
@@ -34,7 +34,7 @@ public class FSMMonoMoveState : FSMMonoBaseState {
 	public override void StartState ()
 	{
 		base.StartState ();
-		this.m_Animator.ApplyAnimation ("AnimParam", 1);
+		this.m_Animator.ApplyAnimation ("IsMoved", true);
 	}
 
 	public override void UpdateState (float dt)

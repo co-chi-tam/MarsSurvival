@@ -6,7 +6,7 @@ public class CComponent : MonoBehaviour {
 
 	#region Fields
 
-	[Header("Component")]
+	[Header("Configs")]
 	[SerializeField]	protected bool m_IsActive = true;
 	public bool isActive {
 		get { return this.m_IsActive; }
@@ -53,6 +53,18 @@ public class CComponent : MonoBehaviour {
 
 	public virtual void Reset() {
 	
+	}
+
+	#endregion
+
+	#region Getter && Setter
+
+	public virtual void SetActive(bool value) {
+		this.m_IsActive = value;
+	}
+
+	public virtual bool GetActive() {
+		return this.m_IsActive;
 	}
 
 	#endregion
