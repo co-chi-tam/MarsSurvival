@@ -13,7 +13,6 @@ public class FSMMonoMoveState : FSMMonoBaseState {
 	[SerializeField]	protected Transform m_Target;
 	[Header("Components")]
 	[SerializeField]	protected CMoveComponent m_MoveComponent;
-	[SerializeField]	protected CAnimatorComponent m_Animator;
 
 	protected CGameDataManager m_GameSetting;
 
@@ -34,7 +33,6 @@ public class FSMMonoMoveState : FSMMonoBaseState {
 	public override void StartState ()
 	{
 		base.StartState ();
-		this.m_Animator.ApplyAnimation ("IsMoved", true);
 	}
 
 	public override void UpdateState (float dt)

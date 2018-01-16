@@ -9,9 +9,6 @@ public class FSMMonoIdleState : FSMMonoBaseState {
 
 	#region Fields
 
-	[Header("Components")]
-	[SerializeField]	protected CAnimatorComponent m_Animator;
-
 	#endregion
 
 	#region Implementation IState
@@ -19,8 +16,6 @@ public class FSMMonoIdleState : FSMMonoBaseState {
 	public override void StartState ()
 	{
 		base.StartState ();
-		this.m_Animator.ApplyAnimation ("IsMoved", false);
-		this.m_Animator.ApplyAnimation ("IsDeath", false);
 	}
 
 	#endregion

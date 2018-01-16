@@ -41,6 +41,11 @@ public class CInventoryComponent : CComponent {
 	{
 		base.Awake ();
 		this.m_PhysicDetect = this.GetComponent<CPhysicDetectComponent> ();
+	}
+
+	protected override void Start ()
+	{
+		base.Start ();
 		this.m_Items = CGameDataManager.Instance.items; 
 	}
 
