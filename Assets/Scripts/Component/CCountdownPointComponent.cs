@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class CDataPointComponent : CComponent {
+public class CCountdownPointComponent : CComponent {
 
 	#region Fields
 

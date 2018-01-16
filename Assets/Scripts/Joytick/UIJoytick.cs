@@ -12,7 +12,7 @@ namespace UnityEngine.UICustomize {
 
 		[SerializeField]	private Image m_BackgroundImage;
 		[SerializeField]	private Image m_KnobImage;
-		[SerializeField]	private bool m_AlwayShow;
+		[SerializeField]	private bool m_AlwayShow = true;
 
 		[Header("Events")]
 		public UnityEventVector3 OnChange;

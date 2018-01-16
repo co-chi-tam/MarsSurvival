@@ -197,5 +197,11 @@ namespace Ludiq.Reflection
 				this.target == other.target &&
 				this.name == other.name;
 		}
+
+		public override int GetHashCode ()
+		{
+			return base.GetHashCode ();
+		}
+
 	}
 }

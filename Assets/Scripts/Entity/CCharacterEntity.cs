@@ -14,8 +14,6 @@ public class CCharacterEntity : CEntity, IContext {
 		set { this.m_IsActive = value; }
 	}
 
-	protected int m_AnimParam = 0;
-
 	protected override void Start ()
 	{
 		base.Start ();
@@ -25,15 +23,6 @@ public class CCharacterEntity : CEntity, IContext {
 	protected override void Update ()
 	{
 		base.Update ();
-		if (Input.GetKey (KeyCode.S)) {
-			this.m_AnimParam = 2;
-		}
-		if (Input.GetKey (KeyCode.A)) {
-			this.m_AnimParam = 3;
-		}
-		if (Input.GetKey (KeyCode.D)) {
-			this.m_AnimParam = 4;
-		}
 	}
 
 	protected override void LateUpdate ()

@@ -555,5 +555,11 @@ namespace Ludiq.Reflection
 			
 			// TODO: Compare parameter types
 		}
+
+		public override int GetHashCode ()
+		{
+			return base.GetHashCode ();
+		}
+
 	}
 }
