@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.Events.Utils;
 
 public class CTopSurfaceComponent : CComponent {
 
@@ -8,11 +10,19 @@ public class CTopSurfaceComponent : CComponent {
 
 	[Header("Configs")]
 	[SerializeField]	protected float m_RotationSpeed = 5f;
+	[SerializeField]	protected float m_HightOffset = 0.2f;
 
 	[Header("Target")]
 	[SerializeField]	protected LayerMask m_Ground;
 	[SerializeField]	protected Transform m_Top;
 	[SerializeField]	protected Transform m_Bottom;
+
+	[Header("Events")]
+	public CEventUtil.UnityEventVector3 OnEnterSurface;
+	public CEventUtil.UnityEventVector3 OnUpdateSurface;
+	public UnityEvent OnOutOfSurface;
+
+	protected Vector3 m_HitSurface = Vector3.zero;
 
 	#endregion
 
@@ -37,7 +47,7 @@ public class CTopSurfaceComponent : CComponent {
 				// Position
 				var feet = this.m_Bottom.position;
 				feet.x = this.m_Transform.position.x;
-				feet.y = hitInfo.point.y;
+				feet.y = hitInfo.point.y + hitInfo.normal.y * this.m_HightOffset;
 				feet.z = this.m_Transform.position.z;
 				this.m_Transform.position = feet;
 				// Rotation
@@ -48,7 +58,20 @@ public class CTopSurfaceComponent : CComponent {
 						normalGround,
 						this.m_RotationSpeed * dt);
 				}
-
+				// Events
+				if (hitInfo.normal != this.m_HitSurface) {
+					if (this.OnEnterSurface != null) {
+						this.OnEnterSurface.Invoke (hitInfo.normal);
+					}
+					this.m_HitSurface = hitInfo.normal;
+				}
+				if (this.OnUpdateSurface != null) {
+					this.OnUpdateSurface.Invoke (hitInfo.normal);
+				}
+			} else {
+				if (this.OnOutOfSurface != null) {
+					this.OnOutOfSurface.Invoke ();
+				}
 			}
 		}
 
