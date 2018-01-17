@@ -92,12 +92,12 @@ public class CInventoryComponent : CComponent {
 		if (storedItem == null) {
 			storedItem = ScriptableObject.CreateInstance<CItemData> ();
 			storedItem.itemName = item.itemData.itemName;
-			storedItem.itemAvatar = item.itemData.itemAvatar;
-			storedItem.itemModel = item.itemData.itemModel;
-			storedItem.itemAmount = 1;
+			storedItem.avatar = item.itemData.avatar;
+			storedItem.model = item.itemData.model;
+			storedItem.amount = 1;
 			this.m_Items.Add (storedItem);
 		} else {
-			storedItem.itemAmount += item.itemData.itemAmount;
+			storedItem.amount += item.itemData.amount;
 		}
 		// ITEM PICKED
 		item.Picked ();
@@ -111,13 +111,13 @@ public class CInventoryComponent : CComponent {
 		this.m_Items = this.m_Items 
 			.GroupBy ((x) => new { 
 				name = x.itemName,
-				avatar = x.itemAvatar,
-				amount = items.Where((c) => c.itemName == x.itemName).Sum((s) => s.itemAmount) 
+				avatar = x.avatar,
+				amount = items.Where((c) => c.itemName == x.itemName).Sum((s) => s.amount) 
 			})
 			.Select ((z) => new CItemData() {
 				itemName = z.Key.name,
-				itemAvatar = z.Key.avatar,
-				itemAmount = z.Key.amount
+				avatar = z.Key.avatar,
+				amount = z.Key.amount
 			})
 			.ToList ();
 	}
@@ -125,7 +125,7 @@ public class CInventoryComponent : CComponent {
 	public virtual void SortItem() {
 		this.m_Items = this.m_Items
 			.OrderBy ((x) => x.itemName)
-			.OrderBy ((y) => y.itemAmount)
+			.OrderBy ((y) => y.amount)
 			.ToList();
 	}
 

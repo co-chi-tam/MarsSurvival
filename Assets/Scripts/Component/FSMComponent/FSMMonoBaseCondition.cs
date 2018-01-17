@@ -9,14 +9,22 @@ using Ludiq.Reflection;
 [Serializable]
 public class FSMMonoBaseCondition {
 
+	#region Fields
+
 	public string conditionName;
 
 	[Filter(Fields = true, Properties = true)]
 	public UnityMember conditionVariable;
 
+	#endregion
+
+	#region Constructor
+
 	public FSMMonoBaseCondition ()
 	{
 		
 	}
+
+	#endregion
 
 }

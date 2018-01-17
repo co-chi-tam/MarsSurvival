@@ -29,6 +29,10 @@ public class CMoveComponent : CComponent {
 		get { return this.transform.position; }
 		set { this.transform.position = value; }
 	}
+	public Vector3 currentRotation {
+		get { return this.transform.rotation.eulerAngles; }
+		set { this.transform.rotation = Quaternion.Euler (value); }
+	}
 	[SerializeField]	protected Vector3 m_TargetPosition;
 	public Vector3 targetPosition {
 		get { return this.m_TargetPosition; }

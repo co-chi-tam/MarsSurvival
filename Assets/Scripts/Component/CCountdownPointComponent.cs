@@ -13,11 +13,6 @@ public class CCountdownPointComponent : CComponent {
 		get { return this.m_DataName; }
 		set { this.m_DataName = value; }
 	}
-	[SerializeField]	protected bool m_IsUpdate = true;
-	public bool isUpdate {
-		get { return this.m_IsUpdate; }
-		set { this.m_IsUpdate = value; }
-	}
 	[SerializeField]	protected int m_ValuePoint = 100;
 	public int curValuePoint {
 		get { return this.m_ValuePoint; }
@@ -45,6 +40,7 @@ public class CCountdownPointComponent : CComponent {
 
 	[Header("Events")]
 	public UnityEvent OnLowValue;
+	public UnityEvent OnLower50Percent;
 	public UnityEvent OnMaxValue;
 
 	#endregion
@@ -54,7 +50,7 @@ public class CCountdownPointComponent : CComponent {
 	protected override void Update ()
 	{
 		base.Update ();
-		if (this.m_IsUpdate) {
+		if (this.m_IsActive) {
 			this.UpdateValuePoint (Time.deltaTime * this.m_ConsumeSpeed);
 		}
 	}
@@ -70,12 +66,16 @@ public class CCountdownPointComponent : CComponent {
 			this.curValuePoint = this.m_ValuePoint - this.m_ConsumePerSecond;
 			this.m_ValueCounter = this.m_Valuenterval;
 		}
+
 		if (this.m_ValuePoint <= 0) {
 			if (this.OnLowValue != null) {
 				this.OnLowValue.Invoke ();
 			}
-		}
-		if (this.m_ValuePoint >= this.m_MaxValuePoint) {
+		} else if (this.m_ValuePoint / this.m_MaxValuePoint < 0.5f) {
+			if (this.OnLower50Percent != null) {
+				this.OnLower50Percent.Invoke ();
+			}
+		} else if (this.m_ValuePoint / this.m_MaxValuePoint > 0.9f) {
 			if (this.OnMaxValue != null) {
 				this.OnMaxValue.Invoke ();
 			}

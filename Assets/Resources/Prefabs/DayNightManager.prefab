@@ -132,7 +132,7 @@ MonoBehaviour:
       outSlope: 0
       tangentMode: 0
     - serializedVersion: 2
-      time: 0.55
+      time: 0.5
       value: 1
       inSlope: 0
       outSlope: 0
@@ -149,7 +149,7 @@ MonoBehaviour:
   m_DayNightLightColor:
     serializedVersion: 2
     key0: {r: 0, g: 0.18431373, b: 0.31764707, a: 1}
-    key1: {r: 0.85882354, g: 0.85882354, b: 0.85882354, a: 1}
+    key1: {r: 0.7941176, g: 0.7941176, b: 0.7065311, a: 1}
     key2: {r: 0, g: 0.18431373, b: 0.31764707, a: 0}
     key3: {r: 0.80784315, g: 0.80784315, b: 0.80784315, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
@@ -157,7 +157,7 @@ MonoBehaviour:
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
     ctime0: 0
-    ctime1: 36044
+    ctime1: 32768
     ctime2: 65535
     ctime3: 65535
     ctime4: 0

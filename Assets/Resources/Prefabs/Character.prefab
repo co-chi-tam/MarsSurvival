@@ -714,6 +714,7 @@ GameObject:
   - component: {fileID: 114617059177336552}
   - component: {fileID: 114173193190775472}
   - component: {fileID: 114151746997459282}
+  - component: {fileID: 114602859911509234}
   - component: {fileID: 114465870578483098}
   m_Layer: 8
   m_Name: Character
@@ -2109,7 +2110,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_IsActive: 1
   m_DetectTransform: {fileID: 4269342157295882}
-  m_DetectRadius: 3
+  m_DetectRadius: 5
   m_AutoDetect: 1
   m_DetectLayerMask:
     serializedVersion: 2
@@ -2325,6 +2326,9 @@ MonoBehaviour:
   - {fileID: 114611649157505112}
   - {fileID: 114016928984550636}
   m_IsActive: 1
+  m_AnimatorComponent: {fileID: 114611649157505112}
+  m_CurrentAnimation: 0
+  m_MoveComponent: {fileID: 114617059177336552}
 --- !u!114 &114531483245967648
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2340,13 +2344,13 @@ MonoBehaviour:
   OnEnterState:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114611649157505112}
-        m_MethodName: SetTrigger
-        m_Mode: 5
+      - m_Target: {fileID: 114465870578483098}
+        m_MethodName: SetAnimation
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: InMoved
           m_BoolArgument: 0
@@ -2360,22 +2364,29 @@ MonoBehaviour:
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   OnEndState:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 114611649157505112}
-        m_MethodName: SetTrigger
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: InMoved
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   m_Target: {fileID: 4269342157295882}
   m_MoveComponent: {fileID: 114617059177336552}
+--- !u!114 &114602859911509234
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1833698780043526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf15c95398a739f479d9d368ffb3366a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsActive: 1
+  m_CharacterData: {fileID: 11400000, guid: 8e4d226210d953e408da6daef89e8567, type: 2}
+  OnPicked:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &114611649157505112
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2482,7 +2493,18 @@ MonoBehaviour:
   m_FSMStateName: FSMIdleState
   OnEnterState:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114465870578483098}
+        m_MethodName: SetAnimation
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   OnUpdateState:
