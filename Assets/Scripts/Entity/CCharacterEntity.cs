@@ -7,8 +7,6 @@ using FSM;
 
 public class CCharacterEntity : CEntity, IContext {
 
-	[SerializeField]	protected CInventoryComponent m_Inventory;
-
 	public override bool isActive {
 		get { return this.m_IsActive; }
 		set { this.m_IsActive = value; }
@@ -22,9 +20,6 @@ public class CCharacterEntity : CEntity, IContext {
 	protected override void Update ()
 	{
 		base.Update ();
-		if (Input.GetKeyDown (KeyCode.A)) {
-			this.m_Inventory.PickItem ();
-		}
 	}
 
 	protected override void LateUpdate ()

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using SimpleSingleton;
@@ -34,12 +35,31 @@ public class CGameDataManager : CMonoSingleton<CGameDataManager> {
 		set { this.m_Items = new List<CItemData> (value); }
 	}
 
+	protected Dictionary<string, Action> m_AnimatorEvents;
+
 	#endregion
 
 	#region Implementation CMonoSingleton
 
 	protected override void Awake () {
 		base.Awake ();
+		this.m_AnimatorEvents = new Dictionary<string, Action> ();
+	}
+
+	#endregion
+
+	#region Events
+
+	public virtual void RegisterCallback(string name, Action callback) {
+		if (this.m_AnimatorEvents.ContainsKey (name) == false) {
+			this.m_AnimatorEvents.Add (name, callback);
+		} 
+	} 
+
+	public virtual void InvokeCallback(string name) {
+		if (this.m_AnimatorEvents.ContainsKey (name)) {
+			this.m_AnimatorEvents[name].Invoke();
+		} 
 	}
 
 	#endregion

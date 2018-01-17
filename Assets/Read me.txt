@@ -4,12 +4,15 @@ Story mode:
 	trai nạn và bỏ lại trên Sao hỏa.
 	
 Gameplay:
-	Sinh tồn các chỉ số Health, Hunger, Sanity, Power sun.
+	Sinh tồn các chỉ số Power sun.
 	Scrafting chế đồ.
 	Ngày đêm, ... 
 	Infinite map ( Thế giới mở)...
-	Đập đá lấy nguyên liệu.
-	Sửa 4-5 tháp năng lượng để end game.
+	Đập đá lấy nguyên liệu. Nghiền bằng máy nghiền.
+	Sửa 4-5 tháp năng lượng để end game. (XEM XET)
 	Có công trình như power box, ... 1 số chạy theo nhân vật.
+	Mỗi công trình có Pin đê chạy.
+	Tìm Blueprint để chế đồ.
+
 
 
