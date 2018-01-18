@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1718518530}
-  m_IndirectSpecularColor: {r: 0.44479376, g: 0.49434102, b: 0.57353944, a: 1}
+  m_IndirectSpecularColor: {r: 0.444794, g: 0.49434167, b: 0.5735402, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -214,17 +214,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4269342157295882, guid: b70a1508e9af8f642befc1a87dd6e823,
     type: 2}
   m_PrefabInternal: {fileID: 1244420599}
---- !u!1 &785597555 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1833698780043526, guid: b70a1508e9af8f642befc1a87dd6e823,
-    type: 2}
-  m_PrefabInternal: {fileID: 1244420599}
---- !u!114 &785597560 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114602859911509234, guid: b70a1508e9af8f642befc1a87dd6e823,
-    type: 2}
-  m_PrefabInternal: {fileID: 1244420599}
-  m_Script: {fileID: 11500000, guid: bf15c95398a739f479d9d368ffb3366a, type: 3}
 --- !u!1001 &953471516
 Prefab:
   m_ObjectHideFlags: 0
@@ -440,11 +429,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114602859911509234, guid: b70a1508e9af8f642befc1a87dd6e823,
-        type: 2}
-      propertyPath: conditionVariable.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4269342157295882, guid: b70a1508e9af8f642befc1a87dd6e823, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -476,36 +460,6 @@ Prefab:
     - target: {fileID: 4269342157295882, guid: b70a1508e9af8f642befc1a87dd6e823, type: 2}
       propertyPath: m_RootOrder
       value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114602859911509234, guid: b70a1508e9af8f642befc1a87dd6e823,
-        type: 2}
-      propertyPath: conditionVariable._target
-      value: 
-      objectReference: {fileID: 785597555}
-    - target: {fileID: 114602859911509234, guid: b70a1508e9af8f642befc1a87dd6e823,
-        type: 2}
-      propertyPath: conditionVariable.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114602859911509234, guid: b70a1508e9af8f642befc1a87dd6e823,
-        type: 2}
-      propertyPath: conditionVariable.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114602859911509234, guid: b70a1508e9af8f642befc1a87dd6e823,
-        type: 2}
-      propertyPath: conditionVariable.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 785597560}
-    - target: {fileID: 114602859911509234, guid: b70a1508e9af8f642befc1a87dd6e823,
-        type: 2}
-      propertyPath: conditionVariable.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: TESTMEMEBER
-      objectReference: {fileID: 0}
-    - target: {fileID: 114602859911509234, guid: b70a1508e9af8f642befc1a87dd6e823,
-        type: 2}
-      propertyPath: conditionVariable.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b70a1508e9af8f642befc1a87dd6e823, type: 2}
@@ -706,9 +660,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: Cinemachine.CinemachineBrain+BrainEvent, Assembly-CSharp-firstpass,
-      Version=1.0.6590.38067, Culture=neutral, PublicKeyToken=null
+      Version=1.0.6592.26025, Culture=neutral, PublicKeyToken=null
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: Cinemachine.CinemachineBrain+VcamEvent, Assembly-CSharp-firstpass,
-      Version=1.0.6590.38067, Culture=neutral, PublicKeyToken=null
+      Version=1.0.6592.26025, Culture=neutral, PublicKeyToken=null

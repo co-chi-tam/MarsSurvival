@@ -5,39 +5,24 @@ using System.Collections;
 [Serializable]
 public class CCharacterData : ScriptableObject {
 
-	#region Internal Class
-
-	[AttributeUsage(AttributeTargets.Property | AttributeTargets.Field, 
-		AllowMultiple = true)]
-	public class MarkerValueAttribute: Attribute {
-
-		public string valueName {
-			get;
-			set;
-		}
-
-		public MarkerValueAttribute ()
-		{
-			
-		}
-
-		public override string ToString ()
-		{
-			return string.Format ("[MarkerValueAttribute: valueName={0}]", valueName);
-		}
-
-	}
-
-	#endregion
-
 	#region Fields
 
 	[Header("Fields")]
-	[MarkerValue(valueName = "Character Name")]
 	public string characterName;
 	public float moveSpeed;
-	public float currentSolarPoint;
-	public float maxSolarPoint;
+
+	[SerializeField]	protected float m_SolarPoint;
+	[MarkerValue(valueName = "Solar Point", updateMethod = "Decrease", updateValuePerSecond = 0.5f)]
+	public float solarPoint {
+		get { return this.m_SolarPoint; }
+		set { this.m_SolarPoint = value < 0f ? 0f : value > this.m_MaxSolarPoint ? this.m_MaxSolarPoint : value; }
+	}
+
+	[SerializeField]	protected float m_MaxSolarPoint;
+	public float maxSolarPoint {
+		get { return this.m_MaxSolarPoint; }
+		set { this.m_MaxSolarPoint = value; }
+	}
 
 	#endregion
 
@@ -45,6 +30,15 @@ public class CCharacterData : ScriptableObject {
 
 	public CCharacterData (): base() {
 
+	}
+
+	#endregion
+
+	#region Override
+
+	public override string ToString ()
+	{
+		return string.Format ("[CCharacterData] {0} - {1} - {2}", characterName, moveSpeed, solarPoint);
 	}
 
 	#endregion

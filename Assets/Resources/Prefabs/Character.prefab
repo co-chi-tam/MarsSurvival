@@ -2381,8 +2381,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_IsActive: 1
-  m_CharacterData: {fileID: 11400000, guid: 8e4d226210d953e408da6daef89e8567, type: 2}
-  OnPicked:
+  m_CurrentCharacterData: {fileID: 11400000, guid: 8e4d226210d953e408da6daef89e8567,
+    type: 2}
+  OnStart:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
