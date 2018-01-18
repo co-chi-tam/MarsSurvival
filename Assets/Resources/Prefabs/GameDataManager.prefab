@@ -55,6 +55,7 @@ MonoBehaviour:
   m_Items: []
   m_SolarPoint: 0
   m_MaxSolarPoint: 0
+  m_AnimationValue: 0
   OnSolarPoint:
     _parameterTypes: []
     _target: {fileID: 1490718107486494}

@@ -7,17 +7,13 @@ using UnityEngine.Events;
 using UnityEngine.Events.Utils;
 using Ludiq.Reflection;
 
-public class CCharacterComponent : CComponent {
+public class CDataComponent : CComponent {
 
 	#region Fields
 
 	[Header("Configs")]
-	[SerializeField]	protected CCharacterData m_CurrentCharacterData;
-	protected CCharacterData m_CloneData;
-	public CCharacterData characterData {
-		get { return this.m_CloneData; }
-		set { this.m_CloneData = value; }
-	}
+	[SerializeField]	protected ScriptableObject m_InstanceData;
+	protected ScriptableObject m_CloneData;
 
 	protected Dictionary<string, Func<object, object, object>> m_UpdateMethods;
 
@@ -29,7 +25,7 @@ public class CCharacterComponent : CComponent {
 
 	protected override void Awake () {
 		base.Awake ();
-		this.m_CloneData = ScriptableObject.Instantiate (this.m_CurrentCharacterData) as CCharacterData;
+		this.m_CloneData = ScriptableObject.Instantiate (this.m_InstanceData);
 
 		this.m_UpdateMethods = new Dictionary<string, Func<object, object, object>> ();
 		this.m_UpdateMethods.Add ("None", this.UpdateNothing);
@@ -45,6 +41,9 @@ public class CCharacterComponent : CComponent {
 	protected override void Update ()
 	{
 		base.Update ();
+		if (this.m_IsActive == false)
+			return;
+		// UPDATE PER SECOND
 		if (this.m_TimerPerSecond > 0) {
 			this.m_TimerPerSecond -= Time.deltaTime;
 		} else {
@@ -90,7 +89,7 @@ public class CCharacterComponent : CComponent {
 	}
 
 	protected virtual void UpdateByAttribute() {
-		if (this.m_CurrentCharacterData == null || this.m_CloneData == null)
+		if (this.m_InstanceData == null || this.m_CloneData == null)
 			return;
 		// GET PROPERTIES ATTRIBUTE
 		var fields = this.m_CloneData.GetType ().GetProperties ();
@@ -104,6 +103,34 @@ public class CCharacterComponent : CComponent {
 		}
 	}
 
+	#endregion
+
+	#region Getter & Setter
+
+	public virtual T Get<T>() where T : ScriptableObject {
+		return (T) Convert.ChangeType(this.m_CloneData, typeof (T));
+	}
+
+	public virtual void Set<T>(T value) where T : ScriptableObject {
+		this.m_CloneData = value;
+	}
+
+	// GET PROPERTIY
+	public virtual object GetProperty(string name) {
+		var fields = this.m_CloneData.GetType ().GetProperty(name);
+		if (fields != null) {
+			return fields.GetValue (this.m_CloneData, null);
+		}
+		return null;
+	}
+
+	// SET PROPERTIY
+	public virtual void SetProperty(string name, object value) {
+		var fields = this.m_CloneData.GetType ().GetProperty(name);
+		if (fields != null) {
+			fields.SetValue (this.m_CloneData, value, null);
+		}
+	}
 
 	#endregion
 

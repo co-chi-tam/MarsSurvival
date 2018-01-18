@@ -26,17 +26,19 @@ public class CGameDataManager : CMonoSingleton<CGameDataManager> {
 		set { this.m_Items = new List<CItemData> (value); }
 	}
 	[SerializeField]	protected float m_SolarPoint;
-	public float solarPoint {
-		get { return this.m_SolarPoint; }
-		set { this.m_SolarPoint = value; }
-	}
 	[SerializeField]	protected float m_MaxSolarPoint;
-	public float maxSolarPoint {
-		get { return this.m_MaxSolarPoint; }
-		set { this.m_MaxSolarPoint = value; }
-	}
 	public float percentSolarPoint {
 		get { return this.m_SolarPoint / this.m_MaxSolarPoint; }
+	}
+	[SerializeField]	protected int m_AnimationValue;
+	public int animationValue {
+		get { return this.m_AnimationValue; }
+		set { this.m_AnimationValue = value; }
+	}
+	[SerializeField]	protected bool m_IsCharging;
+	public bool IsCharging {
+		get { return this.m_IsCharging; }
+		set { this.m_IsCharging = value; }
 	}
 
 	[Header("Events")]
@@ -52,6 +54,15 @@ public class CGameDataManager : CMonoSingleton<CGameDataManager> {
 	protected override void Awake () {
 		base.Awake ();
 		this.m_AnimatorEvents = new Dictionary<string, Action> ();
+	}
+
+	#endregion
+
+	#region Main methods
+
+	public virtual void UpdateSolarPoint(float curValue, float maxValue) {
+		this.m_SolarPoint = curValue;
+		this.m_MaxSolarPoint = maxValue;
 	}
 
 	#endregion

@@ -14,13 +14,35 @@
 	          "states": []
 	        }
           ]
+        },{
+          "condition_name": "!IsMoving&&IsCharging",
+          "state_name": "FSMChargingState",
+          "states": [
+	        {
+	          "condition_name": "!IsCharging",
+	          "state_name": "FSMIdleState",
+	          "states": []
+	        }
+          ]
         }
       ]
     },
     {
       "condition_name": "IsAnyState",
       "state_name": "AnyState",
-      "states": []
+      "states": [
+      	{
+          "condition_name": "!IsActive",
+          "state_name": "FSMDeathState",
+          "states": [
+	        {
+	          "condition_name": "IsActive",
+	          "state_name": "FSMIdleState",
+	          "states": []
+	        }
+          ]
+        }
+      ]
     }
   ]
 }
