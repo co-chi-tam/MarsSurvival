@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using SimpleSingleton;
+using Ludiq.Reflection;
 
 public class CGameDataManager : CMonoSingleton<CGameDataManager> {
 
@@ -14,16 +15,6 @@ public class CGameDataManager : CMonoSingleton<CGameDataManager> {
 		get { return this.m_MovePoint; }
 		set { this.m_MovePoint = value; }
 	}
-//	[SerializeField]	protected Vector3 m_PositionPoint;
-//	public Vector3 positionPoint {
-//		get { return this.m_PositionPoint; }
-//		set { this.m_PositionPoint = value; }
-//	}
-//	[SerializeField]	protected Vector3 m_RotationPoint;
-//	public Vector3 rotationPoint {
-//		get { return this.m_RotationPoint; }
-//		set { this.m_RotationPoint = value; }
-//	}
 	[SerializeField]	protected List<CItemData> m_Items;
 	public List<CItemData> items {
 		get { 
@@ -34,6 +25,23 @@ public class CGameDataManager : CMonoSingleton<CGameDataManager> {
 		}
 		set { this.m_Items = new List<CItemData> (value); }
 	}
+	[SerializeField]	protected float m_SolarPoint;
+	public float solarPoint {
+		get { return this.m_SolarPoint; }
+		set { this.m_SolarPoint = value; }
+	}
+	[SerializeField]	protected float m_MaxSolarPoint;
+	public float maxSolarPoint {
+		get { return this.m_MaxSolarPoint; }
+		set { this.m_MaxSolarPoint = value; }
+	}
+	public float percentSolarPoint {
+		get { return this.m_SolarPoint / this.m_MaxSolarPoint; }
+	}
+
+	[Header("Events")]
+	[Filter(Fields = true, Properties = true, Methods = true)]
+	public UnityMember OnSolarPoint;
 
 	protected Dictionary<string, Action> m_AnimatorEvents;
 

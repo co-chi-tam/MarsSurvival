@@ -2210,6 +2210,12 @@ MonoBehaviour:
       _target: {fileID: 1833698780043526}
       _component: CMoveComponent
       _name: IsStand
+  - conditionName: HaveEnergy
+    conditionVariable:
+      _parameterTypes: []
+      _target: {fileID: 1833698780043526}
+      _component: CCharacterEntity
+      _name: HaveEnergy
 --- !u!114 &114173193190775472
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2327,8 +2333,8 @@ MonoBehaviour:
   - {fileID: 114016928984550636}
   m_IsActive: 1
   m_AnimatorComponent: {fileID: 114611649157505112}
-  m_CurrentAnimation: 0
   m_MoveComponent: {fileID: 114617059177336552}
+  m_CharacterComponent: {fileID: 114602859911509234}
 --- !u!114 &114531483245967648
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2383,11 +2389,6 @@ MonoBehaviour:
   m_IsActive: 1
   m_CurrentCharacterData: {fileID: 11400000, guid: 8e4d226210d953e408da6daef89e8567,
     type: 2}
-  OnStart:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!114 &114611649157505112
 MonoBehaviour:
   m_ObjectHideFlags: 1

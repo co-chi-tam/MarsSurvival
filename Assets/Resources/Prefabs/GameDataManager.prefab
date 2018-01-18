@@ -53,3 +53,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_MovePoint: {x: 0, y: 0, z: 0}
   m_Items: []
+  m_SolarPoint: 0
+  m_MaxSolarPoint: 0
+  OnSolarPoint:
+    _parameterTypes: []
+    _target: {fileID: 1490718107486494}
+    _component: CGameDataManager
+    _name: percentSolarPoint

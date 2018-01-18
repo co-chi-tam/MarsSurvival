@@ -102,7 +102,6 @@ public class CCharacterComponent : CComponent {
 				fld.SetValue (this.m_CloneData, value, null);
 			}
 		}
-		Debug.Log (this.m_CloneData.ToString ());
 	}
 
 

@@ -660,9 +660,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: Cinemachine.CinemachineBrain+BrainEvent, Assembly-CSharp-firstpass,
-      Version=1.0.6592.26025, Culture=neutral, PublicKeyToken=null
+      Version=1.0.6592.30653, Culture=neutral, PublicKeyToken=null
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: Cinemachine.CinemachineBrain+VcamEvent, Assembly-CSharp-firstpass,
-      Version=1.0.6592.26025, Culture=neutral, PublicKeyToken=null
+      Version=1.0.6592.30653, Culture=neutral, PublicKeyToken=null

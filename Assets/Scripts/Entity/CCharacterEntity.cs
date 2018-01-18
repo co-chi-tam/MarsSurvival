@@ -26,7 +26,7 @@ public class CCharacterEntity : CEntity, IContext {
 
 	[Header("Info")]
 	[SerializeField]	protected CAnimatorComponent m_AnimatorComponent;
-	[SerializeField]	protected ECharacterAnimation m_CurrentAnimation = ECharacterAnimation.Idle;
+	protected ECharacterAnimation m_CurrentAnimation = ECharacterAnimation.Idle;
 	public int currentAnimation {
 		get { return (int) this.m_CurrentAnimation; }
 		set { this.m_CurrentAnimation = (ECharacterAnimation)value; }
@@ -40,10 +40,21 @@ public class CCharacterEntity : CEntity, IContext {
 		get { return this.m_MoveComponent.currentRotation; }
 		set { this.m_MoveComponent.currentRotation = value; }
 	}
+	[SerializeField]	protected CCharacterComponent m_CharacterComponent;
+	protected CCharacterData m_Data;
 
 	public override bool isActive {
 		get { return this.m_IsActive; }
 		set { this.m_IsActive = value; }
+	}
+
+	public virtual bool HaveEnergy {
+		get {
+			if (this.m_Data == null)
+				return true;
+			return this.m_Data.solarPoint > 0f;
+		}
+		protected set {  }
 	}
 
 	#endregion
@@ -53,6 +64,7 @@ public class CCharacterEntity : CEntity, IContext {
 	protected override void Start ()
 	{
 		base.Start ();
+		this.m_Data = this.m_CharacterComponent.characterData;
 	}
 
 	protected override void Update ()
@@ -64,6 +76,8 @@ public class CCharacterEntity : CEntity, IContext {
 	{
 		base.LateUpdate ();
 		this.m_AnimatorComponent.ApplyAnimation ("AnimParam", (int)this.m_CurrentAnimation);
+		CGameDataManager.Instance.solarPoint = this.m_Data.solarPoint;
+		CGameDataManager.Instance.maxSolarPoint = this.m_Data.maxSolarPoint;
 	}
 
 	#endregion

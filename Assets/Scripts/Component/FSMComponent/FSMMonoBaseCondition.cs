@@ -13,7 +13,7 @@ public class FSMMonoBaseCondition {
 
 	public string conditionName;
 
-	[Filter(Fields = true, Properties = true)]
+	[Filter(Fields = true, Properties = true, Methods = true)]
 	public UnityMember conditionVariable;
 
 	#endregion

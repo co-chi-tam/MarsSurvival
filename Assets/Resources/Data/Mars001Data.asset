@@ -13,5 +13,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Mars001
   moveSpeed: 7
-  m_SolarPoint: 100
+  m_SolarPoint: 70
   m_MaxSolarPoint: 100

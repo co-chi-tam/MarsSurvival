@@ -5,11 +5,11 @@
       "state_name": "FSMIdleState",
       "states": [
         {
-          "condition_name": "IsMoving",
+          "condition_name": "IsMoving&&HaveEnergy",
           "state_name": "FSMMoveState",
           "states": [
           	{
-	          "condition_name": "!IsMoving",
+	          "condition_name": "!IsMoving||!HaveEnergy",
 	          "state_name": "FSMIdleState",
 	          "states": []
 	        }
