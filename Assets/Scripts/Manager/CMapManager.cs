@@ -23,7 +23,7 @@ public class CMapManager : CMonoSingleton<CMapManager> {
 	[SerializeField]	protected Transform m_Target;
 	[SerializeField]	protected Vector3 m_CurrentPosition;
 	protected Vector3 m_PreviousPosition = new Vector3(-999f, 0f, -999f);
-	protected bool m_NeedUpdate = false;
+	[SerializeField]	protected bool m_NeedUpdate = false;
 
 	#endregion
 
@@ -50,16 +50,13 @@ public class CMapManager : CMonoSingleton<CMapManager> {
 		this.InitMap();
 	}
 
-	protected void Update() {
+	protected void LateUpdate() {
 		this.CheckCurrentPosition ();
 		this.CheckPlacePatterns ();
-	}
-
-	protected void LateUpdate() {
 		if (this.m_NeedUpdate) {
 			this.UpdateReusePlaces ();
 			this.UpdatePlaces ();
-		} 
+		}
 	}
 
 	#endregion
@@ -139,34 +136,32 @@ public class CMapManager : CMonoSingleton<CMapManager> {
 			}
 			if (isGoodPlace == false) {
 				var usedObject = this.m_UsedPlaces [x];
-				if (this.m_ReusePlaces.Contains (usedObject) == false) {
-					if (this.AddReuseObject (usedObject)) {
-						x--;
-					}
-				}
+				this.AddReuseObject (usedObject);
 			}
 		}
 	}
 
 	protected void UpdatePlaces() {
+		var matchCount = 0;
 		for (int i = 0; i < this.m_PlacePatterns.Length; i++) {
-			if (this.m_ReusePlaces.Count == 0)
-				return;
 			var planetPos = this.m_PlacePatterns[i];
 			var placeName = string.Format (this.m_PlaceNamePattern, planetPos.x, planetPos.y);
 			var isGoodPlace = false;
 			for (int x = 0; x < this.m_UsedPlaces.Count; x++) {
 				var checkName = this.m_UsedPlaces [x].name;
 				isGoodPlace |= placeName == checkName;
-			}
-			if (isGoodPlace == false) {
-				var reuseObject = this.LoadTileMapInstance (placeName);
-				if (this.AddUsedObject (reuseObject)) {
-					this.UpdatePlanetPosition (reuseObject, planetPos);
+				if (placeName == checkName) {
+					matchCount++;
 				}
 			}
+			if (isGoodPlace == false && this.m_ReusePlaces.Count > 0) {
+				var reuseObject = this.LoadTileMapInstance (placeName);
+				this.AddUsedObject (reuseObject);
+				this.UpdatePlanetPosition (reuseObject, planetPos);
+			}
 		}
-		this.m_NeedUpdate = this.m_UsedPlaces.Count != this.m_PlacePatterns.Length;
+		this.m_NeedUpdate = this.m_UsedPlaces.Count != this.m_PlacePatterns.Length 
+								|| matchCount != this.m_PlacePatterns.Length;
 	}
 
 	protected Transform LoadTileMapInstance(string name) {
