@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using FSM;
 
-public class FSMMonoActiveMachineState : FSMMonoBaseState {
+public class FSMMonoChargingMachineState : FSMMonoBaseState {
 
 	#region Fields
 

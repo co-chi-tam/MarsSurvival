@@ -5,7 +5,7 @@
       "state_name": "FSMIdleState",
       "states": [
       	{
-	      "condition_name": "HaveEnergy",
+	      "condition_name": "HaveEnergy&&IsStarted",
 	      "state_name": "FSMActiveState",
 	      "states": [
 	      	{
@@ -31,6 +31,20 @@
 		      "states": []
 		    }
 	      ]
+	    },{
+	      "condition_name": "IsCharging&&IsStarted",
+	      "state_name": "FSMChargingState",
+	      "states": [
+	      	{
+		      "condition_name": "!IsCharging||IsFullEnergy",
+		      "state_name": "FSMIdleState",
+		      "states": []
+		    }
+	      ]
+	    },{
+	      "condition_name": "!IsStarted",
+	      "state_name": "FSMIdleState",
+	      "states": []
 	    }
       ]
     }
