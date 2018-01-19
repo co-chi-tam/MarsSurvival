@@ -19,7 +19,7 @@ public class FSMMonoBaseState : MonoBehaviour, IState {
 	#region Fields
 
 	[Header("Configs")]
-	[SerializeField]	protected string m_FSMStateName = "EmptyName";
+	[SerializeField]	protected string m_FSMStateName;
 	public string fsmStateName {
 		get { return this.m_FSMStateName; }
 		set { this.m_FSMStateName = value; }

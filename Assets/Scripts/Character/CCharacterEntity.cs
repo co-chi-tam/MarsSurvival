@@ -23,7 +23,6 @@ public class CCharacterEntity : CEntity {
 
 	#region Fields
 
-	[Header("Info")]
 	protected CAnimatorComponent m_AnimatorComponent;
 	protected CDataComponent m_DataComponent;
 

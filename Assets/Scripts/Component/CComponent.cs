@@ -2,13 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[DisallowMultipleComponent()]
 public class CComponent : MonoBehaviour {
 
 	#region Fields
 
 	[Header("Configs")]
-	[SerializeField]	protected bool m_IsActive = false;
+	[SerializeField]	protected bool m_IsActive = true;
 	public bool isActive {
 		get { return this.m_IsActive; }
 		set { this.m_IsActive = value; }

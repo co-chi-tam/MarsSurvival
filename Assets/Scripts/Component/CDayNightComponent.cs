@@ -18,18 +18,20 @@ public class CDayNightComponent : CComponent {
 
 	[Header("Events")]
 	public UnityEventInt 	OnEnterDay;
-	public UnityEventInt 	OnEnterHouse;
-	public UnityEventInt	OnUpdateHouse;
+	public UnityEventInt 	OnEnterHour;
+	public UnityEventInt	OnUpdateHour;
 	public UnityEventString OnEnterDate;
+	public UnityEvent OnDay;
+	public UnityEvent OnNight;
 
 	protected CDayNightManager m_DayNightManager;
 	protected int m_CurrentDay;
-	protected int m_CurrentHouse;
+	protected int m_CurrentHour;
 	protected int m_UpdateHour;
 	protected string m_CurrentDate;
 
 	public bool IsLight {
-		get { return this.m_CurrentHouse > 4 && this.m_CurrentHouse < 18; }
+		get { return this.m_CurrentHour > 4 && this.m_CurrentHour < 18; }
 	}
 
 	public bool IsDark {
@@ -45,7 +47,7 @@ public class CDayNightComponent : CComponent {
 		base.Start ();
 		this.m_DayNightManager = CDayNightManager.GetInstance ();
 		this.m_CurrentDay = this.m_DayNightManager.day;
-		this.m_CurrentHouse = this.m_DayNightManager.hour24;
+		this.m_CurrentHour = this.m_DayNightManager.hour24;
 		this.m_CurrentDate = this.m_DayNightManager.date;
 	}
 
@@ -60,15 +62,15 @@ public class CDayNightComponent : CComponent {
 			this.m_CurrentDay = this.m_DayNightManager.day;
 		}
 		// HOUR
-		if (this.m_CurrentHouse != this.m_DayNightManager.hour24) {
-			if (this.OnEnterHouse != null) {
-				this.OnEnterHouse.Invoke (this.m_DayNightManager.hour24);
+		if (this.m_CurrentHour != this.m_DayNightManager.hour24) {
+			if (this.OnEnterHour != null) {
+				this.OnEnterHour.Invoke (this.m_DayNightManager.hour24);
 			}
-			this.m_CurrentHouse = this.m_DayNightManager.hour24;
+			this.m_CurrentHour = this.m_DayNightManager.hour24;
 		}
 		if (this.m_UpdateHour != this.m_DayNightManager.hour24) {
-			if (this.OnUpdateHouse != null) {
-				this.OnUpdateHouse.Invoke (this.m_DayNightManager.hour24);
+			if (this.OnUpdateHour != null) {
+				this.OnUpdateHour.Invoke (this.m_DayNightManager.hour24);
 			}
 			this.m_UpdateHour = this.m_DayNightManager.hour24;
 		}
@@ -78,6 +80,16 @@ public class CDayNightComponent : CComponent {
 				this.OnEnterDate.Invoke (this.m_DayNightManager.date);
 			}
 			this.m_CurrentDate = this.m_DayNightManager.date;
+		}
+		// DAY NIGHT
+		if (this.IsLight) {
+			if (this.OnDay != null) {
+				this.OnDay.Invoke ();
+			}
+		} else {
+			if (this.OnNight != null) {
+				this.OnNight.Invoke ();
+			}
 		}
 	}
 

@@ -100,19 +100,20 @@ public class CLineTerminalComponent : CComponent {
 			var lineEnd = targetObject.GetComponent<CLineEndComponent> ();
 			if (lineEnd != null) {
 				// CONNECTED
-				lineEnd.ConnectedLine ();
-				for (int x = 0; x < line.positionCount; x++) {
-					var lerp = Vector3.Lerp (this.m_Source.position, lineEnd.transform.position, this.m_SegmentOffset * x);
-					var groundHitCount = Physics.RaycastNonAlloc (lerp + (Vector3.up * 50f), Vector3.down, this.m_HitInfoSamples, 100f, this.m_GroundLayerMask);
-					if (groundHitCount > 0) {
-						var hitInfo = this.m_HitInfoSamples [0];
-						lerp.y = hitInfo.point.y + this.m_GroundRadius;
+				if (lineEnd.ConnectedLine (this.gameObject)) {
+					for (int x = 0; x < line.positionCount; x++) {
+						var lerp = Vector3.Lerp (this.m_Source.position, lineEnd.transform.position, this.m_SegmentOffset * x);
+						var groundHitCount = Physics.RaycastNonAlloc (lerp + (Vector3.up * 50f), Vector3.down, this.m_HitInfoSamples, 100f, this.m_GroundLayerMask);
+						if (groundHitCount > 0) {
+							var hitInfo = this.m_HitInfoSamples [0];
+							lerp.y = hitInfo.point.y + this.m_GroundRadius;
+						}
+						line.SetPosition (x, lerp);
 					}
-					line.SetPosition (x, lerp);
+					line.gameObject.SetActive (true);
+					isFree = false;
+					colliderIndex++;
 				}
-				line.gameObject.SetActive (true);
-				isFree = false;
-				colliderIndex++;
 			}
 		}
 		// EVENTS

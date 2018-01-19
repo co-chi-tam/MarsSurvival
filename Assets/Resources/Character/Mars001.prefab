@@ -743,13 +743,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4269342157295882}
+  - component: {fileID: 136749609288588412}
   - component: {fileID: 114617059177336552}
-  - component: {fileID: 114173193190775472}
   - component: {fileID: 114151746997459282}
   - component: {fileID: 114903941963965026}
-  - component: {fileID: 114465870578483098}
-  - component: {fileID: 136749609288588412}
   - component: {fileID: 114535789024924872}
+  - component: {fileID: 114465870578483098}
   m_Layer: 8
   m_Name: Mars001
   m_TagString: Untagged
@@ -2296,104 +2295,6 @@ MonoBehaviour:
       _target: {fileID: 1833698780043526}
       _component: CDayNightComponent
       _name: IsLight
---- !u!114 &114173193190775472
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1833698780043526}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5300de631f1bc2d4fa63895242ad153f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _isAuto: 1
-  _lights: []
-  _minimumNbTargetOnShadow: 1
-  _detectMode: 1
-  _raycastinRate: 60
-  _targets:
-  - Name: Body
-    Target: {fileID: 4295817030391128}
-    _onChangeState:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: ShadowDetect.UnityEventBool, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-    _onEnterShadow:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-    _onExitShadow:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-    _onShadow:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-    _outShadow:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-    IsOnShadow_state: 0
-    Last_IsOnShadow_state: 0
-  _layers:
-    serializedVersion: 2
-    m_Bits: 0
-  _onChangeState:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: ShadowDetect.UnityEventBool, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  _onEnterShadow:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  _onExitShadow:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  _onShadow:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  _outShadow:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  IsOnShadow_state: 0
-  Last_IsOnShadow_state: 0
 --- !u!114 &114465870578483098
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2478,6 +2379,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_IsActive: 1
   OnConnected:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: CLineEndComponent+UnityEventGameObject, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnFree:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
