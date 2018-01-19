@@ -42,11 +42,6 @@ public class CMoveComponent : CComponent {
 		get { return this.m_TargetPosition; }
 		set { this.m_TargetPosition = value; }
 	}
-	[SerializeField]	protected bool m_AutoMove = true;
-	public bool autoMove {
-		get { return this.m_AutoMove; }
-		set { this.m_AutoMove = value; }
-	}
 
 	[Header("Events")]
 	public UnityEvent OnNearestTarget;
@@ -79,7 +74,7 @@ public class CMoveComponent : CComponent {
 	protected override void Update ()
 	{
 		base.Update ();
-		if (this.m_AutoMove) {
+		if (this.m_IsActive) {
 			this.SetupMove (Time.deltaTime);
 		}
 	}

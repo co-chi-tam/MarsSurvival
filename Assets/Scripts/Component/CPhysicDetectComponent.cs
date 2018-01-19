@@ -16,11 +16,6 @@ public class CPhysicDetectComponent : CComponent {
 	}
 
 	[Header("Detect")]
-	[SerializeField]	protected bool m_AutoDetect = true;
-	public bool autoDetect {
-		get { return this.m_AutoDetect; }
-		set { this.m_AutoDetect = value; }
-	}
 	[SerializeField]	protected LayerMask m_DetectLayerMask = -1;
 	[SerializeField]	protected int m_ColliderCount;
 	public int colliderCount {
@@ -64,7 +59,7 @@ public class CPhysicDetectComponent : CComponent {
 	protected override void LateUpdate ()
 	{
 		base.LateUpdate ();
-		if (this.m_AutoDetect) {
+		if (this.m_IsActive) {
 			this.DetectObjects ();
 		}
 	}

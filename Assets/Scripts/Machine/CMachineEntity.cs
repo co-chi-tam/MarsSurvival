@@ -6,11 +6,16 @@ public class CMachineEntity : CEntity {
 
 	#region Fields
 
-	[Header("Info")]
-	[SerializeField]	protected CAnimatorComponent m_AnimatorComponent;
-	[SerializeField]	protected CDataComponent m_CharacterComponent;
-
+	protected CDataComponent m_DataComponent;
 	protected CMachineData m_Data;
+
+	public virtual bool HaveEnergy {
+		get { 
+			if (this.m_Data == null)
+				return true; 
+			return this.m_Data.powerPoint > 0;
+		}
+	}
 
 	#endregion
 
@@ -19,7 +24,8 @@ public class CMachineEntity : CEntity {
 	protected override void Start ()
 	{
 		base.Start ();
-		this.m_Data = this.m_CharacterComponent.Get<CMachineData>();
+		this.m_DataComponent = this.GetGameComponent<CDataComponent> ();
+		this.m_Data = this.m_DataComponent.Get<CMachineData>();
 	}
 
 	protected override void Update ()

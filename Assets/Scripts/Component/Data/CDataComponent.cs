@@ -12,9 +12,12 @@ public class CDataComponent : CComponent {
 	#region Fields
 
 	[Header("Configs")]
-	[SerializeField]	protected bool m_AutoUpdate = false;
 	[SerializeField]	protected ScriptableObject m_InstanceData;
 	protected ScriptableObject m_CloneData;
+	public ScriptableObject cloneData {
+		get { return this.m_CloneData; }
+		protected set { this.m_CloneData = value; }
+	}
 
 	protected Dictionary<string, Func<object, object, object>> m_UpdateMethods;
 
@@ -43,7 +46,7 @@ public class CDataComponent : CComponent {
 	protected override void Update ()
 	{
 		base.Update ();
-		if (this.m_AutoUpdate) {
+		if (this.m_IsActive) {
 			this.UpdateDataPerSecond (Time.deltaTime);
 		}
 	}

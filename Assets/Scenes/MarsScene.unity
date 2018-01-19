@@ -517,7 +517,7 @@ Light:
   m_PrefabParentObject: {fileID: 108662102786880992, guid: 936aa3bec33254b4aa123967fe94b8da,
     type: 2}
   m_PrefabInternal: {fileID: 953471516}
---- !u!1001 &1870903117
+--- !u!1001 &1828675570
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -556,11 +556,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 114313374167932636, guid: eb775c8ec8a70164fbf60264428f8321,
-        type: 2}
-      propertyPath: m_Target
-      value: 
-      objectReference: {fileID: 746511762}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: eb775c8ec8a70164fbf60264428f8321, type: 2}
   m_IsPrefabParent: 0
@@ -712,9 +707,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: Cinemachine.CinemachineBrain+BrainEvent, Assembly-CSharp-firstpass,
-      Version=1.0.6593.18748, Culture=neutral, PublicKeyToken=null
+      Version=1.0.6593.26859, Culture=neutral, PublicKeyToken=null
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: Cinemachine.CinemachineBrain+VcamEvent, Assembly-CSharp-firstpass,
-      Version=1.0.6593.18748, Culture=neutral, PublicKeyToken=null
+      Version=1.0.6593.26859, Culture=neutral, PublicKeyToken=null

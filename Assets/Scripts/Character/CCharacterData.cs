@@ -31,7 +31,10 @@ public class CCharacterData : ScriptableObject {
 	#region Constructor
 
 	public CCharacterData (): base() {
-
+		this.characterName 		= "Empty name";
+		this.moveSpeed 			= 5f;
+		this.m_SolarPoint 		= 0f;
+		this.m_MaxSolarPoint 	= 0f;
 	}
 
 	#endregion
@@ -44,6 +47,5 @@ public class CCharacterData : ScriptableObject {
 	}
 
 	#endregion
-
 
 }

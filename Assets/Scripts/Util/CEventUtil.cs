@@ -23,6 +23,9 @@ namespace UnityEngine.Events.Utils {
 		[Serializable]
 		public class UnityEventVector3: UnityEvent<Vector3> {}
 
+		[Serializable]
+		public class UnityEventGameObject: UnityEvent<GameObject> {}
+
 		[Serializable]	
 		public class UnityEventSendMessage: UnityEvent<string, object> {}
 

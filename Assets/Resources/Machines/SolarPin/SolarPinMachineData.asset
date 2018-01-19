@@ -12,3 +12,5 @@ MonoBehaviour:
   m_Name: SolarPinMachineData
   m_EditorClassIdentifier: 
   machineName: Solar Pin
+  m_PowerPoint: 10
+  m_MaxPowerPoint: 100

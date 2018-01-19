@@ -749,6 +749,7 @@ GameObject:
   - component: {fileID: 114903941963965026}
   - component: {fileID: 114465870578483098}
   - component: {fileID: 136749609288588412}
+  - component: {fileID: 114535789024924872}
   m_Layer: 8
   m_Name: Mars001
   m_TagString: Untagged
@@ -2172,7 +2173,6 @@ MonoBehaviour:
   m_IsActive: 1
   m_DetectTransform: {fileID: 4269342157295882}
   m_DetectRadius: 5
-  m_AutoDetect: 1
   m_DetectLayerMask:
     serializedVersion: 2
     m_Bits: 512
@@ -2411,10 +2411,9 @@ MonoBehaviour:
   - {fileID: 114617059177336552}
   - {fileID: 114611649157505112}
   - {fileID: 114016928984550636}
+  - {fileID: 114903941963965026}
+  - {fileID: 114535789024924872}
   m_IsActive: 1
-  m_AnimatorComponent: {fileID: 114611649157505112}
-  m_MoveComponent: {fileID: 114617059177336552}
-  m_CharacterComponent: {fileID: 114903941963965026}
 --- !u!114 &114531483245967648
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2466,6 +2465,23 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   m_Target: {fileID: 4269342157295882}
   m_MoveComponent: {fileID: 114617059177336552}
+--- !u!114 &114535789024924872
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1833698780043526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b929c0e5bb986a4e8704aa4d6a3d45b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsActive: 1
+  OnConnected:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &114611649157505112
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2499,7 +2515,6 @@ MonoBehaviour:
   m_RotationSpeed: 5
   m_MinDistance: 0.1
   m_TargetPosition: {x: 0, y: 0, z: 0}
-  m_AutoMove: 0
   OnNearestTarget:
     m_PersistentCalls:
       m_Calls: []
@@ -2569,8 +2584,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eeba6d94fce58af47bfe50e1c6e3bfa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_IsActive: 1
-  m_AutoUpdate: 0
+  m_IsActive: 0
   m_InstanceData: {fileID: 11400000, guid: 8e4d226210d953e408da6daef89e8567, type: 2}
 --- !u!114 &114959442673456468
 MonoBehaviour:

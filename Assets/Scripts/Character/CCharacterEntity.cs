@@ -24,9 +24,8 @@ public class CCharacterEntity : CEntity {
 	#region Fields
 
 	[Header("Info")]
-	[SerializeField]	protected CAnimatorComponent m_AnimatorComponent;
-	[SerializeField]	protected CMoveComponent m_MoveComponent;
-	[SerializeField]	protected CDataComponent m_CharacterComponent;
+	protected CAnimatorComponent m_AnimatorComponent;
+	protected CDataComponent m_DataComponent;
 
 	protected CCharacterData m_Data;
 
@@ -53,15 +52,17 @@ public class CCharacterEntity : CEntity {
 
 	#region Implementation Entity
 
+	protected override void Awake ()
+	{
+		base.Awake ();
+		this.m_AnimatorComponent = this.GetGameComponent<CAnimatorComponent> ();
+		this.m_DataComponent = this.GetGameComponent<CDataComponent> ();
+	}
+
 	protected override void Start ()
 	{
 		base.Start ();
-		this.m_Data = this.m_CharacterComponent.Get<CCharacterData>();
-	}
-
-	protected override void Update ()
-	{
-		base.Update ();
+		this.m_Data = this.m_DataComponent.Get<CCharacterData>();
 	}
 
 	protected override void LateUpdate ()
