@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1718518530}
-  m_IndirectSpecularColor: {r: 0.44479376, g: 0.49434102, b: 0.57353944, a: 1}
+  m_IndirectSpecularColor: {r: 0.444794, g: 0.49434167, b: 0.5735402, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -353,14 +353,14 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114350697460145236, guid: 33c8f3689c7d74147bade31c2cca9b4d,
-        type: 2}
-      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 128280554}
     - target: {fileID: 114462032790406242, guid: 33c8f3689c7d74147bade31c2cca9b4d,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 128280554}
+    - target: {fileID: 114350697460145236, guid: 33c8f3689c7d74147bade31c2cca9b4d,
+        type: 2}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 128280554}
     - target: {fileID: 114048694546093216, guid: 33c8f3689c7d74147bade31c2cca9b4d,
@@ -517,6 +517,53 @@ Light:
   m_PrefabParentObject: {fileID: 108662102786880992, guid: 936aa3bec33254b4aa123967fe94b8da,
     type: 2}
   m_PrefabInternal: {fileID: 953471516}
+--- !u!1001 &1870903117
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4300758718817958, guid: eb775c8ec8a70164fbf60264428f8321, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4300758718817958, guid: eb775c8ec8a70164fbf60264428f8321, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4300758718817958, guid: eb775c8ec8a70164fbf60264428f8321, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4300758718817958, guid: eb775c8ec8a70164fbf60264428f8321, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4300758718817958, guid: eb775c8ec8a70164fbf60264428f8321, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4300758718817958, guid: eb775c8ec8a70164fbf60264428f8321, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4300758718817958, guid: eb775c8ec8a70164fbf60264428f8321, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4300758718817958, guid: eb775c8ec8a70164fbf60264428f8321, type: 2}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114313374167932636, guid: eb775c8ec8a70164fbf60264428f8321,
+        type: 2}
+      propertyPath: m_Target
+      value: 
+      objectReference: {fileID: 746511762}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: eb775c8ec8a70164fbf60264428f8321, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &1871484987
 Prefab:
   m_ObjectHideFlags: 0
@@ -665,9 +712,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: Cinemachine.CinemachineBrain+BrainEvent, Assembly-CSharp-firstpass,
-      Version=1.0.6592.38378, Culture=neutral, PublicKeyToken=null
+      Version=1.0.6593.18748, Culture=neutral, PublicKeyToken=null
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: Cinemachine.CinemachineBrain+VcamEvent, Assembly-CSharp-firstpass,
-      Version=1.0.6592.38378, Culture=neutral, PublicKeyToken=null
+      Version=1.0.6593.18748, Culture=neutral, PublicKeyToken=null

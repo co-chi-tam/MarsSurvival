@@ -15,4 +15,10 @@ public class CGameDataCreateAsset
 		ScriptableObjectUtility.CreateAsset<CCharacterData> ();
 	}
 
+	[MenuItem("Game Data/Machine Data")]
+	public static void CreateMachineDataAsset ()
+	{
+		ScriptableObjectUtility.CreateAsset<CMachineData> ();
+	}
+
 }

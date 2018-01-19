@@ -1,0 +1,48 @@
+{
+  "fsm": [
+    {
+      "condition_name": "IsRoot",
+      "state_name": "FSMIdleState",
+      "states": [
+        {
+          "condition_name": "IsMoving&&HaveEnergy",
+          "state_name": "FSMMoveState",
+          "states": [
+          	{
+	          "condition_name": "!IsMoving||!HaveEnergy",
+	          "state_name": "FSMIdleState",
+	          "states": []
+	        }
+          ]
+        },{
+          "condition_name": "!IsMoving&&IsCharging&&IsSunLight",
+          "state_name": "FSMChargingState",
+          "states": [
+	        {
+	          "condition_name": "!IsCharging||!IsSunLight",
+	          "state_name": "FSMIdleState",
+	          "states": []
+	        }
+          ]
+        }
+      ]
+    },
+    {
+      "condition_name": "IsAnyState",
+      "state_name": "AnyState",
+      "states": [
+      	{
+          "condition_name": "!IsActive",
+          "state_name": "FSMDeathState",
+          "states": [
+	        {
+	          "condition_name": "IsActive",
+	          "state_name": "FSMIdleState",
+	          "states": []
+	        }
+          ]
+        }
+      ]
+    }
+  ]
+}

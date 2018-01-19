@@ -2,9 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.Events.Utils;
 
 public class CTopSurfaceComponent : CComponent {
+
+	#region Internal class
+
+	[System.Serializable]
+	public class UnityEventVector3: UnityEvent<Vector3> {}
+
+	#endregion
 
 	#region Fields
 
@@ -18,8 +24,8 @@ public class CTopSurfaceComponent : CComponent {
 	[SerializeField]	protected Transform m_Bottom;
 
 	[Header("Events")]
-	public CEventUtil.UnityEventVector3 OnEnterSurface;
-	public CEventUtil.UnityEventVector3 OnUpdateSurface;
+	public UnityEventVector3 OnEnterSurface;
+	public UnityEventVector3 OnUpdateSurface;
 	public UnityEvent OnOutOfSurface;
 
 	protected Vector3 m_HitSurface = Vector3.zero;

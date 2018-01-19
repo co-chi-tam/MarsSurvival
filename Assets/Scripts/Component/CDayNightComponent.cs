@@ -25,8 +25,16 @@ public class CDayNightComponent : CComponent {
 	protected CDayNightManager m_DayNightManager;
 	protected int m_CurrentDay;
 	protected int m_CurrentHouse;
-	protected int m_UpdateHouse;
+	protected int m_UpdateHour;
 	protected string m_CurrentDate;
+
+	public bool IsLight {
+		get { return this.m_CurrentHouse > 4 && this.m_CurrentHouse < 18; }
+	}
+
+	public bool IsDark {
+		get { return this.IsLight; }
+	}
 
 	#endregion
 
@@ -58,11 +66,11 @@ public class CDayNightComponent : CComponent {
 			}
 			this.m_CurrentHouse = this.m_DayNightManager.hour24;
 		}
-		if (this.m_UpdateHouse != this.m_DayNightManager.hour24) {
+		if (this.m_UpdateHour != this.m_DayNightManager.hour24) {
 			if (this.OnUpdateHouse != null) {
 				this.OnUpdateHouse.Invoke (this.m_DayNightManager.hour24);
 			}
-			this.m_UpdateHouse = this.m_DayNightManager.hour24;
+			this.m_UpdateHour = this.m_DayNightManager.hour24;
 		}
 		// DATE
 		if (this.m_CurrentDate != this.m_DayNightManager.date) {

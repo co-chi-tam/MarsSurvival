@@ -12,12 +12,14 @@ public class CDataComponent : CComponent {
 	#region Fields
 
 	[Header("Configs")]
+	[SerializeField]	protected bool m_AutoUpdate = false;
 	[SerializeField]	protected ScriptableObject m_InstanceData;
 	protected ScriptableObject m_CloneData;
 
 	protected Dictionary<string, Func<object, object, object>> m_UpdateMethods;
 
 	protected float m_TimerPerSecond = 1f;
+	protected float m_TimerPerInvoke = 1f;
 
 	#endregion
 
@@ -41,14 +43,8 @@ public class CDataComponent : CComponent {
 	protected override void Update ()
 	{
 		base.Update ();
-		if (this.m_IsActive == false)
-			return;
-		// UPDATE PER SECOND
-		if (this.m_TimerPerSecond > 0) {
-			this.m_TimerPerSecond -= Time.deltaTime;
-		} else {
-			this.UpdateByAttribute ();
-			this.m_TimerPerSecond = 1f;
+		if (this.m_AutoUpdate) {
+			this.UpdateDataPerSecond (Time.deltaTime);
 		}
 	}
 
@@ -61,6 +57,8 @@ public class CDataComponent : CComponent {
 	}
 
 	protected virtual object UpdateDecrease (object value, object updateValue) {
+		if (updateValue == null)
+			return 0;
 		if (value is int) {
 			var intValue = (int)value - (int)updateValue;
 			return intValue;
@@ -75,6 +73,8 @@ public class CDataComponent : CComponent {
 	}
 
 	protected virtual object UpdateIncrease (object value, object updateValue) {
+		if (updateValue == null)
+			return 0;
 		if (value is int) {
 			var intValue = (int)value + (int)updateValue;
 			return intValue;
@@ -88,17 +88,51 @@ public class CDataComponent : CComponent {
 		return value;
 	}
 
-	protected virtual void UpdateByAttribute() {
+	public virtual void UpdateDataPerSecond(float dt) {
 		if (this.m_InstanceData == null || this.m_CloneData == null)
 			return;
+		// UPDATE PER SECOND
+		if (this.m_TimerPerSecond > 0) {
+			this.m_TimerPerSecond -= dt;
+			return;
+		} else {
+			this.m_TimerPerSecond = 1f;
+		}
 		// GET PROPERTIES ATTRIBUTE
 		var fields = this.m_CloneData.GetType ().GetProperties ();
 		foreach (var fld in fields) {
-			foreach (var attr in fld.GetCustomAttributes(
-				typeof (MarkerValueAttribute), false)) {
-				var marker = attr as MarkerValueAttribute;
-				var value = this.m_UpdateMethods [marker.updateMethod] (fld.GetValue(this.m_CloneData, null), marker.updateValuePerSecond);
-				fld.SetValue (this.m_CloneData, value, null);
+			foreach (var attr in fld.GetCustomAttributes(typeof (UpdateValuePerSecondAttribute), false)) {
+				var marker = attr as UpdateValuePerSecondAttribute;
+				if (this.m_UpdateMethods.ContainsKey (marker.updateMethod)) {
+					var value = this.m_UpdateMethods [marker.updateMethod] (fld.GetValue (this.m_CloneData, null), marker.updateValuePerSecond);
+					fld.SetValue (this.m_CloneData, value, null);
+				}
+			}
+		}
+	}
+
+	public virtual void UpdateDataPerInvoke(string name) {
+		if (this.m_InstanceData == null || this.m_CloneData == null)
+			return;
+		// UPDATE PER SECOND
+		if (this.m_TimerPerInvoke > 0) {
+			this.m_TimerPerInvoke -= Time.deltaTime;
+			return;
+		} else {
+			this.m_TimerPerInvoke = 1f;
+		}
+		// GET PROPERTIES ATTRIBUTE
+		var fields = this.m_CloneData.GetType ().GetProperties ();
+		foreach (var fld in fields) {
+			foreach (var attr in fld.GetCustomAttributes(typeof (UpdateValuePerInvokeAttribute), false)) {
+				var marker = attr as UpdateValuePerInvokeAttribute;
+				if (marker.updateName == name &&
+					this.m_UpdateMethods.ContainsKey (marker.updateMethod)) {
+					var value = this.m_UpdateMethods [marker.updateMethod] (
+						fld.GetValue (this.m_CloneData, null), 
+						marker.updateValuePerInvoke);
+					fld.SetValue (this.m_CloneData, value, null);
+				}
 			}
 		}
 	}

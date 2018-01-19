@@ -25,6 +25,10 @@ public class CMoveComponent : CComponent {
 	}
 	protected float m_PreviousMoveSpeed;
 	[SerializeField]	protected float m_MinDistance = 0.1f;
+	public float minDistance {
+		get { return this.m_MinDistance; }
+		set { this.m_MinDistance = value; }
+	}
 	public Vector3 currentPosition {
 		get { return this.transform.position; }
 		set { this.transform.position = value; }
