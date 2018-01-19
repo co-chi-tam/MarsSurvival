@@ -194,8 +194,8 @@ public class CMapManager : CMonoSingleton<CMapManager> {
 		var reLoadTile = origin;
 		for (int i = 0; i < this.m_ReusePlaces.Count; i++) {
 			if (this.m_ReusePlaces [i].tag == origin.tag) {
-				needRenew = false;
 				reLoadTile = this.m_ReusePlaces [i];
+				needRenew = false;
 				break;
 			}
 		}
