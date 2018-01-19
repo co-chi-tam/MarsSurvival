@@ -9,6 +9,13 @@ using Ludiq.Reflection;
 [RequireComponent(typeof(CPhysicDetectComponent))]
 public class CLineTerminalComponent : CComponent {
 
+	#region Internal Class
+
+	[Serializable]
+	public class UnityEventInt: UnityEvent<int> {}
+
+	#endregion
+
 	#region Fields
 
 	[SerializeField]	protected Transform m_Source;
@@ -50,10 +57,10 @@ public class CLineTerminalComponent : CComponent {
 	protected override void LateUpdate ()
 	{
 		base.LateUpdate ();
-		// FREE LINE
-		if (this.m_IsActive == false)
-			return;
-		this.DrawLine ();
+		// AUTO DRAW LINE
+		if (this.m_IsActive) {
+			this.DrawLine ();
+		}
 	}
 
 	#endregion
@@ -82,39 +89,40 @@ public class CLineTerminalComponent : CComponent {
 		// DETECT PHYSIC
 		var detectCount = this.m_PhysicDetectComponent.colliderCount;
 		var isFree = true;
-		for (int i = 0; i < this.m_LineRenderers.Length; i++) {
+		// FREE LINE
+		this.EraseLine ();
+		var colliderIndex = 0;
+		for (int i = 0; i < detectCount; i++) {
 			// LINE RENDERER
-			var line = this.m_LineRenderers[i];
-			// FREE LINE
-			line.gameObject.SetActive (false);
-			if (i < detectCount) {
-				// DRAW LINE
-				var targetObject = this.m_PhysicDetectComponent.sampleColliders [i];
-				var lineEnd = targetObject.GetComponent<CLineEndComponent> ();
-				if (lineEnd != null) {
-					// CONNECTED
-					lineEnd.ConnectedLine ();
-					if (this.OnConnected != null) {
-						this.OnConnected.Invoke ();
+			var line = this.m_LineRenderers[colliderIndex];
+			// DRAW LINE
+			var targetObject = this.m_PhysicDetectComponent.sampleColliders [i];
+			var lineEnd = targetObject.GetComponent<CLineEndComponent> ();
+			if (lineEnd != null) {
+				// CONNECTED
+				lineEnd.ConnectedLine ();
+				for (int x = 0; x < line.positionCount; x++) {
+					var lerp = Vector3.Lerp (this.m_Source.position, lineEnd.transform.position, this.m_SegmentOffset * x);
+					var groundHitCount = Physics.RaycastNonAlloc (lerp + (Vector3.up * 50f), Vector3.down, this.m_HitInfoSamples, 100f, this.m_GroundLayerMask);
+					if (groundHitCount > 0) {
+						var hitInfo = this.m_HitInfoSamples [0];
+						lerp.y = hitInfo.point.y + this.m_GroundRadius;
 					}
-					for (int x = 0; x < line.positionCount; x++) {
-						var lerp = Vector3.Lerp (this.m_Source.position, lineEnd.transform.position, this.m_SegmentOffset * x);
-						var groundHitCount = Physics.RaycastNonAlloc (lerp + (Vector3.up * 50f), Vector3.down, this.m_HitInfoSamples, 100f, this.m_GroundLayerMask);
-						if (groundHitCount > 0) {
-							var hitInfo = this.m_HitInfoSamples [0];
-							lerp.y = hitInfo.point.y + this.m_GroundRadius;
-						}
-						line.SetPosition (x, lerp);
-					}
-					line.gameObject.SetActive (true);
-					isFree = false;
+					line.SetPosition (x, lerp);
 				}
+				line.gameObject.SetActive (true);
+				isFree = false;
+				colliderIndex++;
 			}
 		}
 		// EVENTS
 		if (isFree) {
 			if (this.OnFree != null) {
 				this.OnFree.Invoke ();
+			}
+		} else {
+			if (this.OnConnected != null) {
+				this.OnConnected.Invoke ();
 			}
 		}
 	}

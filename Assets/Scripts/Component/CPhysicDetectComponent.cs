@@ -101,6 +101,10 @@ public class CPhysicDetectComponent : CComponent {
 			}
 			this.m_PreviousCount = this.m_ColliderCount;
 		}
+		// RESET
+//		for (int i = 0; i < this.m_SampleColliders.Length; i++) {
+//			this.m_SampleColliders [i] = null;
+//		}
 	}
 
 	public override void Reset ()

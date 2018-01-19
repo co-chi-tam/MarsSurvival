@@ -6,16 +6,14 @@ public class CMachineEntity : CEntity {
 
 	#region Fields
 
+	[SerializeField]	protected bool m_HaveEnergy;
+	public virtual bool HaveEnergy {
+		get { return this.m_HaveEnergy; }
+		set { this.m_HaveEnergy = value; }
+	}
+
 	protected CDataComponent m_DataComponent;
 	protected CMachineData m_Data;
-
-	public virtual bool HaveEnergy {
-		get { 
-			if (this.m_Data == null)
-				return true; 
-			return this.m_Data.powerPoint > 0;
-		}
-	}
 
 	#endregion
 
