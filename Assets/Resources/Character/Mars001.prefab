@@ -2230,12 +2230,12 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: CDayNightComponent+UnityEventInt, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  OnEnterHouse:
+  OnEnterHour:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: CDayNightComponent+UnityEventInt, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  OnUpdateHouse:
+  OnUpdateHour:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: CDayNightComponent+UnityEventInt, Assembly-CSharp, Version=0.0.0.0,
@@ -2244,6 +2244,16 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: CDayNightComponent+UnityEventString, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnDay:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnNight:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114153671330175800
 MonoBehaviour:
@@ -2270,7 +2280,7 @@ MonoBehaviour:
       _parameterTypes: []
       _target: {fileID: 1833698780043526}
       _component: CCharacterEntity
-      _name: isActive
+      _name: IsActive
   - conditionName: IsMoving
     conditionVariable:
       _parameterTypes: []
@@ -2380,7 +2390,18 @@ MonoBehaviour:
   m_IsActive: 1
   OnConnected:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114903941963965026}
+        m_MethodName: UpdateDataPerInvoke
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: ChargingSolar
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: CLineEndComponent+UnityEventGameObject, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   OnFree:
@@ -2637,7 +2658,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 2
-  m_Height: 5
+  m_Radius: 1
+  m_Height: 1
   m_Direction: 1
-  m_Center: {x: 0, y: 2.5, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}

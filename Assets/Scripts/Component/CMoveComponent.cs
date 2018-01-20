@@ -68,7 +68,7 @@ public class CMoveComponent : CComponent {
 	{
 		base.Awake ();
 		this.m_PreviousMoveSpeed = this.m_MoveSpeed;
-		this.m_TargetPosition = this.transform.position;
+		this.m_MovePoint = this.m_TargetPosition = this.transform.position;
 	}
 
 	protected override void Update ()
@@ -76,13 +76,6 @@ public class CMoveComponent : CComponent {
 		base.Update ();
 		if (this.m_IsActive) {
 			this.SetupMove (Time.deltaTime);
-		}
-	}
-
-	protected override void LateUpdate ()
-	{
-		base.LateUpdate ();
-		if (this.m_IsActive) {
 			this.UpdateStepOnGround (Time.deltaTime);
 		}
 	}
@@ -120,7 +113,6 @@ public class CMoveComponent : CComponent {
 
 	public virtual void SetupMove(float dt) {
 		var direction = this.m_TargetPosition - this.m_Transform.position;
-
 		if (direction.sqrMagnitude > this.m_MinDistance * this.m_MinDistance * this.m_MoveSpeed) {
 			// Position
 			this.m_MovePoint = this.m_Transform.position + direction.normalized * this.m_MoveSpeed * dt;

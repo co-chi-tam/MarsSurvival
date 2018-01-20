@@ -1,79 +1,56 @@
 fileFormatVersion: 2
-guid: 644006a8127537f4386f203c60ea6003
-timeCreated: 1516367698
+guid: f8c3dd72731d9aa4db75debd1f33c4fe
+timeCreated: 1516444634
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: BackBone
-    100002: BackBox.000
-    100004: BottomBox.000
-    100006: FronBox.000
-    100008: FrontBone
-    100010: FrontBone_end
-    100012: LeftBone
-    100014: LeftBone_end
-    100016: LeftBox.000
-    100018: RightBone
-    100020: RightBone_end
-    100022: RightBox.000
-    100024: RootBone
-    100026: //RootNode
-    100028: TopBone
-    100030: TopBone_end
-    100032: TopBox.000
-    400000: BackBone
-    400002: BackBox.000
-    400004: BottomBox.000
-    400006: FronBox.000
-    400008: FrontBone
-    400010: FrontBone_end
-    400012: LeftBone
-    400014: LeftBone_end
-    400016: LeftBox.000
-    400018: RightBone
-    400020: RightBone_end
-    400022: RightBox.000
-    400024: RootBone
-    400026: //RootNode
-    400028: TopBone
-    400030: TopBone_end
-    400032: TopBox.000
-    2100000: Mars001-Material
-    2100002: Solar-Material
-    2300000: BackBox.000
-    2300002: BottomBox.000
-    2300004: FronBox.000
-    2300006: LeftBox.000
-    2300008: RightBox.000
-    2300010: TopBox.000
-    3300000: BackBox.000
-    3300002: BottomBox.000
-    3300004: FronBox.000
-    3300006: LeftBox.000
-    3300008: RightBox.000
-    3300010: TopBox.000
-    4300000: BottomBox.000
-    4300002: FronBox.000
-    4300004: BackBox.000
-    4300006: TopBox.000
-    4300008: LeftBox.000
-    4300010: RightBox.000
+    100000: CircleBone.003
+    100002: CircleBone.003_end
+    100004: CircleBone.004
+    100006: CircleBone.004_end
+    100008: CircleBone.005
+    100010: CircleBone.005_end
+    100012: //RootNode
+    100014: Driller.001
+    100016: Driller.002
+    100018: Driller.003
+    100020: Driller.004
+    100022: RootBone
+    400000: CircleBone.003
+    400002: CircleBone.003_end
+    400004: CircleBone.004
+    400006: CircleBone.004_end
+    400008: CircleBone.005
+    400010: CircleBone.005_end
+    400012: //RootNode
+    400014: Driller.001
+    400016: Driller.002
+    400018: Driller.003
+    400020: Driller.004
+    400022: RootBone
+    2100000: ColorBoard
+    2300000: Driller.001
+    2300002: Driller.002
+    2300004: Driller.003
+    2300006: Driller.004
+    3300000: Driller.001
+    3300002: Driller.002
+    3300004: Driller.003
+    3300006: Driller.004
+    4300000: Driller.001
+    4300002: Driller.004
+    4300004: Driller.003
+    4300006: Driller.002
     7400000: Idle
-    7400002: EnterCharging
-    7400004: Charging
+    7400002: Working
     9500000: //RootNode
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Mars001-Material
-    second: {fileID: 2100000, guid: f92fc86b72394fd44b8c87b0c25ad0bc, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Solar-Material
-    second: {fileID: 2100000, guid: 82e64be6bb3d0ff4a960bbc8a92f1fab, type: 2}
+      name: ColorBoard
+    second: {fileID: 2100000, guid: f52aef9d8cc25b84eb1c2dfa86f459f6, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -92,7 +69,7 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -129,36 +106,8 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: EnterCharging
-      takeName: EnterCharging
-      firstFrame: 0
-      lastFrame: 59
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: Charging
-      takeName: Charging
+      name: Working
+      takeName: Working
       firstFrame: 0
       lastFrame: 59
       wrapMode: 0

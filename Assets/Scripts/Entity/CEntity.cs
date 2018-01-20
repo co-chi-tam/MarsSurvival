@@ -12,10 +12,12 @@ public class CEntity : MonoBehaviour {
 	[SerializeField]	protected CComponent[] m_Components = new CComponent[0];
 
 	[SerializeField]	protected bool m_IsActive;
-	public virtual bool isActive {
+	public virtual bool IsActive {
 		get { return this.m_IsActive; }
 		set { this.m_IsActive = value; }
 	}
+
+	protected int m_AnimationInt;
 
 	#endregion
 
@@ -71,6 +73,10 @@ public class CEntity : MonoBehaviour {
 
 	public virtual bool GetActive() {
 		return this.m_IsActive;
+	}
+
+	public virtual void SetAnimation(int value) {
+		this.m_AnimationInt = value;
 	}
 
 	#endregion

@@ -20,7 +20,7 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.7352941, g: 0.7352941, b: 0.65960205, a: 1}
+  m_AmbientSkyColor: {r: 0.7372549, g: 0.7372549, b: 0.6, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
@@ -295,6 +295,36 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114069147649433130, guid: 936aa3bec33254b4aa123967fe94b8da,
+        type: 2}
+      propertyPath: m_DayNightLightColor.key0.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114069147649433130, guid: 936aa3bec33254b4aa123967fe94b8da,
+        type: 2}
+      propertyPath: m_DayNightLightColor.key0.g
+      value: 0.18007103
+      objectReference: {fileID: 0}
+    - target: {fileID: 114069147649433130, guid: 936aa3bec33254b4aa123967fe94b8da,
+        type: 2}
+      propertyPath: m_DayNightLightColor.key0.b
+      value: 0.3897059
+      objectReference: {fileID: 0}
+    - target: {fileID: 114069147649433130, guid: 936aa3bec33254b4aa123967fe94b8da,
+        type: 2}
+      propertyPath: m_DayNightLightColor.key2.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114069147649433130, guid: 936aa3bec33254b4aa123967fe94b8da,
+        type: 2}
+      propertyPath: m_DayNightLightColor.key2.g
+      value: 0.18039216
+      objectReference: {fileID: 0}
+    - target: {fileID: 114069147649433130, guid: 936aa3bec33254b4aa123967fe94b8da,
+        type: 2}
+      propertyPath: m_DayNightLightColor.key2.b
+      value: 0.3882353
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 936aa3bec33254b4aa123967fe94b8da, type: 2}
   m_IsPrefabParent: 0
@@ -413,83 +443,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 33c8f3689c7d74147bade31c2cca9b4d, type: 2}
   m_IsPrefabParent: 0
---- !u!1001 &1058156591
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4300758718817958, guid: eb775c8ec8a70164fbf60264428f8321, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 4300758718817958, guid: eb775c8ec8a70164fbf60264428f8321, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4300758718817958, guid: eb775c8ec8a70164fbf60264428f8321, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4300758718817958, guid: eb775c8ec8a70164fbf60264428f8321, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4300758718817958, guid: eb775c8ec8a70164fbf60264428f8321, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4300758718817958, guid: eb775c8ec8a70164fbf60264428f8321, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4300758718817958, guid: eb775c8ec8a70164fbf60264428f8321, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4300758718817958, guid: eb775c8ec8a70164fbf60264428f8321, type: 2}
-      propertyPath: m_RootOrder
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 114934804190043580, guid: eb775c8ec8a70164fbf60264428f8321,
-        type: 2}
-      propertyPath: OnDay.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1272919303}
-    - target: {fileID: 114934804190043580, guid: eb775c8ec8a70164fbf60264428f8321,
-        type: 2}
-      propertyPath: OnDay.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetAnimation
-      objectReference: {fileID: 0}
-    - target: {fileID: 114934804190043580, guid: eb775c8ec8a70164fbf60264428f8321,
-        type: 2}
-      propertyPath: OnDay.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114934804190043580, guid: eb775c8ec8a70164fbf60264428f8321,
-        type: 2}
-      propertyPath: OnDay.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114934804190043580, guid: eb775c8ec8a70164fbf60264428f8321,
-        type: 2}
-      propertyPath: OnNight.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1272919303}
-    - target: {fileID: 114934804190043580, guid: eb775c8ec8a70164fbf60264428f8321,
-        type: 2}
-      propertyPath: OnNight.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetAnimation
-      objectReference: {fileID: 0}
-    - target: {fileID: 114934804190043580, guid: eb775c8ec8a70164fbf60264428f8321,
-        type: 2}
-      propertyPath: OnNight.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 3
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: eb775c8ec8a70164fbf60264428f8321, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &1139501564
 GameObject:
   m_ObjectHideFlags: 0
@@ -546,12 +499,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: 0, z: 0}
---- !u!114 &1272919303 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114833047093308908, guid: eb775c8ec8a70164fbf60264428f8321,
-    type: 2}
-  m_PrefabInternal: {fileID: 1058156591}
-  m_Script: {fileID: 11500000, guid: 7039c703dfac664488cea02862b44371, type: 3}
 --- !u!1 &1397375812
 GameObject:
   m_ObjectHideFlags: 3
@@ -748,9 +695,51 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: Cinemachine.CinemachineBrain+BrainEvent, Assembly-CSharp-firstpass,
-      Version=1.0.6593.34672, Culture=neutral, PublicKeyToken=null
+      Version=1.0.6594.32095, Culture=neutral, PublicKeyToken=null
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: Cinemachine.CinemachineBrain+VcamEvent, Assembly-CSharp-firstpass,
-      Version=1.0.6593.34672, Culture=neutral, PublicKeyToken=null
+      Version=1.0.6594.32095, Culture=neutral, PublicKeyToken=null
+--- !u!1001 &2053207165
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4300758718817958, guid: eb775c8ec8a70164fbf60264428f8321, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 17.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4300758718817958, guid: eb775c8ec8a70164fbf60264428f8321, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4300758718817958, guid: eb775c8ec8a70164fbf60264428f8321, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4300758718817958, guid: eb775c8ec8a70164fbf60264428f8321, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4300758718817958, guid: eb775c8ec8a70164fbf60264428f8321, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4300758718817958, guid: eb775c8ec8a70164fbf60264428f8321, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4300758718817958, guid: eb775c8ec8a70164fbf60264428f8321, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4300758718817958, guid: eb775c8ec8a70164fbf60264428f8321, type: 2}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: eb775c8ec8a70164fbf60264428f8321, type: 2}
+  m_IsPrefabParent: 0

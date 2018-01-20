@@ -12,6 +12,12 @@ public class CDataComponent : CComponent {
 	#region Fields
 
 	[Header("Configs")]
+	[Range(1, 999)]
+	[SerializeField]	protected int m_UpdateDeltaSpeed = 1;
+	public int updateDeltaSpeed {
+		get { return this.m_UpdateDeltaSpeed; }
+		set { this.m_UpdateDeltaSpeed = value < 1 ? 1 : value > 999 ? 999 : value; }
+	}
 	[SerializeField]	protected ScriptableObject m_InstanceData;
 	protected ScriptableObject m_CloneData;
 	public ScriptableObject cloneData {
@@ -96,7 +102,7 @@ public class CDataComponent : CComponent {
 			return;
 		// UPDATE PER SECOND
 		if (this.m_TimerPerSecond > 0) {
-			this.m_TimerPerSecond -= dt;
+			this.m_TimerPerSecond -= dt * this.m_UpdateDeltaSpeed;
 			return;
 		} else {
 			this.m_TimerPerSecond = 1f;
@@ -119,7 +125,7 @@ public class CDataComponent : CComponent {
 			return;
 		// UPDATE PER SECOND
 		if (this.m_TimerPerInvoke > 0) {
-			this.m_TimerPerInvoke -= Time.deltaTime;
+			this.m_TimerPerInvoke -= Time.deltaTime * this.m_UpdateDeltaSpeed;
 			return;
 		} else {
 			this.m_TimerPerInvoke = 1f;

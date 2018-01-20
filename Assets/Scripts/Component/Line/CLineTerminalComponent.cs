@@ -24,11 +24,12 @@ public class CLineTerminalComponent : CComponent {
 	[SerializeField]	protected int m_MaximumLine = 1;
 	[SerializeField]	protected LayerMask m_GroundLayerMask;
 	[SerializeField]	protected float m_GroundRadius = 1f;
+	[SerializeField]	protected float m_GroundHeight = 50f;
 	[SerializeField]	protected LineRenderer m_LinePrefabs;
 	[SerializeField]	protected LineRenderer[] m_LineRenderers;
 
 	[Header("Events")]
-	public UnityEvent OnConnected;
+	public UnityEventInt OnConnected;
 	public UnityEvent OnFree;
 
 	protected CPhysicDetectComponent m_PhysicDetectComponent;
@@ -103,7 +104,7 @@ public class CLineTerminalComponent : CComponent {
 				if (lineEnd.ConnectedLine (this.gameObject)) {
 					for (int x = 0; x < line.positionCount; x++) {
 						var lerp = Vector3.Lerp (this.m_Source.position, lineEnd.transform.position, this.m_SegmentOffset * x);
-						var groundHitCount = Physics.RaycastNonAlloc (lerp + (Vector3.up * 50f), Vector3.down, this.m_HitInfoSamples, 100f, this.m_GroundLayerMask);
+						var groundHitCount = Physics.RaycastNonAlloc (lerp + (Vector3.up * this.m_GroundHeight), Vector3.down, this.m_HitInfoSamples, 100f, this.m_GroundLayerMask);
 						if (groundHitCount > 0) {
 							var hitInfo = this.m_HitInfoSamples [0];
 							lerp.y = hitInfo.point.y + this.m_GroundRadius;
@@ -123,7 +124,7 @@ public class CLineTerminalComponent : CComponent {
 			}
 		} else {
 			if (this.OnConnected != null) {
-				this.OnConnected.Invoke ();
+				this.OnConnected.Invoke (colliderIndex);
 			}
 		}
 	}

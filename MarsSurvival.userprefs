@@ -1,10 +1,14 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Machine\CSolarPinMachineEntity.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\PowerGenerator\CPowerGeneratorMachineEntity.cs">
     <Files>
-      <File FileName="Assets\Scripts\Component\CDayNightComponent.cs" Line="21" Column="35" />
-      <File FileName="Assets\Scripts\Machine\CSolarPinMachineEntity.cs" Line="58" Column="28" />
-      <File FileName="Assets\Scripts\Character\CCharacterEntity.cs" Line="82" Column="12" />
+      <File FileName="Assets\Scripts\PowerGenerator\CPowerGeneratorMachineData.cs" Line="13" Column="100" />
+      <File FileName="Assets\Scripts\Component\Data\CDataComponent.cs" Line="23" Column="2" />
+      <File FileName="Assets\Scripts\Component\Line\CLineTerminalComponent.cs" Line="123" Column="27" />
+      <File FileName="Assets\Scripts\Character\CCharacterData.cs" Line="34" Column="38" />
+      <File FileName="Assets\Resources\Machines\PowerGenerator\FSMPowerGeneratorGraph.txt" Line="18" Column="8" />
+      <File FileName="Assets\Scripts\PowerGenerator\CPowerGeneratorMachineEntity.cs" Line="27" Column="1" />
+      <File FileName="Assets\Scripts\Character\CCharacterEntity.cs" Line="64" Column="41" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

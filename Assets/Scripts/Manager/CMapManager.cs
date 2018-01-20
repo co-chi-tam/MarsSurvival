@@ -23,7 +23,7 @@ public class CMapManager : CMonoSingleton<CMapManager> {
 	[SerializeField]	protected Transform m_Target;
 	[SerializeField]	protected Vector3 m_CurrentPosition;
 	protected Vector3 m_PreviousPosition = new Vector3(-999f, 0f, -999f);
-	[SerializeField]	protected bool m_NeedUpdate = false;
+	protected bool m_NeedUpdate = false;
 
 	#endregion
 

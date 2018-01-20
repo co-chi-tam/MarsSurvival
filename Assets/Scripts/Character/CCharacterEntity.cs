@@ -28,7 +28,7 @@ public class CCharacterEntity : CEntity {
 
 	protected CCharacterData m_Data;
 
-	public override bool isActive {
+	public override bool IsActive {
 		get { return this.m_IsActive; }
 		set { this.m_IsActive = value; }
 	}
@@ -83,7 +83,8 @@ public class CCharacterEntity : CEntity {
 
 	#region Getter && Setter
 
-	public virtual void SetAnimation(int value) {
+	public override void SetAnimation(int value) {
+		base.SetAnimation (value);
 		CGameDataManager.Instance.animationValue = value;
 	}
 

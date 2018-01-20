@@ -8,14 +8,18 @@ public class CMachineData : ScriptableObject {
 	#region Fields
 
 	[Header("Fields")]
-	public string machineName;
+	protected string m_MachineName;
+	public virtual string machineName {
+		get { return this.m_MachineName; }
+		set { this.m_MachineName = value; }
+	}
 
 	#endregion
 
 	#region Constructor
 
 	public CMachineData (): base() {
-		this.machineName 		= "Empty name";
+		this.m_MachineName	= "Empty name";
 	}
 
 	#endregion
@@ -24,7 +28,7 @@ public class CMachineData : ScriptableObject {
 
 	public override string ToString ()
 	{
-		return string.Format ("[CMachineData] machineName: {0}", this.machineName);
+		return string.Format ("[CMachineData] machineName: {0}", this.m_MachineName);
 	}
 
 	#endregion
