@@ -14,6 +14,10 @@ public class CComponent : MonoBehaviour {
 	}
 
 	protected Transform m_Transform;
+	public virtual Transform myTransform {
+		get { return this.m_Transform; }
+		set { this.m_Transform = value; }
+	}
 
 	#endregion
 

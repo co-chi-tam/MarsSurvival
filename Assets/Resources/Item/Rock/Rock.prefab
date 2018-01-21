@@ -250,7 +250,7 @@ MonoBehaviour:
   m_Components:
   - {fileID: 114174502094595662}
   - {fileID: 114568489988550886}
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!136 &136660503675256358
 CapsuleCollider:
   m_ObjectHideFlags: 1

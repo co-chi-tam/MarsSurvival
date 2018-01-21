@@ -32,8 +32,7 @@ public class CUIInventoryDisplay : MonoBehaviour {
 
 	#region Main methods
 
-	public virtual void UpdateInventory() {
-		var items = CGameDataManager.Instance.items;
+	public virtual void UpdateInventory(List<CItemData> items) {
 		for (int i = 0; i < this.m_DisplayItems.Count; i++) {
 			var itemDisplay = this.m_DisplayItems [i];
 			if (i < items.Count) {

@@ -9,18 +9,6 @@ public class CGameDataManager : CMonoSingleton<CGameDataManager> {
 
 	#region Fields
 
-	[Header("Game configs")]
-	[SerializeField]	protected List<CItemData> m_Items;
-	public List<CItemData> items {
-		get { 
-			if (this.m_Items == null) {
-				this.m_Items = new List<CItemData> ();
-			}
-			return this.m_Items;
-		}
-		set { this.m_Items = new List<CItemData> (value); }
-	}
-
 	[Header("Events")]
 	[Filter(Fields = true, Properties = true, Methods = true)]
 	public UnityMember OnSolarPoint;

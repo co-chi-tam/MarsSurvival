@@ -43,6 +43,11 @@ public class CMoveComponent : CComponent {
 		set { this.m_TargetPosition = value; }
 	}
 
+	public override Transform myTransform {
+		get { return base.myTransform; }
+		set { base.myTransform = value; }
+	}
+
 	[Header("Events")]
 	public UnityEvent OnNearestTarget;
 	public UnityEvent OnMove;

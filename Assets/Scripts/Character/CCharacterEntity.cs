@@ -26,6 +26,7 @@ public class CCharacterEntity : CEntity, IContext {
 
 	protected CAnimatorComponent m_AnimatorComponent;
 	protected CDataComponent m_DataComponent;
+	protected CInventoryComponent m_InventoryComponent;
 
 	protected CCharacterData m_Data;
 
@@ -83,6 +84,19 @@ public class CCharacterEntity : CEntity, IContext {
 		set { this.m_DeltaMovePoint = value ? Vector3.zero : Vector3.right; }
 	}
 
+	public List<CItemData> inventoryItems {
+		get { 
+			if (this.m_Data == null)
+				return new List<CItemData>();
+			return this.m_Data.items; 
+		}
+		set {
+			if (this.m_Data == null)
+				return;
+			this.m_Data.items = value;
+		}
+	}
+
 	#endregion
 
 	#region Implementation Entity
@@ -92,12 +106,14 @@ public class CCharacterEntity : CEntity, IContext {
 		base.Awake ();
 		this.m_AnimatorComponent = this.GetGameComponent<CAnimatorComponent> ();
 		this.m_DataComponent = this.GetGameComponent<CDataComponent> ();
+		this.m_InventoryComponent = this.GetGameComponent<CInventoryComponent> ();
 	}
 
 	protected override void Start ()
 	{
 		base.Start ();
 		this.m_Data = this.m_DataComponent.Get<CCharacterData>();
+		this.m_InventoryComponent.items = this.m_Data.items;
 	}
 
 	protected override void LateUpdate ()

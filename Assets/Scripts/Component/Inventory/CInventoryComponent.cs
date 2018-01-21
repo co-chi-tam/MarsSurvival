@@ -15,16 +15,8 @@ public class CInventoryComponent : CComponent {
 	[SerializeField]	protected LayerMask m_ItemLayerMask = -1;
 	[SerializeField]	protected List<CItemData> m_Items;
 	public List<CItemData> items {
-		get { 
-			if (this.m_Items == null) {
-				this.m_Items = CGameDataManager.Instance.items;
-			}
-			return this.m_Items;
-		}
-		set { 
-			CGameDataManager.Instance.items = new List<CItemData> (value);
-			this.m_Items = CGameDataManager.Instance.items; 
-		}
+		get { return this.m_Items; }
+		set { this.m_Items = value; }
 	}
 
 	[Header("Events")]
@@ -46,12 +38,15 @@ public class CInventoryComponent : CComponent {
 	protected override void Start ()
 	{
 		base.Start ();
-		this.m_Items = CGameDataManager.Instance.items; 
 	}
 
 	#endregion
 
 	#region Main methods
+
+	public virtual void InstanceInventory(List<CItemData> items) {
+		this.m_Items = items; 
+	}
 
 	public virtual void PickItem() {
 		if (this.m_PhysicDetect.colliderCount == 0) {
@@ -103,7 +98,6 @@ public class CInventoryComponent : CComponent {
 		if (this.OnPickItem != null) {
 			this.OnPickItem.Invoke ();
 		}
-		CGameDataManager.Instance.InvokeCallback ("UpdateInventory");
 	}
 
 	public virtual void RemoveDuplicateItem() {

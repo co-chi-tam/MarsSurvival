@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System;
 using System.Collections;
+using System.Collections.Generic;
 
 [Serializable]
 public class CCharacterData : ScriptableObject {
@@ -35,6 +36,12 @@ public class CCharacterData : ScriptableObject {
 		set { this.m_MaxSolarPoint = value; }
 	}
 
+	[SerializeField]	protected List<CItemData> m_Items;
+	public List<CItemData> items {
+		get { return this.m_Items; }
+		set { this.m_Items = new List<CItemData> (value); }
+	}
+
 	#endregion
 
 	#region Constructor
@@ -44,6 +51,7 @@ public class CCharacterData : ScriptableObject {
 		this.moveSpeed 			= 5f;
 		this.m_SolarPoint 		= 0f;
 		this.m_MaxSolarPoint 	= 0f;
+		this.m_Items 			= new List<CItemData> ();
 	}
 
 	#endregion

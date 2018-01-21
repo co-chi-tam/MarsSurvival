@@ -13,7 +13,7 @@ public class CInOutTriggerData {
 		get { return this.m_TriggerName; }
 		set { this.m_TriggerName = value; }
 	}
-	[Filter(Fields = true, Methods = true, Properties = true)]
+	[Filter(Fields = true, Properties = true, Methods = true)]
 	public UnityMember OnTriggerInvoke;
 
 	#endregion

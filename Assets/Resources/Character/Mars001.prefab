@@ -2515,6 +2515,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_IsActive: 1
+  m_AdapterPrefab: {fileID: 114300399984846678, guid: 1cbbf5ac1ab7c7a42b69a63dfd3aeb3d,
+    type: 2}
   m_DataResponses:
   - m_TriggerName: InvokePickItem
     OnTriggerInvoke:
@@ -2540,6 +2542,18 @@ MonoBehaviour:
       _target: {fileID: 114903941963965026}
       _component: CCharacterEntity
       _name: deltaMovePoint
+  - m_TriggerName: GetInventoryItems
+    OnTriggerInvoke:
+      _parameterTypes: []
+      _target: {fileID: 1833698780043526}
+      _component: CCharacterEntity
+      _name: inventoryItems
+  - m_TriggerName: GetTransform
+    OnTriggerInvoke:
+      _parameterTypes: []
+      _target: {fileID: 1833698780043526}
+      _component: CMoveComponent
+      _name: myTransform
 --- !u!114 &114903941963965026
 MonoBehaviour:
   m_ObjectHideFlags: 1

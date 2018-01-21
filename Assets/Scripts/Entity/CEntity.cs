@@ -65,8 +65,12 @@ public class CEntity : MonoBehaviour {
 
 	public virtual T GetGameComponent<T>() where T : CComponent {
 		for (int i = 0; i < this.m_Components.Length; i++) {
-			if (this.m_Components [i].GetType () == typeof(T))
-				return this.m_Components [i] as T;
+			if (this.m_Components [i] == null)
+				continue;
+			var component = this.m_Components [i].GetComponent<T> ();
+			if (component != null) {
+				return component as T;
+			}
 		}
 		return default(T);
 	}

@@ -13,6 +13,11 @@ public class CAdapterComponent : CComponent {
 		get { return this.m_Host; }
 		set { this.m_Host = value; }
 	}
+	[SerializeField]	protected CInOutTrigger[] m_InstanceTriggers;
+	public CInOutTrigger[] instanceTriggers {
+		get { return this.m_InstanceTriggers; }
+		set { this.m_InstanceTriggers = value; }
+	}
 
 	#endregion
 
