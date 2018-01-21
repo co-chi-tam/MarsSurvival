@@ -1,13 +1,9 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Component\Inventory\CInventoryComponent.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Component\Adapter\CHostAdapterComponent.cs">
     <Files>
-      <File FileName="Assets\Scripts\Component\Data\CDataComponent.cs" Line="42" Column="37" />
-      <File FileName="Assets\Scripts\Character\CCharacterData.cs" Line="17" Column="19" />
-      <File FileName="Assets\Scripts\Entity\CEntity.cs" Line="6" Column="30" />
-      <File FileName="Assets\Scripts\Character\CCharacterEntity.cs" Line="58" Column="23" />
-      <File FileName="Assets\Scripts\Manager\CGameDataManager.cs" Line="72" Column="31" />
-      <File FileName="Assets\Scripts\Component\Inventory\CInventoryComponent.cs" Line="53" Column="12" />
+      <File FileName="Assets\Scripts\Component\Adapter\CHostAdapterComponent.cs" Line="93" Column="12" />
+      <File FileName="Assets\Scripts\Reflection\UnityMember.cs" Line="402" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
