@@ -118,7 +118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_IsActive: 1
-  m_MinusPerDay: 1
+  m_MinusPerDay: 20
   m_Sun: {fileID: 108662102786880992}
   m_MinIntensity: 0
   m_MaxIntensity: 1
@@ -148,9 +148,9 @@ MonoBehaviour:
     m_RotationOrder: 0
   m_DayNightLightColor:
     serializedVersion: 2
-    key0: {r: 0.13235295, g: 0.13235295, b: 0.13235295, a: 1}
+    key0: {r: 0, g: 0.18007103, b: 0.3897059, a: 1}
     key1: {r: 0.7352941, g: 0.7352941, b: 0.6001297, a: 1}
-    key2: {r: 0.13333334, g: 0.13333334, b: 0.13333334, a: 0}
+    key2: {r: 0, g: 0.18039216, b: 0.3882353, a: 0}
     key3: {r: 0.80784315, g: 0.80784315, b: 0.80784315, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
     key5: {r: 0, g: 0, b: 0, a: 0}

@@ -3,8 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UICustomize;
+using FSM;
 
-public class CCharacterEntity : CEntity {
+public class CCharacterEntity : CEntity, IContext {
 
 	#region Internal Class
 
@@ -41,10 +42,45 @@ public class CCharacterEntity : CEntity {
 		}
 	}
 
-	public virtual bool IsCharging {
+	public virtual float solarPoint {
 		get {
-			return CGameDataManager.Instance.IsCharging;
+			if (this.m_Data == null)
+				return 0f;
+			return this.m_Data.solarPoint;
+		} 
+		set { 
+			if (this.m_Data == null)
+				return;
+			this.m_Data.solarPoint = value;
 		}
+	}
+
+	public virtual float solarPointPercent {
+		get {
+			if (this.m_Data == null)
+				return 0f;
+			return this.m_Data.solarPoint / this.m_Data.maxSolarPoint;
+		} 
+		set { 
+			if (this.m_Data == null)
+				return;
+			this.m_Data.solarPoint = value;
+		}
+	}
+
+	public virtual bool IsCharging {
+		get { return this.m_AnimationInt == 2; } 
+		set { this.m_AnimationInt = value ? 2 : 0; }
+	}
+
+	protected Vector3 m_DeltaMovePoint = Vector3.zero;
+	public Vector3 deltaMovePoint {
+		get { return this.m_DeltaMovePoint; }
+		set { this.m_DeltaMovePoint = value; }
+	}
+	public bool IsStand {
+		get { return this.m_DeltaMovePoint != Vector3.zero; }
+		set { this.m_DeltaMovePoint = value ? Vector3.zero : Vector3.right; }
 	}
 
 	#endregion
@@ -70,12 +106,7 @@ public class CCharacterEntity : CEntity {
 		// ANIMATION
 		this.m_AnimatorComponent.ApplyAnimation (
 			"AnimParam", 
-			CGameDataManager.Instance.animationValue
-		);
-		// SOLAR
-		CGameDataManager.Instance.UpdateSolarPoint (
-			this.m_Data.solarPoint, 
-			this.m_Data.maxSolarPoint
+			this.m_AnimationInt
 		);
 	}
 
@@ -85,7 +116,6 @@ public class CCharacterEntity : CEntity {
 
 	public override void SetAnimation(int value) {
 		base.SetAnimation (value);
-		CGameDataManager.Instance.animationValue = value;
 	}
 
 	#endregion

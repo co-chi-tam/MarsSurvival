@@ -8,8 +8,17 @@ public class CCharacterData : ScriptableObject {
 	#region Fields
 
 	[Header("Fields")]
-	public string characterName;
-	public float moveSpeed;
+	[SerializeField]	protected string m_CharacterName;
+	public string characterName {
+		get { return this.m_CharacterName; }
+		set { this.m_CharacterName = value; }
+	}
+
+	[SerializeField]	protected float m_MoveSpeed;
+	public float moveSpeed {
+		get { return this.m_MoveSpeed; }
+		set { this.m_MoveSpeed = value; }
+	}
 
 	[SerializeField]	protected float m_SolarPoint;
 	[Info(valueName = "Solar point", valueMin = 0f, valueMax = 9999)]

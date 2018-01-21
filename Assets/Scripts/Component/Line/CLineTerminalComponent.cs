@@ -101,7 +101,7 @@ public class CLineTerminalComponent : CComponent {
 			var lineEnd = targetObject.GetComponent<CLineEndComponent> ();
 			if (lineEnd != null) {
 				// CONNECTED
-				if (lineEnd.ConnectedLine (this.gameObject)) {
+				if (lineEnd.ConnectedLine (this)) {
 					for (int x = 0; x < line.positionCount; x++) {
 						var lerp = Vector3.Lerp (this.m_Source.position, lineEnd.transform.position, this.m_SegmentOffset * x);
 						var groundHitCount = Physics.RaycastNonAlloc (lerp + (Vector3.up * this.m_GroundHeight), Vector3.down, this.m_HitInfoSamples, 100f, this.m_GroundLayerMask);

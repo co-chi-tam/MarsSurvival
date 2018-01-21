@@ -748,6 +748,7 @@ GameObject:
   - component: {fileID: 114151746997459282}
   - component: {fileID: 114903941963965026}
   - component: {fileID: 114535789024924872}
+  - component: {fileID: 114880796129492626}
   - component: {fileID: 114465870578483098}
   m_Layer: 8
   m_Name: Mars001
@@ -2285,7 +2286,7 @@ MonoBehaviour:
     conditionVariable:
       _parameterTypes: []
       _target: {fileID: 1833698780043526}
-      _component: CMoveComponent
+      _component: CCharacterEntity
       _name: IsStand
   - conditionName: HaveEnergy
     conditionVariable:
@@ -2336,6 +2337,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a7dd6b098fa6cb4999a0e99d2c70c9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Context: {fileID: 1833698780043526}
   m_FSMStateName: FSMMoveState
   OnEnterState:
     m_PersistentCalls:
@@ -2375,6 +2377,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   m_Target: {fileID: 4269342157295882}
+  m_CharacterData: {fileID: 114465870578483098}
   m_MoveComponent: {fileID: 114617059177336552}
 --- !u!114 &114535789024924872
 MonoBehaviour:
@@ -2402,7 +2405,7 @@ MonoBehaviour:
           m_StringArgument: ChargingSolar
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: CLineEndComponent+UnityEventGameObject, Assembly-CSharp, Version=0.0.0.0,
+    m_TypeName: CLineEndComponent+UnityEventConnectRoot, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   OnFree:
     m_PersistentCalls:
@@ -2500,6 +2503,43 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114880796129492626
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1833698780043526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92e0260a345c21b47ba13870d41851c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsActive: 1
+  m_DataResponses:
+  - m_TriggerName: InvokePickItem
+    OnTriggerInvoke:
+      _parameterTypes: []
+      _target: {fileID: 1140813864716228}
+      _component: CInventoryComponent
+      _name: PickItem
+  - m_TriggerName: GetSolarPointPercent
+    OnTriggerInvoke:
+      _parameterTypes: []
+      _target: {fileID: 114903941963965026}
+      _component: CCharacterEntity
+      _name: solarPointPercent
+  - m_TriggerName: SetIsCharging
+    OnTriggerInvoke:
+      _parameterTypes: []
+      _target: {fileID: 114903941963965026}
+      _component: CCharacterEntity
+      _name: IsCharging
+  - m_TriggerName: SetDeltaMovePoint
+    OnTriggerInvoke:
+      _parameterTypes: []
+      _target: {fileID: 114903941963965026}
+      _component: CCharacterEntity
+      _name: deltaMovePoint
 --- !u!114 &114903941963965026
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2512,6 +2552,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_IsActive: 0
+  m_UpdateDeltaSpeed: 1
   m_InstanceData: {fileID: 11400000, guid: 8e4d226210d953e408da6daef89e8567, type: 2}
 --- !u!114 &114959442673456468
 MonoBehaviour:
@@ -2524,6 +2565,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3299f9cc3bf3e954ab2f3f34b86f4a69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Context: {fileID: 0}
   m_FSMStateName: FSMIdleState
   OnEnterState:
     m_PersistentCalls:
@@ -2573,6 +2615,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d13bf72fa2e9ecb4194dafccb553fe0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Context: {fileID: 0}
   m_FSMStateName: FSMDeathState
   OnEnterState:
     m_PersistentCalls:
@@ -2611,6 +2654,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 212a689da2910fc4f8df77a066c2bddb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Context: {fileID: 0}
   m_FSMStateName: FSMChargingState
   OnEnterState:
     m_PersistentCalls:

@@ -19,6 +19,7 @@ public class FSMMonoBaseState : MonoBehaviour, IState {
 	#region Fields
 
 	[Header("Configs")]
+	[SerializeField]	protected GameObject m_Context;
 	[SerializeField]	protected string m_FSMStateName;
 	public string fsmStateName {
 		get { return this.m_FSMStateName; }
@@ -73,6 +74,17 @@ public class FSMMonoBaseState : MonoBehaviour, IState {
 		if (this.OnEndState != null) {
 			this.OnEndState.Invoke ();
 		}
+	}
+
+	#endregion
+
+	#region Context
+
+	public virtual T GetContext<T>() where T : IContext {
+		if (this.m_Context != null) {
+			return this.m_Context.GetComponent<T> ();			
+		}
+		return default(T);
 	}
 
 	#endregion

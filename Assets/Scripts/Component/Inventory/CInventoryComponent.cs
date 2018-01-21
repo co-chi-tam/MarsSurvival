@@ -47,7 +47,6 @@ public class CInventoryComponent : CComponent {
 	{
 		base.Start ();
 		this.m_Items = CGameDataManager.Instance.items; 
-		CGameDataManager.Instance.RegisterCallback ("PickItem", this.PickItem);
 	}
 
 	#endregion

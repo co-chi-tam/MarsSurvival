@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b4ad2e51b4f6ab49b6293f528a04754, type: 3}
   m_Name: Mars001Data
   m_EditorClassIdentifier: 
-  characterName: Mars001
-  moveSpeed: 7
+  m_CharacterName: Mars001
+  m_MoveSpeed: 7
   m_SolarPoint: 70
   m_MaxSolarPoint: 100

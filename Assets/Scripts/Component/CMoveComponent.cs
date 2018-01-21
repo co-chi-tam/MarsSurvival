@@ -51,15 +51,6 @@ public class CMoveComponent : CComponent {
 	protected float m_RotationPoint;
 	protected Vector2 m_DirNormal;
 
-	public bool IsStand {
-		get { 
-			return CGameDataManager.Instance.movePoint != Vector3.zero;
-		}
-		set { 
-			// TODO
-		}
-	}
-
 	#endregion
 
 	#region Implementation Component

@@ -1,14 +1,13 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\PowerGenerator\CPowerGeneratorMachineEntity.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Component\Inventory\CInventoryComponent.cs">
     <Files>
-      <File FileName="Assets\Scripts\PowerGenerator\CPowerGeneratorMachineData.cs" Line="13" Column="100" />
-      <File FileName="Assets\Scripts\Component\Data\CDataComponent.cs" Line="23" Column="2" />
-      <File FileName="Assets\Scripts\Component\Line\CLineTerminalComponent.cs" Line="123" Column="27" />
-      <File FileName="Assets\Scripts\Character\CCharacterData.cs" Line="34" Column="38" />
-      <File FileName="Assets\Resources\Machines\PowerGenerator\FSMPowerGeneratorGraph.txt" Line="18" Column="8" />
-      <File FileName="Assets\Scripts\PowerGenerator\CPowerGeneratorMachineEntity.cs" Line="27" Column="1" />
-      <File FileName="Assets\Scripts\Character\CCharacterEntity.cs" Line="64" Column="41" />
+      <File FileName="Assets\Scripts\Component\Data\CDataComponent.cs" Line="42" Column="37" />
+      <File FileName="Assets\Scripts\Character\CCharacterData.cs" Line="17" Column="19" />
+      <File FileName="Assets\Scripts\Entity\CEntity.cs" Line="6" Column="30" />
+      <File FileName="Assets\Scripts\Character\CCharacterEntity.cs" Line="58" Column="23" />
+      <File FileName="Assets\Scripts\Manager\CGameDataManager.cs" Line="72" Column="31" />
+      <File FileName="Assets\Scripts\Component\Inventory\CInventoryComponent.cs" Line="53" Column="12" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

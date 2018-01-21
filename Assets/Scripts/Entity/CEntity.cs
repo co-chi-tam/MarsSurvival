@@ -18,6 +18,10 @@ public class CEntity : MonoBehaviour {
 	}
 
 	protected int m_AnimationInt;
+	public int animationInt {
+		get { return this.m_AnimationInt; }
+		set { this.m_AnimationInt = value; }
+	}
 
 	#endregion
 

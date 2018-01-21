@@ -10,10 +10,8 @@ public class FSMMonoMoveState : FSMMonoBaseState {
 
 	[Header("Configs")]
 	[SerializeField]	protected Transform m_Target;
-	[Header("Components")]
+	[SerializeField]	protected CCharacterEntity m_CharacterData;
 	[SerializeField]	protected CMoveComponent m_MoveComponent;
-
-	protected CGameDataManager m_GameSetting;
 
 	#endregion
 
@@ -22,7 +20,6 @@ public class FSMMonoMoveState : FSMMonoBaseState {
 	protected override void Start ()
 	{
 		base.Start ();
-		this.m_GameSetting = CGameDataManager.GetInstance ();
 	}
 
 	#endregion
@@ -39,7 +36,7 @@ public class FSMMonoMoveState : FSMMonoBaseState {
 		base.UpdateState (dt);
 		if (this.m_Target == null)
 			return;
-		var movePoint = this.m_Target.position + this.m_GameSetting.movePoint;
+		var movePoint = this.m_Target.position + this.m_CharacterData.deltaMovePoint;
 		this.m_MoveComponent.targetPosition = movePoint;
 		this.m_MoveComponent.SetupMove (dt);
 	}

@@ -9,18 +9,18 @@ public class CLineEndComponent : CComponent {
 	#region Internal class
 
 	[System.Serializable]
-	public class UnityEventGameObject: UnityEvent<GameObject> {}
+	public class UnityEventConnectRoot: UnityEvent<CLineTerminalComponent> {}
 
 	#endregion
 
 	#region Fields
 
 	[Header("Events")]
-	public UnityEventGameObject OnConnected;
+	public UnityEventConnectRoot OnConnected;
 	public UnityEvent OnFree;
 
 	protected bool m_IsConnected = false;
-	protected GameObject m_ConnectedGameObject = null;
+	protected CLineTerminalComponent m_RootLine = null;
 
 	#endregion
 
@@ -33,14 +33,14 @@ public class CLineEndComponent : CComponent {
 			return;
 		if (this.m_IsConnected) {
 			if (this.OnConnected != null) {
-				this.OnConnected.Invoke (this.m_ConnectedGameObject);
+				this.OnConnected.Invoke (this.m_RootLine);
 			}
 			this.m_IsConnected = false;
 		} else {
 			if (this.OnFree != null) {
 				this.OnFree.Invoke ();
 			}
-			this.m_ConnectedGameObject = null;
+			this.m_RootLine = null;
 		}
 	}
 
@@ -48,8 +48,8 @@ public class CLineEndComponent : CComponent {
 
 	#region Main methods
 
-	public virtual bool ConnectedLine(GameObject value) {
-		this.m_ConnectedGameObject = value;
+	public virtual bool ConnectedLine(CLineTerminalComponent value) {
+		this.m_RootLine = value;
 		this.m_IsConnected = true;
 		return this.m_IsConnected;
 	}
