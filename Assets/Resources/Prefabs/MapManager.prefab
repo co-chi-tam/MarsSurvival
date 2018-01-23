@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 33978984483446788}
   - component: {fileID: 23242363561663956}
   - component: {fileID: 64815841701306378}
+  - component: {fileID: 114211296251723620}
   m_Layer: 31
   m_Name: Plane (6)
   m_TagString: Tile06
@@ -76,6 +77,7 @@ GameObject:
   - component: {fileID: 33557678830833784}
   - component: {fileID: 23028301872430362}
   - component: {fileID: 64320342099702520}
+  - component: {fileID: 114155176423643034}
   m_Layer: 31
   m_Name: Plane (1)
   m_TagString: Tile01
@@ -130,6 +132,7 @@ GameObject:
   - component: {fileID: 33276926966095828}
   - component: {fileID: 23873029672660588}
   - component: {fileID: 64666584585580282}
+  - component: {fileID: 114339330502175088}
   m_Layer: 31
   m_Name: Plane (8)
   m_TagString: Tile08
@@ -148,6 +151,7 @@ GameObject:
   - component: {fileID: 33941828671696776}
   - component: {fileID: 23944549384396060}
   - component: {fileID: 64806402813800972}
+  - component: {fileID: 114244371424227422}
   m_Layer: 31
   m_Name: Plane (3)
   m_TagString: Tile03
@@ -166,6 +170,7 @@ GameObject:
   - component: {fileID: 33895035185516680}
   - component: {fileID: 23052310742634120}
   - component: {fileID: 64502425054628418}
+  - component: {fileID: 114224164262840768}
   m_Layer: 31
   m_Name: Plane (4)
   m_TagString: Tile04
@@ -184,6 +189,7 @@ GameObject:
   - component: {fileID: 33749123056862058}
   - component: {fileID: 23918106401346936}
   - component: {fileID: 64017452522666234}
+  - component: {fileID: 114806041327922882}
   m_Layer: 31
   m_Name: Plane (5)
   m_TagString: Tile05
@@ -220,6 +226,7 @@ GameObject:
   - component: {fileID: 33074462411690376}
   - component: {fileID: 23439703800492804}
   - component: {fileID: 64305371949372124}
+  - component: {fileID: 114478227409477316}
   m_Layer: 31
   m_Name: Plane (2)
   m_TagString: Tile02
@@ -238,6 +245,7 @@ GameObject:
   - component: {fileID: 33465879503866720}
   - component: {fileID: 23765728744333814}
   - component: {fileID: 64859272430163588}
+  - component: {fileID: 114554516951096022}
   m_Layer: 31
   m_Name: Plane (9)
   m_TagString: Tile09
@@ -256,6 +264,7 @@ GameObject:
   - component: {fileID: 33725191107069308}
   - component: {fileID: 23241571467207018}
   - component: {fileID: 64671629700196428}
+  - component: {fileID: 114528880982460004}
   m_Layer: 31
   m_Name: Plane (7)
   m_TagString: Tile07
@@ -1635,6 +1644,195 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: a504072b99d26524e956a03ec3a0f252, type: 3}
+--- !u!114 &114155176423643034
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1055441261942036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f15ff591fb0e9f408521ed0cfb8fdbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnLoaded:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnRemove:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &114211296251723620
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1034698994112704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f15ff591fb0e9f408521ed0cfb8fdbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnLoaded:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnRemove:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &114224164262840768
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1330370949950598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f15ff591fb0e9f408521ed0cfb8fdbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnLoaded:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnRemove:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &114244371424227422
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1318041075380164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f15ff591fb0e9f408521ed0cfb8fdbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnLoaded:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnRemove:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &114339330502175088
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1207961285468746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f15ff591fb0e9f408521ed0cfb8fdbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnLoaded:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnRemove:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &114478227409477316
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1476525790078276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f15ff591fb0e9f408521ed0cfb8fdbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnLoaded:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnRemove:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &114528880982460004
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1675200314950652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f15ff591fb0e9f408521ed0cfb8fdbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnLoaded:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnRemove:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &114554516951096022
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1544374278235714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f15ff591fb0e9f408521ed0cfb8fdbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnLoaded:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnRemove:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &114806041327922882
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1345879333435498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f15ff591fb0e9f408521ed0cfb8fdbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnLoaded:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnRemove:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &114815600644520098
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1652,3 +1850,13 @@ MonoBehaviour:
   m_ReusePlaces: []
   m_Target: {fileID: 0}
   m_CurrentPosition: {x: 0, y: 0, z: 0}
+  OnRemoveTile:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnLoadTile:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null

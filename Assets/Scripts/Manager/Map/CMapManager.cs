@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using SimpleSingleton;
+using UnityEngine.Events;
+using Ludiq.Reflection;
 
 public class CMapManager : CMonoSingleton<CMapManager> {
 
@@ -15,13 +17,18 @@ public class CMapManager : CMonoSingleton<CMapManager> {
 		new Vector2 (-1f, 0f), new Vector2 (0f, 0f), new Vector2 (1f, 0f), 
 		new Vector2 (-1f, -1f), new Vector2 (0f, -1f), new Vector2 (1f, -1f), 
 	};
-	[SerializeField]	protected List<Transform> m_UsedPlaces;
-	[SerializeField]	protected List<Transform> m_ReusePlaces;
+	[SerializeField]	protected List<CTileMapObject> m_UsedPlaces;
+	[SerializeField]	protected List<CTileMapObject> m_ReusePlaces;
 	protected Dictionary<string, CTileMap> m_MapInstance;
 
 	[Header("Target")]
 	[SerializeField]	protected Transform m_Target;
 	[SerializeField]	protected Vector3 m_CurrentPosition;
+
+	[Header("Events")]
+	public UnityEvent OnRemoveTile;
+	public UnityEvent OnLoadTile;
+
 	protected Vector3 m_PreviousPosition = new Vector3(-999f, 0f, -999f);
 	protected bool m_NeedUpdate = false;
 
@@ -29,11 +36,13 @@ public class CMapManager : CMonoSingleton<CMapManager> {
 
 	#region Internal class
 
+	[System.Serializable]
 	public class CTileMap
 	{
 		public string tileName;
-		public Transform tileTransform;
+//		public Transform tileTransform;
 		public Vector3 tileRotation;
+		public CTileMapObject tileObject;
 	}
 
 	#endregion
@@ -42,8 +51,9 @@ public class CMapManager : CMonoSingleton<CMapManager> {
 
 	protected override void Awake() {
 		base.Awake ();
-		this.m_ReusePlaces = new List<Transform> ();
-		this.m_MapInstance = new Dictionary<string, CTileMap> ();
+		this.m_UsedPlaces 	= new List<CTileMapObject> ();
+		this.m_ReusePlaces 	= new List<CTileMapObject> ();
+		this.m_MapInstance 	= new Dictionary<string, CTileMap> ();
 	}
 
 	protected void Start() {
@@ -67,10 +77,13 @@ public class CMapManager : CMonoSingleton<CMapManager> {
 		var childCount = this.transform.childCount;
 		for (int i = 0; i < childCount; i++) {
 			var child = this.transform.GetChild (i);
-			var updatePos = this.m_PlacePatterns [i % 9];
-			child.gameObject.SetActive (false);
-			this.UpdatePlanetPosition (child, updatePos); 
-			this.m_ReusePlaces.Add (child);
+			var tile = child.GetComponent<CTileMapObject> ();
+			if (tile != null) {
+				var updatePos = this.m_PlacePatterns [i % 9];
+				child.gameObject.SetActive (false);
+				this.UpdatePlanetPosition (tile, updatePos); 
+				this.m_ReusePlaces.Add (tile);
+			}
 		}
 		this.m_NeedUpdate = true;
 	}
@@ -164,27 +177,27 @@ public class CMapManager : CMonoSingleton<CMapManager> {
 								|| matchCount != this.m_PlacePatterns.Length;
 	}
 
-	protected Transform LoadTileMapInstance(string name) {
+	protected CTileMapObject LoadTileMapInstance(string name) {
 		if (this.m_MapInstance.ContainsKey (name)) {
 			var tile = this.m_MapInstance [name];
-			if (this.m_ReusePlaces.Contains (tile.tileTransform) == false) {
-				var reLoadTile = ReloadTile (tile.tileTransform);
-				tile.tileTransform = reLoadTile;
+			if (this.m_ReusePlaces.Contains (tile.tileObject) == false) {
+				var reLoadTile = ReloadTile (tile.tileObject);
+				tile.tileObject = reLoadTile;
 			}
-			return tile.tileTransform;
+			return tile.tileObject;
 		} else {
 			var randomIndex = Random.Range (0, this.m_ReusePlaces.Count);
 			var selectedPlace = this.m_ReusePlaces [randomIndex];
 			this.m_MapInstance.Add (name, new CTileMap() {
 				tileName = name,
-				tileTransform = selectedPlace,
+				tileObject = selectedPlace,
 				tileRotation = Vector3.up
 			});
 			return selectedPlace;
 		} 
 	}
 
-	protected Transform ReloadTile(Transform origin) {
+	protected CTileMapObject ReloadTile(CTileMapObject origin) {
 		var needRenew = true;
 		var reLoadTile = origin;
 		for (int i = 0; i < this.m_ReusePlaces.Count; i++) {
@@ -202,33 +215,41 @@ public class CMapManager : CMonoSingleton<CMapManager> {
 		return reLoadTile;
 	}
 
-	protected bool AddReuseObject(Transform value) {
+	protected bool AddReuseObject(CTileMapObject value) {
 		value.gameObject.SetActive (false);
 		if (this.m_ReusePlaces.Contains (value) == false
 			&& this.m_UsedPlaces.Contains (value) == true) {
 			this.m_ReusePlaces.Add (value);
 			this.m_UsedPlaces.Remove (value);
 			this.m_UsedPlaces.TrimExcess ();
+			if (this.OnRemoveTile != null) {
+				this.OnRemoveTile.Invoke ();
+			}
+			value.OnRemoveTile ();
 			return true;
 		}
 		return false;
 	}
 
-	protected bool AddUsedObject(Transform value) {
+	protected bool AddUsedObject(CTileMapObject value) {
 		value.gameObject.SetActive (true);
 		if (this.m_UsedPlaces.Contains (value) == false
 			&& this.m_ReusePlaces.Contains (value) == true) {
 			this.m_UsedPlaces.Add (value);
 			this.m_ReusePlaces.Remove (value);
 			this.m_ReusePlaces.TrimExcess ();
+			if (this.OnLoadTile != null) {
+				this.OnLoadTile.Invoke ();
+			}
+			value.OnLoadTile ();
 			return true;
 		}
 		return false;
 	}
 
-	protected void UpdatePlanetPosition (Transform planet, Vector2 pos) {
+	protected void UpdatePlanetPosition (CTileMapObject planet, Vector2 pos) {
 		planet.name = string.Format (this.m_PlaceNamePattern, pos.x, pos.y);
-		planet.position = new Vector3 (pos.x * this.m_PlaceDistance, 0f, pos.y * this.m_PlaceDistance);
+		planet.transform.position = new Vector3 (pos.x * this.m_PlaceDistance, 0f, pos.y * this.m_PlaceDistance);
 	}
 
 	#endregion
