@@ -9,6 +9,8 @@ public class CMonoEvent : MonoBehaviour {
 	#region Fields
 
 	[Header("Events")]
+	public UnityEvent OnEnableEvent;
+	public UnityEvent OnDisableEvent;
 	public UnityEvent OnAwake;
 	public UnityEvent OnStart;
 	public UnityEvent OnFixedUpdate;
@@ -18,6 +20,18 @@ public class CMonoEvent : MonoBehaviour {
 	#endregion
 
 	#region Implementation MonoBehaviour
+
+	protected virtual void OnEnable() {
+		if (this.OnEnableEvent != null) {
+			this.OnEnableEvent.Invoke ();
+		}
+	}
+
+	protected virtual void OnDisable() {
+		if (this.OnDisableEvent != null) {
+			this.OnDisableEvent.Invoke ();
+		}
+	}
 
 	protected virtual void Awake() {
 		if (this.OnAwake != null) {

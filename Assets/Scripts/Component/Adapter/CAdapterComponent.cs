@@ -13,10 +13,10 @@ public class CAdapterComponent : CComponent {
 		get { return this.m_Host; }
 		set { this.m_Host = value; }
 	}
-	[SerializeField]	protected CInOutTrigger[] m_InstanceTriggers;
-	public CInOutTrigger[] instanceTriggers {
-		get { return this.m_InstanceTriggers; }
-		set { this.m_InstanceTriggers = value; }
+	[SerializeField]	protected int m_Priority = 1;
+	public int priority {
+		get { return this.m_Priority; }
+		set { this.m_Priority = value; }
 	}
 
 	#endregion
@@ -39,8 +39,6 @@ public class CAdapterComponent : CComponent {
 			this.m_Host.Invoke (this, value);
 		}
 	}
-
-
 
 	#endregion
 

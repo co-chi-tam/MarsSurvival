@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 114434997788968870}
   - component: {fileID: 114313374167932636}
   - component: {fileID: 114804902434790856}
+  - component: {fileID: 114499368593646712}
   - component: {fileID: 114614165650219348}
   m_Layer: 10
   m_Name: PowerGenerator
@@ -549,7 +550,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1037690042525290}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 17.9, y: 0, z: 0}
+  m_LocalPosition: {x: 17.9, y: 0, z: -0.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4943418622533608}
@@ -1234,6 +1235,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  m_SphereColor: {r: 0, g: 1, b: 0.6275861, a: 1}
 --- !u!114 &114262249505019712
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1245,6 +1247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34b7dae1638c0fc4a9dbfe4c067e7efa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Context: {fileID: 0}
   m_FSMStateName: FSMIdleState
   OnEnterState:
     m_PersistentCalls:
@@ -1294,9 +1297,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26c678cc92a02ca46ba36d97c215a8bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_IsActive: 0
+  m_IsActive: 1
   m_Target: {fileID: 0}
-  m_MinDistance: 1
+  m_MinDistance: 3
 --- !u!114 &114434997788968870
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1308,7 +1311,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8d440359a3b78e4a90cbcf37639a1d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_IsActive: 0
+  m_IsActive: 1
   m_Ground:
     serializedVersion: 2
     m_Bits: 2147483648
@@ -1328,6 +1331,26 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114499368593646712
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1037690042525290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92e0260a345c21b47ba13870d41851c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsActive: 1
+  m_AdapterPrefab: {fileID: 0}
+  m_DataResponses:
+  - m_TriggerName: SetFollowTransform
+    OnTriggerInvoke:
+      _parameterTypes: []
+      _target: {fileID: 114313374167932636}
+      _component: CFollowObjectComponent
+      _name: target
 --- !u!114 &114547973307354786
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1339,6 +1362,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e91ac0c871024c946b6395a681d177cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Context: {fileID: 0}
   m_FSMStateName: FSMInactiveState
   OnEnterState:
     m_PersistentCalls:
@@ -1388,6 +1412,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52849bb52594a604582af631c60000fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Context: {fileID: 0}
   m_FSMStateName: FSMActiveState
   OnEnterState:
     m_PersistentCalls:
@@ -1420,7 +1445,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 114804902434790856}
-        m_MethodName: UpdateDataPerInvoke
+        m_MethodName: UpdateDataPerInvokeWithDelay
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1574,16 +1599,16 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 0.9910773, b: 0.8235294, a: 1}
-      key1: {r: 1, g: 0.4066937, b: 0.1397059, a: 1}
-      key2: {r: 1, g: 0.9632354, b: 0.30147058, a: 0}
+      key0: {r: 1, g: 0.36383632, b: 0.06763625, a: 1}
+      key1: {r: 1, g: 0.7055468, b: 0.5564987, a: 1}
+      key2: {r: 1, g: 0.9910773, b: 0.8235294, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
       key5: {r: 0, g: 0, b: 0, a: 0}
       key6: {r: 0, g: 0, b: 0, a: 0}
       key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65150
+      ctime0: 386
+      ctime1: 65535
       ctime2: 65535
       ctime3: 0
       ctime4: 0

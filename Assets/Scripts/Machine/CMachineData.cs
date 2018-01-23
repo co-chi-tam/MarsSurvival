@@ -8,10 +8,19 @@ public class CMachineData : ScriptableObject {
 	#region Fields
 
 	[Header("Fields")]
-	protected string m_MachineName;
-	public virtual string machineName {
+	[SerializeField]	protected string m_MachineName;
+	public string machineName {
 		get { return this.m_MachineName; }
 		set { this.m_MachineName = value; }
+	}
+
+	[SerializeField]	protected string[] m_MachineJobs;
+	public string[] machineJobs {
+		get { return this.m_MachineJobs; }
+		set { 
+			this.m_MachineJobs = new string[value.Length]; 
+			value.CopyTo (this.m_MachineJobs, 0);
+		}
 	}
 
 	#endregion

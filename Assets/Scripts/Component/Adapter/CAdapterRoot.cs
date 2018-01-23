@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using SimpleSingleton;
 
 public class CAdapterRoot : MonoBehaviour {
 
@@ -29,11 +30,24 @@ public class CAdapterRoot : MonoBehaviour {
 
 	#endregion
 
+	#region Fields
+
+	protected Transform m_Transform;
+
+	#endregion
+
 	#region Implementation Monobehaviour
 
 	protected virtual void Awake() {
 		m_Instance = this;
+		this.m_Transform = this.transform;
 	} 
+
+	#endregion
+
+	#region Main methods
+
+
 
 	#endregion
 

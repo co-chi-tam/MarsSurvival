@@ -82,18 +82,18 @@ public class CMoveComponent : CComponent {
 
 	public virtual void UpdateStepOnGround(float dt) {
 		this.m_DirNormal = Vector3.up;
-		if (this.m_Top != null && this.m_Bottom != null) {
-			RaycastHit hitInfo;
-			if (Physics.Raycast (this.m_Top.position, -Vector3.up, out hitInfo, Mathf.Infinity, this.m_Ground)) {
-				// Position
-				var feet = this.m_Bottom.position;
-				feet.x = this.m_MovePoint.x;
-				feet.y = hitInfo.point.y;
-				feet.z = this.m_MovePoint.z;
-				this.m_MovePoint = feet;
-				// Rotation
-				this.m_DirNormal = hitInfo.normal;
-			}
+		var top = this.m_Top != null ? this.m_Top.position : this.m_Transform.up;
+		var bottom = this.m_Bottom != null ? this.m_Bottom.position : this.transform.position;
+		RaycastHit hitInfo;
+		if (Physics.Raycast (top, -Vector3.up, out hitInfo, Mathf.Infinity, this.m_Ground)) {
+			// Position
+			var feet = bottom;
+			feet.x = this.m_MovePoint.x;
+			feet.y = hitInfo.point.y;
+			feet.z = this.m_MovePoint.z;
+			this.m_MovePoint = feet;
+			// Rotation
+			this.m_DirNormal = hitInfo.normal;
 		}
 		// Position
 		this.m_Transform.position = this.m_MovePoint;

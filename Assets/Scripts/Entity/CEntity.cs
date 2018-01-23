@@ -11,16 +11,22 @@ public class CEntity : MonoBehaviour {
 	[Header("Components")]
 	[SerializeField]	protected CComponent[] m_Components = new CComponent[0];
 
+	[Header("Others")]
 	[SerializeField]	protected bool m_IsActive;
 	public virtual bool IsActive {
 		get { return this.m_IsActive; }
 		set { this.m_IsActive = value; }
 	}
-
 	protected int m_AnimationInt;
 	public int animationInt {
 		get { return this.m_AnimationInt; }
 		set { this.m_AnimationInt = value; }
+	}
+
+	protected Transform m_Transform;
+	public Transform myTransform {
+		get { return this.m_Transform; }
+		set { this.m_Transform = value; }
 	}
 
 	#endregion

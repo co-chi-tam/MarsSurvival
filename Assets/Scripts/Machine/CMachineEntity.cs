@@ -6,6 +6,8 @@ public class CMachineEntity : CEntity {
 
 	#region Fields
 
+	private CMachineData m_MachineData;
+
 	[SerializeField]	protected bool m_HaveEnergy;
 	public virtual bool HaveEnergy {
 		get { return this.m_HaveEnergy; }
@@ -27,19 +29,15 @@ public class CMachineEntity : CEntity {
 
 	#region Implementation Entity
 
+	protected override void Awake ()
+	{
+		base.Awake ();
+	}
+
 	protected override void Start ()
 	{
 		base.Start ();
-	}
-
-	protected override void Update ()
-	{
-		base.Update ();
-	}
-
-	protected override void LateUpdate ()
-	{
-		base.LateUpdate ();
+		this.m_MachineData = this.GetGameComponent<CDataComponent> ().Get<CMachineData> ();
 	}
 
 	#endregion
@@ -48,6 +46,13 @@ public class CMachineEntity : CEntity {
 
 	public override void SetAnimation(int value) {
 		base.SetAnimation (value);
+	}
+
+	public virtual string[] GetJobs() {
+		if (this.m_MachineData != null) {
+			return this.m_MachineData.machineJobs;
+		}
+		return new string[0];
 	}
 
 	#endregion

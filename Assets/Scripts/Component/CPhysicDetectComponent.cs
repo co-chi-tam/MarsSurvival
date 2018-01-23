@@ -9,6 +9,10 @@ public class CPhysicDetectComponent : CComponent {
 
 	[Header("Data")]
 	[SerializeField]	protected Transform m_DetectTransform;
+	public Transform detectTransform {
+		get { return this.m_DetectTransform; }
+		set { this.m_DetectTransform = value; }
+	}
 	[SerializeField]	protected float m_DetectRadius = 10f;
 	public float detectRadius {
 		get { return this.m_DetectRadius; }
@@ -45,6 +49,10 @@ public class CPhysicDetectComponent : CComponent {
 	public UnityEvent OnDetected;
 	public UnityEvent OnChanged;
 
+#if UNITY_EDITOR
+	public Color m_SphereColor = Color.red;
+#endif
+
 	#endregion
 
 	#region Implementation Component
@@ -64,14 +72,18 @@ public class CPhysicDetectComponent : CComponent {
 		}
 	}
 
+#if UNITY_EDITOR
+
 	protected virtual void OnDrawGizmosSelected() {
-		Gizmos.color = Color.red;
+		Gizmos.color = this.m_SphereColor;
 		if (this.m_DetectTransform != null) {
 			Gizmos.DrawWireSphere (this.m_DetectTransform.position, this.m_DetectRadius);
 		} else {
 			Gizmos.DrawWireSphere (this.transform.position, this.m_DetectRadius);
 		}
 	}
+
+#endif
 
 	#endregion
 

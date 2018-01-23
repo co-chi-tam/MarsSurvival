@@ -58,12 +58,16 @@ public class CFSMComponent : CComponent {
 		// State
 		for (int i = 0; i < this.m_CurrentStates.Length; i++) {
 			var state = this.m_CurrentStates [i];
-			this.ApplyState (state.GetName (), state); 
+			if (state != null) {
+				this.ApplyState (state.GetName (), state); 
+			}
 		}
 		// Condition
 		for (int i = 0; i < this.m_CurrentConditions.Length; i++) {
 			var condition = this.m_CurrentConditions [i];
-			this.ApplyCondition (condition.conditionName, condition.conditionVariable.Get<bool>);
+			if (condition != null) {
+				this.ApplyCondition (condition.conditionName, condition.conditionVariable.Get<bool>);
+			}
 		}
 		// Load FSM
 		this.m_FSMManager.LoadFSM (this.m_FSMTextAsset.text);

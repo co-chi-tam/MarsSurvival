@@ -7,7 +7,7 @@ public class CPowerGeneratorMachineEntity : CMachineEntity {
 	#region Fields
 
 	protected CAnimatorComponent m_AnimatorComponent;
-	protected CPowerGeneratorMachineData m_Data;
+	private CPowerGeneratorMachineData m_Data;
 
 	public override bool IsActive {
 		get { return this.m_IsActive; }

@@ -28,7 +28,7 @@ public class CDataComponent : CComponent {
 	protected Dictionary<string, Func<object, object, object>> m_UpdateMethods;
 
 	protected float m_TimerPerSecond = 1f;
-	protected float m_TimerPerInvoke = 1f;
+	protected float m_TimerPerDelay = 1f;
 
 	#endregion
 
@@ -53,7 +53,12 @@ public class CDataComponent : CComponent {
 	{
 		base.Update ();
 		if (this.m_IsActive) {
+			// UPDATE PER SECOND
 			this.UpdateDataPerSecond (Time.deltaTime);
+		}
+		// DELAY
+		if (this.m_TimerPerDelay > 0f) {
+			this.m_TimerPerDelay -= Time.deltaTime * this.m_UpdateDeltaSpeed;
 		}
 	}
 
@@ -123,13 +128,6 @@ public class CDataComponent : CComponent {
 	public virtual void UpdateDataPerInvoke(string name) {
 		if (this.m_InstanceData == null || this.m_CloneData == null)
 			return;
-		// UPDATE PER SECOND
-		if (this.m_TimerPerInvoke > 0) {
-			this.m_TimerPerInvoke -= Time.deltaTime * this.m_UpdateDeltaSpeed;
-			return;
-		} else {
-			this.m_TimerPerInvoke = 1f;
-		}
 		// GET PROPERTIES ATTRIBUTE
 		var fields = this.m_CloneData.GetType ().GetProperties ();
 		foreach (var fld in fields) {
@@ -146,12 +144,20 @@ public class CDataComponent : CComponent {
 		}
 	}
 
+	public virtual void UpdateDataPerInvokeWithDelay(string name) {
+		if (this.m_TimerPerDelay > 0) {
+			return;
+		}
+		this.UpdateDataPerInvoke (name);
+		this.m_TimerPerDelay = 1f;
+	}
+
 	#endregion
 
 	#region Getter & Setter
 
 	public virtual T Get<T>() where T : ScriptableObject {
-		return (T) Convert.ChangeType(this.m_CloneData, typeof (T));
+		return this.m_CloneData as T;
 	}
 
 	public virtual void Set<T>(T value) where T : ScriptableObject {

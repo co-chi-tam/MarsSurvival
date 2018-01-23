@@ -47,7 +47,7 @@ public class CTopSurfaceComponent : CComponent {
 	#region Main methods
 
 	public virtual void UpdateStepOnGround(float dt) {
-		var top = this.m_Top != null ? this.m_Top.position : this.m_Transform.position;
+		var top = this.m_Top != null ? this.m_Top.position : this.m_Transform.up;
 		var bottom = this.m_Bottom != null ? this.m_Bottom.position : this.transform.position;
 		RaycastHit hitInfo;
 		if (Physics.Raycast (top, -Vector3.up, out hitInfo, Mathf.Infinity, this.m_Ground)) {

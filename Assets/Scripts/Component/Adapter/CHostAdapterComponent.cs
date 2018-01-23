@@ -36,6 +36,7 @@ public class CHostAdapterComponent : CComponent {
 	protected override void Start ()
 	{
 		base.Start ();
+		this.SetUpAdapter ();
 	}
 
 	#endregion
@@ -50,30 +51,25 @@ public class CHostAdapterComponent : CComponent {
 				this.m_DataSamples.Add (data.triggerName, data);
 			}
 		}
+	}
+
+	protected virtual void SetUpAdapter() {
 		// INSTANTIATE
 		if (this.m_AdapterPrefab != null) {
-			this.m_AdapterSample = FindObjectOfType<CAdapterComponent> ();
+			var adapterTypes = FindObjectsOfType<CAdapterComponent> ();
+			for (int i = 0; i < adapterTypes.Length; i++) {
+				if (this.m_AdapterPrefab.name == adapterTypes [i].name) {
+					this.m_AdapterSample = adapterTypes [i];
+				}
+			}
 			if (this.m_AdapterSample == null) {
 				this.m_AdapterSample = Instantiate (this.m_AdapterPrefab);
 				this.m_AdapterSample.transform.SetParent (CAdapterRoot.Instance.transform);
+				var rectTransform = this.m_AdapterSample.transform as RectTransform;
+				rectTransform.localPosition = Vector3.zero;
+				rectTransform.sizeDelta = Vector2.zero;
 			}
 			this.m_AdapterSample.host = this;
-		}
-	}
-
-	public virtual void Set (CInOutTriggerData data) {
-		if (this.m_IsActive == false)
-			return;
-		if (this.m_AdapterSample == null)
-			return;
-		var adapter = this.m_AdapterSample;
-		for (int x = 0; x < adapter.instanceTriggers.Length; x++) {
-			var trigger = adapter.instanceTriggers [x];
-			var triggerData = trigger.triggerData;
-			if (triggerData.triggerName == data.triggerName) {
-				var value = data.OnTriggerInvoke.Get ();
-				triggerData.OnTriggerInvoke.InvokeOrSet (value);
-			}
 		}
 	}
 
@@ -89,15 +85,22 @@ public class CHostAdapterComponent : CComponent {
 					trigger.Invoke ();
 				} else if (data.isGet ()) {
 					// GET
+//					Debug.Log (data.triggerName + " / " + trigger.sourceType + " / " + data.OnTriggerInvoke.sourceType);
 					var value = trigger.Get ();
 					// BUG
-					if (value.GetType().Namespace.Contains("UnityEngine")) {
-						if (data.OnTriggerInvoke.isAssigned) {
-							data.OnTriggerInvoke.Set (value);
+					if (value != null) {
+						if (value.GetType ().Namespace.Contains ("UnityEngine")) {
+							if (data.OnTriggerInvoke.isAssigned) {
+								data.OnTriggerInvoke.Set (value);
+							}
+						} else {
+							if (data.OnTriggerInvoke.isAssigned) {
+								data.OnTriggerInvoke.InvokeOrSet (value);
+							}
 						}
 					} else {
 						if (data.OnTriggerInvoke.isAssigned) {
-							data.OnTriggerInvoke.InvokeOrSet (value);
+							data.OnTriggerInvoke.Set (value);
 						}
 					}
 				} else if (data.isSet ()) {

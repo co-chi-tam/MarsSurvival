@@ -97,6 +97,19 @@ public class CCharacterEntity : CEntity, IContext {
 		}
 	}
 
+	[SerializeField]	protected CEntity m_OtherEntity;
+	public CEntity otherEntity {
+		get { return this.m_OtherEntity; }
+		set { this.m_OtherEntity = value; }
+	}
+	public Transform otherEntityTransform {
+		get { 
+			if (this.m_OtherEntity == null)
+				return null;
+			return this.m_OtherEntity.transform; 
+		}
+	}
+
 	#endregion
 
 	#region Implementation Entity
@@ -124,6 +137,40 @@ public class CCharacterEntity : CEntity, IContext {
 			"AnimParam", 
 			this.m_AnimationInt
 		);
+	}
+
+	#endregion
+
+	#region Other Entity
+
+	public virtual void InvokeOtherEntityEnergy() {
+		if (this.m_OtherEntity != null) {
+			var dataComponent = this.m_OtherEntity.GetGameComponent<CDataComponent> ();
+			if (dataComponent != null) {
+				dataComponent.UpdateDataPerInvoke ("AddPower");
+			}
+		}
+	}
+
+	public virtual void SetOtherEntityFollowMe(bool value) {
+		if (this.m_OtherEntity != null) {
+			var followerComponent = this.m_OtherEntity.GetGameComponent<CFollowObjectComponent> ();
+			if (followerComponent != null) {
+				followerComponent.target = value ? this.transform : null;
+			}
+		}
+	}
+
+	public virtual string[] GetOtherEntityJobs {
+		get {
+			if (this.m_OtherEntity != null) {
+				var machineEntity = this.m_OtherEntity as CMachineEntity;
+				if (machineEntity != null) {
+					return machineEntity.GetJobs ();
+				}
+			}
+			return new string[0];
+		}
 	}
 
 	#endregion
