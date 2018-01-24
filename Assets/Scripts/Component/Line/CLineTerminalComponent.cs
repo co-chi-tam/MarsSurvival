@@ -94,21 +94,18 @@ public class CLineTerminalComponent : CComponent {
 		this.EraseLine ();
 		var colliderIndex = 0;
 		for (int i = 0; i < detectCount; i++) {
+			if (colliderIndex >= this.m_LineRenderers.Length)
+				break;
 			// LINE RENDERER
 			var line = this.m_LineRenderers[colliderIndex];
 			// DRAW LINE
 			var targetObject = this.m_PhysicDetectComponent.sampleColliders [i];
 			var lineEnd = targetObject.GetComponent<CLineEndComponent> ();
-			var needLine = targetObject != null;
-			var lineTransform = targetObject.transform;
-			if (lineEnd != null) {
-				needLine = lineEnd.ConnectedLine (this);
-				lineTransform = lineEnd.transform;
-			}
 			// CONNECTED
-			if (needLine) {
+			if (lineEnd != null 
+				&& lineEnd.ConnectedLine (this)) {
 				for (int x = 0; x < line.positionCount; x++) {
-					var lerp = Vector3.Lerp (this.m_Source.position, lineTransform.position, this.m_SegmentOffset * x);
+					var lerp = Vector3.Lerp (this.m_Source.position, lineEnd.transform.position, this.m_SegmentOffset * x);
 					var groundHitCount = Physics.RaycastNonAlloc (lerp + (Vector3.up * this.m_GroundHeight), Vector3.down, this.m_HitInfoSamples, 100f, this.m_GroundLayerMask);
 					if (groundHitCount > 0) {
 						var hitInfo = this.m_HitInfoSamples [0];
