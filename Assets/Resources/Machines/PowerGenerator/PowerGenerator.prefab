@@ -550,7 +550,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1037690042525290}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 17.9, y: 0, z: -0.6}
+  m_LocalPosition: {x: 20, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4943418622533608}
@@ -1344,13 +1344,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_IsActive: 1
   m_AdapterPrefab: {fileID: 0}
-  m_DataResponses:
-  - m_TriggerName: SetFollowTransform
-    OnTriggerInvoke:
-      _parameterTypes: []
-      _target: {fileID: 114313374167932636}
-      _component: CFollowObjectComponent
-      _name: target
+  m_ListDataResponses: []
 --- !u!114 &114547973307354786
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1452,7 +1446,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: UsePower
+          m_StringArgument: UseEnergy
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: FSMMonoBaseState+UnityEventFloat, Assembly-CSharp, Version=0.0.0.0,
@@ -1493,7 +1487,7 @@ MonoBehaviour:
   - {fileID: 114083082467588174}
   m_IsActive: 1
   m_HaveEnergy: 1
-  m_IsStarted: 1
+  m_IsStarted: 0
 --- !u!114 &114803844324984686
 MonoBehaviour:
   m_ObjectHideFlags: 1

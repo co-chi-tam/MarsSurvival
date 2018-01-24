@@ -14,14 +14,14 @@ public class CInOutTriggerData {
 		set { this.m_TriggerName = value; }
 	}
 	[Filter(Fields = true, Properties = true, Methods = true)]
-	public UnityMember OnTriggerInvoke;
+	[SerializeField]	public UnityMember OnTriggerInvoke;
 
 	#endregion
 
 	#region Constructor
 
 	public CInOutTriggerData () {
-		this.m_TriggerName = string.Empty;
+		this.m_TriggerName = "Empty event";
 	}
 
 	#endregion

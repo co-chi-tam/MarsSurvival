@@ -7,7 +7,7 @@ public class CPowerGeneratorMachineEntity : CMachineEntity {
 	#region Fields
 
 	protected CAnimatorComponent m_AnimatorComponent;
-	private CPowerGeneratorMachineData m_Data;
+	private CPowerGeneratorMachineData m_PowerGeneratorData;
 
 	public override bool IsActive {
 		get { return this.m_IsActive; }
@@ -22,11 +22,19 @@ public class CPowerGeneratorMachineEntity : CMachineEntity {
 
 	public override bool HaveEnergy {
 		get { 
-			if (this.m_Data == null)
+			if (this.m_PowerGeneratorData == null)
 				return false;
-			return this.m_Data.powerPoint > 1f;
+			return this.m_PowerGeneratorData.energyPoint > 1f;
 		}
 		set { base.HaveEnergy = value; }
+	}
+
+	public override float energyPercent {
+		get { 
+			if (this.m_PowerGeneratorData == null)
+				return base.energyPercent;
+			return this.m_PowerGeneratorData.energyPoint / this.m_PowerGeneratorData.maxEnergyPoint;
+		}
 	}
 
 	#endregion
@@ -42,7 +50,7 @@ public class CPowerGeneratorMachineEntity : CMachineEntity {
 	protected override void Start ()
 	{
 		base.Start ();
-		this.m_Data = this.GetGameComponent<CDataComponent>().Get<CPowerGeneratorMachineData>();
+		this.m_PowerGeneratorData = this.GetGameComponent<CDataComponent>().Get<CPowerGeneratorMachineData>();
 	}
 
 	protected override void LateUpdate ()

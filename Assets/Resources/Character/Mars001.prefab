@@ -462,6 +462,7 @@ GameObject:
   - component: {fileID: 114903941963965026}
   - component: {fileID: 114535789024924872}
   - component: {fileID: 114880796129492626}
+  - component: {fileID: 114442416771596572}
   - component: {fileID: 114465870578483098}
   m_Layer: 8
   m_Name: Mars001
@@ -1512,6 +1513,28 @@ MonoBehaviour:
       _target: {fileID: 1833698780043526}
       _component: CCharacterEntity
       _name: HaveEnergy
+--- !u!114 &114442416771596572
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1833698780043526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f18b7a3330dddaa44b9b001f1ee4acb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsActive: 1
+  OnActive:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: CFollowObjectEndPointComponent+UnityEventFollowObject, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  OnFree:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &114465870578483098
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1631,7 +1654,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: ChargingSolar
+          m_StringArgument: AddEnergy
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: CLineEndComponent+UnityEventConnectRoot, Assembly-CSharp, Version=0.0.0.0,
@@ -1685,7 +1708,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_IsActive: 1
   m_DetectTransform: {fileID: 4038663836296010}
-  m_DetectRadius: 4
+  m_DetectRadius: 3
   m_DetectLayerMask:
     serializedVersion: 2
     m_Bits: 1024
@@ -1802,25 +1825,26 @@ MonoBehaviour:
   m_IsActive: 1
   m_AdapterPrefab: {fileID: 114300399984846678, guid: 1cbbf5ac1ab7c7a42b69a63dfd3aeb3d,
     type: 2}
-  m_DataResponses:
+  m_ListDataResponses:
   - m_TriggerName: InvokePickItem
     OnTriggerInvoke:
       _parameterTypes: []
       _target: {fileID: 1140813864716228}
       _component: CInventoryComponent
       _name: PickItem
-  - m_TriggerName: GetSolarPointPercent
+  - m_TriggerName: GetEnergyPointPercent
     OnTriggerInvoke:
       _parameterTypes: []
       _target: {fileID: 114903941963965026}
       _component: CCharacterEntity
-      _name: solarPointPercent
-  - m_TriggerName: SetIsCharging
+      _name: energyPointPercent
+  - m_TriggerName: SetStartMachine
     OnTriggerInvoke:
-      _parameterTypes: []
+      _parameterTypes:
+      - System.Boolean
       _target: {fileID: 114903941963965026}
       _component: CCharacterEntity
-      _name: IsCharging
+      _name: SetStartMachine
   - m_TriggerName: SetDeltaMovePoint
     OnTriggerInvoke:
       _parameterTypes: []
@@ -1839,12 +1863,12 @@ MonoBehaviour:
       _target: {fileID: 1833698780043526}
       _component: CMoveComponent
       _name: myTransform
-  - m_TriggerName: GetOtherEntityTransform
+  - m_TriggerName: GetOtherEntity
     OnTriggerInvoke:
       _parameterTypes: []
       _target: {fileID: 1833698780043526}
       _component: CCharacterEntity
-      _name: otherEntityTransform
+      _name: otherEntity
   - m_TriggerName: SetOtherEntity
     OnTriggerInvoke:
       _parameterTypes: []
@@ -1870,6 +1894,18 @@ MonoBehaviour:
       _target: {fileID: 1833698780043526}
       _component: CCharacterEntity
       _name: InvokeOtherEntityEnergy
+  - m_TriggerName: GetWaterPointPercent
+    OnTriggerInvoke:
+      _parameterTypes: []
+      _target: {fileID: 1833698780043526}
+      _component: CCharacterEntity
+      _name: waterPointPercent
+  - m_TriggerName: GetFoodPointPercent
+    OnTriggerInvoke:
+      _parameterTypes: []
+      _target: {fileID: 1833698780043526}
+      _component: CCharacterEntity
+      _name: foodPointPercent
 --- !u!114 &114903941963965026
 MonoBehaviour:
   m_ObjectHideFlags: 1

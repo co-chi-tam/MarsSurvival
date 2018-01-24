@@ -10,7 +10,12 @@ public class CFollowObjectComponent : CComponent {
 	[SerializeField]	protected Transform m_Target;
 	public Transform target {
 		get { return this.m_Target; }
-		set { this.m_Target = value; }
+		set { 
+			this.m_Target = value; 
+			if (value != null) {
+				this.m_EndPointComponent = value.GetComponent<CFollowObjectEndPointComponent> ();
+			}
+		}
 	}
 	[SerializeField]	protected float m_MinDistance = 1f;
 	public float minDistance {
@@ -19,6 +24,7 @@ public class CFollowObjectComponent : CComponent {
 	}
 
 	protected CMoveComponent m_MoveComponent;
+	protected CFollowObjectEndPointComponent m_EndPointComponent;
 
 	#endregion
 
@@ -35,8 +41,15 @@ public class CFollowObjectComponent : CComponent {
 	{
 		base.Update ();
 		if (this.m_IsActive
-			&& this.m_Target != null) {
+		    && this.m_Target != null) {
 			this.m_MoveComponent.targetPosition = this.m_Target.position;
+			if (this.m_EndPointComponent != null) {
+				this.m_EndPointComponent.OnActivePoint (this);
+			}
+		} else {
+			if (this.m_EndPointComponent != null) {
+				this.m_EndPointComponent.OnFreePoint ();
+			}
 		}
 	}
 

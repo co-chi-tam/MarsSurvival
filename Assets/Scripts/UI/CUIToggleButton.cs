@@ -7,9 +7,20 @@ using Ludiq.Reflection.Internal;
 
 public class CUIToggleButton : Toggle {
 
+	#region Fields
+
 	[Header("Events")]
 	public UnityEvent OnTrue;
 	public UnityEvent OnFalse;
+
+	public virtual bool IsOnValue {
+		get { return this.isOn; }
+		set { this.isOn = value; }
+	}
+
+	#endregion
+
+	#region Implementation Toggle
 
 	protected override void Awake ()
 	{
@@ -26,5 +37,7 @@ public class CUIToggleButton : Toggle {
 			}
 		});
 	}
+
+	#endregion
 
 }

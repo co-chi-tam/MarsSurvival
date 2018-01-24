@@ -15,5 +15,6 @@ MonoBehaviour:
   m_MachineJobs:
   - AddEnergy
   - FollowMe
+  - StartMachine
   m_PowerPoint: 100
   m_MaxPowerPoint: 100

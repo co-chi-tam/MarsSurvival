@@ -8,6 +8,8 @@ public class CUIJobDisplay : MonoBehaviour {
 	[SerializeField]	protected CUIJobDisplayItem[] m_JobItems;
 
 	public virtual void SetUpJobDisplay(string[] jobItems) {
+		if (jobItems == null)
+			return;
 		for (int x = 0; x < this.m_JobItems.Length; x++) {
 			var jobItem = this.m_JobItems [x];
 			jobItem.jobGameObject.SetActive (false);

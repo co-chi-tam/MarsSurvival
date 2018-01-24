@@ -13,5 +13,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_CharacterName: Mars001
   m_MoveSpeed: 7
-  m_SolarPoint: 70
-  m_MaxSolarPoint: 100
+  m_EnergyPoint: 70
+  m_MaxEnergyPoint: 100
+  m_Items: []

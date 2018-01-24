@@ -10,10 +10,10 @@ public class CHostAdapterComponent : CComponent {
 
 	[Header("Configs")]
 	[SerializeField]	protected CAdapterComponent m_AdapterPrefab;
-	[SerializeField]	CInOutTriggerData[] m_DataResponses;
-	public CInOutTriggerData[] dataResponses {
-		get { return this.m_DataResponses; }
-		set { this.m_DataResponses = value; }
+	[SerializeField]	protected List<CInOutTriggerData> m_ListDataResponses;
+	public List<CInOutTriggerData> listDataResponse {
+		get { return this.m_ListDataResponses; }
+		set { this.m_ListDataResponses = new List<CInOutTriggerData> (value); }
 	}
 	protected Dictionary<string, CInOutTriggerData> m_DataSamples;
 	public Dictionary<string, CInOutTriggerData> dataSamples {
@@ -45,8 +45,8 @@ public class CHostAdapterComponent : CComponent {
 
 	protected virtual void InitData() {
 		this.m_DataSamples = new Dictionary<string, CInOutTriggerData> ();
-		for (int i = 0; i < this.m_DataResponses.Length; i++) {
-			var data = this.m_DataResponses[i];
+		for (int i = 0; i < this.m_ListDataResponses.Count; i++) {
+			var data = this.m_ListDataResponses[i];
 			if (this.m_DataSamples.ContainsKey (data.triggerName) == false) {
 				this.m_DataSamples.Add (data.triggerName, data);
 			}
@@ -89,7 +89,7 @@ public class CHostAdapterComponent : CComponent {
 					var value = trigger.Get ();
 					// BUG
 					if (value != null) {
-						if (value.GetType ().Namespace.Contains ("UnityEngine")) {
+						if (value.GetType ().FullName.Contains ("UnityEngine")) {
 							if (data.OnTriggerInvoke.isAssigned) {
 								data.OnTriggerInvoke.Set (value);
 							}

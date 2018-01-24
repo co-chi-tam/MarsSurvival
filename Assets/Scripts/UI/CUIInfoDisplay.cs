@@ -5,13 +5,27 @@ using UnityEngine.UI;
 using UnityEngine.Events;
 using Ludiq.Reflection;
 
-public class CUISolarDisplay : MonoBehaviour {
+public class CUIInfoDisplay : MonoBehaviour {
 
 	#region Fields
 
 	[Header("Configs")]
 	[SerializeField]	protected Image m_ValueImage;
+	[Header("Events")]
 	public UnityEvent OnUpdateDisplay;
+
+	public float value {
+		get { 
+			if (this.m_ValueImage == null)
+				return 0f;
+			return this.m_ValueImage.fillAmount;
+		}
+		set { 
+			if (this.m_ValueImage == null)
+				return;
+			this.m_ValueImage.fillAmount = value;
+		}
+	}
 
 	#endregion
 
@@ -33,7 +47,8 @@ public class CUISolarDisplay : MonoBehaviour {
 	#region Getter && Setter
 
 	public virtual void SetDisplay(float value) {
-		this.m_ValueImage.fillAmount = value;
+		var lerpValue = Mathf.Lerp (this.m_ValueImage.fillAmount, value, 0.5f);
+		this.m_ValueImage.fillAmount = lerpValue;
 	}
 
 	#endregion

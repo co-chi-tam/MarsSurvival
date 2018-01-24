@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CMachineEntity : CEntity {
+public partial class CMachineEntity : CEntity {
 
 	#region Fields
 
+	protected CFollowObjectComponent m_FollowObjectComponent;
 	private CMachineData m_MachineData;
 
 	[SerializeField]	protected bool m_HaveEnergy;
@@ -25,6 +26,16 @@ public class CMachineEntity : CEntity {
 		set { base.IsActive = value; }
 	}
 
+	public bool isFollowing {
+		get { return this.m_FollowObjectComponent != null && this.m_FollowObjectComponent.target != null; }
+	}
+
+	public virtual float energyPercent {
+		get { 
+			return 0f;
+		}
+	}
+
 	#endregion
 
 	#region Implementation Entity
@@ -32,6 +43,7 @@ public class CMachineEntity : CEntity {
 	protected override void Awake ()
 	{
 		base.Awake ();
+		this.m_FollowObjectComponent = this.GetGameComponent<CFollowObjectComponent> ();
 	}
 
 	protected override void Start ()

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Events.Utils;
 using Ludiq.Reflection;
 
 public class CUIFollowObject : MonoBehaviour {

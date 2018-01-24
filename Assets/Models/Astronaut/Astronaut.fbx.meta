@@ -32,6 +32,7 @@ ModelImporter:
     100048: LegBone.R.003
     100050: LegBone.R.003_end
     100052: RootBone
+    100054: Cube
     400000: //RootNode
     400002: BackBone.001
     400004: Body
@@ -59,6 +60,7 @@ ModelImporter:
     400048: LegBone.R.003
     400050: LegBone.R.003_end
     400052: RootBone
+    400054: Cube
     2100000: Astronaut-Mat
     2300000: Body
     2300002: Hand.L
@@ -66,18 +68,23 @@ ModelImporter:
     2300006: Head
     2300008: Leg.L
     2300010: Leg.R
+    2300012: Cube
+    2300014: //RootNode
     3300000: Body
     3300002: Hand.L
     3300004: Hand.R
     3300006: Head
     3300008: Leg.L
     3300010: Leg.R
+    3300012: Cube
+    3300014: //RootNode
     4300000: Body
     4300002: Leg.L
     4300004: Head
     4300006: Hand.L
     4300008: Hand.R
     4300010: Leg.R
+    4300012: Cube
     7400000: Idle
     7400002: Move
     7400004: Action
@@ -101,7 +108,8 @@ ModelImporter:
     resampleCurves: 1
     optimizeGameObjects: 0
     motionNodeName: 
-    rigImportErrors: 
+    rigImportErrors: "Avatar creation failed:\n\tCannot find root motion transform
+      'RootBone'.\n"
     rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
