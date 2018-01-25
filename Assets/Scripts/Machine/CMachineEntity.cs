@@ -27,7 +27,10 @@ public partial class CMachineEntity : CEntity {
 	}
 
 	public bool isFollowing {
-		get { return this.m_FollowObjectComponent != null && this.m_FollowObjectComponent.target != null; }
+		get { 
+			return this.m_FollowObjectComponent != null 
+			&& this.m_FollowObjectComponent.target != null; 
+		}
 	}
 
 	public virtual float energyPercent {
