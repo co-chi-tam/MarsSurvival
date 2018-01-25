@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Events.Utils;
+using Ludiq.Reflection;
 
 public class CLineEndComponent : CComponent {
 
@@ -15,12 +16,18 @@ public class CLineEndComponent : CComponent {
 
 	#region Fields
 
+	[SerializeField]	protected string m_GroupName = "Empty group";
+	public string groupName {
+		get { return this.m_GroupName; }
+		set { this.m_GroupName = value; }
+	}
+	[SerializeField]	protected CLineTerminalComponent m_RootLine = null;
+
 	[Header("Events")]
+	[Filter(Fields = true, Properties = true, Methods = true)]
+	public UnityMember OnBoolCondition;
 	public UnityEventConnectRoot OnConnected;
 	public UnityEvent OnFree;
-
-	protected bool m_IsConnected = false;
-	protected CLineTerminalComponent m_RootLine = null;
 
 	#endregion
 
@@ -31,16 +38,15 @@ public class CLineEndComponent : CComponent {
 		base.LateUpdate ();
 		if (this.m_IsActive == false)
 			return;
-		if (this.m_IsConnected) {
+		if (this.m_RootLine != null) {
 			if (this.OnConnected != null) {
 				this.OnConnected.Invoke (this.m_RootLine);
 			}
-			this.m_IsConnected = false;
+			this.m_RootLine = null;
 		} else {
 			if (this.OnFree != null) {
 				this.OnFree.Invoke ();
 			}
-			this.m_RootLine = null;
 		}
 	}
 
@@ -49,9 +55,14 @@ public class CLineEndComponent : CComponent {
 	#region Main methods
 
 	public virtual bool ConnectedLine(CLineTerminalComponent value) {
-		this.m_RootLine = value;
-		this.m_IsConnected = true;
-		return this.m_IsConnected;
+		if (this.m_GroupName == value.groupName) {
+			this.m_RootLine = value;
+			if (this.OnBoolCondition.isAssigned) {
+				return this.OnBoolCondition.Get<bool> ();
+			}
+			return true;
+		}
+		return false;
 	}
 
 	#endregion

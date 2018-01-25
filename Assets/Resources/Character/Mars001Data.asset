@@ -11,8 +11,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b4ad2e51b4f6ab49b6293f528a04754, type: 3}
   m_Name: Mars001Data
   m_EditorClassIdentifier: 
+  m_Description: Survival.
   m_CharacterName: Mars001
   m_MoveSpeed: 7
-  m_EnergyPoint: 70
+  m_EnergyPoint: 85
   m_MaxEnergyPoint: 100
+  m_WaterPoint: 90
+  m_MaxWaterPoint: 100
+  m_FoodPoint: 95
+  m_MaxFoodPoint: 100
   m_Items: []

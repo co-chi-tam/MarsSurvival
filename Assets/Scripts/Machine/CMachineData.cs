@@ -3,11 +3,11 @@ using System;
 using System.Collections;
 
 [Serializable]
-public class CMachineData : ScriptableObject {
+public class CMachineData : CEntityData {
 
 	#region Fields
 
-	[Header("Fields")]
+	[Header("Machine Fields")]
 	[SerializeField]	protected string m_MachineName;
 	public string machineName {
 		get { return this.m_MachineName; }

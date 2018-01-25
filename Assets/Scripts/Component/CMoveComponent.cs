@@ -54,7 +54,7 @@ public class CMoveComponent : CComponent {
 
 	protected Vector3 m_MovePoint;
 	protected float m_RotationPoint;
-	protected Vector2 m_DirNormal;
+	protected Vector3 m_DirNormal;
 
 	#endregion
 
@@ -83,7 +83,7 @@ public class CMoveComponent : CComponent {
 	public virtual void UpdateStepOnGround(float dt) {
 		this.m_DirNormal = Vector3.up;
 		var top = this.m_Top != null ? this.m_Top.position : this.m_Transform.up;
-		var bottom = this.m_Bottom != null ? this.m_Bottom.position : this.transform.position;
+		var bottom = this.m_Bottom != null ? this.m_Bottom.position : this.m_Transform.position;
 		RaycastHit hitInfo;
 		if (Physics.Raycast (top, -Vector3.up, out hitInfo, Mathf.Infinity, this.m_Ground)) {
 			// Position
@@ -98,13 +98,18 @@ public class CMoveComponent : CComponent {
 		// Position
 		this.m_Transform.position = this.m_MovePoint;
 		// Rotation
-		var dirRotation = Quaternion.AngleAxis (this.m_RotationPoint, this.m_DirNormal);
-		var normalGround = Quaternion.FromToRotation (Vector3.up, this.m_DirNormal);
-		var combineRot = dirRotation * normalGround;
+//		var dirRotation = Quaternion.AngleAxis (this.m_RotationPoint, this.m_DirNormal);
+//		var normalGround = Quaternion.FromToRotation (Vector3.up, this.m_DirNormal);
+//		var combineRot = dirRotation * normalGround;
+//		this.m_Transform.rotation = Quaternion.Lerp (
+//											this.m_Transform.rotation, 
+//											combineRot,
+//											this.m_RotationSpeed * dt);
+		var dirRotation = Quaternion.AngleAxis (this.m_RotationPoint, Vector3.up);
 		this.m_Transform.rotation = Quaternion.Lerp (
-											this.m_Transform.rotation, 
-											combineRot,
-											this.m_RotationSpeed * dt);
+			this.m_Transform.rotation, 
+			dirRotation,
+			this.m_RotationSpeed * dt);
 	}
 
 	public virtual void SetupMove(float dt) {

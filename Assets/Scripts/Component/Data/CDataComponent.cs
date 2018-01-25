@@ -25,7 +25,9 @@ public class CDataComponent : CComponent {
 		protected set { this.m_CloneData = value; }
 	}
 
-	protected Dictionary<string, Func<object, object, object>> m_UpdateMethods;
+	protected Dictionary<string, Func<string, object, object, object>> m_UpdateMethods;
+	protected Dictionary<string, Action<object>> m_ValueChanged;
+	protected Queue<string> m_DelayMethods;
 
 	protected float m_TimerPerSecond = 1f;
 	protected float m_TimerPerDelay = 1f;
@@ -38,10 +40,14 @@ public class CDataComponent : CComponent {
 		base.Awake ();
 		this.m_CloneData = ScriptableObject.Instantiate (this.m_InstanceData);
 
-		this.m_UpdateMethods = new Dictionary<string, Func<object, object, object>> ();
+		this.m_UpdateMethods = new Dictionary<string, Func<string, object, object, object>> ();
 		this.m_UpdateMethods.Add ("None", this.UpdateNothing);
 		this.m_UpdateMethods.Add ("Decrease", this.UpdateDecrease);
 		this.m_UpdateMethods.Add ("Increase", this.UpdateIncrease);
+
+		this.m_ValueChanged = new Dictionary<string, Action<object>> ();
+
+		this.m_DelayMethods = new Queue<string> ();
 	}
 
 	protected override void Start ()
@@ -56,9 +62,15 @@ public class CDataComponent : CComponent {
 			// UPDATE PER SECOND
 			this.UpdateDataPerSecond (Time.deltaTime);
 		}
-		// DELAY
-		if (this.m_TimerPerDelay > 0f) {
-			this.m_TimerPerDelay -= Time.deltaTime * this.m_UpdateDeltaSpeed;
+
+		if (this.m_DelayMethods.Count () > 0) {
+			// DELAY
+			if (this.m_TimerPerDelay > 0f) {
+				this.m_TimerPerDelay -= Time.deltaTime * this.m_UpdateDeltaSpeed;
+			} else {
+				this.UpdateDelay ();
+				this.m_TimerPerDelay = 1f;
+			}
 		}
 	}
 
@@ -66,39 +78,51 @@ public class CDataComponent : CComponent {
 
 	#region Main methods
 
-	protected virtual object UpdateNothing(object value, object updateValue) {
+	protected virtual object UpdateNothing(string name, object value, object updateValue) {
 		return value;
 	}
 
-	protected virtual object UpdateDecrease (object value, object updateValue) {
+	protected virtual object UpdateDecrease (string name, object value, object updateValue) {
+		// UPDATE VALUE
+		var resultvalue = value;
 		if (updateValue == null)
-			return 0;
+			return resultvalue;
+		var changeValue = updateValue;
 		if (value is int) {
-			var intValue = (int)value - (int)updateValue;
-			return intValue;
+			resultvalue = (int)value - (int)updateValue;
+			changeValue = -(int)updateValue;
 		} else if (value is float) {
-			var floatValue = (float)value - (float)updateValue;
-			return floatValue;
+			resultvalue = (float)value - (float)updateValue;
+			changeValue = -(float)updateValue;
 		} else if (value is string) {
-			var stringValue = value.ToString ().Replace (updateValue.ToString (), "");
-			return stringValue;
+			resultvalue = value.ToString ().Replace (updateValue.ToString (), "");
+			changeValue = updateValue.ToString ();
 		} 
-		return value;
+		// UPDATE CALLBACK
+		if (this.m_ValueChanged.ContainsKey (name)) {
+			this.m_ValueChanged [name] (changeValue);		
+		}
+		return resultvalue;
 	}
 
-	protected virtual object UpdateIncrease (object value, object updateValue) {
+	protected virtual object UpdateIncrease (string name, object value, object updateValue) {
+		// UPDATE VALUE
 		if (updateValue == null)
-			return 0;
+			return value;
+		// UPDATE CALLBACK
+		if (this.m_ValueChanged.ContainsKey (name)) {
+			this.m_ValueChanged [name] (updateValue);		
+		}
 		if (value is int) {
-			var intValue = (int)value + (int)updateValue;
-			return intValue;
+			var resultValue = (int)value + (int)updateValue;
+			return resultValue;
 		} else if (value is float) {
-			var floatValue = (float)value + (float)updateValue;
-			return floatValue;
+			var resultValue = (float)value + (float)updateValue;
+			return resultValue;
 		} else if (value is string) {
-			var stringValue = string.Format ("{0} {1}", value, updateValue);
-			return stringValue;
-		} 
+			var resultValue = string.Format ("{0} {1}", value, updateValue);
+			return resultValue;
+		}
 		return value;
 	}
 
@@ -115,11 +139,19 @@ public class CDataComponent : CComponent {
 		// GET PROPERTIES ATTRIBUTE
 		var fields = this.m_CloneData.GetType ().GetProperties ();
 		foreach (var fld in fields) {
-			foreach (var attr in fld.GetCustomAttributes(typeof (UpdateValuePerSecondAttribute), false)) {
-				var marker = attr as UpdateValuePerSecondAttribute;
-				if (this.m_UpdateMethods.ContainsKey (marker.updateMethod)) {
-					var value = this.m_UpdateMethods [marker.updateMethod] (fld.GetValue (this.m_CloneData, null), marker.updateValuePerSecond);
-					fld.SetValue (this.m_CloneData, value, null);
+			var sampleValue = fld.GetValue (this.m_CloneData, null);
+			if (sampleValue is int 
+				|| sampleValue is float
+				|| sampleValue is string) {
+				foreach (var attr in fld.GetCustomAttributes(typeof (UpdateValuePerSecondAttribute), false)) {
+					var valuePerSecond = attr as UpdateValuePerSecondAttribute;
+					if (this.m_UpdateMethods.ContainsKey (valuePerSecond.updateMethod)) {
+						var value = this.m_UpdateMethods [valuePerSecond.updateMethod] (
+							fld.Name,
+							sampleValue, 
+							valuePerSecond.updateValuePerSecond);
+						fld.SetValue (this.m_CloneData, value, null);
+					}
 				}
 			}
 		}
@@ -131,25 +163,53 @@ public class CDataComponent : CComponent {
 		// GET PROPERTIES ATTRIBUTE
 		var fields = this.m_CloneData.GetType ().GetProperties ();
 		foreach (var fld in fields) {
-			foreach (var attr in fld.GetCustomAttributes(typeof (UpdateValuePerInvokeAttribute), false)) {
-				var marker = attr as UpdateValuePerInvokeAttribute;
-				if (marker.updateName == name &&
-					this.m_UpdateMethods.ContainsKey (marker.updateMethod)) {
-					var value = this.m_UpdateMethods [marker.updateMethod] (
-						fld.GetValue (this.m_CloneData, null), 
-						marker.updateValuePerInvoke);
-					fld.SetValue (this.m_CloneData, value, null);
+			var sampleValue = fld.GetValue (this.m_CloneData, null);
+			if (sampleValue is int
+			    || sampleValue is float
+			    || sampleValue is string) {
+				foreach (var attr in fld.GetCustomAttributes(typeof (UpdateValuePerInvokeAttribute), false)) {
+					var valuePerInvoke = attr as UpdateValuePerInvokeAttribute;
+					if (valuePerInvoke.updateName == name &&
+					   	this.m_UpdateMethods.ContainsKey (valuePerInvoke.updateMethod)) {
+						var value = this.m_UpdateMethods [valuePerInvoke.updateMethod] (
+							fld.Name,
+							sampleValue, 
+				           	valuePerInvoke.updateValuePerInvoke);
+						fld.SetValue (this.m_CloneData, value, null);
+					}
 				}
 			}
 		}
 	}
 
 	public virtual void UpdateDataPerInvokeWithDelay(string name) {
-		if (this.m_TimerPerDelay > 0) {
-			return;
+		// ADD DELAY
+		if (this.m_DelayMethods.Contains (name) == false) {
+			this.m_DelayMethods.Enqueue (name);
 		}
-		this.UpdateDataPerInvoke (name);
-		this.m_TimerPerDelay = 1f;
+	}
+
+	protected virtual void UpdateDelay() {
+		while (this.m_DelayMethods.Count != 0) {
+			var delayName = this.m_DelayMethods.Dequeue ();
+			this.UpdateDataPerInvoke (delayName);
+		}
+	}
+
+	public virtual void AddListener(string name, Action<object> callback) {
+		if (this.m_ValueChanged.ContainsKey (name) == false) {
+			this.m_ValueChanged.Add (name, callback);
+		}
+	}
+
+	public virtual void RemoveListener(string name) {
+		if (this.m_ValueChanged.ContainsKey (name)) {
+			this.m_ValueChanged.Remove (name);
+		}
+	}
+
+	public virtual void RemoveAllListener() {
+		this.m_ValueChanged.Clear ();
 	}
 
 	#endregion

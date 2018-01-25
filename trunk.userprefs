@@ -1,11 +1,8 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Component\Adapter\Editor\CHostAdapterEditor.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\GreenHouseMini\CGreenHouseMiniEntity.cs">
     <Files>
-      <File FileName="Assets\Scripts\Component\Adapter\CHostAdapterComponent.cs" Line="13" Column="1" />
-      <File FileName="Assets\Scripts\Component\Adapter\Editor\CHostAdapterEditor.cs" Line="38" Column="7" />
-      <File FileName="Assets\Scripts\Component\Adapter\CInOutTriggerData.cs" Line="24" Column="38" />
-      <File FileName="Assets\Scripts\UI\CUIInfoDisplay.cs" Line="7" Column="1" />
+      <File FileName="Assets\Scripts\GreenHouseMini\CGreenHouseMiniEntity.cs" Line="50" Column="5" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

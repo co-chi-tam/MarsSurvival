@@ -36,6 +36,12 @@ public partial class CMachineEntity : CEntity {
 		}
 	}
 
+	public virtual CItemMaterial[] materialsPerCharge {
+		get { 
+			return null;
+		}
+	}
+
 	#endregion
 
 	#region Implementation Entity
@@ -50,6 +56,14 @@ public partial class CMachineEntity : CEntity {
 	{
 		base.Start ();
 		this.m_MachineData = this.GetGameComponent<CDataComponent> ().Get<CMachineData> ();
+	}
+
+	#endregion
+
+	#region Main methods
+
+	public virtual void AddEnergy() {
+		
 	}
 
 	#endregion

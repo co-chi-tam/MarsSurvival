@@ -18,6 +18,11 @@ public class CLineTerminalComponent : CComponent {
 
 	#region Fields
 
+	[SerializeField]	protected string m_GroupName = "Empty group";
+	public string groupName {
+		get { return this.m_GroupName; }
+		set { this.m_GroupName = value; }
+	}
 	[SerializeField]	protected Transform m_Source;
 
 	[Header("Line")]

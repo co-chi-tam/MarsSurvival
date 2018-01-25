@@ -7,6 +7,8 @@ using Ludiq.Reflection;
 
 public class CUIEntityInteractive : MonoBehaviour {
 
+	#region Fields
+
 	[Header("Configs")]
 	[SerializeField]	protected CEntity m_Entity;
 	protected CEntity m_PreviousEntity;
@@ -63,6 +65,10 @@ public class CUIEntityInteractive : MonoBehaviour {
 		}
 	}
 
+	#endregion
+
+	#region Implementation MonoBehaviour
+
 	protected virtual void LateUpdate() {
 		// UPDATE
 		if (this.m_Entity != null) {
@@ -81,6 +87,10 @@ public class CUIEntityInteractive : MonoBehaviour {
 			this.m_PreviousEntity = this.m_Entity;
 		}
 	}
+
+	#endregion
+
+	#region Main methods
 
 	public virtual void ConnectUI () {
 		if (this.m_Entity != null) {
@@ -111,5 +121,7 @@ public class CUIEntityInteractive : MonoBehaviour {
 			this.m_UIEnergyDisplay.SetDisplay (machine.energyPercent);
 		}
 	}
+
+	#endregion
 
 }

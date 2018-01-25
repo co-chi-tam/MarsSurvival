@@ -34,7 +34,7 @@ public class CEntity : MonoBehaviour {
 	#region Implementation MonoBehaviour
 
 	protected virtual void Awake() {
-		
+		this.m_Transform = this.transform;
 	}
 
 	protected virtual void Start() {

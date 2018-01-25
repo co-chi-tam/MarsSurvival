@@ -11,6 +11,8 @@ public partial class CCharacterEntity : CEntity, IContext {
 
 	protected CAnimatorComponent m_AnimatorComponent;
 	protected CInventoryComponent m_InventoryComponent;
+	protected CDataComponent m_DataComponent;
+	protected CSpawnObjectComponent m_SpawnObjectComponent;
 
 	protected CCharacterData m_Data;
 
@@ -23,13 +25,17 @@ public partial class CCharacterEntity : CEntity, IContext {
 		base.Awake ();
 		this.m_AnimatorComponent = this.GetGameComponent<CAnimatorComponent> ();
 		this.m_InventoryComponent = this.GetGameComponent<CInventoryComponent> ();
+		this.m_DataComponent = this.GetGameComponent<CDataComponent> ();
+		this.m_SpawnObjectComponent = this.GetGameComponent<CSpawnObjectComponent> ();
 	}
 
 	protected override void Start ()
 	{
 		base.Start ();
-		this.m_Data = this.GetGameComponent<CDataComponent> ().Get<CCharacterData>();
+		this.m_Data = this.m_DataComponent.Get<CCharacterData>();
 		this.m_InventoryComponent.items = this.m_Data.items;
+		// INVOKE DATA
+		this.m_DataComponent.AddListener ("foodPoint", this.WasEatFood);
 	}
 
 	protected override void LateUpdate ()

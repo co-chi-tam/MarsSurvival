@@ -27,4 +27,16 @@ public class CGameDataCreateAsset
 		ScriptableObjectUtility.CreateAsset<CPowerGeneratorMachineData> ();
 	}
 
+	[MenuItem("Game Data/Machine/Pump Machine Data")]
+	public static void CreatePumpMachineDataAsset ()
+	{
+		ScriptableObjectUtility.CreateAsset<CPumpMachineData> ();
+	}
+
+	[MenuItem("Game Data/Machine/Green House Machine Data")]
+	public static void CreateGreenHouseMiniDataAsset ()
+	{
+		ScriptableObjectUtility.CreateAsset<CGreenHouseMiniData> ();
+	}
+
 }

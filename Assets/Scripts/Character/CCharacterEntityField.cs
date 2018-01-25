@@ -19,6 +19,16 @@ public partial class CCharacterEntity {
 		}
 	}
 
+	public virtual bool IsAlive {
+		get {
+			if (this.m_Data == null)
+				return true;
+			return this.m_Data.energyPoint > 0f
+				&& this.m_Data.foodPoint > 0f
+				&& this.m_Data.waterPoint > 0f;
+		}
+	}
+
 	// ENERGY
 	public virtual float energyPoint {
 		get {
@@ -108,7 +118,12 @@ public partial class CCharacterEntity {
 	[SerializeField]	protected CEntity m_OtherEntity;
 	public CEntity otherEntity {
 		get { return this.m_OtherEntity; }
-		set { this.m_OtherEntity = value; }
+		set { 
+			if (this.m_OtherEntity != null && this.m_OtherEntity != value) {
+				this.ResetOtherEntity (this.m_OtherEntity);
+			}
+			this.m_OtherEntity = value; 
+		}
 	}
 	public Transform otherEntityTransform {
 		get { 

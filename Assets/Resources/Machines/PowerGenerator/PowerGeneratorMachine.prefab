@@ -23,10 +23,9 @@ GameObject:
   - component: {fileID: 114434997788968870}
   - component: {fileID: 114313374167932636}
   - component: {fileID: 114804902434790856}
-  - component: {fileID: 114499368593646712}
   - component: {fileID: 114614165650219348}
   m_Layer: 10
-  m_Name: PowerGenerator
+  m_Name: PowerGeneratorMachine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1138,6 +1137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_IsActive: 0
+  m_GroupName: EnergyGroup
   m_Source: {fileID: 4984980047849788}
   m_MaximumLine: 2
   m_GroundLayerMask:
@@ -1149,18 +1149,7 @@ MonoBehaviour:
   m_LineRenderers: []
   OnConnected:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 114804902434790856}
-        m_MethodName: set_updateDeltaSpeed
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: CLineTerminalComponent+UnityEventInt, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   OnFree:
@@ -1299,7 +1288,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_IsActive: 1
   m_Target: {fileID: 0}
-  m_MinDistance: 3
+  m_MinDistance: 2
 --- !u!114 &114434997788968870
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1331,20 +1320,6 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &114499368593646712
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1037690042525290}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92e0260a345c21b47ba13870d41851c8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IsActive: 1
-  m_AdapterPrefab: {fileID: 0}
-  m_ListDataResponses: []
 --- !u!114 &114547973307354786
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1578,7 +1553,7 @@ LineRenderer:
   - {x: 0, y: 0, z: 1}
   m_Parameters:
     serializedVersion: 2
-    widthMultiplier: 1
+    widthMultiplier: 0.5
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -1593,15 +1568,15 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 0.36383632, b: 0.06763625, a: 1}
-      key1: {r: 1, g: 0.7055468, b: 0.5564987, a: 1}
+      key0: {r: 1, g: 0.5586207, b: 0, a: 1}
+      key1: {r: 0.98823535, g: 1, b: 0.34509805, a: 1}
       key2: {r: 1, g: 0.9910773, b: 0.8235294, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
       key5: {r: 0, g: 0, b: 0, a: 0}
       key6: {r: 0, g: 0, b: 0, a: 0}
       key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 386
+      ctime0: 193
       ctime1: 65535
       ctime2: 65535
       ctime3: 0
@@ -1636,7 +1611,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 1
+  m_Radius: 2
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}

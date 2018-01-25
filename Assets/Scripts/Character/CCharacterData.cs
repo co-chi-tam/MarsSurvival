@@ -4,11 +4,11 @@ using System.Collections;
 using System.Collections.Generic;
 
 [Serializable]
-public class CCharacterData : ScriptableObject {
+public class CCharacterData : CEntityData {
 
 	#region Fields
 
-	[Header("Fields")]
+	[Header("Character Fields")]
 	[SerializeField]	protected string m_CharacterName;
 	public string characterName {
 		get { return this.m_CharacterName; }
@@ -23,8 +23,8 @@ public class CCharacterData : ScriptableObject {
 
 	// ENERGY
 	[SerializeField]	protected float m_EnergyPoint;
-	[Info(valueName = "Energy point", valueMin = 0f, valueMax = 9999)]
-	[UpdateValuePerSecond(updateMethod = "Decrease", updateValuePerSecond = 1f)]
+	[Info(valueName = "Energy point", valueMin = 0f, valueMax = 9999f)]
+	[UpdateValuePerSecond(updateMethod = "Decrease", updateValuePerSecond = 0.5f)]
 	[UpdateValuePerInvoke(updateName = "AddEnergy", updateMethod = "Increase", updateValuePerInvoke = 1.5f)]
 	public float energyPoint {
 		get { return this.m_EnergyPoint; }
@@ -39,7 +39,9 @@ public class CCharacterData : ScriptableObject {
 
 	// WATER
 	[SerializeField]	protected float m_WaterPoint = 50f;
-	[Info(valueName = "Water point", valueMin = 0f, valueMax = 9999)]
+	[Info(valueName = "Water point", valueMin = 0f, valueMax = 9999f)]
+	[UpdateValuePerSecond(updateMethod = "Decrease", updateValuePerSecond = 0.5f)]
+	[UpdateValuePerInvoke(updateName = "AddWater", updateMethod = "Increase", updateValuePerInvoke = 1f)]
 	public float waterPoint {
 		get { return this.m_WaterPoint; }
 		set { this.m_WaterPoint = value < 0f ? 0f : value > this.m_MaxWaterPoint ? this.m_MaxWaterPoint : value; }
@@ -52,10 +54,12 @@ public class CCharacterData : ScriptableObject {
 
 	// FOOD
 	[SerializeField]	protected float m_FoodPoint = 75f;
-	[Info(valueName = "Food point", valueMin = 0f, valueMax = 9999)]
+	[Info(valueName = "Food point", valueMin = 0f, valueMax = 9999f)]
+	[UpdateValuePerSecond(updateMethod = "Decrease", updateValuePerSecond = 0.25f)]
+	[UpdateValuePerInvoke(updateName = "AddFood", updateMethod = "Increase", updateValuePerInvoke = 0.5f)]
 	public float foodPoint {
 		get { return this.m_FoodPoint; }
-		set { this.m_FoodPoint = value < 0f ? 0f : value > this.m_FoodPoint ? this.m_FoodPoint : value; }
+		set { this.m_FoodPoint = value < 0f ? 0f : value > this.m_MaxFoodPoint ? this.m_MaxFoodPoint : value; }
 	}
 	[SerializeField]	protected float m_MaxFoodPoint = 100f;
 	public float maxFoodPoint {
@@ -64,6 +68,7 @@ public class CCharacterData : ScriptableObject {
 	}
 
 	[SerializeField]	protected List<CItemData> m_Items;
+	[Info(valueName = "Inventory")]
 	public List<CItemData> items {
 		get { return this.m_Items; }
 		set { this.m_Items = new List<CItemData> (value); }
@@ -76,8 +81,12 @@ public class CCharacterData : ScriptableObject {
 	public CCharacterData (): base() {
 		this.characterName 		= "Empty name";
 		this.moveSpeed 			= 5f;
-		this.m_EnergyPoint 		= 0f;
-		this.m_MaxEnergyPoint 	= 0f;
+		this.m_EnergyPoint 		= 70f;
+		this.m_MaxEnergyPoint 	= 100f;
+		this.m_WaterPoint 		= 50f;
+		this.m_MaxWaterPoint	= 100f;
+		this.m_FoodPoint 		= 75f;
+		this.m_MaxFoodPoint 	= 100f;
 		this.m_Items 			= new List<CItemData> ();
 	}
 

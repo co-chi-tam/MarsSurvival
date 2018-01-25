@@ -11,10 +11,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1501000c7148f294583a5fd3e7093e69, type: 3}
   m_Name: PowerGeneratorMachineData
   m_EditorClassIdentifier: 
-  m_MachineName: Power generate machine
+  m_Description: 
+  m_MachineName: Energy generator machine
   m_MachineJobs:
   - AddEnergy
   - FollowMe
   - StartMachine
   m_PowerPoint: 100
   m_MaxPowerPoint: 100
+  m_MaterialsPerCharge:
+  - materialAmount: 1
+    materialData: {fileID: 11400000, guid: c42b537db846e7245958ab9382621ef6, type: 2}

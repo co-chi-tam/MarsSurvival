@@ -39,7 +39,7 @@ public class CUIInventoryDisplay : MonoBehaviour {
 				var itemChild = items [i];
 				itemDisplay.itemImage = itemChild.avatar;
 				itemDisplay.itemName = string.Format ("{0} x{1}", itemChild.itemName, itemChild.amount);
-				itemDisplay.gameObject.SetActive (true);
+				itemDisplay.gameObject.SetActive (itemChild.amount > 0);
 			} else {
 				itemDisplay.gameObject.SetActive (false);
 			}

@@ -48,6 +48,26 @@ public class CInventoryComponent : CComponent {
 		this.m_Items = items; 
 	}
 
+	public virtual bool CheckAmountItem(int amount, CItemData value) {
+		for (int i = 0; i < this.m_Items.Count; i++) {
+			var item = this.m_Items[i];
+			if (item.amount >= amount && item.itemName == value.itemName) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public virtual void UseItem(int amount, CItemData value) {
+		for (int i = 0; i < this.m_Items.Count; i++) {
+			var item = this.m_Items[i];
+			if (item.itemName == value.itemName) {
+				item.amount -= amount;
+				break;
+			}
+		}
+	}
+
 	public virtual void PickItem() {
 		if (this.m_PhysicDetect.colliderCount == 0) {
 			if (this.OnNothingCanPick != null) {
@@ -80,7 +100,7 @@ public class CInventoryComponent : CComponent {
 
 	public virtual void PickItem(CItemComponent item) {
 		var storedItem = this.items.Find ((x) => {
-			return x.itemName == item.name;
+			return x.itemName == item.itemData.itemName;
 		});
 		// CHECK IF ITEM EXIST 
 		if (storedItem == null) {

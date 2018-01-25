@@ -3,11 +3,11 @@ using System;
 using System.Collections;
 
 [Serializable]
-public class CItemData : ScriptableObject {
+public class CItemData : CEntityData {
 
 	#region Fields
 
-	[Header("Fields")]
+	[Header("Item Fields")]
 	public string itemName = string.Empty;
 	public Sprite avatar = null;
 	public GameObject model = null;
