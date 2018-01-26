@@ -9,7 +9,8 @@ public partial class CCharacterEntity {
 	protected float m_WasConsumeFood = 0;
 
 	public virtual void NeedPooping() {
-		this.m_ObjectPoolMemberComponent.Get ("Dirt");
+		var poop = this.m_ObjectPoolMemberComponent.Get ("Dirt");
+		poop.transform.position = this.m_Transform.position;
 	}
 
 	// POOPING WHEN EAT TOO MUCH
