@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CGreenHouseMiniData : CMachineData {
+public class CGreenHouseMiniData : CEnergyMachineData {
 
 	#region Fields
 

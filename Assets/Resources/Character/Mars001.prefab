@@ -496,7 +496,8 @@ GameObject:
   - component: {fileID: 114903941963965026}
   - component: {fileID: 114880796129492626}
   - component: {fileID: 114442416771596572}
-  - component: {fileID: 114234285489941162}
+  - component: {fileID: 114640992323890318}
+  - component: {fileID: 114053298770876746}
   - component: {fileID: 114465870578483098}
   m_Layer: 8
   m_Name: Mars001
@@ -1222,7 +1223,7 @@ MeshRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7adde505a8f25a841ba9e890899d0f2a, type: 2}
+  - {fileID: 2100000, guid: 8f75fea1267f4d745861b9f8829f3ae6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1256,7 +1257,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 7adde505a8f25a841ba9e890899d0f2a, type: 2}
+  - {fileID: 2100000, guid: 8f75fea1267f4d745861b9f8829f3ae6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1290,7 +1291,7 @@ MeshRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7adde505a8f25a841ba9e890899d0f2a, type: 2}
+  - {fileID: 2100000, guid: 8f75fea1267f4d745861b9f8829f3ae6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1324,7 +1325,7 @@ MeshRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7adde505a8f25a841ba9e890899d0f2a, type: 2}
+  - {fileID: 2100000, guid: 8f75fea1267f4d745861b9f8829f3ae6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1358,7 +1359,7 @@ MeshRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7adde505a8f25a841ba9e890899d0f2a, type: 2}
+  - {fileID: 2100000, guid: 8f75fea1267f4d745861b9f8829f3ae6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1392,7 +1393,7 @@ MeshRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7adde505a8f25a841ba9e890899d0f2a, type: 2}
+  - {fileID: 2100000, guid: 8f75fea1267f4d745861b9f8829f3ae6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1643,6 +1644,18 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114053298770876746
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1833698780043526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8b4e7f5e638b964892a8a64240ac938, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsCenterMap: 1
 --- !u!114 &114151746997459282
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1768,36 +1781,6 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &114234285489941162
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1833698780043526}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2929589c7ca556c45ad153d2b2160d23, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IsActive: 1
-  m_SpawnObjects:
-  - m_ObjectName: Rock
-    m_ObjectPrefab: {fileID: 1153293002329676, guid: ac4dbf08754d82d439e7c98597ff2ed6,
-      type: 2}
-  - m_ObjectName: Soil
-    m_ObjectPrefab: {fileID: 1153293002329676, guid: ac4dbf08754d82d439e7c98597ff2ed6,
-      type: 2}
-  OnSetLoaded:
-    _parameterTypes:
-    - UnityEngine.GameObject
-    _target: {fileID: 114465870578483098}
-    _component: CCharacterEntity
-    _name: HaveSpawnObject
-  OnSpawned:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: CSpawnObjectComponent+UnityEnvenObject, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!114 &114442416771596572
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1839,7 +1822,7 @@ MonoBehaviour:
   - {fileID: 114016928984550636}
   - {fileID: 114903941963965026}
   - {fileID: 114159286287544068}
-  - {fileID: 114234285489941162}
+  - {fileID: 114640992323890318}
   m_IsActive: 1
   m_OtherEntity: {fileID: 0}
 --- !u!114 &114531483245967648
@@ -2004,6 +1987,40 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   m_SphereColor: {r: 0.15862082, g: 0, b: 1, a: 1}
+--- !u!114 &114640992323890318
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1833698780043526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5f9f4fba4553f64f969376743a31e80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsActive: 0
+  m_MemberName: Empty
+  OnSet:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnGet:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 114465870578483098}
+        m_MethodName: HaveSpawnObject
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: CObjectPoolMemberComponent+UnityEventGameObject, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!114 &114790098027614910
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2207,6 +2224,22 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 114465870578483098}
         m_MethodName: set_otherEntity
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: CEntityDetectComponent+UnityEventEntity, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnChange:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 114465870578483098}
+        m_MethodName: ResetOtherEntity
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

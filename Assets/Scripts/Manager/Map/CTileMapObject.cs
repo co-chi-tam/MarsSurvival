@@ -10,6 +10,16 @@ public class CTileMapObject : MonoBehaviour {
 	public UnityEvent OnLoaded;
 	public UnityEvent OnRemove;
 
+	public virtual Vector3 GetRandomPosition(float radius) {
+		var randomVector = Random.insideUnitCircle;
+		var randomPosition = new Vector3 (
+			this.transform.position.x + randomVector.x * radius,
+			this.transform.position.y,
+			this.transform.position.z + randomVector.y * radius
+		);
+		return randomPosition;
+	}
+
 	public virtual void OnLoadTile() {
 		if (this.OnLoaded != null) {
 			this.OnLoaded.Invoke ();

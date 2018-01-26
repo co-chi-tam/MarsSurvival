@@ -91,6 +91,13 @@ public partial class CCharacterEntity {
 			return this.m_Data.foodPoint / this.m_Data.maxFoodPoint;
 		}
 	}
+	public virtual bool IsEatTooMuch {
+		get { 
+			if (this.m_Data == null)
+				return false;
+			return this.m_Data.foodPoint >= this.m_Data.maxFoodPoint; 
+		}
+	}
 
 	protected Vector3 m_DeltaMovePoint = Vector3.zero;
 	public Vector3 deltaMovePoint {
@@ -116,13 +123,11 @@ public partial class CCharacterEntity {
 	}
 
 	[SerializeField]	protected CEntity m_OtherEntity;
+	protected CEntity m_FollowerEntity;
 	public CEntity otherEntity {
 		get { return this.m_OtherEntity; }
 		set { 
-			if (this.m_OtherEntity != null && this.m_OtherEntity != value) {
-				this.ResetOtherEntity (this.m_OtherEntity);
-			}
-			this.m_OtherEntity = value; 
+			this.m_OtherEntity = value;  
 		}
 	}
 	public Transform otherEntityTransform {

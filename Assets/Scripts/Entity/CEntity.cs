@@ -11,7 +11,7 @@ public class CEntity : MonoBehaviour {
 	[Header("Components")]
 	[SerializeField]	protected CComponent[] m_Components = new CComponent[0];
 
-	[Header("Others")]
+	[Header("Entity")]
 	[SerializeField]	protected bool m_IsActive;
 	public virtual bool IsActive {
 		get { return this.m_IsActive; }
@@ -91,6 +91,20 @@ public class CEntity : MonoBehaviour {
 
 	public virtual void SetAnimation(int value) {
 		this.m_AnimationInt = value;
+	}
+
+	#endregion
+
+	#region Implementation Object
+
+	public override bool Equals (object other)
+	{
+		return base.Equals (other);
+	}
+
+	public override int GetHashCode ()
+	{
+		return base.GetHashCode ();
 	}
 
 	#endregion

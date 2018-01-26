@@ -11,6 +11,7 @@ public partial class CCharacterEntity {
 		var followerComponent = value.GetGameComponent<CFollowObjectComponent> ();
 		if (followerComponent != null) {
 			// TODO
+			Debug.Log ("AAAAAAAA");
 		}
 	}
 
@@ -32,9 +33,18 @@ public partial class CCharacterEntity {
 	}
 
 	public virtual void SetOtherEntityFollowMe(bool value) {
+		// RESET ENTITY
+		if (this.m_FollowerEntity != null) {
+			var followerComponent = this.m_FollowerEntity.GetGameComponent<CFollowObjectComponent> ();
+			if (followerComponent != null) {
+				followerComponent.target = null;
+			}
+		}
+		// SET UP ENTITY
 		if (this.m_OtherEntity != null) {
 			var followerComponent = this.m_OtherEntity.GetGameComponent<CFollowObjectComponent> ();
 			if (followerComponent != null) {
+				this.m_FollowerEntity = this.m_OtherEntity;
 				followerComponent.target = value ? this.m_Transform : null;
 			}
 		}

@@ -36,7 +36,6 @@ public class CItemComponent : CComponent {
 		if (this.OnPicked != null) {
 			this.OnPicked.Invoke ();
 		}
-		this.SetActive (false);
 	}
 
 	#endregion

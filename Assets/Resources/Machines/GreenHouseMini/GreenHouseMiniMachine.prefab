@@ -114,6 +114,7 @@ GameObject:
   - component: {fileID: 136316348143405544}
   - component: {fileID: 114670103409477156}
   - component: {fileID: 114504133645510670}
+  - component: {fileID: 114614112061255746}
   - component: {fileID: 114497531924446112}
   - component: {fileID: 114778673889243870}
   - component: {fileID: 114762353910822680}
@@ -796,6 +797,18 @@ MonoBehaviour:
   m_IsActive: 1
   m_Target: {fileID: 0}
   m_MinDistance: 2
+--- !u!114 &114614112061255746
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1376049691896804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8b4e7f5e638b964892a8a64240ac938, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsCenterMap: 0
 --- !u!114 &114670103409477156
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -875,9 +888,9 @@ MonoBehaviour:
   m_RootLine: {fileID: 0}
   OnBoolCondition:
     _parameterTypes: []
-    _target: {fileID: 0}
-    _component: 
-    _name: 
+    _target: {fileID: 1376049691896804}
+    _component: CGreenHouseMiniEntity
+    _name: IsStarted
   OnConnected:
     m_PersistentCalls:
       m_Calls: []
@@ -979,6 +992,17 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 114497531924446112}
+        m_MethodName: UpdateDataPerInvokeWithDelay
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: UseEnergy
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: FSMMonoBaseState+UnityEventFloat, Assembly-CSharp, Version=0.0.0.0,
@@ -1114,7 +1138,7 @@ SkinnedMeshRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 2100000, guid: de18495193626374f890dd975363e0f1, type: 2}
+  - {fileID: 2100000, guid: 8f75fea1267f4d745861b9f8829f3ae6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -12,7 +12,7 @@ public partial class CCharacterEntity : CEntity, IContext {
 	protected CAnimatorComponent m_AnimatorComponent;
 	protected CInventoryComponent m_InventoryComponent;
 	protected CDataComponent m_DataComponent;
-	protected CSpawnObjectComponent m_SpawnObjectComponent;
+	protected CObjectPoolMemberComponent m_ObjectPoolMemberComponent;
 
 	protected CCharacterData m_Data;
 
@@ -26,7 +26,7 @@ public partial class CCharacterEntity : CEntity, IContext {
 		this.m_AnimatorComponent = this.GetGameComponent<CAnimatorComponent> ();
 		this.m_InventoryComponent = this.GetGameComponent<CInventoryComponent> ();
 		this.m_DataComponent = this.GetGameComponent<CDataComponent> ();
-		this.m_SpawnObjectComponent = this.GetGameComponent<CSpawnObjectComponent> ();
+		this.m_ObjectPoolMemberComponent = this.GetGameComponent<CObjectPoolMemberComponent> ();
 	}
 
 	protected override void Start ()

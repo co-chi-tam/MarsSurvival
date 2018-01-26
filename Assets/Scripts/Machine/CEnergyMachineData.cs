@@ -9,7 +9,7 @@ public class CEnergyMachineData : CMachineData {
 	[Header("Energy Fields")]
 	[SerializeField]	protected float m_EnergyPoint = 100f;
 	[Info(valueName = "Energy point", valueMin = 0f, valueMax = 100f)]
-	[UpdateValuePerInvoke(updateName = "AddEnergy", updateMethod = "Increase", updateValuePerInvoke = 20f)]
+	[UpdateValuePerInvoke(updateName = "AddEnergy", updateMethod = "Increase", updateValuePerInvoke = 10f)]
 	[UpdateValuePerInvoke(updateName = "UseEnergy", updateMethod = "Decrease", updateValuePerInvoke = 0.5f)]
 	public float energyPoint {
 		get { return this.m_EnergyPoint; }

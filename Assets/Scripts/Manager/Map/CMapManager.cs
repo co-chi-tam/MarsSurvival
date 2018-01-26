@@ -23,11 +23,15 @@ public class CMapManager : CMonoSingleton<CMapManager> {
 
 	[Header("Target")]
 	[SerializeField]	protected Transform m_Target;
+	public Transform target {
+		get { return this.m_Target; }
+		set { this.m_Target = value; }
+	}
 	[SerializeField]	protected Vector3 m_CurrentPosition;
 
 	[Header("Events")]
-	public UnityEvent OnRemoveTile;
-	public UnityEvent OnLoadTile;
+	public UnityEventTileMap OnRemoveTile;
+	public UnityEventTileMap OnLoadTile;
 
 	protected Vector3 m_PreviousPosition = new Vector3(-999f, 0f, -999f);
 	protected bool m_NeedUpdate = false;
@@ -44,6 +48,9 @@ public class CMapManager : CMonoSingleton<CMapManager> {
 		public Vector3 tileRotation;
 		public CTileMapObject tileObject;
 	}
+
+	[System.Serializable]
+	public class UnityEventTileMap : UnityEvent<CTileMapObject> {}
 
 	#endregion
 
@@ -72,6 +79,11 @@ public class CMapManager : CMonoSingleton<CMapManager> {
 	#endregion
 
 	#region Main methods
+
+	public virtual Vector3 GetRandomPosition(float radius) {
+		var randomTile = this.m_UsedPlaces[Random.Range (0, this.m_UsedPlaces.Count)];
+		return randomTile.GetRandomPosition (radius);
+	}
 
 	protected void InitMap() {
 		var childCount = this.transform.childCount;
@@ -150,6 +162,7 @@ public class CMapManager : CMonoSingleton<CMapManager> {
 			if (isGoodPlace == false) {
 				var usedObject = this.m_UsedPlaces [x];
 				this.AddReuseObject (usedObject);
+				usedObject.OnRemoveTile ();
 			}
 		}
 	}
@@ -171,6 +184,7 @@ public class CMapManager : CMonoSingleton<CMapManager> {
 				var reuseObject = this.LoadTileMapInstance (placeName);
 				this.AddUsedObject (reuseObject);
 				this.UpdatePlanetPosition (reuseObject, planetPos);
+				reuseObject.OnLoadTile ();
 			}
 		}
 		this.m_NeedUpdate = this.m_UsedPlaces.Count != this.m_PlacePatterns.Length 
@@ -217,15 +231,14 @@ public class CMapManager : CMonoSingleton<CMapManager> {
 
 	protected bool AddReuseObject(CTileMapObject value) {
 		value.gameObject.SetActive (false);
+		if (this.OnRemoveTile != null) {
+			this.OnRemoveTile.Invoke (value);
+		}
 		if (this.m_ReusePlaces.Contains (value) == false
 			&& this.m_UsedPlaces.Contains (value) == true) {
 			this.m_ReusePlaces.Add (value);
 			this.m_UsedPlaces.Remove (value);
 			this.m_UsedPlaces.TrimExcess ();
-			if (this.OnRemoveTile != null) {
-				this.OnRemoveTile.Invoke ();
-			}
-			value.OnRemoveTile ();
 			return true;
 		}
 		return false;
@@ -233,15 +246,14 @@ public class CMapManager : CMonoSingleton<CMapManager> {
 
 	protected bool AddUsedObject(CTileMapObject value) {
 		value.gameObject.SetActive (true);
+		if (this.OnLoadTile != null) {
+			this.OnLoadTile.Invoke (value);
+		}
 		if (this.m_UsedPlaces.Contains (value) == false
 			&& this.m_ReusePlaces.Contains (value) == true) {
 			this.m_UsedPlaces.Add (value);
 			this.m_ReusePlaces.Remove (value);
 			this.m_ReusePlaces.TrimExcess ();
-			if (this.OnLoadTile != null) {
-				this.OnLoadTile.Invoke ();
-			}
-			value.OnLoadTile ();
 			return true;
 		}
 		return false;

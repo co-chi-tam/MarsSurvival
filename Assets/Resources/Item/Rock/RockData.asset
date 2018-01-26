@@ -11,6 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ceab80d9f5f1924480f8616b5956ce5, type: 3}
   m_Name: RockData
   m_EditorClassIdentifier: 
+  m_Description: Energy Rock
   itemName: Rock
   avatar: {fileID: 21300000, guid: cba74a25ec4e87b4fadd0ffe47050c65, type: 3}
   model: {fileID: 1153293002329676, guid: ac4dbf08754d82d439e7c98597ff2ed6, type: 2}

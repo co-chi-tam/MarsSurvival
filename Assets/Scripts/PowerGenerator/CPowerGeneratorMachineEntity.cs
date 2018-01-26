@@ -2,13 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CPowerGeneratorMachineEntity : CMachineEntity {
+public class CPowerGeneratorMachineEntity : CEnergyMachineEntity {
 
 	#region Fields
 
 	protected CAnimatorComponent m_AnimatorComponent;
-	protected CDataComponent m_DataComponent;
-	private CPowerGeneratorMachineData m_PowerGeneratorData;
 
 	public override bool IsActive {
 		get { return this.m_IsActive; }
@@ -21,31 +19,6 @@ public class CPowerGeneratorMachineEntity : CMachineEntity {
 		set { base.IsStarted = value; }
 	}
 
-	public override bool HaveEnergy {
-		get { 
-			if (this.m_PowerGeneratorData == null)
-				return false;
-			return this.m_PowerGeneratorData.energyPoint > 1f;
-		}
-		set { base.HaveEnergy = value; }
-	}
-
-	public override float energyPercent {
-		get { 
-			if (this.m_PowerGeneratorData == null)
-				return base.energyPercent;
-			return this.m_PowerGeneratorData.energyPoint / this.m_PowerGeneratorData.maxEnergyPoint;
-		}
-	}
-
-	public override CItemMaterial[] materialsPerCharge {
-		get {
-			if (this.m_PowerGeneratorData == null)
-				return base.materialsPerCharge;
-			return this.m_PowerGeneratorData.materialsPerCharge;
-		}
-	}
-
 	#endregion
 
 	#region Implementation Entity
@@ -54,13 +27,11 @@ public class CPowerGeneratorMachineEntity : CMachineEntity {
 	{
 		base.Awake ();
 		this.m_AnimatorComponent = this.GetGameComponent<CAnimatorComponent> ();
-		this.m_DataComponent = this.GetGameComponent<CDataComponent> ();
 	}
 
 	protected override void Start ()
 	{
 		base.Start ();
-		this.m_PowerGeneratorData = this.m_DataComponent.Get<CPowerGeneratorMachineData>();
 	}
 
 	protected override void LateUpdate ()
@@ -77,11 +48,7 @@ public class CPowerGeneratorMachineEntity : CMachineEntity {
 
 	#region Main methods
 
-	public override void AddEnergy ()
-	{
-		base.AddEnergy ();
-		this.m_DataComponent.UpdateDataPerInvoke ("AddEnergy");
-	}
+
 
 	#endregion
 

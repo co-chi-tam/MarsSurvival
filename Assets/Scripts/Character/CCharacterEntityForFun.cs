@@ -6,25 +6,22 @@ public partial class CCharacterEntity {
 
 	#region For fun Entity
 
-	protected float m_WasEatPoint = 0;
-	public bool IsEatTooMuch {
-		get { 
-			if (this.m_Data == null)
-				return false;
-			return this.m_WasEatPoint > this.m_Data.maxFoodPoint; 
-		}
-	}
+	protected float m_WasConsumeFood = 0;
 
 	public virtual void NeedPooping() {
-		this.m_SpawnObjectComponent.SpawnGameObject ("Soil");
+		this.m_ObjectPoolMemberComponent.Get ("Dirt");
 	}
 
+	// POOPING WHEN EAT TOO MUCH
 	public virtual void WasEatFood(object value) {
 		if (value is float) {
-			this.m_WasEatPoint += (float)value;
-			if (this.m_WasEatPoint > this.m_Data.maxFoodPoint) {
-				this.NeedPooping ();
-				this.m_WasEatPoint = 0f;
+			var floatValue = (float) value;
+			if (floatValue < 0f) {
+				this.m_WasConsumeFood += floatValue;
+				if (this.m_WasConsumeFood < -(this.m_Data.maxFoodPoint / 2f)) {
+					this.NeedPooping ();
+					this.m_WasConsumeFood = 0f;
+				}
 			}
 		}
 	}

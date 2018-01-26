@@ -11,8 +11,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1ae12b15186d3646830fe5d2d11d16e, type: 3}
   m_Name: GreenHouseMiniData
   m_EditorClassIdentifier: 
-  m_Description: 
+  m_Description: Green House Mini
   m_MachineName: Green House Mini
   m_MachineJobs:
   - StartMachine
   - FollowMe
+  - AddDirt
+  m_EnergyPoint: 70
+  m_MaxEnergyPoint: 100
+  m_MaterialsPerCharge:
+  - materialAmount: 1
+    materialData: {fileID: 11400000, guid: b8caa2594371e5f439291fe5cbf0b1fe, type: 2}

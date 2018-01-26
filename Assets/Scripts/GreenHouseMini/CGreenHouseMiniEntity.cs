@@ -2,13 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CGreenHouseMiniEntity : CMachineEntity {
+public class CGreenHouseMiniEntity : CEnergyMachineEntity {
 
 	#region Fields
 
 //	protected CAnimatorComponent m_AnimatorComponent;
-	protected CDataComponent m_DataComponent;
-	private CGreenHouseMiniData m_GreenHouseMiniData;
 
 	public override bool IsActive {
 		get { return this.m_IsActive; }
@@ -19,11 +17,6 @@ public class CGreenHouseMiniEntity : CMachineEntity {
 		get {
 			return base.IsStarted; }
 		set { base.IsStarted = value; }
-	}
-
-	public override bool HaveEnergy {
-		get { return base.HaveEnergy; }
-		set { base.HaveEnergy = value; }
 	}
 
 	#endregion
@@ -40,7 +33,6 @@ public class CGreenHouseMiniEntity : CMachineEntity {
 	protected override void Start ()
 	{
 		base.Start ();
-		this.m_GreenHouseMiniData = this.m_DataComponent.Get<CGreenHouseMiniData>();
 	}
 
 	protected override void LateUpdate ()
@@ -56,8 +48,6 @@ public class CGreenHouseMiniEntity : CMachineEntity {
 	#endregion
 
 	#region Main methods
-
-
 
 	#endregion
 

@@ -6,5 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/TapToStartScene.unity
+    guid: e04cb743da6c50b49a848896aa4f7c66
+  - enabled: 1
     path: Assets/Scenes/MarsScene.unity
     guid: a427127e997fb57488123b8c5232be6c

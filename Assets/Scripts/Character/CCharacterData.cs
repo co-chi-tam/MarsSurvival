@@ -25,7 +25,7 @@ public class CCharacterData : CEntityData {
 	[SerializeField]	protected float m_EnergyPoint;
 	[Info(valueName = "Energy point", valueMin = 0f, valueMax = 9999f)]
 	[UpdateValuePerSecond(updateMethod = "Decrease", updateValuePerSecond = 0.5f)]
-	[UpdateValuePerInvoke(updateName = "AddEnergy", updateMethod = "Increase", updateValuePerInvoke = 1.5f)]
+	[UpdateValuePerInvoke(updateName = "AddEnergy", updateMethod = "Increase", updateValuePerInvoke = 2.5f)]
 	public float energyPoint {
 		get { return this.m_EnergyPoint; }
 		set { this.m_EnergyPoint = value < 0f ? 0f : value > this.m_MaxEnergyPoint ? this.m_MaxEnergyPoint : value; }
@@ -41,7 +41,7 @@ public class CCharacterData : CEntityData {
 	[SerializeField]	protected float m_WaterPoint = 50f;
 	[Info(valueName = "Water point", valueMin = 0f, valueMax = 9999f)]
 	[UpdateValuePerSecond(updateMethod = "Decrease", updateValuePerSecond = 0.5f)]
-	[UpdateValuePerInvoke(updateName = "AddWater", updateMethod = "Increase", updateValuePerInvoke = 1f)]
+	[UpdateValuePerInvoke(updateName = "AddWater", updateMethod = "Increase", updateValuePerInvoke = 2f)]
 	public float waterPoint {
 		get { return this.m_WaterPoint; }
 		set { this.m_WaterPoint = value < 0f ? 0f : value > this.m_MaxWaterPoint ? this.m_MaxWaterPoint : value; }

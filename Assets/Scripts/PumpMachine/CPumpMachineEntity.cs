@@ -8,7 +8,7 @@ public class CPumpMachineEntity : CMachineEntity {
 
 	protected CAnimatorComponent m_AnimatorComponent;
 	protected CDataComponent m_DataComponent;
-	private CPumpMachineData m_PumpMachineData;
+//	private CPumpMachineData m_PumpMachineData;
 
 	public override bool IsActive {
 		get { return this.m_IsActive; }
@@ -40,7 +40,7 @@ public class CPumpMachineEntity : CMachineEntity {
 	protected override void Start ()
 	{
 		base.Start ();
-		this.m_PumpMachineData = this.m_DataComponent.Get<CPumpMachineData>();
+//		this.m_PumpMachineData = this.m_DataComponent.Get<CPumpMachineData>();
 	}
 
 	protected override void LateUpdate ()

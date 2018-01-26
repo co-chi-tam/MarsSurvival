@@ -157,7 +157,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Mars001-Material
-    second: {fileID: 2100000, guid: 0688dbdd030ff71448ee1acb73893ae4, type: 2}
+    second: {fileID: 2100000, guid: 8f75fea1267f4d745861b9f8829f3ae6, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -167,7 +167,7 @@ ModelImporter:
     importMaterials: 1
     materialName: 0
     materialSearch: 1
-    materialLocation: 0
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
