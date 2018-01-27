@@ -1793,6 +1793,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_IsActive: 1
+  m_MaximumFollower: 1
   OnActive:
     m_PersistentCalls:
       m_Calls: []
@@ -2190,6 +2191,29 @@ MonoBehaviour:
   m_IsActive: 0
   m_UpdateDeltaSpeed: 1
   m_InstanceData: {fileID: 11400000, guid: 8e4d226210d953e408da6daef89e8567, type: 2}
+  m_AutoSave: 0
+  m_SaveFile: Mars001
+  OnLoad:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 114465870578483098}
+        m_MethodName: Init
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnSave:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &114930840090771548
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2224,22 +2248,6 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 114465870578483098}
         m_MethodName: set_otherEntity
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: CEntityDetectComponent+UnityEventEntity, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  OnChange:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 114465870578483098}
-        m_MethodName: ResetOtherEntity
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

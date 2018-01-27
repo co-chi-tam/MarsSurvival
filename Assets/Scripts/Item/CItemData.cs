@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System;
 using System.Collections;
+using System.Collections.Generic;
+using System.Runtime.Serialization;
+using System.Reflection;
 
 [Serializable]
 public class CItemData : CEntityData {
@@ -8,10 +11,11 @@ public class CItemData : CEntityData {
 	#region Fields
 
 	[Header("Item Fields")]
-	public string itemName = string.Empty;
-	public Sprite avatar = null;
-	public GameObject model = null;
-	public int amount = 0;
+	public string itemName 		= string.Empty;
+	public string itemDisplayName	= string.Empty;
+	public string avatarPath 	= string.Empty;
+	public string modelPath 	= string.Empty;
+	public int amount 			= 0;
 
 	#endregion
 
@@ -21,12 +25,32 @@ public class CItemData : CEntityData {
 		
 	}
 
+	public CItemData (SerializationInfo info, StreamingContext context) : base(info, context) {
+
+	}
+
 	#endregion
 
 	#region Object
 
-	public override string ToString () {
-		return string.Format ("[CItemData: itemName={0}, itemAvatar={1}, itemModel={2}, itemAmount={3}]", itemName, avatar, model, amount);
+	public override bool Equals (object other)
+	{
+		return base.Equals (other);
+	}
+
+	public override int GetHashCode ()
+	{
+		int hash = 13;
+		hash = (hash * 7) + itemName.GetHashCode();
+		hash = (hash * 7) + itemDisplayName.GetHashCode();
+		hash = (hash * 7) + avatarPath.GetHashCode();
+		hash = (hash * 7) + modelPath.GetHashCode();
+		return hash;
+	}
+
+	public override string ToString ()
+	{
+		return string.Format ("[CItemData]");
 	}
 
 	#endregion

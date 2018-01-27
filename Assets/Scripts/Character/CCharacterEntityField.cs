@@ -123,7 +123,6 @@ public partial class CCharacterEntity {
 	}
 
 	[SerializeField]	protected CEntity m_OtherEntity;
-	protected CEntity m_FollowerEntity;
 	public CEntity otherEntity {
 		get { return this.m_OtherEntity; }
 		set { 

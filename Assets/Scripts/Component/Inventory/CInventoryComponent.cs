@@ -105,10 +105,11 @@ public class CInventoryComponent : CComponent {
 		// CHECK IF ITEM EXIST 
 		if (storedItem == null) {
 			storedItem = ScriptableObject.CreateInstance<CItemData> ();
-			storedItem.itemName = item.itemData.itemName;
-			storedItem.avatar = item.itemData.avatar;
-			storedItem.model = item.itemData.model;
-			storedItem.amount = 1;
+			storedItem.itemName 	= item.itemData.itemName;
+			storedItem.itemDisplayName = item.itemData.itemDisplayName;
+			storedItem.avatarPath 	= item.itemData.avatarPath;
+			storedItem.modelPath 	= item.itemData.modelPath;
+			storedItem.amount 		= 1;
 			this.m_Items.Add (storedItem);
 		} else {
 			storedItem.amount += item.itemData.amount;
@@ -124,12 +125,16 @@ public class CInventoryComponent : CComponent {
 		this.m_Items = this.m_Items 
 			.GroupBy ((x) => new { 
 				name = x.itemName,
-				avatar = x.avatar,
+				disName = x.itemDisplayName,
+				avatar = x.avatarPath,
+				model = x.modelPath,
 				amount = items.Where((c) => c.itemName == x.itemName).Sum((s) => s.amount) 
 			})
 			.Select ((z) => new CItemData() {
 				itemName = z.Key.name,
-				avatar = z.Key.avatar,
+				itemDisplayName = z.Key.disName,
+				avatarPath = z.Key.avatar,
+				modelPath = z.Key.model,
 				amount = z.Key.amount
 			})
 			.ToList ();

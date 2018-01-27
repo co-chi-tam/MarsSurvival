@@ -2,6 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Runtime.Serialization;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Events.Utils;
@@ -24,6 +27,12 @@ public class CDataComponent : CComponent {
 		get { return this.m_CloneData; }
 		protected set { this.m_CloneData = value; }
 	}
+
+	[Header("Save")]
+	[SerializeField]	protected bool m_AutoSave = false;
+	[SerializeField]	protected string m_SaveFile = Guid.NewGuid().ToString();
+	public UnityEvent OnLoad;
+	public UnityEvent OnSave;
 
 	protected Dictionary<string, Func<string, object, object, object>> m_UpdateMethods;
 	protected Dictionary<string, Action<object>> m_ValueChanged;
@@ -53,6 +62,9 @@ public class CDataComponent : CComponent {
 	protected override void Start ()
 	{
 		base.Start ();
+		if (this.m_AutoSave) {
+			this.Load ();
+		}
 	}
 
 	protected override void Update ()
@@ -74,9 +86,45 @@ public class CDataComponent : CComponent {
 		}
 	}
 
+	protected override void OnApplicationQuit ()
+	{
+		base.OnApplicationQuit ();
+		if (this.m_AutoSave) {
+			this.Save ();
+		}
+	}
+
 	#endregion
 
 	#region Main methods
+
+	public virtual bool Load() {
+		if (File.Exists (this.GetTotalSavePath ())) {
+			var fileStream = File.Open (this.GetTotalSavePath (), FileMode.OpenOrCreate);
+			var binaryFormt = new BinaryFormatter ();
+			var data = (ScriptableObject) binaryFormt.Deserialize (fileStream);
+			this.m_CloneData = ScriptableObject.Instantiate (data);
+			fileStream.Close ();
+			if (this.OnLoad != null) {
+				this.OnLoad.Invoke ();
+			}
+			return true;
+		}
+		return false;
+	}
+
+	public virtual bool Save() {
+		if (this.m_CloneData == null)
+			return false;
+		var fileStream = File.Open (this.GetTotalSavePath (), FileMode.OpenOrCreate);
+		var binaryFormt = new BinaryFormatter ();
+		binaryFormt.Serialize (fileStream, this.m_CloneData);
+		fileStream.Close ();
+		if (this.OnSave != null) {
+			this.OnSave.Invoke ();
+		}
+		return true;
+	}
 
 	protected virtual object UpdateNothing(string name, object value, object updateValue) {
 		return value;
@@ -238,6 +286,34 @@ public class CDataComponent : CComponent {
 		var fields = this.m_CloneData.GetType ().GetProperty(name);
 		if (fields != null) {
 			fields.SetValue (this.m_CloneData, value, null);
+		}
+	}
+
+	public virtual string GetTotalSavePath() {
+		return string.Format ("{0}/{1}.dat", Application.persistentDataPath, this.m_SaveFile);
+	}
+
+	public byte[] ToByteArray<T>(T obj)
+	{
+		if(obj == null)
+			return null;
+		BinaryFormatter bf = new BinaryFormatter();
+		using(MemoryStream ms = new MemoryStream())
+		{
+			bf.Serialize(ms, obj);
+			return ms.ToArray();
+		}
+	}
+
+	public T FromByteArray<T>(byte[] data)
+	{
+		if(data == null)
+			return default(T);
+		BinaryFormatter bf = new BinaryFormatter();
+		using(MemoryStream ms = new MemoryStream(data))
+		{
+			object obj = bf.Deserialize(ms);
+			return (T)obj;
 		}
 	}
 

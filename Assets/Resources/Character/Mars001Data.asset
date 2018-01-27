@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Name: Mars001Data
   m_EditorClassIdentifier: 
   m_Description: Survival.
+  m_Position: (0,0,0)
+  m_Rotation: (0,0,0)
   m_CharacterName: Mars001
-  m_MoveSpeed: 7
+  m_MoveSpeed: 8
   m_EnergyPoint: 85
   m_MaxEnergyPoint: 100
   m_WaterPoint: 90

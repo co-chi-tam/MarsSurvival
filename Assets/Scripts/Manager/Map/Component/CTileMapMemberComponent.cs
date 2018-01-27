@@ -6,6 +6,8 @@ using Ludiq.Reflection;
 
 public class CTileMapMemberComponent : MonoBehaviour {
 
+	#region Fields
+
 	[Header("Configs")]
 	[SerializeField]	protected CTileMapObject m_TileMapObject;
 	public CTileMapObject tileMapObject {
@@ -19,7 +21,13 @@ public class CTileMapMemberComponent : MonoBehaviour {
 	}
 
 	[Header("Events")]
+	[Filter(Fields = true, Properties = true, Methods = true)]
+	public UnityMember OnReloadCondition;
 	public UnityEvent OnReload;
+
+	#endregion
+
+	#region Main methods
 
 	public virtual void LoadTileMap(CTileMapObject value) {
 		this.m_TileMapObject = value;
@@ -29,7 +37,14 @@ public class CTileMapMemberComponent : MonoBehaviour {
 	}
 
 	public virtual void ApplyRandomPosition() {
-		this.transform.position = this.GetRandomPosition (this.m_Radius);
+		if (this.OnReloadCondition.isAssigned) {
+			var boolValue = this.OnReloadCondition.Get<bool> ();
+			if (boolValue) {
+				this.transform.position = this.GetRandomPosition (this.m_Radius);
+			}
+		} else {
+			this.transform.position = this.GetRandomPosition (this.m_Radius);
+		}
 	}
 
 	public virtual Vector3 GetRandomPosition (float radius) {
@@ -37,5 +52,7 @@ public class CTileMapMemberComponent : MonoBehaviour {
 			return this.transform.position;
 		return this.m_TileMapObject.GetRandomPosition (radius);
 	}
+
+	#endregion
 
 }

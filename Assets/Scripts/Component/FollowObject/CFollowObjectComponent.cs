@@ -7,13 +7,21 @@ public class CFollowObjectComponent : CComponent {
 
 	#region Fields
 
-	[SerializeField]	protected Transform m_Target;
+	[SerializeField]	protected CFollowObjectEndPointComponent m_EndPointComponent;
 	public Transform target {
-		get { return this.m_Target; }
+		get { 
+			if (this.m_EndPointComponent == null)
+				return null;
+			return this.m_EndPointComponent.transform; 
+		}
 		set { 
-			this.m_Target = value; 
 			if (value != null) {
 				this.m_EndPointComponent = value.GetComponent<CFollowObjectEndPointComponent> ();
+				if (this.m_EndPointComponent != null) {
+					this.m_EndPointComponent.AddFollower (this);
+				}
+			} else {
+				this.m_EndPointComponent = null;
 			}
 		}
 	}
@@ -24,7 +32,6 @@ public class CFollowObjectComponent : CComponent {
 	}
 
 	protected CMoveComponent m_MoveComponent;
-	protected CFollowObjectEndPointComponent m_EndPointComponent;
 
 	#endregion
 
@@ -41,14 +48,10 @@ public class CFollowObjectComponent : CComponent {
 	{
 		base.Update ();
 		if (this.m_IsActive
-		    && this.m_Target != null) {
-			this.m_MoveComponent.targetPosition = this.m_Target.position;
+			&& this.m_EndPointComponent != null) {
+			this.m_MoveComponent.targetPosition = this.m_EndPointComponent.transform.position;
 			if (this.m_EndPointComponent != null) {
 				this.m_EndPointComponent.OnActivePoint (this);
-			}
-		} else {
-			if (this.m_EndPointComponent != null) {
-				this.m_EndPointComponent.OnFreePoint ();
 			}
 		}
 	}

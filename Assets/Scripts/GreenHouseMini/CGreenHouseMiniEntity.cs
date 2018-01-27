@@ -6,7 +6,7 @@ public class CGreenHouseMiniEntity : CEnergyMachineEntity {
 
 	#region Fields
 
-//	protected CAnimatorComponent m_AnimatorComponent;
+	protected CAnimatorComponent m_AnimatorComponent;
 
 	public override bool IsActive {
 		get { return this.m_IsActive; }
@@ -26,7 +26,7 @@ public class CGreenHouseMiniEntity : CEnergyMachineEntity {
 	protected override void Awake ()
 	{
 		base.Awake ();
-//		this.m_AnimatorComponent = this.GetGameComponent<CAnimatorComponent> ();
+		this.m_AnimatorComponent = this.GetGameComponent<CAnimatorComponent> ();
 		this.m_DataComponent = this.GetGameComponent<CDataComponent> ();
 	}
 
@@ -39,10 +39,10 @@ public class CGreenHouseMiniEntity : CEnergyMachineEntity {
 	{
 		base.LateUpdate ();
 		// ANIMATION
-//		this.m_AnimatorComponent.ApplyAnimation (
-//			"AnimParam", 
-//			this.m_AnimationInt
-//		);
+		this.m_AnimatorComponent.ApplyAnimation (
+			"AnimParam", 
+			this.m_AnimationInt
+		);
 	}
 
 	#endregion

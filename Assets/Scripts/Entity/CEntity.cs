@@ -55,6 +55,22 @@ public class CEntity : MonoBehaviour {
 
 	}
 
+	protected virtual void OnDestroy() {
+
+	}
+
+	protected virtual void OnApplicationQuit() {
+
+	}
+
+	protected virtual void OnApplicationFocus(bool value) {
+
+	}
+
+	protected virtual void OnApplicationPause(bool value) {
+
+	}
+
 	#endregion
 
 	#region Main methods

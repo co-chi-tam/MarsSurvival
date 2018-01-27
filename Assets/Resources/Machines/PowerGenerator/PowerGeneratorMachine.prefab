@@ -108,6 +108,7 @@ GameObject:
   - component: {fileID: 4118708940918508}
   - component: {fileID: 33216118520163446}
   - component: {fileID: 23941362785430472}
+  - component: {fileID: 114476754032985946}
   m_Layer: 0
   m_Name: Rock
   m_TagString: Untagged
@@ -1300,7 +1301,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_IsActive: 1
-  m_Target: {fileID: 0}
+  m_EndPointComponent: {fileID: 0}
   m_MinDistance: 2
 --- !u!114 &114434997788968870
 MonoBehaviour:
@@ -1329,6 +1330,29 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   OnMove:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &114476754032985946
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1283269441292492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c4f776a77aff174490abf93ab5313c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsActive: 1
+  m_IsVisible: 0
+  OnVisible:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnInvisible:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
@@ -1527,6 +1551,18 @@ MonoBehaviour:
   m_IsActive: 0
   m_UpdateDeltaSpeed: 1
   m_InstanceData: {fileID: 11400000, guid: 0e77ff3788a04724ea50095aa39e1933, type: 2}
+  m_NeedSave: 0
+  m_SaveFile: PowerGeneratorMachine
+  OnLoad:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnSave:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!120 &120850844944887524
 LineRenderer:
   m_ObjectHideFlags: 1

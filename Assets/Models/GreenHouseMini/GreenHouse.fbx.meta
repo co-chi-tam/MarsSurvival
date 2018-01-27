@@ -1,47 +1,101 @@
 fileFormatVersion: 2
 guid: a3bd86190b840f74cbcf53c4a8bbc102
-timeCreated: 1516886599
+timeCreated: 1516984059
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: Armature
-    100002: //RootNode
-    100004: GreenHouse
-    100006: RootBone
-    100008: SlotBone.001
-    100010: SlotBone.001_end
-    100012: SlotBone.002
-    100014: SlotBone.002_end
-    100016: SlotBone.003
-    100018: SlotBone.003_end
+    100002: ArmBone.001
+    100004: ArmBone.002
+    100006: ArmBone.003
+    100008: ArmBone.004
+    100010: ArmBone.005
+    100012: ArmBone.005_end
+    100014: ArmBone.006
+    100016: ArmBone.006_end
+    100018: //RootNode
+    100020: GreenHouse
+    100022: IK.ArmBone
+    100024: IK.ArmBone_end
+    100026: RobotArm.000
+    100028: RobotArm.001
+    100030: RobotArm.002
+    100032: RobotArm.003
+    100034: RobotArm.004
+    100036: RootBone
+    100038: SlotBone.001
+    100040: SlotBone.001_end
+    100042: SlotBone.002
+    100044: SlotBone.002_end
+    100046: SlotBone.003
+    100048: SlotBone.003_end
+    100050: ArmBone.004_end
     400000: Armature
-    400002: //RootNode
-    400004: GreenHouse
-    400006: RootBone
-    400008: SlotBone.001
-    400010: SlotBone.001_end
-    400012: SlotBone.002
-    400014: SlotBone.002_end
-    400016: SlotBone.003
-    400018: SlotBone.003_end
+    400002: ArmBone.001
+    400004: ArmBone.002
+    400006: ArmBone.003
+    400008: ArmBone.004
+    400010: ArmBone.005
+    400012: ArmBone.005_end
+    400014: ArmBone.006
+    400016: ArmBone.006_end
+    400018: //RootNode
+    400020: GreenHouse
+    400022: IK.ArmBone
+    400024: IK.ArmBone_end
+    400026: RobotArm.000
+    400028: RobotArm.001
+    400030: RobotArm.002
+    400032: RobotArm.003
+    400034: RobotArm.004
+    400036: RootBone
+    400038: SlotBone.001
+    400040: SlotBone.001_end
+    400042: SlotBone.002
+    400044: SlotBone.002_end
+    400046: SlotBone.003
+    400048: SlotBone.003_end
+    400050: ArmBone.004_end
     2100000: Material
-    4300000: GreenHouse
+    2300000: RobotArm.003
+    2300002: RobotArm.004
+    2300004: GreenHouse
+    2300006: RobotArm.000
+    2300008: RobotArm.001
+    2300010: RobotArm.002
+    3300000: RobotArm.003
+    3300002: RobotArm.004
+    3300004: GreenHouse
+    3300006: RobotArm.000
+    3300008: RobotArm.001
+    3300010: RobotArm.002
+    4300000: RobotArm.001
+    4300002: RobotArm.000
+    4300004: RobotArm.002
+    4300006: RobotArm.004
+    4300008: RobotArm.003
+    4300010: GreenHouse
     7400000: Idle
-    7400002: Working
+    7400002: Armature|Idle
+    7400004: Armature|Working
+    7400006: Working
     9500000: //RootNode
     13700000: GreenHouse
+    13700002: RobotArm.000
+    13700004: RobotArm.001
+    13700006: RobotArm.002
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Material
-    second: {fileID: 2100000, guid: de18495193626374f890dd975363e0f1, type: 2}
+    second: {fileID: 2100000, guid: 8f75fea1267f4d745861b9f8829f3ae6, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
     materialSearch: 1
-    materialLocation: 0
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -67,7 +121,7 @@ ModelImporter:
       name: Idle
       takeName: Idle
       firstFrame: 0
-      lastFrame: 59
+      lastFrame: 64
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -160,7 +214,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    rootMotionBoneName: Armature
+    rootMotionBoneName: RootBone
     rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 0

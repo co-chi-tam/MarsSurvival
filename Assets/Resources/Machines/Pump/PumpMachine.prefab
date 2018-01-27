@@ -1179,7 +1179,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_IsActive: 1
-  m_Target: {fileID: 0}
+  m_EndPointComponent: {fileID: 0}
   m_MinDistance: 2
 --- !u!114 &114560185643717034
 MonoBehaviour:
@@ -1232,6 +1232,18 @@ MonoBehaviour:
   m_IsActive: 0
   m_UpdateDeltaSpeed: 1
   m_InstanceData: {fileID: 11400000, guid: 474f8c3d34f5e394681b6a6b80d80992, type: 2}
+  m_NeedSave: 0
+  m_SaveFile: PumpMachine
+  OnLoad:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnSave:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &114758763717594394
 MonoBehaviour:
   m_ObjectHideFlags: 1

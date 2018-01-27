@@ -16,13 +16,50 @@ public class CFollowObjectEndPointComponent : CComponent {
 
 	#region Fields
 
+	[Header("Configs")]
+	[SerializeField]	protected int m_MaximumFollower = 1;
+	protected List<CFollowObjectComponent> m_Followers;
+	public List<CFollowObjectComponent> followers {
+		get { return this.m_Followers; }
+		set { this.m_Followers = value; }
+	}
+
 	[Header("Events")]
 	public UnityEventFollowObject OnActive;
 	public UnityEvent OnFree;
 
 	#endregion
 
+	#region Implementation Component
+
+	protected override void Awake ()
+	{
+		base.Awake ();
+		this.m_Followers = new List<CFollowObjectComponent> ();
+	}
+
+	protected override void LateUpdate ()
+	{
+		base.LateUpdate ();
+		if (this.m_Followers.Count == 0) {
+			this.OnFreePoint ();
+		}
+	}
+
+	#endregion
+
 	#region Main methods
+
+	public virtual bool AddFollower(CFollowObjectComponent value) {
+		if (this.m_Followers.Contains (value))
+			return false;
+		if (this.m_Followers.Count >= this.m_MaximumFollower) {
+			this.m_Followers [0].target = null;
+			this.m_Followers.RemoveAt (0);
+		}
+		this.m_Followers.Add (value);
+		return true;
+	}
 
 	public virtual void OnActivePoint(CFollowObjectComponent value) {
 		if (this.OnActive != null && value != null) {

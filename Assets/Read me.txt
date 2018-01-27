@@ -1,18 +1,20 @@
-Mars survival: 
+﻿Mars survival: 
 Story mode:
 	Bạn vào vai một phi hành gia có hiệm vụ thám hiểm và cố gắn trở về trái đất sau khi bị
 	trai nạn và bỏ lại trên Sao hỏa.
 	
 Gameplay:
-	Sinh tồn các chỉ số Power sun.
+	Sinh tồn các chỉ số Power sun. water, food.
 	Scrafting chế đồ.
 	Ngày đêm, ... 
 	Infinite map ( Thế giới mở)...
 	Đập đá lấy nguyên liệu. Nghiền bằng máy nghiền.
 	Sửa 4-5 tháp năng lượng để end game. (XEM XET)
 	Có công trình như power box, ... 1 số chạy theo nhân vật.
-	Mỗi công trình có Pin đê chạy.
+	Mỗi công trình có Pin đê chạy. Cần có nước cho máy bơm. vvv. đất cho ruộng .... 
 	Tìm Blueprint để chế đồ.
+Nhiệm vụ: 
+	Tìm và sửa chửa 5 máy phát tín hiệu...
 
 
 

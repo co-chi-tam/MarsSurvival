@@ -5979,6 +5979,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38f7173211264f9448c8e219269ff1bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_UpdateUIDelay: 0.25
   m_Entity: {fileID: 0}
   m_UIFollowObject: {fileID: 114489265218165192}
   m_UIJobDisplay: {fileID: 114932174585626938}
