@@ -2040,18 +2040,7 @@ MonoBehaviour:
   m_Items: []
   OnNothingCanPick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 114807719287769486}
-        m_MethodName: SetTrigger
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: InTalk
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   OnPickItem:
@@ -2191,7 +2180,7 @@ MonoBehaviour:
   m_IsActive: 0
   m_UpdateDeltaSpeed: 1
   m_InstanceData: {fileID: 11400000, guid: 8e4d226210d953e408da6daef89e8567, type: 2}
-  m_AutoSave: 0
+  m_AutoSaveLoad: 0
   m_SaveFile: Mars001
   OnLoad:
     m_PersistentCalls:

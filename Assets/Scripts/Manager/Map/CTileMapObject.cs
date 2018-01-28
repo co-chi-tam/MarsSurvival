@@ -10,6 +10,11 @@ public class CTileMapObject : MonoBehaviour {
 	public UnityEvent OnLoaded;
 	public UnityEvent OnRemove;
 
+	public CTileMapObject ()
+	{
+		
+	}
+
 	public virtual Vector3 GetRandomPosition(float radius) {
 		var randomVector = Random.insideUnitCircle;
 		var randomPosition = new Vector3 (

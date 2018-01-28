@@ -10,8 +10,6 @@ public class CUIEntityInteractive : MonoBehaviour {
 	#region Fields
 
 	[Header("Configs")]
-	[SerializeField]	protected float m_UpdateUIDelay = 0.5f;
-	protected float m_UpdateUIInterval = 0f;
 	[SerializeField]	protected CEntity m_Entity;
 	protected CEntity m_PreviousEntity;
 	public CEntity entity {
@@ -119,11 +117,6 @@ public class CUIEntityInteractive : MonoBehaviour {
 	}
 
 	public virtual void UpdateUI() {
-		if (this.m_UpdateUIInterval > 0f) {
-			this.m_UpdateUIInterval -= Time.deltaTime;
-			return;
-		}
-		this.m_UpdateUIInterval = this.m_UpdateUIDelay;
 		if (this.m_Entity is CMachineEntity) {
 			var machine = this.m_Entity as CMachineEntity;
 			this.m_UIEnergyDisplay.SetDisplay (machine.energyPercent);

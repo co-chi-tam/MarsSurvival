@@ -55,9 +55,14 @@ public partial class CCharacterEntity : CEntity, IContext {
 			"AnimParam", 
 			this.m_AnimationInt
 		);
+	}
 
-//		this.m_Data.position = this.m_Transform.position.ToString();
-//		this.m_Data.rotation = this.m_Transform.rotation.ToString();
+	protected override void OnApplicationQuit ()
+	{
+		base.OnApplicationQuit ();
+		// DATA
+		this.m_Data.position = this.m_Transform.position.ToString();
+		this.m_Data.rotation = this.m_Transform.rotation.ToString();
 	}
 
 	#endregion

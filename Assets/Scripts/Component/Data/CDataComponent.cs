@@ -29,7 +29,7 @@ public class CDataComponent : CComponent {
 	}
 
 	[Header("Save")]
-	[SerializeField]	protected bool m_AutoSave = false;
+	[SerializeField]	protected bool m_AutoSaveLoad = false;
 	[SerializeField]	protected string m_SaveFile = Guid.NewGuid().ToString();
 	public UnityEvent OnLoad;
 	public UnityEvent OnSave;
@@ -62,7 +62,7 @@ public class CDataComponent : CComponent {
 	protected override void Start ()
 	{
 		base.Start ();
-		if (this.m_AutoSave) {
+		if (this.m_AutoSaveLoad) {
 			this.Load ();
 		}
 	}
@@ -86,10 +86,10 @@ public class CDataComponent : CComponent {
 		}
 	}
 
-	protected override void OnApplicationQuit ()
+	protected override void OnDestroy ()
 	{
-		base.OnApplicationQuit ();
-		if (this.m_AutoSave) {
+		base.OnDestroy ();
+		if (this.m_AutoSaveLoad) {
 			this.Save ();
 		}
 	}

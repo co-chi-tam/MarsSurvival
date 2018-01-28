@@ -1,9 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using SimpleSingleton;
 using UnityEngine.Events;
 using Ludiq.Reflection;
+using TinyJSON;
 
 public class CMapManager : CMonoSingleton<CMapManager> {
 
@@ -29,6 +32,12 @@ public class CMapManager : CMonoSingleton<CMapManager> {
 	}
 	[SerializeField]	protected Vector3 m_CurrentPosition;
 
+	[Header("Save")]
+	[SerializeField]	protected bool m_AutoSaveLoad = false;
+	[SerializeField]	protected string m_SaveFile = Guid.NewGuid().ToString();
+	public UnityEvent OnLoad;
+	public UnityEvent OnSave;
+
 	[Header("Events")]
 	public UnityEventTileMap OnRemoveTile;
 	public UnityEventTileMap OnLoadTile;
@@ -41,12 +50,10 @@ public class CMapManager : CMonoSingleton<CMapManager> {
 	#region Internal class
 
 	[System.Serializable]
-	public class CTileMap
-	{
-		public string tileName;
-//		public Transform tileTransform;
-		public Vector3 tileRotation;
+	public class CTileMap : CTileMapSave {
+		
 		public CTileMapObject tileObject;
+
 	}
 
 	[System.Serializable]
@@ -63,11 +70,18 @@ public class CMapManager : CMonoSingleton<CMapManager> {
 		this.m_MapInstance 	= new Dictionary<string, CTileMap> ();
 	}
 
-	protected void Start() {
+	protected virtual void Start() {
 		this.InitMap();
+		if (this.m_AutoSaveLoad) {
+			if (this.Load ()) {
+				Debug.Log (this.GetTotalSavePath());
+			} else {
+				this.m_MapInstance 	= new Dictionary<string, CTileMap> ();
+			}
+		}
 	}
 
-	protected void LateUpdate() {
+	protected virtual void LateUpdate() {
 		this.CheckCurrentPosition ();
 		this.CheckPlacePatterns ();
 		if (this.m_NeedUpdate) {
@@ -76,12 +90,47 @@ public class CMapManager : CMonoSingleton<CMapManager> {
 		}
 	}
 
+	protected virtual void OnDestroy ()
+	{
+		if (this.m_AutoSaveLoad) {
+			this.Save ();
+		}
+	}
+
 	#endregion
 
 	#region Main methods
 
+	public virtual bool Load() {
+		if (File.Exists (this.GetTotalSavePath ())) {
+			var fileRead = new StreamReader (this.GetTotalSavePath ());
+			var stringJSON = fileRead.ReadToEnd ();
+			var data = JSON.Load (stringJSON).Make<Dictionary<string, CTileMap>>();
+			this.m_MapInstance = new Dictionary<string, CTileMap> (data);
+			fileRead.Close ();
+			if (this.OnLoad != null) {
+				this.OnLoad.Invoke ();
+			}
+			return true;
+		}
+		return false;
+	}
+
+	public virtual bool Save() {
+		if (this.m_MapInstance == null)
+			return false;
+		var stringJSON = JSON.Dump (this.m_MapInstance);
+		var fileWrite = new StreamWriter (this.GetTotalSavePath ());
+		fileWrite.Write (stringJSON);
+		fileWrite.Close ();
+		if (this.OnSave != null) {
+			this.OnSave.Invoke ();
+		}
+		return true;
+	}
+
 	public virtual Vector3 GetRandomPosition(float radius) {
-		var randomTile = this.m_UsedPlaces[Random.Range (0, this.m_UsedPlaces.Count)];
+		var randomTile = this.m_UsedPlaces[UnityEngine.Random.Range (0, this.m_UsedPlaces.Count)];
 		return randomTile.GetRandomPosition (radius);
 	}
 
@@ -194,39 +243,39 @@ public class CMapManager : CMonoSingleton<CMapManager> {
 	protected CTileMapObject LoadTileMapInstance(string name) {
 		if (this.m_MapInstance.ContainsKey (name)) {
 			var tile = this.m_MapInstance [name];
-			if (this.m_ReusePlaces.Contains (tile.tileObject) == false) {
-				var reLoadTile = ReloadTile (tile.tileObject);
-				tile.tileObject = reLoadTile;
-			}
+			tile.tileObject = ReloadTile (tile);
 			return tile.tileObject;
 		} else {
-			var randomIndex = Random.Range (0, this.m_ReusePlaces.Count);
+			var randomIndex = UnityEngine.Random.Range (0, this.m_ReusePlaces.Count);
 			var selectedPlace = this.m_ReusePlaces [randomIndex];
 			this.m_MapInstance.Add (name, new CTileMap() {
 				tileName = name,
-				tileObject = selectedPlace,
-				tileRotation = Vector3.up
+				tileRotation = Vector3.zero.ToString(),
+				tileModelTag = selectedPlace.tag,
+				tileObject = selectedPlace
 			});
 			return selectedPlace;
 		} 
 	}
 
-	protected CTileMapObject ReloadTile(CTileMapObject origin) {
-		var needRenew = true;
-		var reLoadTile = origin;
+	protected CTileMapObject ReloadTile(CTileMap origin) {
+		// GET REUSE
 		for (int i = 0; i < this.m_ReusePlaces.Count; i++) {
-			if (this.m_ReusePlaces [i].tag == origin.tag) {
-				reLoadTile = this.m_ReusePlaces [i];
-				needRenew = false;
-				break;
+			if (this.m_ReusePlaces [i].tag == origin.tileModelTag) {
+				return this.m_ReusePlaces [i];
 			}
 		}
-		if (needRenew) {
-			reLoadTile = Instantiate (origin);
-			reLoadTile.transform.SetParent (this.transform);
-			this.m_ReusePlaces.Add (reLoadTile);
+		// GET USED
+		for (int i = 0; i < this.m_UsedPlaces.Count; i++) {
+			if (this.m_UsedPlaces [i].tag == origin.tileModelTag) {
+				var reLoadTile = Instantiate (this.m_UsedPlaces [i]);
+				reLoadTile.transform.SetParent (this.transform);
+				this.m_ReusePlaces.Add (reLoadTile);
+				return reLoadTile;
+			}
 		}
-		return reLoadTile;
+		// RETURN
+		return origin.tileObject;
 	}
 
 	protected bool AddReuseObject(CTileMapObject value) {
@@ -262,6 +311,10 @@ public class CMapManager : CMonoSingleton<CMapManager> {
 	protected void UpdatePlanetPosition (CTileMapObject planet, Vector2 pos) {
 		planet.name = string.Format (this.m_PlaceNamePattern, pos.x, pos.y);
 		planet.transform.position = new Vector3 (pos.x * this.m_PlaceDistance, 0f, pos.y * this.m_PlaceDistance);
+	}
+
+	public virtual string GetTotalSavePath() {
+		return string.Format ("{0}/{1}.dat", Application.persistentDataPath, this.m_SaveFile);
 	}
 
 	#endregion

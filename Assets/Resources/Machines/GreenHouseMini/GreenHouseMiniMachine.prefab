@@ -492,7 +492,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1376049691896804}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.5, y: 0, z: 10.9}
+  m_LocalPosition: {x: 9.9, y: 0, z: 3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4734288587281020}
@@ -1314,7 +1314,7 @@ MonoBehaviour:
   m_IsActive: 0
   m_UpdateDeltaSpeed: 1
   m_InstanceData: {fileID: 11400000, guid: 3f0db3ae89f2eac4d90216037b03bc70, type: 2}
-  m_NeedSave: 0
+  m_AutoSaveLoad: 0
   m_SaveFile: GreenHouseMiniMachine
   OnLoad:
     m_PersistentCalls:

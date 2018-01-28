@@ -43,20 +43,20 @@ public class CComponent : MonoBehaviour {
 		
 	}
 
-	protected virtual void OnDestroy() {
-		
-	}
-
-	protected virtual void OnApplicationQuit() {
-	
-	}
-
 	protected virtual void OnApplicationFocus(bool value) {
-	
+
 	}
 
 	protected virtual void OnApplicationPause(bool value) {
-	
+
+	}
+
+	protected virtual void OnApplicationQuit() {
+
+	}
+
+	protected virtual void OnDestroy() {
+
 	}
 
 	#endregion

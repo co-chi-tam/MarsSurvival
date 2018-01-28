@@ -1,10 +1,12 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj" RefactoringSettings.EnableRefactorings="True">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Character\CCharacterData.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Manager\Map\CMapManager.cs">
     <Files>
-      <File FileName="Assets\Scripts\Manager\Map\Component\CTileMapMemberComponent.cs" Line="42" Column="17" />
-      <File FileName="Assets\Scripts\Component\CRenderObjectComponent.cs" Line="15" Column="35" />
-      <File FileName="Assets\Scripts\Character\CCharacterData.cs" Line="29" Column="76" />
+      <File FileName="Assets\Scripts\Manager\Map\CMapManager.cs" Line="106" Column="35" />
+      <File FileName="Assets\Scripts\Manager\Map\CTileMapObject.cs" Line="15" Column="3" />
+      <File FileName="Assets\Scripts\Manager\Map\CTileMapSave.cs" Line="4" Column="34" />
+      <File FileName="Assets\Scripts\Component\Data\CDataComponent.cs" Line="89" Column="2" />
+      <File FileName="Assets\Scripts\Entity\CEntityData.cs" Line="38" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
