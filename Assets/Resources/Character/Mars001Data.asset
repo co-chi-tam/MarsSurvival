@@ -22,7 +22,4 @@ MonoBehaviour:
   m_MaxWaterPoint: 100
   m_FoodPoint: 100
   m_MaxFoodPoint: 100
-  m_Items:
-  - {fileID: 11400000, guid: c42b537db846e7245958ab9382621ef6, type: 2}
-  - {fileID: 11400000, guid: b8caa2594371e5f439291fe5cbf0b1fe, type: 2}
-  - {fileID: 11400000, guid: b7b569c67022a5843bec26a6f9284e58, type: 2}
+  m_Items: []

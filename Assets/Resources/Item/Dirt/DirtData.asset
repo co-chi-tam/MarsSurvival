@@ -14,8 +14,6 @@ MonoBehaviour:
   m_Description: Dirt something. Furtilizer
   itemName: Dirt
   itemDisplayName: Dirt
-  avatar: {fileID: 21300000, guid: 6025c1078af25a34a8c9dacdb69b751e, type: 3}
   avatarPath: Item/Dirt/Dirt-icon
-  model: {fileID: 1859892041008828, guid: cadf1753e4b8e7d45bf6d2f6df213c23, type: 2}
   modelPath: Item/Dirt/Dirt
   amount: 1
