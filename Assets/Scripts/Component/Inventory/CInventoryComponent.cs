@@ -51,7 +51,9 @@ public class CInventoryComponent : CComponent {
 	public virtual bool CheckAmountItem(int amount, CItemData value) {
 		for (int i = 0; i < this.m_Items.Count; i++) {
 			var item = this.m_Items[i];
-			if (item.amount >= amount && item.itemName == value.itemName) {
+			if (item != null
+				&& item.amount >= amount 
+				&& item.itemName == value.itemName) {
 				return true;
 			}
 		}
@@ -61,7 +63,7 @@ public class CInventoryComponent : CComponent {
 	public virtual void UseItem(int amount, CItemData value) {
 		for (int i = 0; i < this.m_Items.Count; i++) {
 			var item = this.m_Items[i];
-			if (item.itemName == value.itemName) {
+			if (item != null && item.itemName == value.itemName) {
 				item.amount -= amount;
 				break;
 			}
@@ -78,8 +80,7 @@ public class CInventoryComponent : CComponent {
 		// FIND FIRST ITEM
 		var sampleColliders = this.m_PhysicDetect.sampleColliders;
 		var coll = sampleColliders.FirstOrDefault ((x) => {
-			return x != null 
-				&& x.GetComponent <CItemComponent> () != null;
+			return x != null && x.GetComponent <CItemComponent> () != null;
 		});
 		// ITEM IS AVAILABLE 
 		if (coll != null) {
@@ -99,23 +100,28 @@ public class CInventoryComponent : CComponent {
 	}
 
 	public virtual void PickItem(CItemComponent item) {
+		// UPDATE
+		this.PickItem (item.itemData.amount, item.itemData);
+		// ITEM PICKED
+		item.Picked ();
+	}
+
+	public virtual void PickItem(int amount, CItemData item) {
 		var storedItem = this.items.Find ((x) => {
-			return x.itemName == item.itemData.itemName;
+			return x != null && x.itemName == item.itemName;
 		});
 		// CHECK IF ITEM EXIST 
 		if (storedItem == null) {
 			storedItem = ScriptableObject.CreateInstance<CItemData> ();
-			storedItem.itemName 	= item.itemData.itemName;
-			storedItem.itemDisplayName = item.itemData.itemDisplayName;
-			storedItem.avatarPath 	= item.itemData.avatarPath;
-			storedItem.modelPath 	= item.itemData.modelPath;
-			storedItem.amount 		= 1;
+			storedItem.itemName 	= item.itemName;
+			storedItem.itemDisplayName = item.itemDisplayName;
+			storedItem.avatarPath 	= item.avatarPath;
+			storedItem.modelPath 	= item.modelPath;
+			storedItem.amount 		= amount;
 			this.m_Items.Add (storedItem);
 		} else {
-			storedItem.amount += item.itemData.amount;
+			storedItem.amount += amount;
 		}
-		// ITEM PICKED
-		item.Picked ();
 		if (this.OnPickItem != null) {
 			this.OnPickItem.Invoke ();
 		}

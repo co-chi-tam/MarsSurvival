@@ -6,6 +6,7 @@ public class CGreenHouseMiniEntity : CEnergyMachineEntity {
 
 	#region Fields
 
+	protected CGreenHouseMiniData m_GreenHouseData;
 	protected CAnimatorComponent m_AnimatorComponent;
 
 	public override bool IsActive {
@@ -17,6 +18,30 @@ public class CGreenHouseMiniEntity : CEnergyMachineEntity {
 		get {
 			return base.IsStarted; }
 		set { base.IsStarted = value; }
+	}
+
+	public override float collectPercent {
+		get {
+			if (this.m_GreenHouseData == null)
+				return base.collectPercent;
+			return this.m_GreenHouseData.productTime / this.m_GreenHouseData.totalProductTime;
+		}
+	}
+
+	public override CAmountItem[] itemCollects {
+		get {
+			if (this.m_GreenHouseData == null)
+				return base.itemCollects;
+			return this.m_GreenHouseData.itemCollects;
+		}
+	}
+
+	public bool isFullResource {
+		get { 
+			if (this.m_GreenHouseData == null)
+				return false;
+			return this.m_GreenHouseData.productTime >= this.m_GreenHouseData.totalProductTime; 
+		}
 	}
 
 	#endregion
@@ -33,6 +58,7 @@ public class CGreenHouseMiniEntity : CEnergyMachineEntity {
 	protected override void Start ()
 	{
 		base.Start ();
+		this.m_GreenHouseData = this.m_DataComponent.Get<CGreenHouseMiniData> ();
 	}
 
 	protected override void LateUpdate ()
@@ -48,6 +74,12 @@ public class CGreenHouseMiniEntity : CEnergyMachineEntity {
 	#endregion
 
 	#region Main methods
+
+	public override void CollectItems ()
+	{
+		base.CollectItems ();
+		this.m_DataComponent.UpdateDataPerInvoke ("ResetTime");
+	}
 
 	#endregion
 

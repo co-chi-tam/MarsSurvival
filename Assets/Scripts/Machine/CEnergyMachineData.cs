@@ -23,10 +23,10 @@ public class CEnergyMachineData : CMachineData {
 		set { this.m_MaxEnergyPoint = value; }
 	}
 
-	[SerializeField]	protected CItemMaterial[] m_MaterialsPerCharge;
-	public CItemMaterial[] materialsPerCharge {
-		get { return this.m_MaterialsPerCharge; }
-		set { this.m_MaterialsPerCharge = value; }
+	[SerializeField]	protected CAmountItem[] m_ItemsPerCharge;
+	public CAmountItem[] itemsPerCharge {
+		get { return this.m_ItemsPerCharge; }
+		set { this.m_ItemsPerCharge = value; }
 	}
 
 	#endregion

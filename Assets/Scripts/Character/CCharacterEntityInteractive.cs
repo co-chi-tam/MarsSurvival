@@ -4,20 +4,39 @@ using UnityEngine;
 
 public partial class CCharacterEntity {
 
-	#region Other Entity
+	#region Fields
 
-	public virtual void ResetOtherEntity(CEntity value) {
-		// REMOVE ALL FOLLOWER
-		var followerComponent = value.GetGameComponent<CFollowObjectComponent> ();
-		if (followerComponent != null) {
-			// TODO
+	[SerializeField]	protected CEntity m_OtherEntity;
+	public CEntity otherEntity {
+		get { return this.m_OtherEntity; }
+		set { 
+			this.m_OtherEntity = value;  
 		}
 	}
+	public Transform otherEntityTransform {
+		get { 
+			if (this.m_OtherEntity == null)
+				return null;
+			return this.m_OtherEntity.transform; 
+		}
+	}
+
+	#endregion
+
+	#region Other Entity
 
 	public virtual void InvokeOtherEntityEnergy() {
 		if (this.m_OtherEntity != null) {
 			if (this.m_OtherEntity is CMachineEntity) {
-				this.OnMachineComsumeItem ();
+				this.OnMachineConsumeItem ();
+			}
+		}
+	}
+
+	public virtual void InvokeOtherEntityCollectItems() {
+		if (this.m_OtherEntity != null) {
+			if (this.m_OtherEntity is CMachineEntity) {
+				this.OnMachineCollectItems ();
 			}
 		}
 	}
@@ -49,28 +68,43 @@ public partial class CCharacterEntity {
 
 	#region Machine Entity
 
-	protected virtual void OnMachineComsumeItem() {
+	protected virtual void OnMachineCollectItems () {
 		var machine = this.m_OtherEntity as CMachineEntity;
-		var materials = machine.materialsPerCharge;
-		// CHECK ENOUGHT MATERIAL
-		var isEnoughtMaterial = true;
-		for (int i = 0; i < materials.Length; i++) {
-			var mat = materials [i];
+		var items = machine.itemCollects;
+		// COLLECT TIMES
+		var collectTimes = Mathf.FloorToInt (machine.collectPercent);
+		if (collectTimes > 0) {
+			for (int i = 0; i < items.Length; i++) {
+				var mat = items [i];
+				this.m_InventoryComponent.PickItem (mat.itemAmount * collectTimes, mat.itemData);
+			}
+			// RESET COLLECT TIME INTERVAL 
+			machine.CollectItems ();
+		}
+	}
+
+	protected virtual void OnMachineConsumeItem () {
+		var machine = this.m_OtherEntity as CMachineEntity;
+		var items = machine.itemsPerCharge;
+		// CHECK ENOUGHT ITEMS
+		var isEnoughtItem = true;
+		for (int i = 0; i < items.Length; i++) {
+			var mat = items [i];
 			if (this.m_InventoryComponent.CheckAmountItem (
-				mat.materialAmount,
-				mat.materialData
+				mat.itemAmount,
+				mat.itemData
 			) == false) {
-				isEnoughtMaterial = false;
+				isEnoughtItem = false;
 				break;
 			}
 		}
-		// USE ITEM
-		if (isEnoughtMaterial) {
-			for (int i = 0; i < materials.Length; i++) {
-				var mat = materials [i];
+		// USE ITEMS
+		if (isEnoughtItem) {
+			for (int i = 0; i < items.Length; i++) {
+				var mat = items [i];
 				this.m_InventoryComponent.UseItem (
-					mat.materialAmount,
-					mat.materialData
+					mat.itemAmount,
+					mat.itemData
 				);
 			}
 			machine.AddEnergy ();

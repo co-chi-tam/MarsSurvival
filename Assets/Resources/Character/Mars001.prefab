@@ -2166,6 +2166,12 @@ MonoBehaviour:
       _target: {fileID: 1833698780043526}
       _component: CCharacterEntity
       _name: foodPointPercent
+  - m_TriggerName: InvokeOtherEntityCollectItems
+    OnTriggerInvoke:
+      _parameterTypes: []
+      _target: {fileID: 1833698780043526}
+      _component: CCharacterEntity
+      _name: InvokeOtherEntityCollectItems
 --- !u!114 &114903941963965026
 MonoBehaviour:
   m_ObjectHideFlags: 1

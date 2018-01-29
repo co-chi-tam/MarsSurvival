@@ -51,6 +51,7 @@ public class CDataComponent : CComponent {
 
 		this.m_UpdateMethods = new Dictionary<string, Func<string, object, object, object>> ();
 		this.m_UpdateMethods.Add ("None", this.UpdateNothing);
+		this.m_UpdateMethods.Add ("SetValue", this.SetValue);
 		this.m_UpdateMethods.Add ("Decrease", this.UpdateDecrease);
 		this.m_UpdateMethods.Add ("Increase", this.UpdateIncrease);
 
@@ -128,6 +129,14 @@ public class CDataComponent : CComponent {
 
 	protected virtual object UpdateNothing(string name, object value, object updateValue) {
 		return value;
+	}
+
+	protected virtual object SetValue(string name, object value, object updateValue) {
+		// UPDATE CALLBACK
+		if (this.m_ValueChanged.ContainsKey (name)) {
+			this.m_ValueChanged [name] (updateValue);		
+		}
+		return updateValue;
 	}
 
 	protected virtual object UpdateDecrease (string name, object value, object updateValue) {

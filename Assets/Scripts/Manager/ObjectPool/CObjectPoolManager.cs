@@ -64,7 +64,7 @@ public class CObjectPoolManager : CMonoSingleton<CObjectPoolManager> {
 		CObjectPoolMemberComponent member = null;
 		var maximumMember = 0;
 		if (this.m_ObjectPools.ContainsKey (name)) {
-			member = this.m_ObjectPools [name].Get ();
+			this.m_ObjectPools [name].GetAnyway (ref member);
 			maximumMember = this.m_ObjectPools [name].Count ();
 		}
 		if (member == null) {
@@ -81,9 +81,9 @@ public class CObjectPoolManager : CMonoSingleton<CObjectPoolManager> {
 			}
 		} else {
 			member.StartMember ();
-		}
-		if (this.OnGet != null && member != null) {
-			this.OnGet.Invoke (member);
+			if (this.OnGet != null) {
+				this.OnGet.Invoke (member);
+			}
 		}
 		return member;
 	}

@@ -34,15 +34,19 @@ public partial class CMachineEntity : CEntity {
 	}
 
 	public virtual float energyPercent {
-		get { 
-			return 0f;
-		}
+		get { return 0f; }
 	}
 
-	public virtual CItemMaterial[] materialsPerCharge {
-		get { 
-			return null;
-		}
+	public virtual CAmountItem[] itemsPerCharge {
+		get { return new CAmountItem[0]; }
+	}
+
+	public virtual float collectPercent {
+		get { return 0f; }
+	}
+
+	public virtual CAmountItem[] itemCollects {
+		get { return new CAmountItem[0]; }
 	}
 
 	#endregion
@@ -67,6 +71,10 @@ public partial class CMachineEntity : CEntity {
 
 	public virtual void AddEnergy() {
 		
+	}
+
+	public virtual void CollectItems() {
+	
 	}
 
 	#endregion

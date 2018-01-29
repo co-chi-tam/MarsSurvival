@@ -26,7 +26,7 @@ public class CCharacterData : CMovableEntityData {
 	// ENERGY
 	[SerializeField]	protected float m_EnergyPoint;
 	[Info(valueName = "Energy point", valueMin = 0f, valueMax = 9999f)]
-	[UpdateValuePerSecond(updateMethod = "Decrease", updateValuePerSecond = 0.5f)]
+	[UpdateValuePerSecond(updateMethod = "Decrease", updateValuePerSecond = 0.25f)]
 	[UpdateValuePerInvoke(updateName = "AddEnergy", updateMethod = "Increase", updateValuePerInvoke = 2.5f)]
 	public float energyPoint {
 		get { return this.m_EnergyPoint; }
@@ -42,7 +42,7 @@ public class CCharacterData : CMovableEntityData {
 	// WATER
 	[SerializeField]	protected float m_WaterPoint = 50f;
 	[Info(valueName = "Water point", valueMin = 0f, valueMax = 9999f)]
-	[UpdateValuePerSecond(updateMethod = "Decrease", updateValuePerSecond = 0.5f)]
+	[UpdateValuePerSecond(updateMethod = "Decrease", updateValuePerSecond = 0.25f)]
 	[UpdateValuePerInvoke(updateName = "AddWater", updateMethod = "Increase", updateValuePerInvoke = 2.5f)]
 	public float waterPoint {
 		get { return this.m_WaterPoint; }
@@ -57,7 +57,7 @@ public class CCharacterData : CMovableEntityData {
 	// FOOD
 	[SerializeField]	protected float m_FoodPoint = 75f;
 	[Info(valueName = "Food point", valueMin = 0f, valueMax = 9999f)]
-	[UpdateValuePerSecond(updateMethod = "Decrease", updateValuePerSecond = 0.75f)]
+	[UpdateValuePerSecond(updateMethod = "Decrease", updateValuePerSecond = 0.5f)]
 	[UpdateValuePerInvoke(updateName = "AddFood", updateMethod = "Increase", updateValuePerInvoke = 2.5f)]
 	public float foodPoint {
 		get { return this.m_FoodPoint; }

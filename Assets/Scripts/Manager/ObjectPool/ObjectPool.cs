@@ -42,6 +42,18 @@ namespace ObjectPool
 			return false;
 		}
 
+		public bool GetAnyway(ref T value) {
+			if (this.Get (ref value)) {
+				return true;
+			} else {
+				if (m_ListUsing.Count > 0) {
+					value = m_ListUsing.First.Value;	
+					return true;
+				}
+			}
+			return false;
+		}
+
 		public void Set(T item)
 		{
 			if (item == null) return;

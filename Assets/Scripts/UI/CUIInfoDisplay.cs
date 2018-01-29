@@ -11,6 +11,7 @@ public class CUIInfoDisplay : MonoBehaviour {
 
 	[Header("Configs")]
 	[SerializeField]	protected Image m_ValueImage;
+	[SerializeField]	protected Text m_ValueText;
 	[Header("Events")]
 	public UnityEvent OnUpdateDisplay;
 
@@ -47,8 +48,21 @@ public class CUIInfoDisplay : MonoBehaviour {
 	#region Getter && Setter
 
 	public virtual void SetDisplay(float value) {
+		// IMAGE
 		var lerpValue = Mathf.Lerp (this.m_ValueImage.fillAmount, value, 0.5f);
 		this.m_ValueImage.fillAmount = lerpValue;
+	}
+
+	public virtual void SetDisplay(string text, float value) {
+		// TEXT
+		if (this.m_ValueText != null) {
+			this.m_ValueText.text = text;
+		}
+		// IMAGE
+		if (this.m_ValueImage != null) {
+			var lerpValue = Mathf.Lerp (this.m_ValueImage.fillAmount, value, 0.5f);
+			this.m_ValueImage.fillAmount = lerpValue;
+		}
 	}
 
 	#endregion

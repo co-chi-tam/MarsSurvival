@@ -15,7 +15,7 @@ public class CItemData : CEntityData {
 	public string itemDisplayName	= string.Empty;
 	public string avatarPath 	= string.Empty;
 	public string modelPath 	= string.Empty;
-	public int amount 			= 0;
+	public int amount 			= 1;
 
 	#endregion
 

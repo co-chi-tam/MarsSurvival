@@ -37,11 +37,11 @@ public class CEnergyMachineEntity : CMachineEntity {
 		}
 	}
 
-	public override CItemMaterial[] materialsPerCharge {
+	public override CAmountItem[] itemsPerCharge {
 		get {
 			if (this.m_EnergyMachineData == null)
-				return base.materialsPerCharge;
-			return this.m_EnergyMachineData.materialsPerCharge;
+				return base.itemsPerCharge;
+			return this.m_EnergyMachineData.itemsPerCharge;
 		}
 	}
 

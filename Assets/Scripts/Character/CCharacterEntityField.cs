@@ -122,21 +122,6 @@ public partial class CCharacterEntity {
 		}
 	}
 
-	[SerializeField]	protected CEntity m_OtherEntity;
-	public CEntity otherEntity {
-		get { return this.m_OtherEntity; }
-		set { 
-			this.m_OtherEntity = value;  
-		}
-	}
-	public Transform otherEntityTransform {
-		get { 
-			if (this.m_OtherEntity == null)
-				return null;
-			return this.m_OtherEntity.transform; 
-		}
-	}
-
 	#endregion
 
 }

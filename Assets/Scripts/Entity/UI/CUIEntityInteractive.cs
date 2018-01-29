@@ -29,6 +29,7 @@ public class CUIEntityInteractive : MonoBehaviour {
 	[SerializeField]	protected CUIToggleButton m_UIStartToggle;
 	[SerializeField]	protected CUIInfoDisplay m_UIEnergyDisplay;
 	[SerializeField]	protected CUIInfoDisplay m_UIDirtDisplay;
+	[SerializeField]	protected CUIInfoDisplay m_UIGatherCarrotDisplay;
 
 	[Header("Events")]
 	public UnityEvent OnInteractive;
@@ -119,8 +120,12 @@ public class CUIEntityInteractive : MonoBehaviour {
 	public virtual void UpdateUI() {
 		if (this.m_Entity is CMachineEntity) {
 			var machine = this.m_Entity as CMachineEntity;
-			this.m_UIEnergyDisplay.SetDisplay (machine.energyPercent);
-			this.m_UIDirtDisplay.SetDisplay (machine.energyPercent);
+			this.m_UIEnergyDisplay.SetDisplay ("x1", machine.energyPercent);
+			this.m_UIDirtDisplay.SetDisplay ("x1", machine.energyPercent);
+			this.m_UIGatherCarrotDisplay.SetDisplay (
+				"x" + Mathf.FloorToInt (machine.collectPercent), 
+				machine.collectPercent
+			);
 		}
 	}
 
