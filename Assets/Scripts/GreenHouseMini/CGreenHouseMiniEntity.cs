@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CGreenHouseMiniEntity : CEnergyMachineEntity {
+public class CGreenHouseMiniEntity : CMachineEntity {
 
 	#region Fields
 
+	protected CDataComponent m_DataComponent;
 	protected CGreenHouseMiniData m_GreenHouseData;
 	protected CAnimatorComponent m_AnimatorComponent;
 
@@ -20,11 +21,27 @@ public class CGreenHouseMiniEntity : CEnergyMachineEntity {
 		set { base.IsStarted = value; }
 	}
 
+	public override float energyPercent {
+		get {
+			if (this.m_GreenHouseData == null)
+				return base.energyPercent;
+			return this.m_GreenHouseData.energy.energyPoint / this.m_GreenHouseData.energy.maxEnergyPoint;
+		}
+	}
+
+	public override CAmountItem[] itemsPerCharge {
+		get {
+			if (this.m_GreenHouseData == null)
+				return base.itemsPerCharge;
+			return this.m_GreenHouseData.energy.itemsPerCharge;
+		}
+	}
+
 	public override float collectPercent {
 		get {
 			if (this.m_GreenHouseData == null)
 				return base.collectPercent;
-			return this.m_GreenHouseData.productTime / this.m_GreenHouseData.totalProductTime;
+			return this.m_GreenHouseData.productItem.productTime / this.m_GreenHouseData.productItem.totalProductTime;
 		}
 	}
 
@@ -32,7 +49,7 @@ public class CGreenHouseMiniEntity : CEnergyMachineEntity {
 		get {
 			if (this.m_GreenHouseData == null)
 				return base.itemCollects;
-			return this.m_GreenHouseData.itemCollects;
+			return this.m_GreenHouseData.productItem.itemCollects;
 		}
 	}
 
@@ -40,8 +57,17 @@ public class CGreenHouseMiniEntity : CEnergyMachineEntity {
 		get { 
 			if (this.m_GreenHouseData == null)
 				return false;
-			return this.m_GreenHouseData.productTime >= this.m_GreenHouseData.totalProductTime; 
+			return this.m_GreenHouseData.productItem.productTime >= this.m_GreenHouseData.productItem.totalProductTime; 
 		}
+	}
+
+	public override bool HaveEnergy {
+		get {
+			if (this.m_GreenHouseData == null)
+				return base.HaveEnergy;
+			return this.m_GreenHouseData.energy.energyPoint > 0f;
+		}
+		set { base.HaveEnergy = value; }
 	}
 
 	#endregion
@@ -75,6 +101,12 @@ public class CGreenHouseMiniEntity : CEnergyMachineEntity {
 
 	#region Main methods
 
+	public override void AddEnergy ()
+	{
+		base.AddEnergy ();
+		this.m_DataComponent.UpdateDataPerInvoke ("AddEnergy");
+	}
+
 	public override void CollectItems ()
 	{
 		base.CollectItems ();
@@ -84,6 +116,13 @@ public class CGreenHouseMiniEntity : CEnergyMachineEntity {
 	#endregion
 
 	#region Getter && Setter
+
+	public override string[] GetJobs ()
+	{
+		if (this.m_GreenHouseData == null)
+			return base.GetJobs ();
+		return this.m_GreenHouseData.machineJobs;
+	}
 
 	public override void SetAnimation(int value) {
 		base.SetAnimation (value);

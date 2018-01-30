@@ -441,6 +441,7 @@ GameObject:
   - component: {fileID: 4734288587281020}
   - component: {fileID: 95521924486741164}
   - component: {fileID: 114241283608022498}
+  - component: {fileID: 205772622826633692}
   m_Layer: 10
   m_Name: GreenHouse
   m_TagString: Untagged
@@ -1957,3 +1958,28 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!205 &205772622826633692
+LODGroup:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1725649521216726}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0.2524519, y: 0.2721691, z: 3.6846032}
+  m_Size: 7.6933765
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LODs:
+  - screenRelativeHeight: 0.05072202
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 23841335588046432}
+    - renderer: {fileID: 23866043138303390}
+    - renderer: {fileID: 23225463028511648}
+    - renderer: {fileID: 23685408311639180}
+    - renderer: {fileID: 23455840665536094}
+    - renderer: {fileID: 23012345876265900}
+    - renderer: {fileID: 23319080614230900}
+    - renderer: {fileID: 23059882118652732}
+    - renderer: {fileID: 23951252888594738}
+  m_Enabled: 1

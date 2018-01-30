@@ -6,12 +6,13 @@ using System.Runtime.Serialization;
 using System.Reflection;
 
 [Serializable]
-public class CMovableEntityData : CEntityData {
+public class CSaveObjectData {
 
 	#region Fields
 
 	[Header("Movable Fields")]
 	[SerializeField]	protected string m_Position = "0,0,0";
+	[Info (valueName = "Position", valueMin = "", valueMax = "")]
 	public string position {
 		get { return this.m_Position; }
 		set { this.m_Position = value; }
@@ -26,21 +27,8 @@ public class CMovableEntityData : CEntityData {
 
 	#region Constructor
 
-	public CMovableEntityData (): base() {
+	public CSaveObjectData () {
 		
-	}
-
-	public CMovableEntityData (SerializationInfo info, StreamingContext context) : base(info, context) {
-
-	}
-
-	#endregion
-
-	#region ToString
-
-	public override string ToString ()
-	{
-		return string.Format ("[CMovableEntityData: position={0}, rotation={1}]", position, rotation);
 	}
 
 	#endregion

@@ -330,6 +330,7 @@ GameObject:
   - component: {fileID: 4943418622533608}
   - component: {fileID: 95116766673732706}
   - component: {fileID: 114135661983872446}
+  - component: {fileID: 205231054095890908}
   m_Layer: 0
   m_Name: PowerGenerator
   m_TagString: Untagged
@@ -1664,3 +1665,26 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!205 &205231054095890908
+LODGroup:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1771816478041278}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: -0.0000004172325, y: -0.000001013279, z: 1.9173756}
+  m_Size: 3.8218784
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LODs:
+  - screenRelativeHeight: 0.049211968
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 23182892655438836}
+    - renderer: {fileID: 23731602808944046}
+    - renderer: {fileID: 23234146650118412}
+    - renderer: {fileID: 23676248481991224}
+    - renderer: {fileID: 23395917244077008}
+    - renderer: {fileID: 23025572936484848}
+    - renderer: {fileID: 23941362785430472}
+  m_Enabled: 1

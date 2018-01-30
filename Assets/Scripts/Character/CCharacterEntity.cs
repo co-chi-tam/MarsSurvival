@@ -13,6 +13,7 @@ public partial class CCharacterEntity : CEntity, IContext {
 	protected CInventoryComponent m_InventoryComponent;
 	protected CDataComponent m_DataComponent;
 	protected CMoveComponent m_MoveComponent;
+	protected CMapMemberComponent m_MapMemberComponent;
 	protected CObjectPoolMemberComponent m_ObjectPoolMemberComponent;
 
 	protected CCharacterData m_Data;
@@ -39,6 +40,7 @@ public partial class CCharacterEntity : CEntity, IContext {
 		this.m_DataComponent = this.GetGameComponent<CDataComponent> ();
 		this.m_MoveComponent = this.GetGameComponent<CMoveComponent> ();
 		this.m_ObjectPoolMemberComponent = this.GetGameComponent<CObjectPoolMemberComponent> ();
+		this.m_MapMemberComponent = this.GetGameComponent<CMapMemberComponent> ();
 	}
 
 	protected override void Start ()
@@ -61,8 +63,8 @@ public partial class CCharacterEntity : CEntity, IContext {
 	{
 		base.OnApplicationQuit ();
 		// DATA
-		this.m_Data.position = this.m_Transform.position.ToString();
-		this.m_Data.rotation = this.m_Transform.rotation.ToString();
+		this.m_Data.saveData.position = this.m_Transform.position.ToString();
+		this.m_Data.saveData.rotation = this.m_Transform.rotation.ToString();
 	}
 
 	#endregion

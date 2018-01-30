@@ -31,7 +31,10 @@ public class CMapManager : CMonoSingleton<CMapManager> {
 		set { this.m_Target = value; }
 	}
 	[SerializeField]	protected Vector3 m_CurrentPosition;
-
+	public Vector3 currentPosition {
+		get { return this.m_CurrentPosition; }
+		set { this.m_CurrentPosition = value; }
+	}
 	[Header("Save")]
 	[SerializeField]	protected bool m_AutoSaveLoad = false;
 	[SerializeField]	protected string m_SaveFile = Guid.NewGuid().ToString();

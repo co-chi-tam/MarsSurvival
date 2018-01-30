@@ -122,6 +122,14 @@ public partial class CCharacterEntity {
 		}
 	}
 
+	public Vector3 mapPosition {
+		get { 
+			if (this.m_MapMemberComponent == null)
+				return this.transform.position;
+			return this.m_MapMemberComponent.currentPosition; 
+		}
+	}
+
 	#endregion
 
 }

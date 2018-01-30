@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4114548281266040}
   - component: {fileID: 33239836557626052}
   - component: {fileID: 23870063873781384}
+  - component: {fileID: 205226220770173906}
   m_Layer: 0
   m_Name: Carrot
   m_TagString: Untagged
@@ -334,3 +335,20 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!205 &205226220770173906
+LODGroup:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1056542782926794}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: -0.023610353, y: -0.0029048324, z: -0.074447155}
+  m_Size: 4.8530025
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LODs:
+  - screenRelativeHeight: 0.05380923
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 23870063873781384}
+  m_Enabled: 1

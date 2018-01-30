@@ -30,6 +30,7 @@ public class CUIEntityInteractive : MonoBehaviour {
 	[SerializeField]	protected CUIInfoDisplay m_UIEnergyDisplay;
 	[SerializeField]	protected CUIInfoDisplay m_UIDirtDisplay;
 	[SerializeField]	protected CUIInfoDisplay m_UIGatherCarrotDisplay;
+	[SerializeField]	protected CDisplayMapPosition m_UIDisplaPosition;
 
 	[Header("Events")]
 	public UnityEvent OnInteractive;

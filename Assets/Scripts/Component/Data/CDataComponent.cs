@@ -5,6 +5,7 @@ using System.Linq;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Runtime.Serialization;
+using System.Reflection;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Events.Utils;
@@ -193,23 +194,36 @@ public class CDataComponent : CComponent {
 		} else {
 			this.m_TimerPerSecond = 1f;
 		}
+		this.UpdateDataPerSecond (this.m_CloneData);
+	}
+
+	public virtual void UpdateDataPerSecond(object valueObj) { 
 		// GET PROPERTIES ATTRIBUTE
-		var fields = this.m_CloneData.GetType ().GetProperties ();
+		var fields = valueObj.GetType ().GetProperties ();
 		foreach (var fld in fields) {
-			var sampleValue = fld.GetValue (this.m_CloneData, null);
-			if (sampleValue is int 
-				|| sampleValue is float
-				|| sampleValue is string) {
-				foreach (var attr in fld.GetCustomAttributes(typeof (UpdateValuePerSecondAttribute), false)) {
-					var valuePerSecond = attr as UpdateValuePerSecondAttribute;
-					if (this.m_UpdateMethods.ContainsKey (valuePerSecond.updateMethod)) {
-						var value = this.m_UpdateMethods [valuePerSecond.updateMethod] (
-							fld.Name,
-							sampleValue, 
-							valuePerSecond.updateValuePerSecond);
-						fld.SetValue (this.m_CloneData, value, null);
-					}
+			var sampleValue = fld.GetValue (valueObj, null);
+			if (sampleValue is int
+			    || sampleValue is float
+			    || sampleValue is string) {
+				this.ReflectValuePerSecond (fld, valueObj, sampleValue);
+			} else {
+				var fieldConstinues = fld.GetCustomAttributes (typeof(UpdateContinueAttribute), false);
+				if (fieldConstinues.Length > 0) {
+					this.UpdateDataPerSecond (fld.GetValue (valueObj, null));
 				}
+			}
+		}
+	}
+
+	protected virtual void ReflectValuePerSecond(PropertyInfo fld, object valueObj, object sampleValue) {
+		foreach (var attr in fld.GetCustomAttributes(typeof (UpdateValuePerSecondAttribute), false)) {
+			var valuePerSecond = attr as UpdateValuePerSecondAttribute;
+			if (this.m_UpdateMethods.ContainsKey (valuePerSecond.updateMethod)) {
+				var value = this.m_UpdateMethods [valuePerSecond.updateMethod] (
+					fld.Name,
+					sampleValue, 
+					valuePerSecond.updateValuePerSecond);
+				fld.SetValue (valueObj, value, null);
 			}
 		}
 	}
@@ -217,24 +231,37 @@ public class CDataComponent : CComponent {
 	public virtual void UpdateDataPerInvoke(string name) {
 		if (this.m_InstanceData == null || this.m_CloneData == null)
 			return;
+		this.UpdateDataPerInvoke (name, this.m_CloneData);
+	}
+
+	public virtual void UpdateDataPerInvoke(string name, object valueObj) {
 		// GET PROPERTIES ATTRIBUTE
-		var fields = this.m_CloneData.GetType ().GetProperties ();
+		var fields = valueObj.GetType ().GetProperties ();
 		foreach (var fld in fields) {
-			var sampleValue = fld.GetValue (this.m_CloneData, null);
+			var sampleValue = fld.GetValue (valueObj, null);
 			if (sampleValue is int
 			    || sampleValue is float
 			    || sampleValue is string) {
-				foreach (var attr in fld.GetCustomAttributes(typeof (UpdateValuePerInvokeAttribute), false)) {
-					var valuePerInvoke = attr as UpdateValuePerInvokeAttribute;
-					if (valuePerInvoke.updateName == name &&
-					   	this.m_UpdateMethods.ContainsKey (valuePerInvoke.updateMethod)) {
-						var value = this.m_UpdateMethods [valuePerInvoke.updateMethod] (
-							fld.Name,
-							sampleValue, 
-				           	valuePerInvoke.updateValuePerInvoke);
-						fld.SetValue (this.m_CloneData, value, null);
-					}
+				this.ReflectValuePerInvoke (name, fld, valueObj, sampleValue);
+			} else {
+				var fieldConstinues = fld.GetCustomAttributes (typeof(UpdateContinueAttribute), false);
+				if (fieldConstinues.Length > 0) {
+					this.UpdateDataPerInvoke (name, fld.GetValue (valueObj, null));
 				}
+			}
+		}
+	}
+
+	protected virtual void ReflectValuePerInvoke(string name, PropertyInfo fld, object valueObj, object sampleValue) {
+		foreach (var attr in fld.GetCustomAttributes(typeof (UpdateValuePerInvokeAttribute), false)) {
+			var valuePerInvoke = attr as UpdateValuePerInvokeAttribute;
+			if (valuePerInvoke.updateName == name &&
+				this.m_UpdateMethods.ContainsKey (valuePerInvoke.updateMethod)) {
+				var value = this.m_UpdateMethods [valuePerInvoke.updateMethod] (
+					fld.Name,
+					sampleValue, 
+					valuePerInvoke.updateValuePerInvoke);
+				fld.SetValue (valueObj, value, null);
 			}
 		}
 	}

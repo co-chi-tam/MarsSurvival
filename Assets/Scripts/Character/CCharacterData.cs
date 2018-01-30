@@ -6,7 +6,7 @@ using System.Runtime.Serialization;
 using System.Reflection;
 
 [Serializable]
-public class CCharacterData : CMovableEntityData {
+public class CCharacterData : CEntityData {
 
 	#region Fields
 
@@ -26,8 +26,8 @@ public class CCharacterData : CMovableEntityData {
 	// ENERGY
 	[SerializeField]	protected float m_EnergyPoint;
 	[Info(valueName = "Energy point", valueMin = 0f, valueMax = 9999f)]
-	[UpdateValuePerSecond(updateMethod = "Decrease", updateValuePerSecond = 0.25f)]
-	[UpdateValuePerInvoke(updateName = "AddEnergy", updateMethod = "Increase", updateValuePerInvoke = 2.5f)]
+	[UpdateValuePerSecond(updateMethod = "Decrease", updateValuePerSecond = 0.35f)]
+	[UpdateValuePerInvoke(updateName = "AddEnergy", updateMethod = "Increase", updateValuePerInvoke = 1.5f)]
 	public float energyPoint {
 		get { return this.m_EnergyPoint; }
 		set { this.m_EnergyPoint = value < 0f ? 0f : value > this.m_MaxEnergyPoint ? this.m_MaxEnergyPoint : value; }
@@ -42,7 +42,7 @@ public class CCharacterData : CMovableEntityData {
 	// WATER
 	[SerializeField]	protected float m_WaterPoint = 50f;
 	[Info(valueName = "Water point", valueMin = 0f, valueMax = 9999f)]
-	[UpdateValuePerSecond(updateMethod = "Decrease", updateValuePerSecond = 0.25f)]
+	[UpdateValuePerSecond(updateMethod = "Decrease", updateValuePerSecond = 0.45f)]
 	[UpdateValuePerInvoke(updateName = "AddWater", updateMethod = "Increase", updateValuePerInvoke = 2.5f)]
 	public float waterPoint {
 		get { return this.m_WaterPoint; }
@@ -57,8 +57,8 @@ public class CCharacterData : CMovableEntityData {
 	// FOOD
 	[SerializeField]	protected float m_FoodPoint = 75f;
 	[Info(valueName = "Food point", valueMin = 0f, valueMax = 9999f)]
-	[UpdateValuePerSecond(updateMethod = "Decrease", updateValuePerSecond = 0.5f)]
-	[UpdateValuePerInvoke(updateName = "AddFood", updateMethod = "Increase", updateValuePerInvoke = 2.5f)]
+	[UpdateValuePerSecond(updateMethod = "Decrease", updateValuePerSecond = 0.55f)]
+	[UpdateValuePerInvoke(updateName = "AddFood", updateMethod = "Increase", updateValuePerInvoke = 2f)]
 	public float foodPoint {
 		get { return this.m_FoodPoint; }
 		set { this.m_FoodPoint = value < 0f ? 0f : value > this.m_MaxFoodPoint ? this.m_MaxFoodPoint : value; }
@@ -74,6 +74,14 @@ public class CCharacterData : CMovableEntityData {
 	public List<CItemData> items {
 		get { return this.m_Items; }
 		set { this.m_Items = new List<CItemData> (value); }
+	}
+
+	[Header("Save Data")]
+	[SerializeField]	protected CSaveObjectData m_SaveData;
+	[UpdateContinueAttribute]
+	public CSaveObjectData saveData {
+		get { return this.m_SaveData; }
+		set { this.m_SaveData = value; }
 	}
 
 	#endregion

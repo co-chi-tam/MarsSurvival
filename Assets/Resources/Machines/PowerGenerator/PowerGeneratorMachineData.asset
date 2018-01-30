@@ -12,15 +12,14 @@ MonoBehaviour:
   m_Name: PowerGeneratorMachineData
   m_EditorClassIdentifier: 
   m_Description: Energy generator machine
-  m_Position: 0,0,0
-  m_Rotation: 0,0,0
   m_MachineName: Energy generator machine
   m_MachineJobs:
   - AddRock
   - FollowMe
   - StartMachine
-  m_EnergyPoint: 70
-  m_MaxEnergyPoint: 100
-  m_ItemsPerCharge:
-  - itemAmount: 1
-    itemData: {fileID: 11400000, guid: c42b537db846e7245958ab9382621ef6, type: 2}
+  m_Energy:
+    m_EnergyPoint: 100
+    m_MaxEnergyPoint: 100
+    m_ItemsPerCharge:
+    - itemAmount: 1
+      itemData: {fileID: 11400000, guid: c42b537db846e7245958ab9382621ef6, type: 2}

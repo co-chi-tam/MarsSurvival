@@ -12,21 +12,21 @@ MonoBehaviour:
   m_Name: GreenHouseMiniData
   m_EditorClassIdentifier: 
   m_Description: Green House Mini
-  m_Position: 0,0,0
-  m_Rotation: 0,0,0
   m_MachineName: Green House Mini
   m_MachineJobs:
   - StartMachine
   - FollowMe
   - AddDirt
   - GatherCarrot
-  m_EnergyPoint: 70
-  m_MaxEnergyPoint: 100
-  m_ItemsPerCharge:
-  - itemAmount: 1
-    itemData: {fileID: 11400000, guid: b8caa2594371e5f439291fe5cbf0b1fe, type: 2}
-  m_ProductTime: 600
-  m_ProductTimeInterval: 60
-  m_ProductItems:
-  - itemAmount: 1
-    itemData: {fileID: 11400000, guid: b7b569c67022a5843bec26a6f9284e58, type: 2}
+  m_Energy:
+    m_EnergyPoint: 100
+    m_MaxEnergyPoint: 100
+    m_ItemsPerCharge:
+    - itemAmount: 1
+      itemData: {fileID: 11400000, guid: b8caa2594371e5f439291fe5cbf0b1fe, type: 2}
+  m_ProductItem:
+    m_ProductTime: 600
+    m_ProductTimeInterval: 60
+    m_ProductItems:
+    - itemAmount: 1
+      itemData: {fileID: 11400000, guid: b7b569c67022a5843bec26a6f9284e58, type: 2}

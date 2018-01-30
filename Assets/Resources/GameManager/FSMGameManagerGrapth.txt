@@ -1,0 +1,26 @@
+{
+  "fsm": [
+    {
+      "condition_name": "IsRoot",
+      "state_name": "FSMStartGameState",
+      "states": [
+        {
+          "condition_name": "IsStarted",
+          "state_name": "FSMPlayingGameState",
+          "states": [
+          	{
+	          "condition_name": "IsCharacterDeath",
+	          "state_name": "FSMEndGameState",
+	          "states": []
+	        }
+          ]
+        }
+      ]
+    },
+    {
+      "condition_name": "IsAnyState",
+      "state_name": "AnyState",
+      "states": []
+    }
+  ]
+}

@@ -86,10 +86,9 @@ public partial class CMachineEntity : CEntity {
 	}
 
 	public virtual string[] GetJobs() {
-		if (this.m_MachineData != null) {
-			return this.m_MachineData.machineJobs;
-		}
-		return new string[0];
+		if (this.m_MachineData == null) 
+			return new string[0];
+		return this.m_MachineData.machineJobs;
 	}
 
 	#endregion

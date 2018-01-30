@@ -57,6 +57,7 @@ GameObject:
   - component: {fileID: 4642588244357734}
   - component: {fileID: 33301375412477966}
   - component: {fileID: 23698353828601724}
+  - component: {fileID: 205034231625377832}
   m_Layer: 9
   m_Name: CactusFruit
   m_TagString: Untagged
@@ -334,3 +335,20 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!205 &205034231625377832
+LODGroup:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1786213808823420}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0.042077243, y: 0.014754057, z: 0.38369018}
+  m_Size: 3.7238336
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LODs:
+  - screenRelativeHeight: 0.05380923
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 23698353828601724}
+  m_Enabled: 1

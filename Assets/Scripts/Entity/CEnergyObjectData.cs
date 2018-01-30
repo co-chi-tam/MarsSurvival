@@ -1,8 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
 
-public class CEnergyMachineData : CMachineData {
+[Serializable]
+public class CEnergyObjectData {
 
 	#region Fields
 
@@ -33,8 +33,7 @@ public class CEnergyMachineData : CMachineData {
 
 	#region Constructor
 
-	public CEnergyMachineData (): base() {
-		this.m_MachineName = "Energy machine";
+	public CEnergyObjectData () {
 		this.m_EnergyPoint = 100f;
 		this.m_MaxEnergyPoint = 100f;
 	}

@@ -262,6 +262,7 @@ GameObject:
   - component: {fileID: 4531950825637106}
   - component: {fileID: 95871778262921486}
   - component: {fileID: 114780221322128636}
+  - component: {fileID: 205073940126131982}
   m_Layer: 10
   m_Name: Pump
   m_TagString: Untagged
@@ -1530,3 +1531,23 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!205 &205073940126131982
+LODGroup:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1574789412124326}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0, y: 0.00000011920929, z: 3.6221042}
+  m_Size: 7.23332
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LODs:
+  - screenRelativeHeight: 0.05072202
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 23571164375098042}
+    - renderer: {fileID: 23916541551716586}
+    - renderer: {fileID: 23681866652860652}
+    - renderer: {fileID: 23550086374083492}
+  m_Enabled: 1

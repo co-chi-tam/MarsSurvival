@@ -57,6 +57,7 @@ GameObject:
   - component: {fileID: 4094519329434458}
   - component: {fileID: 33986581810365926}
   - component: {fileID: 23950846124350880}
+  - component: {fileID: 205728472296285118}
   m_Layer: 0
   m_Name: Rock
   m_TagString: Untagged
@@ -188,6 +189,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_TileMapObject: {fileID: 0}
   m_Radius: 20
+  OnReloadCondition:
+    _parameterTypes: []
+    _target: {fileID: 0}
+    _component: 
+    _name: 
   OnReload:
     m_PersistentCalls:
       m_Calls: []
@@ -329,3 +335,20 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!205 &205728472296285118
+LODGroup:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1846143703099138}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0.013380289, y: -0.0429945, z: 0.07081467}
+  m_Size: 1.7425096
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LODs:
+  - screenRelativeHeight: 0.049211968
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 23950846124350880}
+  m_Enabled: 1

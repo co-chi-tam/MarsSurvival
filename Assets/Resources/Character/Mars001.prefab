@@ -1655,7 +1655,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8b4e7f5e638b964892a8a64240ac938, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_IsActive: 1
   m_IsCenterMap: 1
+  m_CurrentPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &114151746997459282
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1824,6 +1826,7 @@ MonoBehaviour:
   - {fileID: 114903941963965026}
   - {fileID: 114159286287544068}
   - {fileID: 114640992323890318}
+  - {fileID: 114053298770876746}
   m_IsActive: 1
   m_OtherEntity: {fileID: 0}
 --- !u!114 &114531483245967648
@@ -2172,6 +2175,12 @@ MonoBehaviour:
       _target: {fileID: 1833698780043526}
       _component: CCharacterEntity
       _name: InvokeOtherEntityCollectItems
+  - m_TriggerName: GetMapPosition
+    OnTriggerInvoke:
+      _parameterTypes: []
+      _target: {fileID: 1833698780043526}
+      _component: CCharacterEntity
+      _name: mapPosition
 --- !u!114 &114903941963965026
 MonoBehaviour:
   m_ObjectHideFlags: 1
