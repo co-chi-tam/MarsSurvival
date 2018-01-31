@@ -55,6 +55,9 @@ public class CDayNightManager : CMonoSingleton<CDayNightManager> {
 	protected override void Awake ()
 	{
 		base.Awake ();
+#if UNITY_EDITOR
+		this.Reset();
+#endif
 		this.Setup ();
 		this.Load ();
 	}
@@ -99,7 +102,7 @@ public class CDayNightManager : CMonoSingleton<CDayNightManager> {
 	}
 
 	public virtual void Load() {
-		this.m_TimerDayInterval = PlayerPrefs.GetFloat (this.m_WORLD_TIME, this.m_MinusPerDay * 10f);
+		this.m_TimerDayInterval = PlayerPrefs.GetFloat (this.m_WORLD_TIME, this.m_MinusPerDay * 20f);
 		this.m_DaySaved = PlayerPrefs.GetInt (this.m_WORLD_DAY, this.m_DaySaved);
 		this.m_Hour24 = (int)(this.m_TimerDayInterval / this.m_AHour24) % 24;
 		this.m_Date = this.m_Hour24 < 12f ? "AM" : "PM";

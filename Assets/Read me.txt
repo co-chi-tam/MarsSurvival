@@ -4,7 +4,7 @@ Story mode:
 	trai nạn và bỏ lại trên Sao hỏa.
 	
 Gameplay:
-	Sinh tồn các chỉ số Power sun. water, food.
+	Sinh tồn các chỉ số Energy. water, food.
 	Scrafting chế đồ.
 	Ngày đêm, ... 
 	Infinite map ( Thế giới mở)...
@@ -13,7 +13,9 @@ Gameplay:
 	Có công trình như power box, ... 1 số chạy theo nhân vật.
 	Mỗi công trình có Pin đê chạy. Cần có nước cho máy bơm. vvv. đất cho ruộng .... 
 	Tìm Blueprint để chế đồ.
+	Nấu ăn bằng máy với carrot hoặc gì đó.
 Nhiệm vụ: 
+	Đem mother box theo.
 	Tìm và sửa chửa 5 máy phát tín hiệu...
 
 

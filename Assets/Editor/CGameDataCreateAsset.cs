@@ -39,4 +39,10 @@ public class CGameDataCreateAsset
 		ScriptableObjectUtility.CreateAsset<CGreenHouseMiniData> ();
 	}
 
+	[MenuItem("Game Data/Machine/Electric Pot Machine Data")]
+	public static void CreateElectricPotDataAsset ()
+	{
+		ScriptableObjectUtility.CreateAsset<CElectricPotData> ();
+	}
+
 }

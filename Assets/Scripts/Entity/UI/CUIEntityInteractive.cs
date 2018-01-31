@@ -30,7 +30,7 @@ public class CUIEntityInteractive : MonoBehaviour {
 	[SerializeField]	protected CUIInfoDisplay m_UIEnergyDisplay;
 	[SerializeField]	protected CUIInfoDisplay m_UIDirtDisplay;
 	[SerializeField]	protected CUIInfoDisplay m_UIGatherCarrotDisplay;
-	[SerializeField]	protected CDisplayMapPosition m_UIDisplaPosition;
+	[SerializeField]	protected CUIInfoDisplay m_UIAddCarrotDisplay;
 
 	[Header("Events")]
 	public UnityEvent OnInteractive;
@@ -121,12 +121,21 @@ public class CUIEntityInteractive : MonoBehaviour {
 	public virtual void UpdateUI() {
 		if (this.m_Entity is CMachineEntity) {
 			var machine = this.m_Entity as CMachineEntity;
-			this.m_UIEnergyDisplay.SetDisplay ("x1", machine.energyPercent);
-			this.m_UIDirtDisplay.SetDisplay ("x1", machine.energyPercent);
-			this.m_UIGatherCarrotDisplay.SetDisplay (
-				"x" + Mathf.FloorToInt (machine.collectPercent), 
-				machine.collectPercent
-			);
+			if (this.m_UIEnergyDisplay.gameObject.activeInHierarchy) {
+				this.m_UIEnergyDisplay.SetDisplay ("x1", machine.energyPercent);
+			}
+			if (this.m_UIDirtDisplay.gameObject.activeInHierarchy) {
+				this.m_UIDirtDisplay.SetDisplay ("x1", machine.energyPercent);
+			}
+			if (this.m_UIGatherCarrotDisplay.gameObject.activeInHierarchy) {
+				this.m_UIGatherCarrotDisplay.SetDisplay (
+					"x" + Mathf.FloorToInt (machine.collectPercent), 
+					machine.collectPercent
+				);
+			}
+			if (this.m_UIAddCarrotDisplay.gameObject.activeInHierarchy) {
+				this.m_UIAddCarrotDisplay.SetDisplay ("x1", machine.energyPercent);
+			}
 		}
 	}
 

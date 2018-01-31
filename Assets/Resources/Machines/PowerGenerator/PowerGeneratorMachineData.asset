@@ -11,7 +11,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1501000c7148f294583a5fd3e7093e69, type: 3}
   m_Name: PowerGeneratorMachineData
   m_EditorClassIdentifier: 
+  m_EntityName: EnergyMachine
+  m_EntityDisplayName: Energy generator machine
   m_Description: Energy generator machine
+  m_AvatarPath: Machines/PowerGenerator/EnergyMachine-icon
+  m_ModelPath: Machines/PowerGenerator/EnergyMachine
   m_MachineName: Energy generator machine
   m_MachineJobs:
   - AddRock

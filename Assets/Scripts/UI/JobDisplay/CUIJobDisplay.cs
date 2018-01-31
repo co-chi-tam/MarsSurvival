@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class CUIJobDisplay : MonoBehaviour {
 
+	#region Fields
+
 	[Header("Configs")]
 	[SerializeField]	protected float m_DisplayRadius = 20f;
 	[SerializeField]	protected CUIJobDisplayItem[] m_JobItems;
+
+	#endregion
+
+	#region Main methods
 
 	public virtual void SetUpJobDisplay(string[] jobItems) {
 		if (jobItems == null)
@@ -32,5 +38,7 @@ public class CUIJobDisplay : MonoBehaviour {
 			theta += segment;
 		}
 	}
+
+	#endregion
 
 }

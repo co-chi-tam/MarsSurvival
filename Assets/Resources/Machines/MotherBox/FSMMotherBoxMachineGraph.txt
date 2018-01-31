@@ -1,0 +1,38 @@
+{
+  "fsm": [
+    {
+      "condition_name": "IsRoot",
+      "state_name": "FSMIdleState",
+      "states": [
+      	{
+	      "condition_name": "IsStarted",
+	      "state_name": "FSMActiveState",
+	      "states": [
+	      	{
+		      "condition_name": "!IsStarted",
+		      "state_name": "FSMIdleState",
+		      "states": []
+		    }
+	      ]
+	    }
+      ]
+    },
+    {
+      "condition_name": "IsAnyState",
+      "state_name": "AnyState",
+      "states": [
+      	{
+	      "condition_name": "!IsActive",
+	      "state_name": "FSMInactiveState",
+	      "states": [
+	      	{
+		      "condition_name": "IsActive",
+		      "state_name": "FSMIdleState",
+		      "states": []
+		    }
+	      ]
+	    }
+      ]
+    }
+  ]
+}

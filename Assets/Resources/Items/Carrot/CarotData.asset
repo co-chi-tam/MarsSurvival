@@ -9,11 +9,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8ceab80d9f5f1924480f8616b5956ce5, type: 3}
-  m_Name: DirtData
+  m_Name: CarotData
   m_EditorClassIdentifier: 
-  m_Description: Dirt something. Furtilizer
-  itemName: Dirt
-  itemDisplayName: Dirt
-  avatarPath: Item/Dirt/Dirt-icon
-  modelPath: Item/Dirt/Dirt
-  amount: 1
+  m_EntityName: Carrot
+  m_EntityDisplayName: Carrot
+  m_Description: Carrot
+  m_AvatarPath: Items/Carrot/Carrot-icon
+  m_ModelPath: Items/Carrot/Carrot
+  itemName: Carrot
+  itemDisplayName: Carrot
+  m_Amount: 1

@@ -9,11 +9,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8ceab80d9f5f1924480f8616b5956ce5, type: 3}
-  m_Name: RockData
+  m_Name: DirtData
   m_EditorClassIdentifier: 
-  m_Description: Energy Rock
-  itemName: Rock
-  itemDisplayName: Rock
-  avatarPath: Item/Rock/Rock-icon
-  modelPath: Item/Rock/Rock
-  amount: 1
+  m_EntityName: Dirt
+  m_EntityDisplayName: Dirt (soil)
+  m_Description: Dirt something. Furtilizer
+  m_AvatarPath: Items/Dirt/Dirt-icon
+  m_ModelPath: Items/Dirt/Dirt
+  itemName: Dirt
+  itemDisplayName: Dirt (soil)
+  m_Amount: 1

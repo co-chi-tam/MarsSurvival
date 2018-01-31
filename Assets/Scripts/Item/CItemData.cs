@@ -13,9 +13,11 @@ public class CItemData : CEntityData {
 	[Header("Item Fields")]
 	public string itemName 		= string.Empty;
 	public string itemDisplayName	= string.Empty;
-	public string avatarPath 	= string.Empty;
-	public string modelPath 	= string.Empty;
-	public int amount 			= 1;
+	[SerializeField]	protected int m_Amount = 1;
+	public int amount {
+		get { return this.m_Amount; }
+		set { this.m_Amount = value; }
+	}
 
 	#endregion
 

@@ -207,23 +207,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1429407505636118
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4581809658431572}
-  - component: {fileID: 114035077891378980}
-  - component: {fileID: 114265536627924716}
-  m_Layer: 10
-  m_Name: Terninal
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &1436446861187098
 GameObject:
   m_ObjectHideFlags: 1
@@ -251,22 +234,6 @@ GameObject:
   - component: {fileID: 4806078106659664}
   m_Layer: 10
   m_Name: ArmBone.002
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &1515943737307286
-GameObject:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4827206083140928}
-  - component: {fileID: 120212548039399936}
-  m_Layer: 10
-  m_Name: LinePrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -564,7 +531,6 @@ Transform:
   m_Children:
   - {fileID: 4734288587281020}
   - {fileID: 4883671911587860}
-  - {fileID: 4581809658431572}
   - {fileID: 4650037210403102}
   - {fileID: 4957681999109470}
   m_Father: {fileID: 0}
@@ -711,20 +677,6 @@ Transform:
   m_Father: {fileID: 4890688448299508}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4581809658431572
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1429407505636118}
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 4827206083140928}
-  m_Father: {fileID: 4126497654359312}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4603942817901862
 Transform:
   m_ObjectHideFlags: 1
@@ -763,7 +715,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4126497654359312}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4696973937983974
 Transform:
@@ -847,19 +799,6 @@ Transform:
   m_Children:
   - {fileID: 4806078106659664}
   m_Father: {fileID: 4734288587281020}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4827206083140928
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1515943737307286}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4581809658431572}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4842463083788092
@@ -971,7 +910,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4126497654359312}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &23012345876265900
 MeshRenderer:
@@ -1359,38 +1298,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114035077891378980
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1429407505636118}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41bfdd56923e13443adfdeb22c155998, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IsActive: 0
-  m_GroupName: FoodGroup
-  m_Source: {fileID: 4957681999109470}
-  m_MaximumLine: 2
-  m_GroundLayerMask:
-    serializedVersion: 2
-    m_Bits: 2147485184
-  m_GroundRadius: 1
-  m_GroundHeight: 50
-  m_LinePrefabs: {fileID: 120212548039399936}
-  m_LineRenderers: []
-  OnConnected:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: CLineTerminalComponent+UnityEventInt, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  OnFree:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!114 &114173875965791862
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1410,17 +1317,6 @@ MonoBehaviour:
       - m_Target: {fileID: 114762353910822680}
         m_MethodName: SetAnimation
         m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 114035077891378980}
-        m_MethodName: EraseLine
-        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1464,62 +1360,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_IsActive: 1
---- !u!114 &114265536627924716
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1429407505636118}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6711cd2efb68bba45b6561aec6557535, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IsActive: 1
-  m_DetectTransform: {fileID: 4126497654359312}
-  m_DetectRadius: 20
-  m_DetectLayerMask:
-    serializedVersion: 2
-    m_Bits: 1280
-  m_ColliderCount: 0
-  m_MaximumDetect: 20
-  m_SampleColliders:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  OnFree:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  OnDetected:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  OnChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  m_SphereColor: {r: 0, g: 1, b: 0.6275861, a: 1}
 --- !u!114 &114496559434095786
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1608,7 +1448,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8b4e7f5e638b964892a8a64240ac938, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_IsActive: 1
   m_IsCenterMap: 0
+  m_CurrentPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &114670103409477156
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1668,7 +1510,7 @@ MonoBehaviour:
   - {fileID: 114504133645510670}
   - {fileID: 114670103409477156}
   - {fileID: 114496559434095786}
-  - {fileID: 114035077891378980}
+  - {fileID: 0}
   - {fileID: 114241283608022498}
   m_IsActive: 1
   m_HaveEnergy: 1
@@ -1729,17 +1571,6 @@ MonoBehaviour:
   OnEnterState:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114035077891378980}
-        m_MethodName: EraseLine
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1651379593423596}
         m_MethodName: SetActive
         m_Mode: 6
@@ -1806,17 +1637,6 @@ MonoBehaviour:
   OnUpdateState:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114035077891378980}
-        m_MethodName: DrawLine
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 114497531924446112}
         m_MethodName: UpdateDataPerInvokeWithDelay
         m_Mode: 5
@@ -1843,108 +1663,9 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   OnEndState:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 114035077891378980}
-        m_MethodName: EraseLine
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!120 &120212548039399936
-LineRenderer:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1515943737307286}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_MotionVectors: 0
-  m_LightProbeUsage: 0
-  m_ReflectionProbeUsage: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Positions:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 1}
-  m_Parameters:
-    serializedVersion: 2
-    widthMultiplier: 0.5
-    widthCurve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 2
-        time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    colorGradient:
-      serializedVersion: 2
-      key0: {r: 0.08658332, g: 0.72794116, b: 0, a: 1}
-      key1: {r: 0.21568629, g: 1, b: 0.10980393, a: 1}
-      key2: {r: 1, g: 0.9910773, b: 0.8235294, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 193
-      ctime1: 65535
-      ctime2: 65535
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 0
-      atime3: 0
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-    numCornerVertices: 90
-    numCapVertices: 90
-    alignment: 0
-    textureMode: 0
-    generateLightingData: 0
-  m_UseWorldSpace: 1
-  m_Loop: 0
 --- !u!136 &136316348143405544
 CapsuleCollider:
   m_ObjectHideFlags: 1

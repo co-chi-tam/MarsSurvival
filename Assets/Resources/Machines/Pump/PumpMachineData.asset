@@ -11,7 +11,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0a76ee790c090f45989d2449dd316b8, type: 3}
   m_Name: PumpMachineData
   m_EditorClassIdentifier: 
+  m_EntityName: PumpMachine
+  m_EntityDisplayName: Pump Machine
   m_Description: Pump machine to get water
+  m_AvatarPath: Machine/Pump/Pump-icon
+  m_ModelPath: Machine/Pump/PumpMachine
   m_MachineName: Pump machine
   m_MachineJobs:
   - StartMachine

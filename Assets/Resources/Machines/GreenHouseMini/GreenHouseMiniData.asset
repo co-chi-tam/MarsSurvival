@@ -11,7 +11,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1ae12b15186d3646830fe5d2d11d16e, type: 3}
   m_Name: GreenHouseMiniData
   m_EditorClassIdentifier: 
+  m_EntityName: GreenHouse
+  m_EntityDisplayName: Green House Mini
   m_Description: Green House Mini
+  m_AvatarPath: Machines/GreenHouseMini/GreenHouseMini-icon
+  m_ModelPath: Machines/GreenHouseMini/GreenHouseMini
   m_MachineName: Green House Mini
   m_MachineJobs:
   - StartMachine

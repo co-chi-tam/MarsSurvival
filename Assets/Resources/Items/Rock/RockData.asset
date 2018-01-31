@@ -9,11 +9,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8ceab80d9f5f1924480f8616b5956ce5, type: 3}
-  m_Name: CactusFruitData
+  m_Name: RockData
   m_EditorClassIdentifier: 
-  m_Description: 'Cactus Fruit '
-  itemName: CactusFruit
-  itemDisplayName: Cactus Fruit
-  avatarPath: Item/CactusFruit/CactusFruit-icon
-  modelPath: Item/CactusFruit/CactusFruit
-  amount: 1
+  m_EntityName: Rock
+  m_EntityDisplayName: Energy Rock
+  m_Description: Energy Rock
+  m_AvatarPath: Items/Rock/Rock-icon
+  m_ModelPath: Items/Rock/Rock
+  itemName: Rock
+  itemDisplayName: Energy Rock
+  m_Amount: 1
