@@ -104,7 +104,7 @@ public partial class CCharacterEntity {
 		get { return this.m_DeltaMovePoint; }
 		set { this.m_DeltaMovePoint = value; }
 	}
-	public bool IsStand {
+	public bool IsMove {
 		get { return this.m_DeltaMovePoint != Vector3.zero; }
 		set { this.m_DeltaMovePoint = value ? Vector3.zero : Vector3.right; }
 	}

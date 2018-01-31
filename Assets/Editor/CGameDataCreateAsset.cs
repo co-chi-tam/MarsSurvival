@@ -3,17 +3,27 @@ using UnityEditor;
 
 public class CGameDataCreateAsset
 {
+	#region Item
+
 	[MenuItem("Game Data/Item Data")]
 	public static void CreateItemDataAsset ()
 	{
 		ScriptableObjectUtility.CreateAsset<CItemData> ();
 	}
 
+	#endregion
+
+	#region Character 
+
 	[MenuItem("Game Data/Character Data")]
 	public static void CreateCharacterDataAsset ()
 	{
 		ScriptableObjectUtility.CreateAsset<CCharacterData> ();
 	}
+
+	#endregion
+
+	#region Machine
 
 	[MenuItem("Game Data/Machine/Empty Data")]
 	public static void CreateMachineDataAsset ()
@@ -44,5 +54,17 @@ public class CGameDataCreateAsset
 	{
 		ScriptableObjectUtility.CreateAsset<CElectricPotData> ();
 	}
+
+	#endregion
+
+	#region Alien
+
+	[MenuItem("Game Data/Alien/Empty Alien Data")]
+	public static void CreateEmptyAlienDataAsset ()
+	{
+		ScriptableObjectUtility.CreateAsset<CAlienData> ();
+	}
+
+	#endregion
 
 }

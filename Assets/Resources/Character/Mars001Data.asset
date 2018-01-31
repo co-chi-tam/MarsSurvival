@@ -11,9 +11,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b4ad2e51b4f6ab49b6293f528a04754, type: 3}
   m_Name: Mars001Data
   m_EditorClassIdentifier: 
+  m_EntityName: 
+  m_EntityDisplayName: 
   m_Description: Survival.
-  m_Position: (0,0,0)
-  m_Rotation: (0,0,0)
+  m_AvatarPath: 
+  m_ModelPath: 
   m_CharacterName: Mars001
   m_MoveSpeed: 8
   m_EnergyPoint: 100
@@ -23,3 +25,6 @@ MonoBehaviour:
   m_FoodPoint: 100
   m_MaxFoodPoint: 100
   m_Items: []
+  m_SaveData:
+    m_Position: 0,0,0
+    m_Rotation: 0,0,0

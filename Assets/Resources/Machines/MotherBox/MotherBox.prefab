@@ -53,6 +53,7 @@ GameObject:
   - component: {fileID: 4743107103711616}
   - component: {fileID: 33280385447813556}
   - component: {fileID: 23977538059707418}
+  - component: {fileID: 205850870073007484}
   m_Layer: 0
   m_Name: MotherBox
   m_TagString: Untagged
@@ -149,7 +150,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1713371726315424}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0.9724718, z: -0, w: -0.23302086}
   m_LocalPosition: {x: -9, y: 0, z: 10.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -159,7 +160,7 @@ Transform:
   - {fileID: 4369289135114784}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 206.95, z: 0}
 --- !u!4 &4369289135114784
 Transform:
   m_ObjectHideFlags: 1
@@ -538,3 +539,20 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!205 &205850870073007484
+LODGroup:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1653386546402650}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0.26589686, y: -0.2874146, z: 2.000001}
+  m_Size: 4.494439
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LODs:
+  - screenRelativeHeight: 0.05380923
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 23977538059707418}
+  m_Enabled: 1

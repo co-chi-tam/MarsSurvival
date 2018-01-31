@@ -23,7 +23,7 @@ public class CMoveComponent : CComponent {
 		get { return this.m_RotationSpeed; }
 		set { this.m_RotationSpeed = value; }
 	}
-	protected float m_PreviousMoveSpeed;
+	protected float m_PreviousMoveSpeed = 5f;
 	[SerializeField]	protected float m_MinDistance = 0.1f;
 	public float minDistance {
 		get { return this.m_MinDistance; }
@@ -40,7 +40,10 @@ public class CMoveComponent : CComponent {
 	[SerializeField]	protected Vector3 m_TargetPosition;
 	public Vector3 targetPosition {
 		get { return this.m_TargetPosition; }
-		set { this.m_TargetPosition = value; }
+		set { 
+			value.y = this.transform.position.y;
+			this.m_TargetPosition = value; 
+		}
 	}
 
 	public override Transform myTransform {
@@ -72,8 +75,8 @@ public class CMoveComponent : CComponent {
 		base.Update ();
 		if (this.m_IsActive) {
 			this.SetupMove (Time.deltaTime);
-			this.UpdateStepOnGround (Time.deltaTime);
 		}
+		this.UpdateStepOnGround (Time.deltaTime);
 	}
 
 	#endregion
@@ -113,6 +116,7 @@ public class CMoveComponent : CComponent {
 	}
 
 	public virtual void SetupMove(float dt) {
+		this.m_TargetPosition.y = this.m_Transform.position.y;
 		var direction = this.m_TargetPosition - this.m_Transform.position;
 		if (direction.sqrMagnitude > this.m_MinDistance * this.m_MinDistance * this.m_MoveSpeed) {
 			// Position
@@ -137,13 +141,12 @@ public class CMoveComponent : CComponent {
 
 	public virtual bool IsNearestTarget(Vector3 target) {
 		var direction = target - this.m_Transform.position;
-		return direction.sqrMagnitude <= this.m_MinDistance * this.m_MinDistance * this.m_MoveSpeed;
+		return direction.sqrMagnitude < this.m_MinDistance * this.m_MinDistance * this.m_MoveSpeed;
 	}
 
 	public override void Reset ()
 	{
 		base.Reset ();
-
 		this.m_TargetPosition = this.transform.position;
 		this.m_MoveSpeed = this.m_PreviousMoveSpeed;
 	}

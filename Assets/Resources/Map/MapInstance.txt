@@ -1,0 +1,8 @@
+{
+  "x0+y0+z0": {
+    "@type": "CMapManager+CTileMap",
+    "tileName": "x0+y0+z0",
+    "tileRotation": "(0.0, 0.0, 0.0)",
+    "tileModelTag": "Tile04"
+  }
+}

@@ -8,12 +8,12 @@ public class CProductItemData {
 
 	[Header("Product Item Fields")]
 	[SerializeField]	protected float m_ProductTime = 0f;
-	[Info (valueName = "Product time", valueMin = 0f, valueMax = 100f)]
+	[Info (valueName = "Product time", valueMin = 0f, valueMax = 999f)]
 	[UpdateValuePerInvoke (updateName = "ProductItem", updateMethod = "Increase", updateValuePerInvoke = 0.5f)]
 	[UpdateValuePerInvoke (updateName = "ResetTime", updateMethod = "SetValue", updateValuePerInvoke = 0f)]
 	public float productTime {
 		get { return this.m_ProductTime; }
-		set { this.m_ProductTime = value; }
+		set { this.m_ProductTime = value < 0f ? 0f : value > 999f ? 999f : value; }
 	}
 	[SerializeField]	protected float m_ProductTimeInterval = 60f;
 	public float totalProductTime {

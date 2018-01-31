@@ -31,6 +31,7 @@ public class CUIEntityInteractive : MonoBehaviour {
 	[SerializeField]	protected CUIInfoDisplay m_UIDirtDisplay;
 	[SerializeField]	protected CUIInfoDisplay m_UIGatherCarrotDisplay;
 	[SerializeField]	protected CUIInfoDisplay m_UIAddCarrotDisplay;
+	[SerializeField]	protected CUIInfoDisplay m_UIAddCactusDisplay;
 
 	[Header("Events")]
 	public UnityEvent OnInteractive;
@@ -122,19 +123,22 @@ public class CUIEntityInteractive : MonoBehaviour {
 		if (this.m_Entity is CMachineEntity) {
 			var machine = this.m_Entity as CMachineEntity;
 			if (this.m_UIEnergyDisplay.gameObject.activeInHierarchy) {
-				this.m_UIEnergyDisplay.SetDisplay ("x1", machine.energyPercent);
+				this.m_UIEnergyDisplay.SetDisplay ("-1", machine.energyPercent);
 			}
 			if (this.m_UIDirtDisplay.gameObject.activeInHierarchy) {
-				this.m_UIDirtDisplay.SetDisplay ("x1", machine.energyPercent);
+				this.m_UIDirtDisplay.SetDisplay ("-1", machine.energyPercent);
 			}
 			if (this.m_UIGatherCarrotDisplay.gameObject.activeInHierarchy) {
 				this.m_UIGatherCarrotDisplay.SetDisplay (
-					"x" + Mathf.FloorToInt (machine.collectPercent), 
+					"+" + Mathf.FloorToInt (machine.collectPercent), 
 					machine.collectPercent
 				);
 			}
 			if (this.m_UIAddCarrotDisplay.gameObject.activeInHierarchy) {
-				this.m_UIAddCarrotDisplay.SetDisplay ("x1", machine.energyPercent);
+				this.m_UIAddCarrotDisplay.SetDisplay ("-1", machine.energyPercent);
+			}
+			if (this.m_UIAddCactusDisplay.gameObject.activeInHierarchy) {
+				this.m_UIAddCactusDisplay.SetDisplay ("-1", machine.energyPercent);
 			}
 		}
 	}

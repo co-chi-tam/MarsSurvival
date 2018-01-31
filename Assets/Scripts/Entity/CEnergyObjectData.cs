@@ -8,16 +8,16 @@ public class CEnergyObjectData {
 
 	[Header("Energy Fields")]
 	[SerializeField]	protected float m_EnergyPoint = 100f;
-	[Info(valueName = "Energy point", valueMin = 0f, valueMax = 100f)]
-	[UpdateValuePerInvoke(updateName = "AddEnergy", updateMethod = "Increase", updateValuePerInvoke = 10f)]
+	[Info(valueName = "Energy point", valueMin = 0f, valueMax = 999f)]
+	[UpdateValuePerInvoke(updateName = "AddEnergy", updateMethod = "Increase", updateValuePerInvoke = 20f)]
 	[UpdateValuePerInvoke(updateName = "UseEnergy", updateMethod = "Decrease", updateValuePerInvoke = 0.5f)]
 	public virtual float energyPoint {
 		get { return this.m_EnergyPoint; }
-		set { this.m_EnergyPoint = value < 0f ? 0f : value > this.m_MaxEnergyPoint ? this.m_MaxEnergyPoint : value; }
+		set { this.m_EnergyPoint = value < 0f ? 0f : value > 999f ? 999f : value; }
 	}
 
 	[SerializeField]	protected float m_MaxEnergyPoint = 100f;
-	[Info(valueName = "Max energy point", valueMin = 0f, valueMax = 100f)]
+	[Info(valueName = "Max energy point", valueMin = 0f, valueMax = 999f)]
 	public virtual float maxEnergyPoint {
 		get { return this.m_MaxEnergyPoint; }
 		set { this.m_MaxEnergyPoint = value; }

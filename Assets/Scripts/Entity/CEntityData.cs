@@ -36,6 +36,8 @@ public class CEntityData : ScriptableObject, ISerializable {
 	}
 
 	public CEntityData () : base() {
+		this.m_EntityName = string.Empty;
+		this.m_EntityDisplayName = string.Empty;
 		this.m_Description = string.Empty;
 		this.m_AvatarPath = string.Empty;
 		this.m_ModelPath = string.Empty;

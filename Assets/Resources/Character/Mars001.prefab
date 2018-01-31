@@ -1730,7 +1730,7 @@ MonoBehaviour:
       _parameterTypes: []
       _target: {fileID: 1833698780043526}
       _component: CCharacterEntity
-      _name: IsStand
+      _name: IsMove
   - conditionName: HaveEnergy
     conditionVariable:
       _parameterTypes: []
@@ -1915,7 +1915,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8d440359a3b78e4a90cbcf37639a1d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_IsActive: 1
+  m_IsActive: 0
   m_Ground:
     serializedVersion: 2
     m_Bits: 2147483648
@@ -2003,7 +2003,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_IsActive: 0
-  m_MemberName: Empty
+  m_MemberName: Mars001
   OnSet:
     m_PersistentCalls:
       m_Calls: []

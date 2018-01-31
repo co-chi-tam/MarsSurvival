@@ -21,6 +21,7 @@ MonoBehaviour:
   - FollowMe
   - StartMachine
   - AddCarrot
+  - AddCactus
   m_Energy:
     m_EnergyPoint: 10
     m_MaxEnergyPoint: 10

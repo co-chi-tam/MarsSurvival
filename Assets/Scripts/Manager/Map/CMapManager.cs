@@ -12,6 +12,9 @@ public class CMapManager : CMonoSingleton<CMapManager> {
 
 	#region Fields
 
+	[Header("Configs")]
+	[SerializeField]	protected TextAsset m_InstanceMap;
+
 	[Header("Places")]
 	[SerializeField]	protected float m_PlaceDistance = 50f;
 	[SerializeField]	protected string m_PlaceNamePattern = "x{0}+y0+z{1}";
@@ -77,9 +80,16 @@ public class CMapManager : CMonoSingleton<CMapManager> {
 		this.InitMap();
 		if (this.m_AutoSaveLoad) {
 			if (this.Load ()) {
-				Debug.Log (this.GetTotalSavePath());
+				Debug.Log (this.GetTotalSavePath ());
 			} else {
-				this.m_MapInstance 	= new Dictionary<string, CTileMap> ();
+				this.m_MapInstance = new Dictionary<string, CTileMap> ();
+				if (this.m_InstanceMap != null) {
+					this.Load (this.m_InstanceMap.text);
+				}
+			}
+		} else {
+			if (this.m_InstanceMap != null) {
+				this.Load (this.m_InstanceMap.text);
 			}
 		}
 	}
@@ -90,6 +100,11 @@ public class CMapManager : CMonoSingleton<CMapManager> {
 		if (this.m_NeedUpdate) {
 			this.UpdateReusePlaces ();
 			this.UpdatePlaces ();
+		}
+
+		if (Input.GetKeyDown (KeyCode.A)) {
+			var stringJSON = JSON.Dump (this.m_MapInstance);
+			Debug.Log (stringJSON);
 		}
 	}
 
@@ -103,6 +118,14 @@ public class CMapManager : CMonoSingleton<CMapManager> {
 	#endregion
 
 	#region Main methods
+
+	public virtual void Load (string saveValue) {
+		var data = JSON.Load (saveValue).Make<Dictionary<string, CTileMap>>();
+		this.m_MapInstance = new Dictionary<string, CTileMap> (data);
+		if (this.OnLoad != null) {
+			this.OnLoad.Invoke ();
+		}
+	}
 
 	public virtual bool Load() {
 		if (File.Exists (this.GetTotalSavePath ())) {

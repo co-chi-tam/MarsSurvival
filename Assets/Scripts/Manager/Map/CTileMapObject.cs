@@ -6,14 +6,22 @@ using Ludiq.Reflection;
 
 public class CTileMapObject : MonoBehaviour {
 
-	[Header("Events")]
-	public UnityEvent OnLoaded;
-	public UnityEvent OnRemove;
+	#region Internal class
 
-	public CTileMapObject ()
-	{
-		
-	}
+	[System.Serializable]
+	public class UnityEventTileMap : UnityEvent<CTileMapObject> {}
+
+	#endregion
+
+	#region Fields
+
+	[Header("Events")]
+	public UnityEventTileMap OnLoaded;
+	public UnityEventTileMap OnRemove;
+
+	#endregion
+
+	#region Main methods
 
 	public virtual Vector3 GetRandomPosition(float radius) {
 		var randomVector = Random.insideUnitCircle;
@@ -27,14 +35,16 @@ public class CTileMapObject : MonoBehaviour {
 
 	public virtual void OnLoadTile() {
 		if (this.OnLoaded != null) {
-			this.OnLoaded.Invoke ();
+			this.OnLoaded.Invoke (this);
 		}
 	}
 
 	public virtual void OnRemoveTile() {
 		if (this.OnRemove != null) {
-			this.OnRemove.Invoke ();
+			this.OnRemove.Invoke (this);
 		}
 	}
+
+	#endregion
 
 }

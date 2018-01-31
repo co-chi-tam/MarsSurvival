@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using Ludiq.Reflection;
 
-public class CTileMapMemberComponent : MonoBehaviour {
+public class CTileMapMemberComponent : CComponent {
 
 	#region Fields
 
@@ -48,8 +48,15 @@ public class CTileMapMemberComponent : MonoBehaviour {
 	}
 
 	public virtual Vector3 GetRandomPosition (float radius) {
-		if (this.m_TileMapObject == null)
-			return this.transform.position;
+		if (this.m_TileMapObject == null) {
+			var randomVector = Random.insideUnitCircle;
+			var randomPosition = new Vector3 (
+				this.transform.position.x + randomVector.x * radius,
+				this.transform.position.y,
+				this.transform.position.z + randomVector.y * radius
+			);
+			return randomPosition;
+		}
 		return this.m_TileMapObject.GetRandomPosition (radius);
 	}
 

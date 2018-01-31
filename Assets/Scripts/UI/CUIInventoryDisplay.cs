@@ -20,14 +20,6 @@ public class CUIInventoryDisplay : MonoBehaviour {
 
 	#region Implementation MonoBehaviour
 
-	protected virtual void Awake() {
-		
-	}
-
-	protected virtual void Start() {
-		
-	}
-
 	#endregion
 
 	#region Main methods
