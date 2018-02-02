@@ -32,15 +32,8 @@ public partial class CCharacterEntity : CGameEntity, IContext {
 	public virtual void Init() {
 		this.m_Data = this.m_DataComponent.Get<CCharacterData>();
 		this.m_MoveComponent.moveSpeed = this.m_Data.moveSpeed;
-
 		this.m_InventoryComponent.items = this.m_Data.items;
-//		this.m_MoveComponent.currentPosition = new Vector3 (-24f, 0f, 5f);
-//		this.m_MoveComponent.currentRotation = this.m_Data.rotation.ToV3 ();
-//		this.m_MoveComponent.targetPosition = this.m_MoveComponent.currentPosition;
-//		this.m_Data.currentTool = this.m_Data.saveData.tool;
-		// INVOKE DATA
 		this.m_DataComponent.AddListener ("foodPoint", this.WasEatFood);
-
 		this.m_StoreToolComponent.LoadTool (this.m_Data.currentTool);
 	}
 
@@ -78,7 +71,7 @@ public partial class CCharacterEntity : CGameEntity, IContext {
 		// DATA
 		this.m_Data.saveData.position = this.m_Transform.position.ToString();
 		this.m_Data.saveData.rotation = this.m_Transform.rotation.ToString();
-		this.m_Data.saveData.tool = this.m_Data.currentTool;
+		this.m_Data.saveData.saveTool = this.m_Data.currentTool;
 	}
 
 	#endregion

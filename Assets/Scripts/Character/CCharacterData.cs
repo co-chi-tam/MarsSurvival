@@ -76,8 +76,8 @@ public class CCharacterData : CGameEntityData {
 		set { this.m_Items = new List<CItemData> (value); }
 	}
 
-	[SerializeField]	protected string m_CurrentTool;
-	public string currentTool {
+	[SerializeField]	protected CToolData m_CurrentTool;
+	public CToolData currentTool {
 		get { return this.m_CurrentTool; }
 		set { this.m_CurrentTool = value; }
 	}

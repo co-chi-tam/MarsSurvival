@@ -59,9 +59,41 @@ public class CStoreToolComponent : CComponent {
 		}
 	}
 
+	public virtual void DropTool () {
+		if (this.m_CurrentTool == null)
+			return;
+		if (this.OnDrop != null) {
+			this.OnDrop.Invoke ();
+		}
+		this.m_CurrentTool.gameObject.SetActive (false);
+		this.m_CurrentTool = null;
+	}
+
+	public virtual void LoadTool (CToolData value) {
+		if (value == null)
+			return;
+		for (int i = 0; i < this.m_ReloadTool.Count; i++) {
+			var tool = this.m_ReloadTool [i];
+			tool.gameObject.SetActive (false);
+		}
+		// LOAD TOOL
+		for (int i = 0; i < this.m_InstanceTools.Length; i++) {
+			var data = this.m_InstanceTools [i];
+			if (data.toolData == value) {
+				this.m_CurrentData = data.toolData;
+				this.LoadToolComponent (data.toolPrefab);
+				break;
+			}
+		}
+	}
+
 	public virtual void LoadTool (string name) {
 		if (string.IsNullOrEmpty (name))
 			return;
+		for (int i = 0; i < this.m_ReloadTool.Count; i++) {
+			var tool = this.m_ReloadTool [i];
+			tool.gameObject.SetActive (false);
+		}
 		// LOAD TOOL
 		for (int i = 0; i < this.m_InstanceTools.Length; i++) {
 			var data = this.m_InstanceTools [i];
@@ -71,17 +103,6 @@ public class CStoreToolComponent : CComponent {
 				break;
 			}
 		}
-	}
-
-	public virtual void DropTool () {
-		if (this.m_CurrentTool == null) {
-			if (this.OnDrop != null) {
-				this.OnDrop.Invoke ();
-			}
-			return;
-		}
-		this.m_CurrentTool.gameObject.SetActive (false);
-		this.m_CurrentTool = null;
 	}
 
 	protected virtual void LoadToolComponent (CToolComponent value) {
