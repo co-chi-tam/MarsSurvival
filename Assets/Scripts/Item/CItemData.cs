@@ -6,12 +6,12 @@ using System.Runtime.Serialization;
 using System.Reflection;
 
 [Serializable]
-public class CItemData : CEntityData {
+public class CItemData : CGameEntityData {
 
 	#region Fields
 
 	[Header("Item Fields")]
-	public string itemName 		= string.Empty;
+	public string itemName 			= string.Empty;
 	public string itemDisplayName	= string.Empty;
 	[SerializeField]	protected int m_Amount = 1;
 	public int amount {

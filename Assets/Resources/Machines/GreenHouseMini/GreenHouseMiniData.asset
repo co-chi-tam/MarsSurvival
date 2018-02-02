@@ -22,6 +22,7 @@ MonoBehaviour:
   - FollowMe
   - AddDirt
   - GatherCarrot
+  - PumpRequire
   m_Energy:
     m_EnergyPoint: 100
     m_MaxEnergyPoint: 100

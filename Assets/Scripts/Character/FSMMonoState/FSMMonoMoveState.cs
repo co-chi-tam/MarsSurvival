@@ -8,11 +8,6 @@ public class FSMMonoMoveState : FSMMonoBaseState {
 
 	#region Fields
 
-	[Header("Configs")]
-	[SerializeField]	protected Transform m_Target;
-	[SerializeField]	protected CCharacterEntity m_CharacterData;
-	[SerializeField]	protected CMoveComponent m_MoveComponent;
-
 	#endregion
 
 	#region Implementation MonoBehaviour
@@ -34,11 +29,6 @@ public class FSMMonoMoveState : FSMMonoBaseState {
 	public override void UpdateState (float dt)
 	{
 		base.UpdateState (dt);
-		if (this.m_Target == null)
-			return;
-		var movePoint = this.m_Target.position + this.m_CharacterData.deltaMovePoint;
-		this.m_MoveComponent.targetPosition = movePoint;
-		this.m_MoveComponent.SetupMove (dt);
 	}
 
 	#endregion

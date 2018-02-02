@@ -383,6 +383,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4591827240080108}
+  - component: {fileID: 65231079752670662}
   - component: {fileID: 114835255128534822}
   - component: {fileID: 114315126459705462}
   - component: {fileID: 114768206987699044}
@@ -627,6 +628,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1993035499255272
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4254252898754442}
+  - component: {fileID: 114089512328899008}
+  - component: {fileID: 114533805743911416}
+  m_Layer: 11
+  m_Name: DetectPlayer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1997944384335090
 GameObject:
   m_ObjectHideFlags: 1
@@ -801,6 +819,19 @@ Transform:
   m_Father: {fileID: 4695538823217832}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4254252898754442
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1993035499255272}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4591827240080108}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4330529335231320
 Transform:
   m_ObjectHideFlags: 1
@@ -897,7 +928,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4591827240080108}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4442979797259462
 Transform:
@@ -990,6 +1021,7 @@ Transform:
   m_Children:
   - {fileID: 4727176057316600}
   - {fileID: 4049957155216060}
+  - {fileID: 4254252898754442}
   - {fileID: 4739717219247882}
   - {fileID: 4429421886201320}
   m_Father: {fileID: 0}
@@ -1136,7 +1168,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4591827240080108}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4750878849613024
 Transform:
@@ -1289,6 +1321,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1997944384335090}
   m_Mesh: {fileID: 4300000, guid: 98827de7bab215f468c856c5d2fffb2e, type: 3}
+--- !u!65 &65231079752670662
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1637514684026408}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &95773788672903976
 Animator:
   serializedVersion: 3
@@ -1329,6 +1373,62 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114089512328899008
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1993035499255272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6711cd2efb68bba45b6561aec6557535, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsActive: 1
+  m_DetectTransform: {fileID: 4591827240080108}
+  m_DetectRadius: 20
+  m_DetectLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
+  m_ColliderCount: 0
+  m_MaximumDetect: 20
+  m_SampleColliders:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  OnFree:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnDetected:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  m_SphereColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &114092339507237110
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1361,6 +1461,12 @@ MonoBehaviour:
       _target: {fileID: 1637514684026408}
       _component: CAlienEntity
       _name: IsMoving
+  - conditionName: HavePlayerAround
+    conditionVariable:
+      _parameterTypes: []
+      _target: {fileID: 1993035499255272}
+      _component: CEntityDetectComponent
+      _name: isDetected
 --- !u!114 &114188778037980032
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1427,6 +1533,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 114835255128534822}
+        m_MethodName: Reset
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   OnUpdateState:
@@ -1439,6 +1556,9 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  m_Owner: {fileID: 114792140313455752}
+  m_EntityDetect: {fileID: 114533805743911416}
+  m_MoveComponent: {fileID: 114835255128534822}
 --- !u!114 &114315126459705462
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1451,7 +1571,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_IsActive: 1
-  m_Center: {fileID: 0}
+  m_Center: {fileID: 4591827240080108}
   m_Radius: 20
   OnVector3Around:
     m_PersistentCalls:
@@ -1508,6 +1628,29 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114533805743911416
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1993035499255272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9b9da768c1620141b18e7f21055e6c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsActive: 1
+  m_NearestEntity: {fileID: 0}
+  OnEntityDetected:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: CEntityDetectComponent+UnityEventEntity, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnFree:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: CEntityDetectComponent+UnityEventEntity, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &114543330166265068
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1527,6 +1670,17 @@ MonoBehaviour:
       - m_Target: {fileID: 114792140313455752}
         m_MethodName: SetAnimation
         m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 114315126459705462}
+        m_MethodName: ApplyAround
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1602,6 +1756,7 @@ MonoBehaviour:
   - {fileID: 114092339507237110}
   - {fileID: 114896762275703606}
   - {fileID: 114701062300255516}
+  - {fileID: 114089512328899008}
   m_IsActive: 1
 --- !u!114 &114835255128534822
 MonoBehaviour:
@@ -1622,22 +1777,11 @@ MonoBehaviour:
   m_Bottom: {fileID: 4429421886201320}
   m_MoveSpeed: 3
   m_RotationSpeed: 5
-  m_MinDistance: 0.1
+  m_MinDistance: 2
   m_TargetPosition: {x: -21.6, y: 0, z: -1.56}
   OnNearestTarget:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 114315126459705462}
-        m_MethodName: ApplyAround
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   OnMove:

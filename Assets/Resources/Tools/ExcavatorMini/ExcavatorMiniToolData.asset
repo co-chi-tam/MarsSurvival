@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 038664e8f479952448fb6d8541af2c49, type: 3}
+  m_Name: ExcavatorMiniToolData
+  m_EditorClassIdentifier: 
+  m_EntityName: ExcavatorMini
+  m_EntityDisplayName: Excavator Mini
+  m_Description: Excavator Mini
+  m_AvatarPath: Tools/ExcavatorMini/ExcavatorMini-icon
+  m_ModelPath: Tools/ExcavatorMini/ExcavatorMini
+  m_ToolMethod: Empty

@@ -36,6 +36,8 @@ public class CMoveAroundComponent : CComponent {
 	#region Main methods
 
 	public virtual void ApplyAround() {
+		if (this.m_IsActive == false)
+			return;
 		var randomPosition = this.GetRandomPosition (this.m_Radius);
 		if (this.OnVector3Around != null) {
 			this.OnVector3Around.Invoke (randomPosition);

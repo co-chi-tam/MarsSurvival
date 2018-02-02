@@ -5,11 +5,21 @@
       "state_name": "FSMIdleState",
       "states": [
         {
-          "condition_name": "IsMoving",
+          "condition_name": "IsMoving&&!IsAttack",
           "state_name": "FSMMoveState",
           "states": [
           	{
-	          "condition_name": "!IsMoving",
+	          "condition_name": "!IsMoving||IsAttack",
+	          "state_name": "FSMIdleState",
+	          "states": []
+	        }
+          ]
+        },{
+          "condition_name": "IsAttack",
+          "state_name": "FSMAttackState",
+          "states": [
+         	{
+	          "condition_name": "!IsAttack&&IsAfterShortTime",
 	          "state_name": "FSMIdleState",
 	          "states": []
 	        }

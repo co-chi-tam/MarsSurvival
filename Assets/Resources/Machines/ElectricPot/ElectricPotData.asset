@@ -21,10 +21,12 @@ MonoBehaviour:
   - FollowMe
   - StartMachine
   - AddCarrot
-  - AddCactus
+  - ElectricRequire
   m_Energy:
     m_EnergyPoint: 10
     m_MaxEnergyPoint: 10
     m_ItemsPerCharge:
     - itemAmount: 1
       itemData: {fileID: 11400000, guid: b7b569c67022a5843bec26a6f9284e58, type: 2}
+    - itemAmount: 1
+      itemData: {fileID: 11400000, guid: 11101c4397863a947ad49902ab33dae7, type: 2}

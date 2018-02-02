@@ -20,3 +20,5 @@ MonoBehaviour:
   m_MachineJobs:
   - StartMachine
   - FollowMe
+  - GroundWaterRequire
+  - ElectricRequire

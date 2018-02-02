@@ -23,6 +23,13 @@ public class CSaveObjectData {
 		set { this.m_Rotation = value; }
 	}
 
+	[Header("Tool Fields")]
+	[SerializeField]	protected string m_Tool = "Empty";
+	public string tool {
+		get { return this.m_Tool; }
+		set { this.m_Tool = value; }
+	}
+
 	#endregion
 
 	#region Constructor

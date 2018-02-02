@@ -6,7 +6,7 @@ using System.Runtime.Serialization;
 using System.Reflection;
 
 [Serializable]
-public class CCharacterData : CEntityData {
+public class CCharacterData : CGameEntityData {
 
 	#region Fields
 
@@ -27,7 +27,7 @@ public class CCharacterData : CEntityData {
 	[SerializeField]	protected float m_EnergyPoint;
 	[Info(valueName = "Energy point", valueMin = 0f, valueMax = 9999f)]
 	[UpdateValuePerSecond(updateMethod = "Decrease", updateValuePerSecond = 0.1f)]
-	[UpdateValuePerInvoke(updateName = "AddEnergy", updateMethod = "Increase", updateValuePerInvoke = 2.5f)]
+	[UpdateValuePerInvoke(updateName = "AddEnergy", updateMethod = "Increase", updateValuePerInvoke = 1.5f)]
 	public float energyPoint {
 		get { return this.m_EnergyPoint; }
 		set { this.m_EnergyPoint = value < 0f ? 0f : value > this.m_MaxEnergyPoint ? this.m_MaxEnergyPoint : value; }
@@ -43,7 +43,7 @@ public class CCharacterData : CEntityData {
 	[SerializeField]	protected float m_WaterPoint = 50f;
 	[Info(valueName = "Water point", valueMin = 0f, valueMax = 9999f)]
 	[UpdateValuePerSecond(updateMethod = "Decrease", updateValuePerSecond = 0.15f)]
-	[UpdateValuePerInvoke(updateName = "AddWater", updateMethod = "Increase", updateValuePerInvoke = 5.5f)]
+	[UpdateValuePerInvoke(updateName = "AddWater", updateMethod = "Increase", updateValuePerInvoke = 2.5f)]
 	public float waterPoint {
 		get { return this.m_WaterPoint; }
 		set { this.m_WaterPoint = value < 0f ? 0f : value > this.m_MaxWaterPoint ? this.m_MaxWaterPoint : value; }
@@ -58,7 +58,7 @@ public class CCharacterData : CEntityData {
 	[SerializeField]	protected float m_FoodPoint = 75f;
 	[Info(valueName = "Food point", valueMin = 0f, valueMax = 9999f)]
 	[UpdateValuePerSecond(updateMethod = "Decrease", updateValuePerSecond = 0.12f)]
-	[UpdateValuePerInvoke(updateName = "AddFood", updateMethod = "Increase", updateValuePerInvoke = 5f)]
+	[UpdateValuePerInvoke(updateName = "AddFood", updateMethod = "Increase", updateValuePerInvoke = 2f)]
 	public float foodPoint {
 		get { return this.m_FoodPoint; }
 		set { this.m_FoodPoint = value < 0f ? 0f : value > this.m_MaxFoodPoint ? this.m_MaxFoodPoint : value; }
@@ -74,6 +74,12 @@ public class CCharacterData : CEntityData {
 	public List<CItemData> items {
 		get { return this.m_Items; }
 		set { this.m_Items = new List<CItemData> (value); }
+	}
+
+	[SerializeField]	protected string m_CurrentTool;
+	public string currentTool {
+		get { return this.m_CurrentTool; }
+		set { this.m_CurrentTool = value; }
 	}
 
 	[Header("Save Data")]

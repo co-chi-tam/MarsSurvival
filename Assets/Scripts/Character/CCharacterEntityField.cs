@@ -106,7 +106,7 @@ public partial class CCharacterEntity {
 	}
 	public bool IsMove {
 		get { return this.m_DeltaMovePoint != Vector3.zero; }
-		set { this.m_DeltaMovePoint = value ? Vector3.zero : Vector3.right; }
+		set { this.m_DeltaMovePoint = value ? Vector3.right : Vector3.zero; }
 	}
 
 	public List<CItemData> inventoryItems {
@@ -127,6 +127,22 @@ public partial class CCharacterEntity {
 			if (this.m_MapMemberComponent == null)
 				return this.transform.position;
 			return this.m_MapMemberComponent.currentPosition; 
+		}
+	}
+
+	public bool HaveTool {
+		get { 
+			if (this.m_StoreToolComponent == null)
+				return false;
+			return this.m_StoreToolComponent.haveTool;
+		}
+	}
+
+	public CToolData currentToolData {
+		get {
+			if (this.m_StoreToolComponent == null)
+				return null;
+			return this.m_StoreToolComponent.currentToolData;
 		}
 	}
 

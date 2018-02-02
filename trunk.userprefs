@@ -1,9 +1,8 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\ElectricPot\CElectricPotEntity.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Component\Tool\CStoreToolComponent.cs">
     <Files>
-      <File FileName="Assets\Scripts\ElectricPot\CElectricPotEntity.cs" Line="63" Column="48" />
-      <File FileName="Assets\Scripts\GreenHouseMini\CGreenHouseMiniEntity.cs" Line="116" Column="12" />
+      <File FileName="Assets\Scripts\Component\Tool\CStoreToolComponent.cs" Line="24" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

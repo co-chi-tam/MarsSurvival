@@ -101,11 +101,6 @@ public class CMapManager : CMonoSingleton<CMapManager> {
 			this.UpdateReusePlaces ();
 			this.UpdatePlaces ();
 		}
-
-		if (Input.GetKeyDown (KeyCode.A)) {
-			var stringJSON = JSON.Dump (this.m_MapInstance);
-			Debug.Log (stringJSON);
-		}
 	}
 
 	protected virtual void OnDestroy ()

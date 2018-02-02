@@ -4,9 +4,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using FSM;
 
-public class FSMMonoChargingState : FSMMonoBaseState {
+public class FSMMonoAttackState : FSMMonoBaseState {
 
 	#region Fields
+
+	public override bool IsAfterShortTime {
+		get {
+			return base.IsAfterShortTime;
+		}
+	}
 
 	#endregion
 
@@ -16,6 +22,10 @@ public class FSMMonoChargingState : FSMMonoBaseState {
 	{
 		base.StartState ();
 	}
+
+	#endregion
+
+	#region Main methods
 
 	#endregion
 

@@ -188,7 +188,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_IsActive: 1
-  m_MemberName: Rock
+  m_MemberName: CactusFruit
   OnSet:
     m_PersistentCalls:
       m_Calls:
@@ -310,6 +310,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31204b97da33d934b966f11c6983b198, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_IsActive: 1
   m_TileMapObject: {fileID: 0}
   m_Radius: 20
   OnReloadCondition:

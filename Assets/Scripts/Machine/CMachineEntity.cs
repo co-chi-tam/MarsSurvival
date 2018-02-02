@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public partial class CMachineEntity : CEntity {
+public partial class CMachineEntity : CGameEntity {
 
 	#region Fields
 
@@ -69,12 +69,12 @@ public partial class CMachineEntity : CEntity {
 
 	#region Main methods
 
-	public virtual void AddEnergy() {
-		
+	public override void AddEnergy() {
+		base.AddEnergy ();
 	}
 
-	public virtual void CollectItems() {
-	
+	public override void CollectItems() {
+		base.CollectItems ();
 	}
 
 	#endregion

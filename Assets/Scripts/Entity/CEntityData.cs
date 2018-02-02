@@ -8,6 +8,8 @@ using System.Reflection;
 [Serializable]
 public class CEntityData : ScriptableObject, ISerializable {
 
+	#region Fields
+
 	[Header("Entity Fields")]
 	[SerializeField]	protected string m_EntityName = string.Empty;
 	public string entityName {
@@ -19,28 +21,14 @@ public class CEntityData : ScriptableObject, ISerializable {
 		get { return this.m_EntityDisplayName; }
 		set { this.m_EntityDisplayName = value; }
 	}
-	[SerializeField]	protected string m_Description = string.Empty;
-	public string description {
-		get { return this.m_Description; }
-		set { this.m_Description = value; }
-	}
-	[SerializeField]	protected string m_AvatarPath = string.Empty;
-	public string avatarPath {
-		get { return this.m_AvatarPath; }
-		set { this.m_AvatarPath = value; }
-	}
-	[SerializeField]	protected string m_ModelPath = string.Empty;
-	public string modelPath {
-		get { return this.m_ModelPath; }
-		set { this.m_ModelPath = value; }
-	}
+
+	#endregion
+
+	#region Constructor
 
 	public CEntityData () : base() {
 		this.m_EntityName = string.Empty;
 		this.m_EntityDisplayName = string.Empty;
-		this.m_Description = string.Empty;
-		this.m_AvatarPath = string.Empty;
-		this.m_ModelPath = string.Empty;
 	}
 
 	public CEntityData (SerializationInfo info, StreamingContext context)
@@ -55,8 +43,12 @@ public class CEntityData : ScriptableObject, ISerializable {
 		}
 	}
 
+	#endregion
+
+	#region Getter && Setter
+
 	// Implement this method to serialize data. The method is called on serialization.
-	public void GetObjectData(SerializationInfo info, StreamingContext context)
+	public virtual void GetObjectData(SerializationInfo info, StreamingContext context)
 	{
 		info.AddValue("ScriptableType", this.GetType().AssemblyQualifiedName, typeof(string));
 		foreach(FieldInfo field in this.GetType().GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.FlattenHierarchy | BindingFlags.Instance))
@@ -64,4 +56,7 @@ public class CEntityData : ScriptableObject, ISerializable {
 			info.AddValue(field.Name, field.GetValue(this), field.FieldType);
 		}
 	}
+
+	#endregion
+
 }

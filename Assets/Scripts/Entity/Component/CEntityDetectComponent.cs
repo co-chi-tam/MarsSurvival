@@ -23,6 +23,16 @@ public class CEntityDetectComponent : CComponent {
 		get { return this.m_NearestEntity; }
 		set { this.m_NearestEntity = value; }
 	}
+	public bool isDetected {
+		get { return this.m_NearestEntity != null; }
+	}
+	public Vector3 currentEntityPosition {
+		get { 
+			if (this.m_NearestEntity == null)
+				return Vector3.zero;
+			return this.m_NearestEntity.myTransform.position;
+		}
+	}
 
 	[Header("Events")]
 	public UnityEventEntity OnEntityDetected;
@@ -75,8 +85,8 @@ public class CEntityDetectComponent : CComponent {
 			if (this.OnEntityDetected != null) {
 				this.OnEntityDetected.Invoke (currentEntity);
 			}
-			this.m_NearestEntity = currentEntity;
 		}
+		this.m_NearestEntity = currentEntity;
 	}
 
 	public virtual void FreeEntity() {

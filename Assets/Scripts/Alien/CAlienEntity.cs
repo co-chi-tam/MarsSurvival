@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CAlienEntity : CEntity {
+public class CAlienEntity : CGameEntity {
 
 	#region Fields
 
 	protected CAnimatorComponent m_AnimatorComponent;
 	protected CMoveComponent m_MoveComponent;
+	protected CEntityDetectComponent m_EntityDetectComponent;
 
 	public override bool IsActive {
 		get { return base.IsActive; }
@@ -33,6 +34,7 @@ public class CAlienEntity : CEntity {
 		base.Awake ();
 		this.m_AnimatorComponent = this.GetGameComponent<CAnimatorComponent> ();
 		this.m_MoveComponent = this.GetGameComponent<CMoveComponent> ();
+		this.m_EntityDetectComponent = this.GetGameComponent<CEntityDetectComponent> ();
 	}
 
 	protected override void Start ()
@@ -53,6 +55,18 @@ public class CAlienEntity : CEntity {
 	#endregion
 
 	#region Main methods
+
+	public override void ApplyDamage() {
+		base.ApplyDamage ();
+	}
+
+	public override void AttackAnotherEntity() {
+		base.AttackAnotherEntity ();
+		var enemy = this.m_EntityDetectComponent.currentEntity;
+		if (enemy != null) {
+			
+		}
+	}
 
 	#endregion
 

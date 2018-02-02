@@ -3,7 +3,7 @@ using System;
 using System.Collections;
 
 [Serializable]
-public class CMachineData : CEntityData {
+public class CMachineData : CGameEntityData {
 
 	#region Fields
 

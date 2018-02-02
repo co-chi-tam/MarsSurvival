@@ -115,6 +115,11 @@ public class CMoveComponent : CComponent {
 			this.m_RotationSpeed * dt);
 	}
 
+	public virtual void Look (Vector3 position) {
+		var direction = position - this.m_Transform.position;
+		this.m_RotationPoint = Mathf.Atan2 (direction.x, direction.z) * Mathf.Rad2Deg;
+	}
+
 	public virtual void SetupMove(float dt) {
 		this.m_TargetPosition.y = this.m_Transform.position.y;
 		var direction = this.m_TargetPosition - this.m_Transform.position;

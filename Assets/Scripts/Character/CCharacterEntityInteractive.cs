@@ -6,12 +6,11 @@ public partial class CCharacterEntity {
 
 	#region Fields
 
+	[Header("Interactive")]
 	[SerializeField]	protected CEntity m_OtherEntity;
 	public CEntity otherEntity {
 		get { return this.m_OtherEntity; }
-		set { 
-			this.m_OtherEntity = value;  
-		}
+		set { this.m_OtherEntity = value; }
 	}
 	public Transform otherEntityTransform {
 		get { 
@@ -20,7 +19,39 @@ public partial class CCharacterEntity {
 			return this.m_OtherEntity.transform; 
 		}
 	}
+	[SerializeField]	protected CEntity m_ToolInteractiveEntity;
+	public CEntity toolInteractiveEntity {
+		get { return this.m_ToolInteractiveEntity; }
+		set { this.m_ToolInteractiveEntity = value; }
+	}
 
+	#endregion
+
+	#region Entity
+
+	public virtual void InvokePickItem() {
+		this.m_InventoryComponent.PickItem ();
+	}
+
+	public virtual void InvokeUseTool() {
+		this.m_StoreToolComponent.UseTool ();
+		this.IsAttack = this.m_StoreToolComponent.haveTool;
+	}
+
+	#endregion
+
+	#region Tool
+
+	public virtual void InvokeToolEmpty() {
+		
+	}
+
+	public virtual void InvokeAttack() {
+		if (this.m_ToolInteractiveEntity != null) {
+			this.m_MoveComponent.Look (this.m_ToolInteractiveEntity.myTransform.position);
+		}
+	}
+		
 	#endregion
 
 	#region Other Entity
@@ -61,7 +92,13 @@ public partial class CCharacterEntity {
 	}
 
 	public virtual void HaveSpawnObject(GameObject obj) {
-		obj.transform.position = this.m_Transform.position;
+		var randomVector = Random.insideUnitCircle;
+		var randomPosition = new Vector3 (
+			this.m_Transform.position.x + randomVector.x * 2f,
+			this.m_Transform.position.y,
+			this.m_Transform.position.z + randomVector.y * 2f
+		);
+		obj.transform.position = randomPosition;
 	}
 
 	#endregion

@@ -17,11 +17,6 @@ public class CEntity : MonoBehaviour {
 		get { return this.m_IsActive; }
 		set { this.m_IsActive = value; }
 	}
-	protected int m_AnimationInt;
-	public int animationInt {
-		get { return this.m_AnimationInt; }
-		set { this.m_AnimationInt = value; }
-	}
 
 	protected Transform m_Transform;
 	public Transform myTransform {
@@ -85,6 +80,23 @@ public class CEntity : MonoBehaviour {
 
 	#region Getter && Setter
 
+	public virtual T FindGameComponent<T>(Transform value) where T : CComponent {
+		var childComponent = value.GetComponent<T> ();
+		if (childComponent != null)
+			return childComponent;
+		var childCount = value.childCount;
+		for (int i = 0; i < childCount; i++) {
+			var child = value.GetChild (i);
+			childComponent = child.GetComponent<T> ();
+			if (childComponent != null) {
+				return childComponent;
+			} else {
+				this.FindGameComponent<T> (child);		
+			}
+		}
+		return default (T);
+	}
+
 	public virtual T GetGameComponent<T>() where T : CComponent {
 		for (int i = 0; i < this.m_Components.Length; i++) {
 			if (this.m_Components [i] == null)
@@ -103,10 +115,6 @@ public class CEntity : MonoBehaviour {
 
 	public virtual bool GetActive() {
 		return this.m_IsActive;
-	}
-
-	public virtual void SetAnimation(int value) {
-		this.m_AnimationInt = value;
 	}
 
 	#endregion

@@ -31,6 +31,14 @@ public class FSMMonoBaseState : MonoBehaviour, IState {
 	public UnityEventFloat OnUpdateState;
 	public UnityEvent OnEndState;
 
+	protected float m_StateTimer = 0f;
+	public virtual bool IsAfterShortTime {
+		get {
+			this.m_StateTimer += Time.deltaTime;
+			return this.m_StateTimer >= 0.5f;
+		}
+	}
+
 	#endregion
 
 	#region Implementation MonoBehaviour
@@ -40,7 +48,7 @@ public class FSMMonoBaseState : MonoBehaviour, IState {
 	}
 
 	protected virtual void Start() {
-	
+		
 	}
 
 	protected virtual void Update() {
@@ -60,6 +68,7 @@ public class FSMMonoBaseState : MonoBehaviour, IState {
 		if (this.OnEnterState != null) {
 			this.OnEnterState.Invoke ();
 		}
+		this.m_StateTimer = 0f;
 	}
 
 	public virtual void UpdateState(float dt)
@@ -90,6 +99,10 @@ public class FSMMonoBaseState : MonoBehaviour, IState {
 	#endregion
 
 	#region Main methods
+
+	#endregion
+
+	#region Getter && Setter
 
 	public virtual string GetName() {
 		return this.m_FSMStateName;

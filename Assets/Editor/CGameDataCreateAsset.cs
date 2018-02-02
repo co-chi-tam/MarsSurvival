@@ -67,4 +67,14 @@ public class CGameDataCreateAsset
 
 	#endregion
 
+	#region Tool
+
+	[MenuItem("Game Data/Tool/Empty Tool Data")]
+	public static void CreateEmptyToolDataAsset ()
+	{
+		ScriptableObjectUtility.CreateAsset<CToolData> ();
+	}
+
+	#endregion
+
 }

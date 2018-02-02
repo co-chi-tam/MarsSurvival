@@ -1171,7 +1171,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8b4e7f5e638b964892a8a64240ac938, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_IsActive: 1
   m_IsCenterMap: 0
+  m_CurrentPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &114135661983872446
 MonoBehaviour:
   m_ObjectHideFlags: 1
