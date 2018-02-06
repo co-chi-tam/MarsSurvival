@@ -13,6 +13,10 @@ public class FSMMonoAlienAttackState : FSMMonoBaseState {
 	[SerializeField]	protected CEntityDetectComponent m_EntityDetect;
 	[SerializeField]	protected CMoveComponent m_MoveComponent;
 
+	public override bool IsAfterShortTime {
+		get { return base.IsAfterShortTime; }
+	}
+
 	#endregion
 
 	#region Implementation MonoState
@@ -29,6 +33,7 @@ public class FSMMonoAlienAttackState : FSMMonoBaseState {
 		if (enemy != null) {
 			this.m_MoveComponent.targetPosition = enemy.myTransform.position;
 			this.m_MoveComponent.SetupMove (dt);
+			this.m_MoveComponent.Look (enemy.myTransform.position);
 			this.m_Owner.SetAnimation (this.m_MoveComponent.IsNearestTarget () ? 2 : 1);
 		}
 	}

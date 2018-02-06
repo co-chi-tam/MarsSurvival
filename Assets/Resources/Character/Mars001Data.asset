@@ -24,8 +24,10 @@ MonoBehaviour:
   m_MaxWaterPoint: 100
   m_FoodPoint: 100
   m_MaxFoodPoint: 100
+  m_HealthPoint: 100
+  m_MaxHealthPoint: 100
   m_Items: []
-  m_CurrentTool: {fileID: 0}
+  m_CurrentTool: {fileID: 11400000, guid: a7aa97f2749cd414d84d83036ea5a727, type: 2}
   m_SaveData:
     m_Position: 0,0,0
     m_Rotation: 0,0,0

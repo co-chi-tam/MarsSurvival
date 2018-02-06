@@ -24,7 +24,7 @@ public class CGameEntity : CEntity {
 
 	}
 
-	public virtual void ApplyDamage() {
+	public virtual void ApplyDamage(float value) {
 
 	}
 
@@ -42,4 +42,5 @@ public class CGameEntity : CEntity {
 	}
 
 	#endregion
+
 }

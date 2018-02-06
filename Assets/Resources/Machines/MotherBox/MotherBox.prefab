@@ -337,7 +337,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_IsActive: 1
   m_IsCenterMap: 0
-  m_CurrentPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &114247360030517374
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -355,7 +354,7 @@ MonoBehaviour:
     m_Bits: 2147483648
   m_Top: {fileID: 4811670412523654}
   m_Bottom: {fileID: 4369289135114784}
-  m_MoveSpeed: 7
+  m_MoveSpeed: 8
   m_RotationSpeed: 5
   m_MinDistance: 0.1
   m_TargetPosition: {x: 0, y: 0, z: 0}
@@ -366,18 +365,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   OnMove:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: set_IsStarted
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114492498298135436
@@ -396,7 +384,7 @@ MonoBehaviour:
   - {fileID: 114232728585502964}
   - {fileID: 114553663701071102}
   - {fileID: 114247360030517374}
-  m_IsActive: 1
+  m_IsActive: 0
   m_HaveEnergy: 1
   m_IsStarted: 1
 --- !u!114 &114492644830262974

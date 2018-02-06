@@ -7,8 +7,8 @@ public partial class CCharacterEntity {
 	#region Fields
 
 	[Header("Interactive")]
-	[SerializeField]	protected CEntity m_OtherEntity;
-	public CEntity otherEntity {
+	[SerializeField]	protected CGameEntity m_OtherEntity;
+	public CGameEntity otherEntity {
 		get { return this.m_OtherEntity; }
 		set { this.m_OtherEntity = value; }
 	}
@@ -19,8 +19,8 @@ public partial class CCharacterEntity {
 			return this.m_OtherEntity.transform; 
 		}
 	}
-	[SerializeField]	protected CEntity m_ToolInteractiveEntity;
-	public CEntity toolInteractiveEntity {
+	[SerializeField]	protected CGameEntity m_ToolInteractiveEntity;
+	public CGameEntity toolInteractiveEntity {
 		get { return this.m_ToolInteractiveEntity; }
 		set { this.m_ToolInteractiveEntity = value; }
 	}
@@ -42,12 +42,13 @@ public partial class CCharacterEntity {
 
 	#region Tool
 
-	public virtual void InvokeToolEmpty() {
+	public virtual void InvokeToolEmpty(CToolData data) {
 		
 	}
 
-	public virtual void InvokeAttack() {
+	public virtual void InvokeAttack(CToolData data) {
 		if (this.m_ToolInteractiveEntity != null) {
+			this.m_ToolInteractiveEntity.ApplyDamage (data.toolDamage);
 			this.m_MoveComponent.Look (this.m_ToolInteractiveEntity.myTransform.position);
 		}
 	}
@@ -55,6 +56,14 @@ public partial class CCharacterEntity {
 	#endregion
 
 	#region Other Entity
+
+	public virtual void InvokeActiveOtherEntity() {
+		if (this.m_OtherEntity != null) {
+			if (this.m_OtherEntity is CMachineEntity) {
+				this.OnActiveMachine ();
+			}
+		}
+	}
 
 	public virtual void InvokeOtherEntityEnergy() {
 		if (this.m_OtherEntity != null) {
@@ -120,9 +129,9 @@ public partial class CCharacterEntity {
 		}
 	}
 
-	protected virtual void OnMachineConsumeItem () {
-		var machine = this.m_OtherEntity as CMachineEntity;
-		var items = machine.itemsPerCharge;
+	protected virtual bool IsEnoughtItems(CAmountItem[] items) {
+		if (items == null)
+			return false;
 		// CHECK ENOUGHT ITEMS
 		var isEnoughtItem = true;
 		for (int i = 0; i < items.Length; i++) {
@@ -135,18 +144,44 @@ public partial class CCharacterEntity {
 				break;
 			}
 		}
+		return isEnoughtItem;
+	}
+
+	protected virtual bool IsConsumeItems(CAmountItem[] items) {
+		if (items == null)
+			return false;
+		// CONSUME ITEMS
+		for (int i = 0; i < items.Length; i++) {
+			var mat = items [i];
+			this.m_InventoryComponent.UseItem (
+				mat.itemAmount,
+				mat.itemData
+			);
+		}
+		return true;
+	}
+
+	protected virtual void OnMachineConsumeItem () {
+		var machine = this.m_OtherEntity as CMachineEntity;
+		var items = machine.itemsPerCharge;
 		// USE ITEMS
-		if (isEnoughtItem) {
-			for (int i = 0; i < items.Length; i++) {
-				var mat = items [i];
-				this.m_InventoryComponent.UseItem (
-					mat.itemAmount,
-					mat.itemData
-				);
+		if (this.IsEnoughtItems (items)) {
+			if (this.IsConsumeItems(items)) {
+				machine.AddEnergy ();
 			}
-			machine.AddEnergy ();
 		}
 	}
+
+	protected virtual void OnActiveMachine () {
+		var machine = this.m_OtherEntity as CMachineEntity;
+		var items = machine.activeWithItems;
+		// USE ITEMS
+		if (this.IsEnoughtItems (items)) {
+			if (this.IsConsumeItems(items)) {
+				machine.IsActive = true;
+			}
+		}
+	}	
 
 	#endregion
 

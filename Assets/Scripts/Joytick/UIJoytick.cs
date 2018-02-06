@@ -101,8 +101,8 @@ namespace UnityEngine.UICustomize {
 				m_inputDirectionXZ.z = pos.y * 2f;
 				m_inputDirectionXZ = m_inputDirectionXZ.magnitude > 1f ? m_inputDirectionXZ.normalized : m_inputDirectionXZ;
 				m_KnobImage.rectTransform.anchoredPosition = new Vector2 (
-					m_inputDirectionXZ.x * (m_BackgroundImage.rectTransform.sizeDelta.x / 3f) , 
-					m_inputDirectionXZ.z * (m_BackgroundImage.rectTransform.sizeDelta.y / 3f));
+					m_inputDirectionXZ.x * (m_BackgroundImage.rectTransform.sizeDelta.x / 2f) , 
+					m_inputDirectionXZ.z * (m_BackgroundImage.rectTransform.sizeDelta.y / 2f));
 
 				// Call event.
 				if (this.OnChange != null) {

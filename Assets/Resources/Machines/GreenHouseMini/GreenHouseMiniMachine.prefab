@@ -1450,7 +1450,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_IsActive: 1
   m_IsCenterMap: 0
-  m_CurrentPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &114670103409477156
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1468,7 +1467,7 @@ MonoBehaviour:
     m_Bits: 2147483648
   m_Top: {fileID: 4650037210403102}
   m_Bottom: {fileID: 4957681999109470}
-  m_MoveSpeed: 7
+  m_MoveSpeed: 8
   m_RotationSpeed: 5
   m_MinDistance: 0.1
   m_TargetPosition: {x: 0, y: 0, z: 0}
@@ -1512,7 +1511,7 @@ MonoBehaviour:
   - {fileID: 114496559434095786}
   - {fileID: 0}
   - {fileID: 114241283608022498}
-  m_IsActive: 1
+  m_IsActive: 0
   m_HaveEnergy: 1
   m_IsStarted: 0
 --- !u!114 &114778673889243870

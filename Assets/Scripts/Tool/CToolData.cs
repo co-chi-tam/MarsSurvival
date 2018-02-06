@@ -14,6 +14,11 @@ public class CToolData : CGameEntityData {
 		get { return this.m_ToolMethod; }
 		set { this.m_ToolMethod = value; }
 	}
+	[SerializeField]	protected float m_ToolDamage = 1f;
+	public float toolDamage {
+		get { return this.m_ToolDamage; }
+		set { this.m_ToolDamage = value; }
+	}
 
 	#endregion
 

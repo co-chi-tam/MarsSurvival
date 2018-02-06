@@ -99,8 +99,7 @@ public class CUIEntityInteractive : MonoBehaviour {
 	public virtual void ConnectUI () {
 		if (this.m_Entity != null) {
 			this.m_UIFollowObject.follow = this.m_Entity.transform;
-			this.m_UIJobDisplay.SetUpJobDisplay (this.entityJobs);
-
+			this.m_UIJobDisplay.SetUpJobDisplay (this.m_Entity.IsActive, this.entityJobs);
 			if (this.m_Entity is CMachineEntity) {
 				var machine = this.m_Entity as CMachineEntity;
 				// FOLLOW

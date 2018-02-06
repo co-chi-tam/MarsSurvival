@@ -55,6 +55,12 @@ public class CGameDataCreateAsset
 		ScriptableObjectUtility.CreateAsset<CElectricPotData> ();
 	}
 
+	[MenuItem("Game Data/Machine/Wind Turbine Machine Data")]
+	public static void CreateWindTurbineDataAsset ()
+	{
+		ScriptableObjectUtility.CreateAsset<CWindTurbineMachineData> ();
+	}
+
 	#endregion
 
 	#region Alien

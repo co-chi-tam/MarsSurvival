@@ -24,7 +24,6 @@ public class CStoreToolComponent : CComponent {
 	}
 	[SerializeField]	protected CToolInstanceItem[] m_InstanceTools;
 	[SerializeField]	protected List<CToolComponent> m_ReloadTool;
-
 	[SerializeField]	protected CToolMethodItem[] m_ToolMethods;
 	public CToolMethodItem[] toolMethods {
 		get { return this.m_ToolMethods; }
@@ -53,8 +52,9 @@ public class CStoreToolComponent : CComponent {
 			var method = this.m_ToolMethods [i];
 			if (toolMethod == method.methodName) {
 				if (method.method.isAssigned) {
-					method.method.Invoke ();
+					method.method.InvokeOrSet (this.m_CurrentData);
 				}
+				break;
 			}
 		}
 	}

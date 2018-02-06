@@ -23,6 +23,12 @@ public class CMachineData : CGameEntityData {
 		}
 	}
 
+	[SerializeField]	protected CAmountItem[] m_ActiveWithItems;
+	public CAmountItem[] activeWithItems {
+		get { return this.m_ActiveWithItems; }
+		set { this.m_ActiveWithItems = value; }
+	}
+
 	#endregion
 
 	#region Constructor

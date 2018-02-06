@@ -1777,7 +1777,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_IsActive: 1
   m_IsCenterMap: 1
-  m_CurrentPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &114079911383225426
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2123,6 +2122,7 @@ MonoBehaviour:
   - {fileID: 114640992323890318}
   - {fileID: 114053298770876746}
   - {fileID: 114789674459119694}
+  - {fileID: 0}
   m_IsActive: 1
   m_IsAttack: 0
   m_OtherEntity: {fileID: 0}
@@ -2420,13 +2420,15 @@ MonoBehaviour:
   m_ToolMethods:
   - methodName: Empty
     method:
-      _parameterTypes: []
+      _parameterTypes:
+      - CToolData
       _target: {fileID: 1833698780043526}
       _component: CCharacterEntity
       _name: InvokeToolEmpty
   - methodName: Attack
     method:
-      _parameterTypes: []
+      _parameterTypes:
+      - CToolData
       _target: {fileID: 1833698780043526}
       _component: CCharacterEntity
       _name: InvokeAttack
@@ -2619,6 +2621,12 @@ MonoBehaviour:
       _target: {fileID: 1833698780043526}
       _component: CCharacterEntity
       _name: currentToolData
+  - m_TriggerName: InvokeActiveOtherEntity
+    OnTriggerInvoke:
+      _parameterTypes: []
+      _target: {fileID: 1833698780043526}
+      _component: CCharacterEntity
+      _name: InvokeActiveOtherEntity
 --- !u!114 &114903941963965026
 MonoBehaviour:
   m_ObjectHideFlags: 1

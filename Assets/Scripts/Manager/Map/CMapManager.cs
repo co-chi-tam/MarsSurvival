@@ -33,10 +33,10 @@ public class CMapManager : CMonoSingleton<CMapManager> {
 		get { return this.m_Target; }
 		set { this.m_Target = value; }
 	}
-	[SerializeField]	protected Vector3 m_CurrentPosition;
-	public Vector3 currentPosition {
-		get { return this.m_CurrentPosition; }
-		set { this.m_CurrentPosition = value; }
+	[SerializeField]	protected Vector3 m_CenterPosition;
+	public Vector3 centerPosition {
+		get { return this.m_CenterPosition; }
+		set { this.m_CenterPosition = value; }
 	}
 	[Header("Save")]
 	[SerializeField]	protected bool m_AutoSaveLoad = false;
@@ -174,20 +174,20 @@ public class CMapManager : CMonoSingleton<CMapManager> {
 		if (this.m_Target == null)
 			return;
 		var position = this.m_Target.position;
-		this.m_CurrentPosition.x = Mathf.RoundToInt (position.x / this.m_PlaceDistance);
-		this.m_CurrentPosition.y = 0f;
-		this.m_CurrentPosition.z = Mathf.RoundToInt (position.z / this.m_PlaceDistance);
-		if (this.m_CurrentPosition.x != this.m_PreviousPosition.x
-		    || this.m_CurrentPosition.z != this.m_PreviousPosition.z) {
+		this.m_CenterPosition.x = Mathf.RoundToInt (position.x / this.m_PlaceDistance);
+		this.m_CenterPosition.y = 0f;
+		this.m_CenterPosition.z = Mathf.RoundToInt (position.z / this.m_PlaceDistance);
+		if (this.m_CenterPosition.x != this.m_PreviousPosition.x
+		    || this.m_CenterPosition.z != this.m_PreviousPosition.z) {
 			this.m_NeedUpdate = true;
-			this.m_PreviousPosition.x = this.m_CurrentPosition.x;
+			this.m_PreviousPosition.x = this.m_CenterPosition.x;
 			this.m_PreviousPosition.y = 0f;
-			this.m_PreviousPosition.z = this.m_CurrentPosition.z;
+			this.m_PreviousPosition.z = this.m_CenterPosition.z;
 		}
 	}
 
 	protected void CheckPlacePatterns() {
-		var currentPos 	= this.m_CurrentPosition;
+		var currentPos 	= this.m_CenterPosition;
 		// topLeft
 		this.m_PlacePatterns[0].x = currentPos.x - 1f;
 		this.m_PlacePatterns[0].y = currentPos.z + 1f;

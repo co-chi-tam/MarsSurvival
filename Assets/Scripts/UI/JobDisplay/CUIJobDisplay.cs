@@ -8,19 +8,23 @@ public class CUIJobDisplay : MonoBehaviour {
 
 	[Header("Configs")]
 	[SerializeField]	protected float m_DisplayRadius = 20f;
+	[SerializeField]	protected GameObject m_Active;
 	[SerializeField]	protected CUIJobDisplayItem[] m_JobItems;
 
 	#endregion
 
 	#region Main methods
 
-	public virtual void SetUpJobDisplay(string[] jobItems) {
+	public virtual void SetUpJobDisplay(bool isActive, string[] jobItems) {
 		if (jobItems == null)
 			return;
 		for (int x = 0; x < this.m_JobItems.Length; x++) {
 			var jobItem = this.m_JobItems [x];
 			jobItem.jobGameObject.SetActive (false);
 		}
+		this.m_Active.SetActive (!isActive);
+		if (isActive == false)
+			return;
 		var segment = (Mathf.PI * 2f) / jobItems.Length;
 		var theta = 0f;
 		for (int i = 0; i < jobItems.Length; i++) {

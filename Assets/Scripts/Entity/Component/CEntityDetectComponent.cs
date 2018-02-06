@@ -10,7 +10,7 @@ public class CEntityDetectComponent : CComponent {
 	#region Internal class
 
 	[System.Serializable]
-	public class UnityEventEntity : UnityEvent<CEntity> {}
+	public class UnityEventEntity : UnityEvent<CGameEntity> {}
 
 	#endregion
 
@@ -18,8 +18,8 @@ public class CEntityDetectComponent : CComponent {
 
 	[Header("Configs")]
 	[Tooltip("Current entity nearest.")]
-	[SerializeField]	protected CEntity m_NearestEntity;
-	public CEntity currentEntity {
+	[SerializeField]	protected CGameEntity m_NearestEntity;
+	public CGameEntity currentEntity {
 		get { return this.m_NearestEntity; }
 		set { this.m_NearestEntity = value; }
 	}
@@ -69,11 +69,11 @@ public class CEntityDetectComponent : CComponent {
 			return;
 		var detectCount = this.m_PhysicDetectComponent.colliderCount;
 		var minDistance = float.MaxValue;
-		CEntity currentEntity = null;
+		CGameEntity currentEntity = null;
 		if (detectCount != 0) {
 			for (int i = 0; i < detectCount; i++) {
 				var collider = this.m_PhysicDetectComponent.sampleColliders [i];
-				var entity = collider.GetComponent<CEntity> ();
+				var entity = collider.GetComponent<CGameEntity> ();
 				if (entity != null) {
 					var direction = entity.transform.position - this.m_PhysicDetectComponent.detectTransform.position;
 					if (direction.sqrMagnitude < minDistance) {
@@ -83,7 +83,7 @@ public class CEntityDetectComponent : CComponent {
 				}
 			}
 			if (this.OnEntityDetected != null) {
-				this.OnEntityDetected.Invoke (currentEntity);
+				this.OnEntityDetected.Invoke (currentEntity as CGameEntity);
 			}
 		}
 		this.m_NearestEntity = currentEntity;

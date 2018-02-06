@@ -1,8 +1,13 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Component\Tool\CStoreToolComponent.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Manager\Map\CMapManager.cs">
     <Files>
-      <File FileName="Assets\Scripts\Component\Tool\CStoreToolComponent.cs" Line="24" Column="1" />
+      <File FileName="Assets\Scripts\Alien\CAlienEntity.cs" Line="71" Column="4" />
+      <File FileName="Assets\Scripts\Alien\FSMMonoState\FSMMonoAlienAttackState.cs" Line="17" Column="39" />
+      <File FileName="Assets\Scripts\Component\FSM\FSMMonoBaseState.cs" Line="36" Column="38" />
+      <File FileName="Assets\Resources\Aliens\DeadlyBody\FSMDeadlyBodyGraph.txt" Line="27" Column="11" />
+      <File FileName="Assets\Scripts\Manager\Map\Component\CMapMemberComponent.cs" Line="39" Column="60" />
+      <File FileName="Assets\Scripts\Manager\Map\CMapManager.cs" Line="37" Column="31" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

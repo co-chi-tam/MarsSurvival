@@ -11,10 +11,10 @@ public class CMapMemberComponent : CComponent {
 
 	[Header("Configs")]
 	[SerializeField]	protected bool m_IsCenterMap = false;
-	[SerializeField]	protected Vector3 m_CurrentPosition;
-	public Vector3 currentPosition {
-		get { return this.m_CurrentPosition; }
-		set { this.m_CurrentPosition = value; }
+	protected Vector3 m_CenterPosition;
+	public Vector3 centerPosition {
+		get { return this.m_CenterPosition; }
+		set { this.m_CenterPosition = value; }
 	}
  
 	protected CMapManager m_MapManager;
@@ -36,7 +36,7 @@ public class CMapMemberComponent : CComponent {
 		base.LateUpdate ();
 		if (this.m_MapManager == null)
 			return;
-		this.m_CurrentPosition = this.m_MapManager.currentPosition;
+		this.m_CenterPosition = this.m_MapManager.centerPosition;
 	}
 
 	#endregion

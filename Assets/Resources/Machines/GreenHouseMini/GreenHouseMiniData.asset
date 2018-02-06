@@ -23,6 +23,9 @@ MonoBehaviour:
   - AddDirt
   - GatherCarrot
   - PumpRequire
+  m_ActiveWithItems:
+  - itemAmount: 1
+    itemData: {fileID: 11400000, guid: 6bb35f46bd23bcd4babe0ed793626045, type: 2}
   m_Energy:
     m_EnergyPoint: 100
     m_MaxEnergyPoint: 100

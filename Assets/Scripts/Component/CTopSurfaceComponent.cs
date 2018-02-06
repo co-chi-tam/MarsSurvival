@@ -17,6 +17,7 @@ public class CTopSurfaceComponent : CComponent {
 	[Header("Configs")]
 	[SerializeField]	protected float m_RotationSpeed = 5f;
 	[SerializeField]	protected float m_HightOffset = 0.2f;
+	[SerializeField]	protected bool m_IsAlignSurface = false;
 
 	[Header("Target")]
 	[SerializeField]	protected LayerMask m_Ground;
@@ -58,7 +59,7 @@ public class CTopSurfaceComponent : CComponent {
 			feet.z = this.m_Transform.position.z;
 			this.m_Transform.position = feet;
 			// Rotation
-			if (this.m_Transform.up != hitInfo.normal) {
+			if (this.m_Transform.up != hitInfo.normal && this.m_IsAlignSurface) {
 				var normalGround = Quaternion.FromToRotation (Vector3.up, hitInfo.normal);
 				this.m_Transform.rotation = Quaternion.Lerp (
 					this.m_Transform.rotation, 

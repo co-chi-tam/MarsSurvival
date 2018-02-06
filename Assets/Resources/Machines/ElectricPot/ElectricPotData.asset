@@ -18,10 +18,13 @@ MonoBehaviour:
   m_ModelPath: Machines/ElectricPot/ElectricPot
   m_MachineName: Electric pot machine
   m_MachineJobs:
-  - FollowMe
   - StartMachine
+  - FollowMe
   - AddCarrot
   - ElectricRequire
+  m_ActiveWithItems:
+  - itemAmount: 1
+    itemData: {fileID: 11400000, guid: 6bb35f46bd23bcd4babe0ed793626045, type: 2}
   m_Energy:
     m_EnergyPoint: 10
     m_MaxEnergyPoint: 10

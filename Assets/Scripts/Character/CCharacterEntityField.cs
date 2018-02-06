@@ -23,7 +23,8 @@ public partial class CCharacterEntity {
 		get {
 			if (this.m_Data == null)
 				return true;
-			return this.m_Data.energyPoint > 0f
+			return this.m_Data.healthPoint > 0f
+				&& this.m_Data.energyPoint > 0f
 				&& this.m_Data.foodPoint > 0f
 				&& this.m_Data.waterPoint > 0f;
 		}
@@ -126,7 +127,7 @@ public partial class CCharacterEntity {
 		get { 
 			if (this.m_MapMemberComponent == null)
 				return this.transform.position;
-			return this.m_MapMemberComponent.currentPosition; 
+			return this.m_MapMemberComponent.centerPosition; 
 		}
 	}
 

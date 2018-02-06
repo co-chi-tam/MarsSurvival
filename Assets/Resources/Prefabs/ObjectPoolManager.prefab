@@ -60,6 +60,18 @@ MonoBehaviour:
     itemName: Dirt
     itemPrefab: {fileID: 114388314601553524, guid: cadf1753e4b8e7d45bf6d2f6df213c23,
       type: 2}
+  - itemMaximum: 10
+    itemName: CactusFruit
+    itemPrefab: {fileID: 114152836541841902, guid: 48e2dc1211cafe04d9129bac0d1ba9a6,
+      type: 2}
+  - itemMaximum: 10
+    itemName: Carrot
+    itemPrefab: {fileID: 114373774538427302, guid: 797d5b5e14f4ae040bfd3c3038bfadf3,
+      type: 2}
+  - itemMaximum: 10
+    itemName: MemoryChip
+    itemPrefab: {fileID: 114215909169240444, guid: e3a5c11634360e04f99f979e9676ddd4,
+      type: 2}
   OnGet:
     m_PersistentCalls:
       m_Calls: []

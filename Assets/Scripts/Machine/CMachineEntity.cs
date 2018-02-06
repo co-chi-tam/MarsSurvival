@@ -49,6 +49,14 @@ public partial class CMachineEntity : CGameEntity {
 		get { return new CAmountItem[0]; }
 	}
 
+	public virtual CAmountItem[] activeWithItems {
+		get { 
+			if (this.m_MachineData == null)
+				return new CAmountItem[0];
+			return this.m_MachineData.activeWithItems; 
+		}
+	}
+
 	#endregion
 
 	#region Implementation Entity

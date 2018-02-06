@@ -9,6 +9,8 @@ public class CAlienEntity : CGameEntity {
 	protected CAnimatorComponent m_AnimatorComponent;
 	protected CMoveComponent m_MoveComponent;
 	protected CEntityDetectComponent m_EntityDetectComponent;
+	protected CDataComponent m_DataComponent;
+	protected CAlienData m_Data;
 
 	public override bool IsActive {
 		get { return base.IsActive; }
@@ -35,11 +37,13 @@ public class CAlienEntity : CGameEntity {
 		this.m_AnimatorComponent = this.GetGameComponent<CAnimatorComponent> ();
 		this.m_MoveComponent = this.GetGameComponent<CMoveComponent> ();
 		this.m_EntityDetectComponent = this.GetGameComponent<CEntityDetectComponent> ();
+		this.m_DataComponent = this.GetGameComponent<CDataComponent> ();
 	}
 
 	protected override void Start ()
 	{
 		base.Start ();
+		this.m_Data = this.m_DataComponent.Get<CAlienData> ();
 	}
 
 	protected override void LateUpdate ()
@@ -56,8 +60,8 @@ public class CAlienEntity : CGameEntity {
 
 	#region Main methods
 
-	public override void ApplyDamage() {
-		base.ApplyDamage ();
+	public override void ApplyDamage(float value) {
+		base.ApplyDamage (value);
 	}
 
 	public override void AttackAnotherEntity() {
