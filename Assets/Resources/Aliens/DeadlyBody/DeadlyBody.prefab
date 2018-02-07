@@ -327,6 +327,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1649070406823400
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4373934139589366}
+  - component: {fileID: 114255060802151448}
+  m_Layer: 8
+  m_Name: FSMAttackState
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1699639976045324
 GameObject:
   m_ObjectHideFlags: 0
@@ -352,6 +368,22 @@ GameObject:
   - component: {fileID: 4452252987375554}
   m_Layer: 0
   m_Name: BackBone.001
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1723784560991192
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4929871808126208}
+  - component: {fileID: 114959745664915404}
+  m_Layer: 8
+  m_Name: FSMApplyDamageState
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -415,22 +447,6 @@ GameObject:
   - component: {fileID: 4399909916878118}
   m_Layer: 0
   m_Name: Hand.R.003
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &1817246078814378
-GameObject:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4988500450632820}
-  - component: {fileID: 114255060802151448}
-  m_Layer: 8
-  m_Name: FSMAttackState
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -603,7 +619,8 @@ Transform:
   m_Children:
   - {fileID: 4713133115944032}
   - {fileID: 4048124406145822}
-  - {fileID: 4988500450632820}
+  - {fileID: 4373934139589366}
+  - {fileID: 4929871808126208}
   - {fileID: 4559937406767496}
   m_Father: {fileID: 4591827240080108}
   m_RootOrder: 1
@@ -713,6 +730,19 @@ Transform:
   - {fileID: 4124353817413134}
   m_Father: {fileID: 4452252987375554}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4373934139589366
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1649070406823400}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4049957155216060}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4399909916878118
 Transform:
@@ -842,7 +872,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4049957155216060}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4583541941846024
 Transform:
@@ -1069,18 +1099,18 @@ Transform:
   m_Father: {fileID: 4786493163343976}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4988500450632820
+--- !u!4 &4929871808126208
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1817246078814378}
+  m_GameObject: {fileID: 1723784560991192}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4049957155216060}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &23496149111555262
 MeshRenderer:
@@ -1368,7 +1398,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6711cd2efb68bba45b6561aec6557535, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_IsActive: 1
+  m_IsActive: 0
   m_DetectTransform: {fileID: 4591827240080108}
   m_DetectRadius: 20
   m_DetectLayerMask:
@@ -1432,6 +1462,7 @@ MonoBehaviour:
   - {fileID: 114485491932543646}
   - {fileID: 114255060802151448}
   - {fileID: 114188778037980032}
+  - {fileID: 114959745664915404}
   m_CurrentConditions:
   - conditionName: IsActive
     conditionVariable:
@@ -1454,8 +1485,8 @@ MonoBehaviour:
   - conditionName: IsAfterShortTime
     conditionVariable:
       _parameterTypes: []
-      _target: {fileID: 1817246078814378}
-      _component: FSMMonoAlienAttackState
+      _target: {fileID: 1723784560991192}
+      _component: FSMMonoApplyDamageTargetState
       _name: IsAfterShortTime
 --- !u!114 &114188778037980032
 MonoBehaviour:
@@ -1513,7 +1544,7 @@ MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1817246078814378}
+  m_GameObject: {fileID: 1649070406823400}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2f65643b3a358aa40bdb071e7f8098d4, type: 3}
@@ -1530,7 +1561,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1552,7 +1583,18 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 114792140313455752}
-        m_MethodName: AttackAnotherEntity
+        m_MethodName: MoveToAnotherEntity
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 114089512328899008}
+        m_MethodName: DetectObjects
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1569,9 +1611,6 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  m_Owner: {fileID: 114792140313455752}
-  m_EntityDetect: {fileID: 114533805743911416}
-  m_MoveComponent: {fileID: 114835255128534822}
 --- !u!114 &114315126459705462
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1633,7 +1672,18 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   OnUpdateState:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114835255128534822}
+        m_MethodName: SetupMove
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: FSMMonoBaseState+UnityEventFloat, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   OnEndState:
@@ -1656,12 +1706,34 @@ MonoBehaviour:
   m_NearestEntity: {fileID: 0}
   OnEntityDetected:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114792140313455752}
+        m_MethodName: set_otherEntity
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: CEntityDetectComponent+UnityEventEntity, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   OnFree:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114792140313455752}
+        m_MethodName: set_otherEntity
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: CEntityDetectComponent+UnityEventEntity, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114543330166265068
@@ -1706,7 +1778,18 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   OnUpdateState:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114089512328899008}
+        m_MethodName: DetectObjects
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: FSMMonoBaseState+UnityEventFloat, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   OnEndState:
@@ -1759,6 +1842,7 @@ MonoBehaviour:
   - {fileID: 114231179665358080}
   - {fileID: 114089512328899008}
   m_IsActive: 1
+  m_OtherEntity: {fileID: 0}
 --- !u!114 &114835255128534822
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1770,7 +1854,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8d440359a3b78e4a90cbcf37639a1d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_IsActive: 1
+  m_IsActive: 0
   m_Ground:
     serializedVersion: 2
     m_Bits: 2147483648
@@ -1810,6 +1894,56 @@ MonoBehaviour:
     _component: CRenderObjectComponent
     _name: isInvisible
   OnReload:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &114959745664915404
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1723784560991192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4c2222a596a37e48bf573d029efd02a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Context: {fileID: 0}
+  m_FSMStateName: FSMApplyDamageState
+  OnEnterState:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 114792140313455752}
+        m_MethodName: SetAnimation
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 114792140313455752}
+        m_MethodName: AttackAnotherEntity
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnUpdateState:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: FSMMonoBaseState+UnityEventFloat, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnEndState:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,

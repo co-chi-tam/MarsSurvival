@@ -19,11 +19,19 @@
           "state_name": "FSMAttackState",
           "states": [
           	{
+	          "condition_name": "HavePlayerAround&&!IsMoving",
+	          "state_name": "FSMApplyDamageState",
+	          "states": [
+	          	{
+		          "condition_name": "IsAfterShortTime",
+		          "state_name": "FSMAttackState",
+		          "states": []
+	        	}
+	          ]
+	        },{
 	          "condition_name": "!HavePlayerAround",
 	          "state_name": "FSMIdleState",
-	          "states": [
-	          	
-	          ]
+	          "states": []
 	        }
           ]
         }

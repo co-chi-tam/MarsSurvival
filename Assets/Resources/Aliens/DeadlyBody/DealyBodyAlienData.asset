@@ -16,3 +16,5 @@ MonoBehaviour:
   m_Description: Deadly Body
   m_AvatarPath: Aliens/DeadlyBody/DeadlyBody-icon
   m_ModelPath: Aliens/DeadlyBody/DeadlyBody
+  m_AttackDamage: 20
+  m_AttackSpeed: 2

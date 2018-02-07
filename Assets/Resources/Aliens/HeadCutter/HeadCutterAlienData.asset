@@ -16,3 +16,5 @@ MonoBehaviour:
   m_Description: Head Cutter
   m_AvatarPath: Aliens/HeadCutter/HeadCutter-icon
   m_ModelPath: Aliens/HeadCutter/HeadCutter
+  m_AttackDamage: 10
+  m_AttackSpeed: 2

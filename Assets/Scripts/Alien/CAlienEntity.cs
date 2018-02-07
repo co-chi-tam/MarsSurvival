@@ -27,6 +27,12 @@ public class CAlienEntity : CGameEntity {
 		}
 	}
 
+	[SerializeField]	protected CGameEntity m_OtherEntity;
+	public CGameEntity otherEntity {
+		get { return this.m_OtherEntity; }
+		set { this.m_OtherEntity = value; }
+	}
+
 	#endregion
 
 	#region Implementation Entity
@@ -66,9 +72,17 @@ public class CAlienEntity : CGameEntity {
 
 	public override void AttackAnotherEntity() {
 		base.AttackAnotherEntity ();
-		var enemy = this.m_EntityDetectComponent.currentEntity;
-		if (enemy != null) {
-			
+		if (this.m_OtherEntity != null) {
+			this.m_OtherEntity.ApplyDamage (this.m_Data.attackDamage);
+		}
+	}
+
+	public virtual void MoveToAnotherEntity(float dt) {
+		if (this.m_OtherEntity != null) {
+			var otherPosition = this.m_OtherEntity.myTransform.position;
+			this.m_MoveComponent.targetPosition = otherPosition;
+			this.m_MoveComponent.SetupMove (dt);
+//			this.m_MoveComponent.Look (otherPosition);
 		}
 	}
 
