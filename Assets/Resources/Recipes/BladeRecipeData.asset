@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98cae782f0d989540b2ffac5ffaaf8f8, type: 3}
+  m_Name: BladeRecipeData
+  m_EditorClassIdentifier: 
+  m_RecipeName: Blade
+  m_ResuleData: {fileID: 11400000, guid: a7aa97f2749cd414d84d83036ea5a727, type: 2}
+  m_RecipeIngredients:
+  - itemAmount: 1
+    itemData: {fileID: 11400000, guid: b8caa2594371e5f439291fe5cbf0b1fe, type: 2}
+  - itemAmount: 1
+    itemData: {fileID: 11400000, guid: 6bb35f46bd23bcd4babe0ed793626045, type: 2}

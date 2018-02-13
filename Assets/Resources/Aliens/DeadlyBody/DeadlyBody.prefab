@@ -319,6 +319,7 @@ GameObject:
   - component: {fileID: 114315126459705462}
   - component: {fileID: 114768206987699044}
   - component: {fileID: 114896762275703606}
+  - component: {fileID: 114788914606815292}
   - component: {fileID: 114792140313455752}
   m_Layer: 11
   m_Name: DeadlyBody
@@ -430,6 +431,7 @@ GameObject:
   - component: {fileID: 4550034474482534}
   - component: {fileID: 95544892303333802}
   - component: {fileID: 114231179665358080}
+  - component: {fileID: 205468562869053456}
   m_Layer: 0
   m_Name: DeadlyBody
   m_TagString: Untagged
@@ -1823,6 +1825,19 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114788914606815292
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1637514684026408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8b4e7f5e638b964892a8a64240ac938, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsActive: 1
+  m_IsCenterMap: 0
 --- !u!114 &114792140313455752
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1948,3 +1963,25 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!205 &205468562869053456
+LODGroup:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1787208852306604}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: -0.22467077, y: -0.3279764, z: 1.9376681}
+  m_Size: 4.266676
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LODs:
+  - screenRelativeHeight: 0.05072202
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 23797684544058842}
+    - renderer: {fileID: 23963343762653176}
+    - renderer: {fileID: 23496149111555262}
+    - renderer: {fileID: 23653323715589442}
+    - renderer: {fileID: 23665252985116204}
+    - renderer: {fileID: 23690213332733002}
+  m_Enabled: 1

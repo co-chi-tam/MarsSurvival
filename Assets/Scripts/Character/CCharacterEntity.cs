@@ -84,6 +84,12 @@ public partial class CCharacterEntity : CGameEntity, IContext {
 		this.m_MoveComponent.SetupMove (dt);
 	}
 
+	public override void ApplyDamage (float value)
+	{
+		base.ApplyDamage (value);
+		this.m_Data.healthPoint -= value;
+	}
+
 	#endregion
 
 	#region Getter && Setter

@@ -57,6 +57,17 @@ public partial class CMachineEntity : CGameEntity {
 		}
 	}
 
+	public virtual CRecipeData[] toolRecipes {
+		get { return new CRecipeData[0]; }
+	}
+	public virtual CRecipeData currentRecipe {
+		get { return null; }
+		set {  }
+	}
+	public virtual bool IsProductToolCompleted {
+		get { return false; }
+	}
+
 	#endregion
 
 	#region Implementation Entity

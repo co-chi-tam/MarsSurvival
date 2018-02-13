@@ -1,10 +1,13 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Alien\FSMMonoState\FSMMonoAlienMoveToTargetState.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\MotherBox\CMotherBoxData.cs">
     <Files>
-      <File FileName="Assets\Scripts\Util\CRotationCollider.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Item\CMapItemEntity.cs" Line="17" Column="16" />
-      <File FileName="Assets\Scripts\Alien\FSMMonoState\FSMMonoAlienMoveToTargetState.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\MotherBox\CMotherBoxData.cs" Line="23" Column="15" />
+      <File FileName="Assets\Scripts\MotherBox\CMotherBoxEntity.cs" Line="45" Column="23" />
+      <File FileName="Assets\Scripts\Component\Data\CDataComponent.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\MotherBox\CRecipeData.cs" Line="12" Column="40" />
+      <File FileName="Assets\Scripts\Entity\CGameEntityData.cs" Line="9" Column="36" />
+      <File FileName="Assets\Scripts\Entity\CEntityData.cs" Line="9" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

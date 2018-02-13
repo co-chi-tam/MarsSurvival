@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System;
 using System.Collections;
+using System.Collections.Generic;
+using System.Runtime.Serialization;
+using System.Reflection;
 
 [Serializable]
 public class CMachineData : CGameEntityData {
@@ -35,6 +38,11 @@ public class CMachineData : CGameEntityData {
 
 	public CMachineData (): base() {
 		this.m_MachineName	= "Empty name";
+	}
+
+	public CMachineData (SerializationInfo info, StreamingContext context) : base (info, context)
+	{
+
 	}
 
 	#endregion

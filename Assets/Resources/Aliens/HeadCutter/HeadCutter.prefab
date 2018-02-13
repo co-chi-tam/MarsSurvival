@@ -404,6 +404,7 @@ GameObject:
   - component: {fileID: 114315126459705462}
   - component: {fileID: 114768206987699044}
   - component: {fileID: 114896762275703606}
+  - component: {fileID: 114810432260054722}
   - component: {fileID: 114792140313455752}
   m_Layer: 11
   m_Name: HeadCutter
@@ -422,6 +423,7 @@ GameObject:
   - component: {fileID: 4727176057316600}
   - component: {fileID: 95773788672903976}
   - component: {fileID: 114701062300255516}
+  - component: {fileID: 205531433750095112}
   m_Layer: 11
   m_Name: HeadCutter
   m_TagString: Untagged
@@ -1909,6 +1911,19 @@ MonoBehaviour:
   - {fileID: 114089512328899008}
   m_IsActive: 1
   m_OtherEntity: {fileID: 0}
+--- !u!114 &114810432260054722
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1637514684026408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8b4e7f5e638b964892a8a64240ac938, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsActive: 1
+  m_IsCenterMap: 0
 --- !u!114 &114835255128534822
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2220,3 +2235,24 @@ SkinnedMeshRenderer:
     m_Center: {x: 1.5726624, y: 1.6094826, z: -1.5726626}
     m_Extent: {x: 1.6306114, y: 0.49160755, z: 1.6306119}
   m_DirtyAABB: 0
+--- !u!205 &205531433750095112
+LODGroup:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1686707252719954}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0.00000035762787, y: 1.769344, z: 0.00432086}
+  m_Size: 6.42383
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LODs:
+  - screenRelativeHeight: 0.05072202
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 23614533751613362}
+    - renderer: {fileID: 137232128490484134}
+    - renderer: {fileID: 137009028066511012}
+    - renderer: {fileID: 137221268718583394}
+    - renderer: {fileID: 137978688093162006}
+  m_Enabled: 1

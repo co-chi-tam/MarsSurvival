@@ -17,6 +17,10 @@ public class CMapMemberComponent : CComponent {
 		set { this.m_CenterPosition = value; }
 	}
  
+	[Header("Events")]
+	public CMapManager.UnityEventTileMap OnRemoveTile;
+	public CMapManager.UnityEventTileMap OnLoadTile; 
+
 	protected CMapManager m_MapManager;
 
 	#endregion
@@ -30,6 +34,16 @@ public class CMapMemberComponent : CComponent {
 		if (this.m_IsCenterMap) {
 			this.m_MapManager.target = this.transform;
 		}
+		this.m_MapManager.OnRemoveTile.AddListener ((tile) => {
+			if (this.OnRemoveTile != null) {
+				this.OnRemoveTile.Invoke (tile);
+			}
+		});
+		this.m_MapManager.OnLoadTile.AddListener ((tile) => {
+			if (this.OnLoadTile != null) {
+				this.OnLoadTile.Invoke (tile);
+			}
+		});
 	}
 
 	protected override void LateUpdate() {

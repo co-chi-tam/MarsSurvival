@@ -10,6 +10,18 @@ using TinyJSON;
 
 public class CMapManager : CMonoSingleton<CMapManager> {
 
+	#region Internal class
+
+	[System.Serializable]
+	public class CTileMap : CTileMapSave {
+		public CTileMapObject tileObject;
+	}
+
+	[System.Serializable]
+	public class UnityEventTileMap : UnityEvent<CTileMapObject> {}
+
+	#endregion
+
 	#region Fields
 
 	[Header("Configs")]
@@ -50,20 +62,6 @@ public class CMapManager : CMonoSingleton<CMapManager> {
 
 	protected Vector3 m_PreviousPosition = new Vector3(-999f, 0f, -999f);
 	protected bool m_NeedUpdate = false;
-
-	#endregion
-
-	#region Internal class
-
-	[System.Serializable]
-	public class CTileMap : CTileMapSave {
-		
-		public CTileMapObject tileObject;
-
-	}
-
-	[System.Serializable]
-	public class UnityEventTileMap : UnityEvent<CTileMapObject> {}
 
 	#endregion
 
