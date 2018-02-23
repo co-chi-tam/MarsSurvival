@@ -50,6 +50,7 @@ public partial class CCharacterEntity {
 		if (this.m_ToolInteractiveEntity != null) {
 			this.m_ToolInteractiveEntity.ApplyDamage (data.toolDamage);
 			this.m_MoveComponent.Look (this.m_ToolInteractiveEntity.myTransform.position);
+			this.m_DataComponent.UpdateDataPerInvoke ("UpdatePerAttack");
 		}
 	}
 		

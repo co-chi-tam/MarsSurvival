@@ -92,6 +92,27 @@ public partial class CCharacterEntity {
 			return this.m_Data.foodPoint / this.m_Data.maxFoodPoint;
 		}
 	}
+
+	// OXYGEN
+	public virtual float oxygenPoint {
+		get {
+			if (this.m_Data == null)
+				return 0f;
+			return 100f;
+		}
+		set { 
+			if (this.m_Data == null)
+				return; 
+//			this.m_Data.oxygenPoint = value;
+		}
+	}
+	public float oxygenPointPercent {
+		get { 
+			if (this.m_Data == null)
+				return 0f;
+			return 100f;
+		}
+	}
 	public virtual bool IsEatTooMuch {
 		get { 
 			if (this.m_Data == null)

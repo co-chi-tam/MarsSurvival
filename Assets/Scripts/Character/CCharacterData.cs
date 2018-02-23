@@ -28,6 +28,7 @@ public class CCharacterData : CGameEntityData {
 	[Info(valueName = "Energy point", valueMin = 0f, valueMax = 9999f)]
 	[UpdateValuePerSecond(updateMethod = "Decrease", updateValuePerSecond = 0.1f)]
 	[UpdateValuePerInvoke(updateName = "AddEnergy", updateMethod = "Increase", updateValuePerInvoke = 1.5f)]
+	[UpdateValuePerInvoke(updateName = "UpdatePerAttack", updateMethod = "Decrease", updateValuePerInvoke = 1f)]
 	public float energyPoint {
 		get { return this.m_EnergyPoint; }
 		set { this.m_EnergyPoint = value < 0f ? 0f : value > this.m_MaxEnergyPoint ? this.m_MaxEnergyPoint : value; }
@@ -44,6 +45,7 @@ public class CCharacterData : CGameEntityData {
 	[Info(valueName = "Water point", valueMin = 0f, valueMax = 9999f)]
 	[UpdateValuePerSecond(updateMethod = "Decrease", updateValuePerSecond = 0.15f)]
 	[UpdateValuePerInvoke(updateName = "AddWater", updateMethod = "Increase", updateValuePerInvoke = 2.5f)]
+	[UpdateValuePerInvoke(updateName = "UpdatePerAttack", updateMethod = "Decrease", updateValuePerInvoke = 1.5f)]
 	public float waterPoint {
 		get { return this.m_WaterPoint; }
 		set { this.m_WaterPoint = value < 0f ? 0f : value > this.m_MaxWaterPoint ? this.m_MaxWaterPoint : value; }
@@ -59,6 +61,7 @@ public class CCharacterData : CGameEntityData {
 	[Info(valueName = "Food point", valueMin = 0f, valueMax = 9999f)]
 	[UpdateValuePerSecond(updateMethod = "Decrease", updateValuePerSecond = 0.12f)]
 	[UpdateValuePerInvoke(updateName = "AddFood", updateMethod = "Increase", updateValuePerInvoke = 2f)]
+	[UpdateValuePerInvoke(updateName = "UpdatePerAttack", updateMethod = "Decrease", updateValuePerInvoke = 0.5f)]
 	public float foodPoint {
 		get { return this.m_FoodPoint; }
 		set { this.m_FoodPoint = value < 0f ? 0f : value > this.m_MaxFoodPoint ? this.m_MaxFoodPoint : value; }
