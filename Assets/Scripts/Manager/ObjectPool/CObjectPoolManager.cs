@@ -64,14 +64,13 @@ public class CObjectPoolManager : CMonoSingleton<CObjectPoolManager> {
 		CObjectPoolMemberComponent member = null;
 		var maximumMember = 0;
 		if (this.m_ObjectPools.ContainsKey (name)) {
-			this.m_ObjectPools [name].GetAnyway (ref member);
+			member = this.m_ObjectPools [name].Get ();
 			maximumMember = this.m_ObjectPools [name].Count ();
 		}
 		if (member == null) {
 			for (int i = 0; i < this.m_ObjectPoolInstances.Count; i++) {
 				var item = this.m_ObjectPoolInstances [i];
-				if (item.itemName == name
-				    && maximumMember < item.itemMaximum) {
+				if (item.itemName == name && maximumMember < item.itemMaximum) {
 					var itemPrefab = Instantiate (item.itemPrefab);
 					this.Set (item.itemName, itemPrefab);
 					member = this.m_ObjectPools [name].Get ();
@@ -80,9 +79,14 @@ public class CObjectPoolManager : CMonoSingleton<CObjectPoolManager> {
 				}
 			}
 		} else {
-			member.StartMember ();
+			member.StartMember (); 
 			if (this.OnGet != null) {
 				this.OnGet.Invoke (member);
+			}
+		}
+		if (member == null) {
+			if (this.m_ObjectPools [name].GetAnyway (ref member)) {
+				member.StartMember (); 
 			}
 		}
 		return member;

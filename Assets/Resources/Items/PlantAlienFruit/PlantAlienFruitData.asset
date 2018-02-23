@@ -16,6 +16,6 @@ MonoBehaviour:
   m_Description: Plant Alien Fruit
   m_AvatarPath: Items/PlantAlienFruit/PlantAlienFruit-icon
   m_ModelPath: Items/PlantAlienFruit/PlantAlienFruit
-  itemName: Plant Alien Fruit
+  itemName: PlantAlienFruit
   itemDisplayName: Plant Alien Fruit
   m_Amount: 1

@@ -45,9 +45,7 @@ public class CItemData : CGameEntityData {
 		int hash = 13;
 		hash = (hash * 7) + itemName.GetHashCode();
 		hash = (hash * 7) + itemDisplayName.GetHashCode();
-		hash = (hash * 7) + avatarPath.GetHashCode();
-		hash = (hash * 7) + modelPath.GetHashCode();
-		return hash;
+		return hash + base.GetHashCode ();
 	}
 
 	public override string ToString ()

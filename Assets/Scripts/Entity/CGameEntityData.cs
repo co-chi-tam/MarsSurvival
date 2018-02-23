@@ -45,6 +45,20 @@ public class CGameEntityData : CEntityData {
 
 	#region Getter && Setter
 
+	public override bool Equals (object other)
+	{
+		return base.Equals (other);
+	}
+
+	public override int GetHashCode ()
+	{
+		int hash = 13;
+		hash = (hash * 7) + description.GetHashCode();
+		hash = (hash * 7) + avatarPath.GetHashCode();
+		hash = (hash * 7) + modelPath.GetHashCode();
+		return hash;
+	}
+
 	public override void GetObjectData(SerializationInfo info, StreamingContext context)
 	{
 		base.GetObjectData (info, context);

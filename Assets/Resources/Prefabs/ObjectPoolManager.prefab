@@ -72,6 +72,10 @@ MonoBehaviour:
     itemName: MemoryChip
     itemPrefab: {fileID: 114215909169240444, guid: e3a5c11634360e04f99f979e9676ddd4,
       type: 2}
+  - itemMaximum: 10
+    itemName: PlantAlienFruit
+    itemPrefab: {fileID: 114947833550089056, guid: e25e80ea7ccc8bd4c9f6dd63b3934057,
+      type: 2}
   OnGet:
     m_PersistentCalls:
       m_Calls: []

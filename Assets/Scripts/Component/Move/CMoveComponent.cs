@@ -92,7 +92,7 @@ public class CMoveComponent : CComponent {
 			// Position
 			var feet = bottom;
 			feet.x = this.m_MovePoint.x;
-			feet.y = hitInfo.point.y;
+			feet.y = Mathf.Lerp (feet.y, hitInfo.point.y, this.m_MoveSpeed * dt);
 			feet.z = this.m_MovePoint.z;
 			this.m_MovePoint = feet;
 			// Rotation

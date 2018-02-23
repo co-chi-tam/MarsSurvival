@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bb236f5adf285f49bd1dc33687d7f6a, type: 3}
+  m_Name: PlantAlienData
+  m_EditorClassIdentifier: 
+  m_EntityName: PlantAlien
+  m_EntityDisplayName: Plant Alien
+  m_Description: Plant Alien
+  m_AvatarPath: Enviroment/PlantAlien/PlantAlien-icon
+  m_ModelPath: Enviroment/PlantAlien/PlantAlien
+  m_CurrentDamage: 0
+  m_MaximumDamage: 1
+  m_ResourceContains:
+  - itemAmount: 1
+    itemData: {fileID: 11400000, guid: 946218cac38e4b54591391c9fe85f83c, type: 2}

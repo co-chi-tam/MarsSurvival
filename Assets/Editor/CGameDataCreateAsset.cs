@@ -5,7 +5,7 @@ public class CGameDataCreateAsset
 {
 	#region Item
 
-	[MenuItem("Game Data/Item Data")]
+	[MenuItem("Game Data/Item/Empty Data")]
 	public static void CreateItemDataAsset ()
 	{
 		ScriptableObjectUtility.CreateAsset<CItemData> ();
@@ -95,6 +95,22 @@ public class CGameDataCreateAsset
 	public static void CreateRecipeDataAsset ()
 	{
 		ScriptableObjectUtility.CreateAsset<CRecipeData> ();
+	}
+
+	#endregion
+
+	#region Enviroment
+
+	[MenuItem("Game Data/Enviroment/Empty Data")]
+	public static void CreateEnviromentDataAsset ()
+	{
+		ScriptableObjectUtility.CreateAsset<CEnviromentData> ();
+	}
+
+	[MenuItem("Game Data/Enviroment/Plant Alien Data")]
+	public static void CreatePlantAlienDataAsset ()
+	{
+		ScriptableObjectUtility.CreateAsset<CPlantAlienData> ();
 	}
 
 	#endregion

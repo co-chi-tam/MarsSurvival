@@ -1,10 +1,21 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
+using UnityEngine.Events;
+using Ludiq.Reflection;
 
 public class CGameEntity : CEntity {
 
+	#region Internal class
+
+	[Serializable]
+	public class UnityEventFloat : UnityEvent<float> {}
+
+	#endregion
+
 	#region Fields
+
+	[Header("Events")]
+	public UnityEventFloat OnApplyDamage;
 
 	protected int m_AnimationInt;
 	public int animationInt {
@@ -25,11 +36,17 @@ public class CGameEntity : CEntity {
 	}
 
 	public virtual void ApplyDamage(float value) {
-
+		if (this.OnApplyDamage != null) {
+			this.OnApplyDamage.Invoke (value);
+		}
 	}
 
 	public virtual void AttackAnotherEntity() {
 		
+	}
+
+	public virtual void ResetEntity() {
+	
 	}
 
 	#endregion

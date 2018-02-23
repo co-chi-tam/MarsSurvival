@@ -10,7 +10,9 @@ public partial class CCharacterEntity {
 
 	public virtual void NeedPooping() {
 		var poop = this.m_ObjectPoolMemberComponent.Get ("Dirt");
-		poop.transform.position = this.m_Transform.position;
+		if (poop != null) {
+			poop.transform.position = this.m_Transform.position;
+		}
 	}
 
 	// POOPING WHEN EAT TOO MUCH

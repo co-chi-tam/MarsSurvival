@@ -2548,7 +2548,7 @@ MonoBehaviour:
   - {fileID: 114640992323890318}
   - {fileID: 114053298770876746}
   - {fileID: 114789674459119694}
-  - {fileID: 0}
+  - {fileID: 114442416771596572}
   m_IsActive: 1
   m_IsAttack: 0
   m_OtherEntity: {fileID: 0}
@@ -2744,7 +2744,7 @@ MonoBehaviour:
   m_DetectRadius: 4
   m_DetectLayerMask:
     serializedVersion: 2
-    m_Bits: 2048
+    m_Bits: 6144
   m_ColliderCount: 0
   m_MaximumDetect: 20
   m_SampleColliders:
@@ -2892,7 +2892,7 @@ MonoBehaviour:
   OnPickItem:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 114272213066775164}
         m_MethodName: SetTrigger
         m_Mode: 5
         m_Arguments:
