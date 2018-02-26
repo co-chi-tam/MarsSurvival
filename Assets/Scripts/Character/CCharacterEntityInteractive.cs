@@ -186,4 +186,12 @@ public partial class CCharacterEntity {
 
 	#endregion
 
+	#region Mission
+
+	public virtual string IsObtainItem(string itemName) {
+		return this.m_InventoryComponent.CheckAmountItem (1, itemName) ? itemName : "FALSE";
+	}
+
+	#endregion
+
 }

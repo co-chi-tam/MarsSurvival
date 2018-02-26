@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42d73b613f7b4f1479ad9740cc0477af, type: 3}
+  m_Name: FirstMissionData
+  m_EditorClassIdentifier: 
+  m_Mission:
+    m_MissionName: FirstMission
+    m_MissionDetail: Go to position x11 & y11 and obtain rock item
+    m_MissionConditions:
+    - m_ConditionMethod: IsComePosition
+      m_ConditionValue: {fileID: 11400000, guid: 480978bf1f54ad241acc3b4f9cb56a24,
+        type: 2}
+    - m_ConditionMethod: IsObtainItem
+      m_ConditionValue: {fileID: 11400000, guid: 3044c72e6678ad2419cd2a21a484efb6,
+        type: 2}

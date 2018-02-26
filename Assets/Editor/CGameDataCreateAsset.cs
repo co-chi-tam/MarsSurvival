@@ -115,4 +115,26 @@ public class CGameDataCreateAsset
 
 	#endregion
 
+	#region Mission
+
+	[MenuItem("Game Data/Mission/Mission Data")]
+	public static void CreateMissionDataAsset ()
+	{
+		ScriptableObjectUtility.CreateAsset<CMissionData> ();
+	}
+
+	[MenuItem("Game Data/Mission/Condition/Position Condition")]
+	public static void CreateV3ConditionDataAsset ()
+	{
+		ScriptableObjectUtility.CreateAsset<CVector3Condition> ();
+	}
+
+	[MenuItem("Game Data/Mission/Condition/Obtain Item Condition")]
+	public static void CreateObtainItemConditionDataAsset ()
+	{
+		ScriptableObjectUtility.CreateAsset<CObtainItemCondition> ();
+	}
+
+	#endregion
+
 }

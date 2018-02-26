@@ -48,16 +48,20 @@ public class CInventoryComponent : CComponent {
 		this.m_Items = items; 
 	}
 
-	public virtual bool CheckAmountItem(int amount, CItemData value) {
+	public virtual bool CheckAmountItem(int amount, string itemName) {
 		for (int i = 0; i < this.m_Items.Count; i++) {
 			var item = this.m_Items[i];
 			if (item != null
 				&& item.amount >= amount 
-				&& item.itemName == value.itemName) {
+				&& item.itemName == itemName) {
 				return true;
 			}
 		}
 		return false;
+	}
+
+	public virtual bool CheckAmountItem(int amount, CItemData value) {
+		return this.CheckAmountItem (amount, value.itemName);
 	}
 
 	public virtual void UseItem(int amount, CItemData value) {
