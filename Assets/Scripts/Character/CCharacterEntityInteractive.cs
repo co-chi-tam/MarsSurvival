@@ -192,6 +192,13 @@ public partial class CCharacterEntity {
 		return this.m_InventoryComponent.CheckAmountItem (1, itemName) ? itemName : "FALSE";
 	}
 
+	public virtual void ReachReward(CMissionData mission) {
+		var rewards = mission.missionRewards;
+		for (int i = 0; i < rewards.Length; i++) {
+			this.m_InventoryComponent.PickItem (rewards [i].itemAmount, rewards [i].itemData);
+		}
+	}
+
 	#endregion
 
 }

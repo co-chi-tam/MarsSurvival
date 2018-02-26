@@ -775,6 +775,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4269342157295882}
   - component: {fileID: 136749609288588412}
+  - component: {fileID: 81252543418271954}
   - component: {fileID: 114617059177336552}
   - component: {fileID: 114151746997459282}
   - component: {fileID: 114903941963965026}
@@ -2045,6 +2046,13 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!81 &81252543418271954
+AudioListener:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1833698780043526}
+  m_Enabled: 1
 --- !u!95 &95408159216602044
 Animator:
   serializedVersion: 3
@@ -2545,6 +2553,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_IsActive: 1
+  m_DisplayResult: 0
+  m_DisplatResultPattern: OK
   m_Context: {fileID: 1833698780043526}
   m_Data: {fileID: 11400000, guid: 132cebd29f382cf4e8cd0adad745955a, type: 2}
   m_InputDatas:
@@ -2561,6 +2571,38 @@ MonoBehaviour:
       _target: {fileID: 1833698780043526}
       _component: CCharacterEntity
       _name: IsObtainItem
+  OnCompleteMission:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 114465870578483098}
+        m_MethodName: ReachReward
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 114334304073670052}
+        m_MethodName: AbandonMission
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: CMissionComponent+UnityEventMission, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnHoldMission:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: CMissionComponent+UnityEventMission, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &114442416771596572
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3111,6 +3153,12 @@ MonoBehaviour:
       _target: {fileID: 1833698780043526}
       _component: CCharacterEntity
       _name: oxygenPointPercent
+  - m_TriggerName: GetFullMissionDetail
+    OnTriggerInvoke:
+      _parameterTypes: []
+      _target: {fileID: 1833698780043526}
+      _component: CCharacterEntity
+      _name: missionFullDetail
 --- !u!114 &114903941963965026
 MonoBehaviour:
   m_ObjectHideFlags: 1

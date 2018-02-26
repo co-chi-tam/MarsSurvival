@@ -9,5 +9,10 @@ public class CMissionData : ScriptableObject {
 		get { return this.m_Mission; }
 		set { this.m_Mission = value; }
 	}
+	[SerializeField]	protected CAmountItem[] m_MissionRewards;
+	public CAmountItem[] missionRewards {
+		get { return this.m_MissionRewards; }
+		set { this.m_MissionRewards = value; }
+	}
 
 }

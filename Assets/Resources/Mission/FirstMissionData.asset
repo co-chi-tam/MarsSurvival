@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Name: FirstMissionData
   m_EditorClassIdentifier: 
   m_Mission:
-    m_MissionName: FirstMission
-    m_MissionDetail: Go to position x11 & y11 and obtain rock item
+    m_MissionName: <b>Mission :</b>First Mission.
+    m_MissionDetail: Go to position and find something.
     m_MissionConditions:
     - m_ConditionMethod: IsComePosition
       m_ConditionValue: {fileID: 11400000, guid: 480978bf1f54ad241acc3b4f9cb56a24,
@@ -21,3 +21,8 @@ MonoBehaviour:
     - m_ConditionMethod: IsObtainItem
       m_ConditionValue: {fileID: 11400000, guid: 3044c72e6678ad2419cd2a21a484efb6,
         type: 2}
+  m_MissionRewards:
+  - itemAmount: 1
+    itemData: {fileID: 11400000, guid: b7b569c67022a5843bec26a6f9284e58, type: 2}
+  - itemAmount: 1
+    itemData: {fileID: 11400000, guid: 6bb35f46bd23bcd4babe0ed793626045, type: 2}

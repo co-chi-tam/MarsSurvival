@@ -30,6 +30,10 @@ public partial class CCharacterEntity {
 		}
 	}
 
+	#endregion
+
+	#region Info point
+
 	// ENERGY
 	public virtual float energyPoint {
 		get {
@@ -113,6 +117,11 @@ public partial class CCharacterEntity {
 			return 100f;
 		}
 	}
+
+	#endregion
+
+	#region More fields
+
 	public virtual bool IsEatTooMuch {
 		get { 
 			if (this.m_Data == null)
@@ -166,6 +175,19 @@ public partial class CCharacterEntity {
 				return null;
 			return this.m_StoreToolComponent.currentToolData;
 		}
+	}
+
+	#endregion
+
+	#region Mission
+
+	public string missionFullDetail {
+		get { 
+			if (this.m_MissionComponent == null) 
+				return string.Empty;
+			return this.m_MissionComponent.conditionFullDetail;
+		}
+
 	}
 
 	#endregion
