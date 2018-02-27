@@ -98,6 +98,7 @@ public class CCharacterData : CGameEntityData {
 		get { return this.m_CurrentTool; }
 		set { this.m_CurrentTool = value; }
 	}
+
 	[Header("Mission")]
 	[SerializeField]	protected int m_MissionIndex = 0;
 	public int missionIndex {

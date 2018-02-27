@@ -3,25 +3,16 @@ using UnityEngine;
 
 public class CObtainItemCondition : CBaseCondition {
 
-	[SerializeField]	protected string m_Condition = string.Empty;
-	public string conditionStr {
-		get { return this.m_Condition; }
-		protected set { this.m_Condition = value; }
-	}
-
-	public override bool Equals (object other)
-	{
-		return base.Equals (other);
-	}
+	public string conditionStr = string.Empty;
 
 	public override int GetHashCode ()
 	{
-		return this.m_Condition.GetHashCode();
+		return this.conditionStr.GetHashCode();
 	}
 
 	public override object GetValue ()
 	{
-		return this.m_Condition;
+		return this.conditionStr;
 	}
 
 }

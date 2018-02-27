@@ -16,6 +16,8 @@ MonoBehaviour:
   m_Description: Survival.
   m_AvatarPath: Character/Astronaut-icon
   m_ModelPath: Character/Mars001
+  m_Position: 0,0,0
+  m_Rotation: 0,0,0
   m_CharacterName: Mars001
   m_MoveSpeed: 8
   m_EnergyPoint: 100
@@ -27,10 +29,8 @@ MonoBehaviour:
   m_HealthPoint: 100
   m_MaxHealthPoint: 100
   m_Items: []
-  m_SaveData:
-    m_Position: 0,0,0
-    m_Rotation: 0,0,0
-    m_SaveTool: Blade
-    m_MissionIndex: 0
+  m_CurrentTool: Blade
+  m_MissionIndex: 0
   m_ListMissions:
   - {fileID: 11400000, guid: 132cebd29f382cf4e8cd0adad745955a, type: 2}
+  - {fileID: 11400000, guid: 609c35967af6f2841bc005492c30cddd, type: 2}

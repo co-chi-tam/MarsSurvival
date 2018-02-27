@@ -135,6 +135,12 @@ public class CGameDataCreateAsset
 		ScriptableObjectUtility.CreateAsset<CObtainItemCondition> ();
 	}
 
+	[MenuItem("Game Data/Mission/Condition/Interactive Machine Condition")]
+	public static void CreateInteractiveMachineDataAsset ()
+	{
+		ScriptableObjectUtility.CreateAsset<CInteractiveMachineCondition> ();
+	}
+
 	#endregion
 
 }

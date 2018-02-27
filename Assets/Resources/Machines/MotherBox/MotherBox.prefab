@@ -395,8 +395,13 @@ MonoBehaviour:
   - {fileID: 114553663701071102}
   - {fileID: 114247360030517374}
   m_IsActive: 0
+  OnApplyDamage:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: CGameEntity+UnityEventFloat, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
   m_HaveEnergy: 1
-  m_IsStarted: 1
+  m_IsStarted: 0
 --- !u!114 &114492644830262974
 MonoBehaviour:
   m_ObjectHideFlags: 1

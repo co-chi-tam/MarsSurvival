@@ -37,7 +37,7 @@ public class CGameEntityData : CEntityData {
 	public string rotation {
 		get { return this.m_Rotation; }
 		set { this.m_Rotation = value; }
-	}
+	} 
 
 	#endregion
 

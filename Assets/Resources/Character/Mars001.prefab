@@ -2570,6 +2570,20 @@ MonoBehaviour:
       _target: {fileID: 1833698780043526}
       _component: CCharacterEntity
       _name: IsObtainItem
+  - m_InputName: IsStartOneMachine
+    inputMethod:
+      _parameterTypes:
+      - System.String
+      _target: {fileID: 1833698780043526}
+      _component: CCharacterEntity
+      _name: IsStartOneMachine
+  - m_InputName: IsPullOneMachine
+    inputMethod:
+      _parameterTypes:
+      - System.String
+      _target: {fileID: 1833698780043526}
+      _component: CCharacterEntity
+      _name: IsPullOneMachine
   OnCompleteMission:
     m_PersistentCalls:
       m_Calls:

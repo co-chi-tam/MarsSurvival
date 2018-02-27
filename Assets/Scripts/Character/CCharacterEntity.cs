@@ -17,6 +17,7 @@ public partial class CCharacterEntity : CGameEntity, IContext {
 	protected CObjectPoolMemberComponent m_ObjectPoolMemberComponent;
 	protected CStoreToolComponent m_StoreToolComponent;
 	protected CMissionComponent m_MissionComponent;
+	protected CFollowObjectEndPointComponent m_FollowEndPointComponent;
 
 	protected CCharacterData m_Data;
 
@@ -55,6 +56,7 @@ public partial class CCharacterEntity : CGameEntity, IContext {
 		this.m_MapMemberComponent = this.GetGameComponent<CMapMemberComponent> ();
 		this.m_StoreToolComponent = this.GetGameComponent<CStoreToolComponent> ();
 		this.m_MissionComponent = this.GetGameComponent <CMissionComponent> ();
+		this.m_FollowEndPointComponent = this.GetGameComponent <CFollowObjectEndPointComponent> ();
 	}
 
 	protected override void Start ()

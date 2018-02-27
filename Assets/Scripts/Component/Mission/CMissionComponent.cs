@@ -127,6 +127,10 @@ public class CMissionComponent : CComponent {
 			var conditionValue = cond.conditionValue as CObtainItemCondition;
 			var condTargetMethod = inputMethod.GetOrInvoke<string> (conditionValue.conditionStr);
 			return condTargetMethod == conditionValue.conditionStr;
+		} else if (cond.conditionValue is CInteractiveMachineCondition) {
+			var conditionValue = cond.conditionValue as CInteractiveMachineCondition;
+			var condTargetMethod = inputMethod.GetOrInvoke<string> (conditionValue.conditionName);
+			return condTargetMethod == conditionValue.conditionName;
 		} else {
 			return false;
 		}

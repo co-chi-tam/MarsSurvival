@@ -11,5 +11,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23b8c0375f871fa4fbc7780fbe3deb4f, type: 3}
   m_Name: Positionx1y1Condition
   m_EditorClassIdentifier: 
-  m_ConditionDetail: 'Move to <b><color=#ff0000ff>position x1 : y1</color></b>.'
-  m_Condition: {x: 1, y: 0, z: 1}
+  conditionDetail: Move to <color=#ff0000ff>x:1 y:1</color> position.
+  conditionV3: {x: 1, y: 0, z: 1}

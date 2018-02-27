@@ -11,5 +11,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6b7568a26b175b4c9a96ceb9dada9cd, type: 3}
   m_Name: ObtainRockItemCondition
   m_EditorClassIdentifier: 
-  m_ConditionDetail: Find a <b><color=#ff0000ff>rock</color></b> around.
-  m_Condition: Rock
+  conditionDetail: Find a <color=#ff0000ff>rock</color> around.
+  conditionStr: Rock

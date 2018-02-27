@@ -101,8 +101,8 @@ public class CDataComponent : CComponent {
 	#region Main methods
 
 	public virtual bool Load() {
-		if (File.Exists (this.GetTotalSavePath ())) {
-			var fileStream = File.Open (this.GetTotalSavePath (), FileMode.OpenOrCreate);
+		if (File.Exists (this.GetFullSavePath ())) {
+			var fileStream = File.Open (this.GetFullSavePath (), FileMode.OpenOrCreate);
 			var binaryFormt = new BinaryFormatter ();
 			var data = (ScriptableObject) binaryFormt.Deserialize (fileStream);
 			this.m_CloneData = ScriptableObject.Instantiate (data);
@@ -118,7 +118,7 @@ public class CDataComponent : CComponent {
 	public virtual bool Save() {
 		if (this.m_CloneData == null)
 			return false;
-		var fileStream = File.Open (this.GetTotalSavePath (), FileMode.OpenOrCreate);
+		var fileStream = File.Open (this.GetFullSavePath (), FileMode.OpenOrCreate);
 		var binaryFormt = new BinaryFormatter ();
 		binaryFormt.Serialize (fileStream, this.m_CloneData);
 		fileStream.Close ();
@@ -325,7 +325,7 @@ public class CDataComponent : CComponent {
 		}
 	}
 
-	public virtual string GetTotalSavePath() {
+	public virtual string GetFullSavePath() {
 		return string.Format ("{0}/{1}.dat", Application.persistentDataPath, this.m_SaveFile);
 	}
 

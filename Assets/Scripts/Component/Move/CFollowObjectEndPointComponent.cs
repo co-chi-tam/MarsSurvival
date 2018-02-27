@@ -50,6 +50,10 @@ public class CFollowObjectEndPointComponent : CComponent {
 
 	#region Main methods
 
+	public virtual void Clear() {
+		this.m_Followers.Clear ();
+	}
+
 	public virtual bool AddFollower(CFollowObjectComponent value) {
 		if (this.m_Followers.Contains (value))
 			return false;

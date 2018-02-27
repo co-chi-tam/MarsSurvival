@@ -13,11 +13,7 @@ public class CItemData : CGameEntityData {
 	[Header("Item Fields")]
 	public string itemName 			= string.Empty;
 	public string itemDisplayName	= string.Empty;
-	[SerializeField]	protected int m_Amount = 1;
-	public int amount {
-		get { return this.m_Amount; }
-		set { this.m_Amount = value; }
-	}
+	public int amount 				= 1;
 
 	#endregion
 

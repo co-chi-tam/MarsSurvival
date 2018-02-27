@@ -97,6 +97,7 @@ public partial class CCharacterEntity {
 			var followerComponent = this.m_OtherEntity.GetGameComponent<CFollowObjectComponent> ();
 			if (followerComponent != null) {
 				followerComponent.target = value ? this.m_Transform : null;
+				this.m_FollowEndPointComponent.Clear ();
 			}
 		}
 	}
@@ -190,6 +191,21 @@ public partial class CCharacterEntity {
 
 	public virtual string IsObtainItem(string itemName) {
 		return this.m_InventoryComponent.CheckAmountItem (1, itemName) ? itemName : "FALSE";
+	}
+
+	public virtual string IsStartOneMachine (string methodName) {
+		if (this.m_OtherEntity == null)
+			return "NULL";
+		var machine = this.m_OtherEntity as CMachineEntity;
+		if (machine == null)
+			return "NULL";
+		return machine.IsStarted ? "Start" : "NULL";
+	}
+
+	public virtual string IsPullOneMachine (string methodName) {
+		if (this.m_FollowEndPointComponent == null)
+			return "NULL";
+		return this.m_FollowEndPointComponent.followers.Count > 0 ? "Pull" : "NULL";
 	}
 
 	public virtual void ReachReward (CMissionData mission) {

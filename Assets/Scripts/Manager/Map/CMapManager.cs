@@ -78,7 +78,7 @@ public class CMapManager : CMonoSingleton<CMapManager> {
 		this.InitMap();
 		if (this.m_AutoSaveLoad) {
 			if (this.Load ()) {
-				Debug.Log (this.GetTotalSavePath ());
+				Debug.Log (this.GetFullSavePath ());
 			} else {
 				this.m_MapInstance = new Dictionary<string, CTileMap> ();
 				if (this.m_InstanceMap != null) {
@@ -121,8 +121,8 @@ public class CMapManager : CMonoSingleton<CMapManager> {
 	}
 
 	public virtual bool Load() {
-		if (File.Exists (this.GetTotalSavePath ())) {
-			var fileRead = new StreamReader (this.GetTotalSavePath ());
+		if (File.Exists (this.GetFullSavePath ())) {
+			var fileRead = new StreamReader (this.GetFullSavePath ());
 			var stringJSON = fileRead.ReadToEnd ();
 			var data = JSON.Load (stringJSON).Make<Dictionary<string, CTileMap>>();
 			this.m_MapInstance = new Dictionary<string, CTileMap> (data);
@@ -139,7 +139,7 @@ public class CMapManager : CMonoSingleton<CMapManager> {
 		if (this.m_MapInstance == null)
 			return false;
 		var stringJSON = JSON.Dump (this.m_MapInstance);
-		var fileWrite = new StreamWriter (this.GetTotalSavePath ());
+		var fileWrite = new StreamWriter (this.GetFullSavePath ());
 		fileWrite.Write (stringJSON);
 		fileWrite.Close ();
 		if (this.OnSave != null) {
@@ -332,7 +332,7 @@ public class CMapManager : CMonoSingleton<CMapManager> {
 		planet.transform.position = new Vector3 (pos.x * this.m_PlaceDistance, 0f, pos.y * this.m_PlaceDistance);
 	}
 
-	public virtual string GetTotalSavePath() {
+	public virtual string GetFullSavePath() {
 		return string.Format ("{0}/{1}.dat", Application.persistentDataPath, this.m_SaveFile);
 	}
 
