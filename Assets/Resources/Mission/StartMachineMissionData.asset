@@ -12,11 +12,13 @@ MonoBehaviour:
   m_Name: StartMachineMissionData
   m_EditorClassIdentifier: 
   m_Mission:
-    m_MissionName: StartOneMachine
+    m_MissionName: <b>Mission :</b>Second Mission.
     m_MissionDetail: Start a machine.
     m_MissionConditions:
     - conditionMethod: IsStartOneMachine
       conditionValue: {fileID: 11400000, guid: da1e76832683c0642bf3a9435a76006f, type: 2}
   m_MissionRewards:
-  - itemAmount: 2
+  - itemAmount: 3
     itemData: {fileID: 11400000, guid: 6bb35f46bd23bcd4babe0ed793626045, type: 2}
+  - itemAmount: 2
+    itemData: {fileID: 11400000, guid: b8caa2594371e5f439291fe5cbf0b1fe, type: 2}

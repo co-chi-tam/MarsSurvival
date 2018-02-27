@@ -22,5 +22,5 @@ MonoBehaviour:
   m_MissionRewards:
   - itemAmount: 2
     itemData: {fileID: 11400000, guid: b7b569c67022a5843bec26a6f9284e58, type: 2}
-  - itemAmount: 2
+  - itemAmount: 3
     itemData: {fileID: 11400000, guid: 6bb35f46bd23bcd4babe0ed793626045, type: 2}

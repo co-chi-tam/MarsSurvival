@@ -542,7 +542,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4652133226900342, guid: f2b4e73307adda644b945f768f3bf0dc, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -23.4
+      value: 25.5
       objectReference: {fileID: 0}
     - target: {fileID: 4652133226900342, guid: f2b4e73307adda644b945f768f3bf0dc, type: 2}
       propertyPath: m_LocalPosition.y
@@ -550,7 +550,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4652133226900342, guid: f2b4e73307adda644b945f768f3bf0dc, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 13
+      value: -16.1
       objectReference: {fileID: 0}
     - target: {fileID: 4652133226900342, guid: f2b4e73307adda644b945f768f3bf0dc, type: 2}
       propertyPath: m_LocalRotation.x
@@ -952,12 +952,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: Cinemachine.CinemachineBrain+BrainEvent, Assembly-CSharp-firstpass,
-      Version=1.0.6632.24439, Culture=neutral, PublicKeyToken=null
+      Version=1.0.6632.29507, Culture=neutral, PublicKeyToken=null
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: Cinemachine.CinemachineBrain+VcamEvent, Assembly-CSharp-firstpass,
-      Version=1.0.6632.24439, Culture=neutral, PublicKeyToken=null
+      Version=1.0.6632.29507, Culture=neutral, PublicKeyToken=null
 --- !u!1 &1958330375
 GameObject:
   m_ObjectHideFlags: 0
