@@ -192,11 +192,33 @@ public partial class CCharacterEntity {
 		return this.m_InventoryComponent.CheckAmountItem (1, itemName) ? itemName : "FALSE";
 	}
 
-	public virtual void ReachReward(CMissionData mission) {
+	public virtual void ReachReward (CMissionData mission) {
 		var rewards = mission.missionRewards;
-		for (int i = 0; i < rewards.Length; i++) {
-			this.m_InventoryComponent.PickItem (rewards [i].itemAmount, rewards [i].itemData);
+		this.PickItems (rewards);
+	}
+
+	public virtual void LoadNextMission() {
+		var index = this.m_Data.missionIndex + 1;
+		if (index >= this.m_Data.listMissions.Length) {
+			this.m_MissionComponent.data = null;
+		} else {
+			this.m_Data.missionIndex = index;
+			this.m_MissionComponent.data = this.m_Data.listMissions [index];
 		}
+	}
+
+	#endregion
+
+	#region Inventory
+
+	public virtual void PickItems (CAmountItem[] items) {
+		for (int i = 0; i < items.Length; i++) {
+			this.PickItem (items [i]);
+		}
+	}
+
+	public virtual void PickItem (CAmountItem item) {
+		this.m_InventoryComponent.PickItem (item.itemAmount, item.itemData);
 	}
 
 	#endregion

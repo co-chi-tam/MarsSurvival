@@ -92,18 +92,22 @@ public class CCharacterData : CGameEntityData {
 		set { this.m_Items = new List<CItemData> (value); }
 	}
 
-	[SerializeField]	protected CToolData m_CurrentTool;
-	public CToolData currentTool {
+	[Header("Tool Fields")]
+	[SerializeField]	protected string m_CurrentTool;
+	public string currentTool {
 		get { return this.m_CurrentTool; }
 		set { this.m_CurrentTool = value; }
 	}
-
-	[Header("Save Data")]
-	[SerializeField]	protected CSaveObjectData m_SaveData;
-	[UpdateContinueAttribute]
-	public CSaveObjectData saveData {
-		get { return this.m_SaveData; }
-		set { this.m_SaveData = value; }
+	[Header("Mission")]
+	[SerializeField]	protected int m_MissionIndex = 0;
+	public int missionIndex {
+		get { return this.m_MissionIndex; }
+		set { this.m_MissionIndex = value; }
+	}
+	[SerializeField]	protected CMissionData[] m_ListMissions;
+	public CMissionData[] listMissions {
+		get { return this.m_ListMissions; }
+		set { this.m_ListMissions = value; }
 	}
 
 	#endregion

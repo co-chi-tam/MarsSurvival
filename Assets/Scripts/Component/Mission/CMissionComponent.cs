@@ -18,7 +18,6 @@ public class CMissionComponent : CComponent {
 	[Header ("Configs")]
 	[SerializeField]	protected bool m_DisplayResult = false;
 	[SerializeField]	protected string m_DisplatResultPattern = "OK";
-	[SerializeField]	protected GameObject m_Context;
 	[SerializeField]	protected CMissionData m_Data;
 	public CMissionData data {
 		get { return this.m_Data; }
@@ -85,6 +84,8 @@ public class CMissionComponent : CComponent {
 	}
 
 	public virtual void UpdateMission() {
+		if (this.m_Data == null)
+			return;
 		if (this.IsConditionCorrect ()) {
 			if (this.OnCompleteMission != null) {
 				this.OnCompleteMission.Invoke (this.m_Data);

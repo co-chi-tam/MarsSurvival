@@ -22,7 +22,7 @@ MonoBehaviour:
       m_ConditionValue: {fileID: 11400000, guid: 3044c72e6678ad2419cd2a21a484efb6,
         type: 2}
   m_MissionRewards:
-  - itemAmount: 1
+  - itemAmount: 2
     itemData: {fileID: 11400000, guid: b7b569c67022a5843bec26a6f9284e58, type: 2}
-  - itemAmount: 1
+  - itemAmount: 2
     itemData: {fileID: 11400000, guid: 6bb35f46bd23bcd4babe0ed793626045, type: 2}

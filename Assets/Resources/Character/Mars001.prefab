@@ -2555,8 +2555,7 @@ MonoBehaviour:
   m_IsActive: 1
   m_DisplayResult: 0
   m_DisplatResultPattern: OK
-  m_Context: {fileID: 1833698780043526}
-  m_Data: {fileID: 11400000, guid: 132cebd29f382cf4e8cd0adad745955a, type: 2}
+  m_Data: {fileID: 0}
   m_InputDatas:
   - m_InputName: IsComePosition
     inputMethod:
@@ -2585,8 +2584,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 114334304073670052}
-        m_MethodName: AbandonMission
+      - m_Target: {fileID: 114465870578483098}
+        m_MethodName: LoadNextMission
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

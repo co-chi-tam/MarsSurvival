@@ -58,6 +58,10 @@ public class CGameEntity : CEntity {
 		this.m_AnimationInt = value;
 	}
 
+	public virtual string GetGameEntityName() {
+		return "EMPTY + " + this.GetInstanceID ();
+	}
+
 	#endregion
 
 }

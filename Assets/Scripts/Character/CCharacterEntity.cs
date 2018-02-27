@@ -35,7 +35,13 @@ public partial class CCharacterEntity : CGameEntity, IContext {
 		this.m_MoveComponent.moveSpeed = this.m_Data.moveSpeed;
 		this.m_InventoryComponent.items = this.m_Data.items;
 		this.m_DataComponent.AddListener ("foodPoint", this.WasEatFood);
+
 		this.m_StoreToolComponent.LoadTool (this.m_Data.currentTool);
+		if (this.m_Data.missionIndex < this.m_Data.listMissions.Length) {
+			this.m_MissionComponent.data = this.m_Data.listMissions [this.m_Data.missionIndex];
+		} else {
+			this.m_MissionComponent.data = null;
+		}
 	}
 
 	protected override void Awake ()
@@ -71,9 +77,13 @@ public partial class CCharacterEntity : CGameEntity, IContext {
 	{
 		base.OnApplicationQuit ();
 		// DATA
-		this.m_Data.saveData.position = this.m_Transform.position.ToString();
-		this.m_Data.saveData.rotation = this.m_Transform.rotation.ToString();
-		this.m_Data.saveData.saveTool = this.m_Data.currentTool;
+		this.m_Data.position = this.m_Transform.position.ToString();
+		this.m_Data.rotation = this.m_Transform.rotation.ToString();
+		if (this.m_StoreToolComponent.currentToolData != null) {
+			this.m_Data.currentTool = this.m_StoreToolComponent.currentToolData.entityName;
+		} else {
+			this.m_Data.currentTool = string.Empty;
+		}
 	}
 
 	#endregion

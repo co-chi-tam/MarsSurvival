@@ -1,10 +1,11 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Mission\CMissionConditionData.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Entity\CGameEntity.cs">
     <Files>
-      <File FileName="Assets\Scripts\Mission\CMissionData.cs" Line="17" Column="16" />
-      <File FileName="Assets\Scripts\Mission\CMissionItemData.cs" Line="1" Column="14" />
-      <File FileName="Assets\Scripts\Mission\CMissionConditionData.cs" Line="16" Column="41" />
+      <File FileName="Assets\Scripts\Character\CCharacterEntityInteractive.cs" Line="200" Column="3" />
+      <File FileName="Assets\Scripts\Component\Mission\CMissionComponent.cs" Line="135" Column="22" />
+      <File FileName="Assets\Scripts\Character\CCharacterEntity.cs" Line="8" Column="47" />
+      <File FileName="Assets\Scripts\Entity\CGameEntity.cs" Line="62" Column="19" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -27,8 +27,10 @@ MonoBehaviour:
   m_HealthPoint: 100
   m_MaxHealthPoint: 100
   m_Items: []
-  m_CurrentTool: {fileID: 11400000, guid: a7aa97f2749cd414d84d83036ea5a727, type: 2}
   m_SaveData:
     m_Position: 0,0,0
     m_Rotation: 0,0,0
-    m_SaveTool: {fileID: 0}
+    m_SaveTool: Blade
+    m_MissionIndex: 0
+  m_ListMissions:
+  - {fileID: 11400000, guid: 132cebd29f382cf4e8cd0adad745955a, type: 2}
