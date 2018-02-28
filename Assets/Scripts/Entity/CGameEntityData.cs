@@ -33,8 +33,8 @@ public class CGameEntityData : CEntityData {
 		get { return this.m_Position; }
 		set { this.m_Position = value; }
 	}
-	[SerializeField]	protected string m_Rotation = "0,0,0";
-	public string rotation {
+	[SerializeField]	protected float m_Rotation =  180;
+	public float rotation {
 		get { return this.m_Rotation; }
 		set { this.m_Rotation = value; }
 	} 

@@ -47,10 +47,11 @@ public partial class CCharacterEntity {
 	}
 
 	public virtual void InvokeAttack(CToolData data) {
-		if (this.m_ToolInteractiveEntity != null) {
+		if (this.m_ToolInteractiveEntity != null 
+			&& this.m_Data.energyPoint >= data.energyConsume) {
 			this.m_ToolInteractiveEntity.ApplyDamage (data.toolDamage);
 			this.m_MoveComponent.Look (this.m_ToolInteractiveEntity.myTransform.position);
-			this.m_DataComponent.UpdateDataPerInvoke ("UpdatePerAttack");
+			this.m_Data.energyPoint -= data.energyConsume;
 		}
 	}
 		
@@ -215,11 +216,11 @@ public partial class CCharacterEntity {
 
 	public virtual void LoadNextMission() {
 		var index = this.m_Data.missionIndex + 1;
-		if (index >= this.m_Data.listMissions.Length) {
+		if (index >= this.m_MissionListComponent.missionList.Length) {
 			this.m_MissionComponent.data = null;
 		} else {
 			this.m_Data.missionIndex = index;
-			this.m_MissionComponent.data = this.m_Data.listMissions [index];
+			this.m_MissionComponent.data = this.m_MissionListComponent.missionList [index];
 		}
 	}
 
@@ -235,6 +236,19 @@ public partial class CCharacterEntity {
 
 	public virtual void PickItem (CAmountItem item) {
 		this.m_InventoryComponent.PickItem (item.itemAmount, item.itemData);
+	}
+
+	#endregion
+
+	#region Abs
+
+	public virtual void InvokeOpenCarrotAbs() {
+		if (this.m_Data == null)
+			return;
+		if (this.m_Data.rewardAbs.Length > 0) {
+			var rewardAbs = this.m_Data.rewardAbs [0];
+			this.PickItem (rewardAbs);
+		}
 	}
 
 	#endregion

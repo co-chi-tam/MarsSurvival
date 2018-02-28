@@ -65,7 +65,12 @@ public class CDataComponent : CComponent {
 	{
 		base.Start ();
 		if (this.m_AutoSaveLoad) {
-			this.Load ();
+//			Debug.Log (this.GetFullSavePath());
+			if (this.Load ()) {
+				if (this.OnLoad != null) {
+					this.OnLoad.Invoke ();
+				}
+			}
 		}
 	}
 
@@ -92,7 +97,11 @@ public class CDataComponent : CComponent {
 	{
 		base.OnDestroy ();
 		if (this.m_AutoSaveLoad) {
-			this.Save ();
+			if (this.Save ()) {
+				if (this.OnSave != null) {
+					this.OnSave.Invoke ();
+				}
+			}
 		}
 	}
 
@@ -107,9 +116,6 @@ public class CDataComponent : CComponent {
 			var data = (ScriptableObject) binaryFormt.Deserialize (fileStream);
 			this.m_CloneData = ScriptableObject.Instantiate (data);
 			fileStream.Close ();
-			if (this.OnLoad != null) {
-				this.OnLoad.Invoke ();
-			}
 			return true;
 		}
 		return false;
@@ -122,9 +128,6 @@ public class CDataComponent : CComponent {
 		var binaryFormt = new BinaryFormatter ();
 		binaryFormt.Serialize (fileStream, this.m_CloneData);
 		fileStream.Close ();
-		if (this.OnSave != null) {
-			this.OnSave.Invoke ();
-		}
 		return true;
 	}
 

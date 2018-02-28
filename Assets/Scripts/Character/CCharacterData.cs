@@ -23,18 +23,31 @@ public class CCharacterData : CGameEntityData {
 		set { this.m_MoveSpeed = value; }
 	}
 
+	// OXYGEN
+	[SerializeField]	protected float m_OxygenPoint = 50f;
+	[Info(valueName = "Oxygen point", valueMin = 0f, valueMax = 9999f)]
+	[UpdateValuePerSecond (updateMethod = "Increase", updateValuePerSecond = 1f)]
+	[UpdateValuePerInvoke (updateName = "LowOxygen", updateMethod = "Decrease", updateValuePerInvoke = 2.5f)]
+	public float oxygenPoint {
+		get { return this.m_OxygenPoint; }
+		set { this.m_OxygenPoint = value < 0f ? 0f : value > this.m_MaxOxygenPoint ? this.m_MaxOxygenPoint : value; }
+	}
+	[SerializeField]	protected float m_MaxOxygenPoint = 100f;
+	public float maxOxygenPoint {
+		get { return this.m_MaxOxygenPoint; }
+		set { this.m_MaxOxygenPoint = value; }
+	}
+
 	// ENERGY
-	[SerializeField]	protected float m_EnergyPoint;
+	[SerializeField]	protected float m_EnergyPoint = 50f;
 	[Info(valueName = "Energy point", valueMin = 0f, valueMax = 9999f)]
 	[UpdateValuePerSecond(updateMethod = "Decrease", updateValuePerSecond = 0.1f)]
 	[UpdateValuePerInvoke(updateName = "AddEnergy", updateMethod = "Increase", updateValuePerInvoke = 1.5f)]
-	[UpdateValuePerInvoke(updateName = "UpdatePerAttack", updateMethod = "Decrease", updateValuePerInvoke = 1f)]
 	public float energyPoint {
 		get { return this.m_EnergyPoint; }
 		set { this.m_EnergyPoint = value < 0f ? 0f : value > this.m_MaxEnergyPoint ? this.m_MaxEnergyPoint : value; }
 	}
-
-	[SerializeField]	protected float m_MaxEnergyPoint;
+	[SerializeField]	protected float m_MaxEnergyPoint = 100f;
 	public float maxEnergyPoint {
 		get { return this.m_MaxEnergyPoint; }
 		set { this.m_MaxEnergyPoint = value; }
@@ -45,7 +58,7 @@ public class CCharacterData : CGameEntityData {
 	[Info(valueName = "Water point", valueMin = 0f, valueMax = 9999f)]
 	[UpdateValuePerSecond(updateMethod = "Decrease", updateValuePerSecond = 0.15f)]
 	[UpdateValuePerInvoke(updateName = "AddWater", updateMethod = "Increase", updateValuePerInvoke = 2.5f)]
-	[UpdateValuePerInvoke(updateName = "UpdatePerAttack", updateMethod = "Decrease", updateValuePerInvoke = 1.5f)]
+	[UpdateValuePerInvoke(updateName = "UpdatePerAttack", updateMethod = "Decrease", updateValuePerInvoke = 2.5f)]
 	public float waterPoint {
 		get { return this.m_WaterPoint; }
 		set { this.m_WaterPoint = value < 0f ? 0f : value > this.m_MaxWaterPoint ? this.m_MaxWaterPoint : value; }
@@ -61,7 +74,7 @@ public class CCharacterData : CGameEntityData {
 	[Info(valueName = "Food point", valueMin = 0f, valueMax = 9999f)]
 	[UpdateValuePerSecond(updateMethod = "Decrease", updateValuePerSecond = 0.12f)]
 	[UpdateValuePerInvoke(updateName = "AddFood", updateMethod = "Increase", updateValuePerInvoke = 2f)]
-	[UpdateValuePerInvoke(updateName = "UpdatePerAttack", updateMethod = "Decrease", updateValuePerInvoke = 0.5f)]
+	[UpdateValuePerInvoke(updateName = "UpdatePerAttack", updateMethod = "Decrease", updateValuePerInvoke = 2f)]
 	public float foodPoint {
 		get { return this.m_FoodPoint; }
 		set { this.m_FoodPoint = value < 0f ? 0f : value > this.m_MaxFoodPoint ? this.m_MaxFoodPoint : value; }
@@ -105,10 +118,12 @@ public class CCharacterData : CGameEntityData {
 		get { return this.m_MissionIndex; }
 		set { this.m_MissionIndex = value; }
 	}
-	[SerializeField]	protected CMissionData[] m_ListMissions;
-	public CMissionData[] listMissions {
-		get { return this.m_ListMissions; }
-		set { this.m_ListMissions = value; }
+
+	[Header("Reward Abs")]
+	[SerializeField]	protected CAmountItem[] m_RewardAbs;
+	public CAmountItem[] rewardAbs {
+		get { return this.m_RewardAbs; }
+		set { this.m_RewardAbs = value; }
 	}
 
 	#endregion
@@ -116,8 +131,10 @@ public class CCharacterData : CGameEntityData {
 	#region Constructor
 
 	public CCharacterData (): base() {
-		this.characterName 		= "Empty name";
-		this.moveSpeed 			= 5f;
+		this.m_CharacterName	= "Empty name";
+		this.m_MoveSpeed		= 5f;
+		this.m_OxygenPoint 		= 50f;
+		this.m_MaxOxygenPoint 	= 100f;
 		this.m_EnergyPoint 		= 70f;
 		this.m_MaxEnergyPoint 	= 100f;
 		this.m_WaterPoint 		= 50f;
@@ -127,7 +144,7 @@ public class CCharacterData : CGameEntityData {
 		this.m_Items 			= new List<CItemData> ();
 	}
 
-	public CCharacterData (SerializationInfo info, StreamingContext context) : base(info, context) {
+	public CCharacterData (SerializationInfo info, StreamingContext context) : base (info, context) {
 
 	}
 

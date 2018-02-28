@@ -17,9 +17,11 @@ MonoBehaviour:
   m_AvatarPath: Character/Astronaut-icon
   m_ModelPath: Character/Mars001
   m_Position: 0,0,0
-  m_Rotation: 0,0,0
+  m_Rotation: 0
   m_CharacterName: Mars001
   m_MoveSpeed: 8
+  m_OxygenPoint: 50
+  m_MaxOxygenPoint: 100
   m_EnergyPoint: 100
   m_MaxEnergyPoint: 100
   m_WaterPoint: 100
@@ -31,6 +33,6 @@ MonoBehaviour:
   m_Items: []
   m_CurrentTool: Blade
   m_MissionIndex: 0
-  m_ListMissions:
-  - {fileID: 11400000, guid: 132cebd29f382cf4e8cd0adad745955a, type: 2}
-  - {fileID: 11400000, guid: 609c35967af6f2841bc005492c30cddd, type: 2}
+  m_RewardAbs:
+  - itemAmount: 5
+    itemData: {fileID: 11400000, guid: b7b569c67022a5843bec26a6f9284e58, type: 2}

@@ -18,6 +18,7 @@ public partial class CCharacterEntity : CGameEntity, IContext {
 	protected CStoreToolComponent m_StoreToolComponent;
 	protected CMissionComponent m_MissionComponent;
 	protected CFollowObjectEndPointComponent m_FollowEndPointComponent;
+	protected CMissionListComponent m_MissionListComponent;
 
 	protected CCharacterData m_Data;
 
@@ -34,12 +35,15 @@ public partial class CCharacterEntity : CGameEntity, IContext {
 	public virtual void Init() {
 		this.m_Data = this.m_DataComponent.Get<CCharacterData>();
 		this.m_MoveComponent.moveSpeed = this.m_Data.moveSpeed;
+		this.m_MoveComponent.SetupPosition (this.m_Data.position.ToV3 (), Quaternion.identity);
+		this.m_MoveComponent.currentRotationAngle = this.m_Data.rotation;
+
 		this.m_InventoryComponent.items = this.m_Data.items;
 		this.m_DataComponent.AddListener ("foodPoint", this.WasEatFood);
 
 		this.m_StoreToolComponent.LoadTool (this.m_Data.currentTool);
-		if (this.m_Data.missionIndex < this.m_Data.listMissions.Length) {
-			this.m_MissionComponent.data = this.m_Data.listMissions [this.m_Data.missionIndex];
+		if (this.m_Data.missionIndex < this.m_MissionListComponent.missionList.Length) {
+			this.m_MissionComponent.data = this.m_MissionListComponent.missionList [this.m_Data.missionIndex];
 		} else {
 			this.m_MissionComponent.data = null;
 		}
@@ -48,15 +52,16 @@ public partial class CCharacterEntity : CGameEntity, IContext {
 	protected override void Awake ()
 	{
 		base.Awake ();
-		this.m_AnimatorComponent = this.GetGameComponent<CAnimatorComponent> ();
-		this.m_InventoryComponent = this.GetGameComponent<CInventoryComponent> ();
-		this.m_DataComponent = this.GetGameComponent<CDataComponent> ();
-		this.m_MoveComponent = this.GetGameComponent<CMoveComponent> ();
+		this.m_AnimatorComponent 		= this.GetGameComponent<CAnimatorComponent> ();
+		this.m_InventoryComponent 		= this.GetGameComponent<CInventoryComponent> ();
+		this.m_DataComponent 			= this.GetGameComponent<CDataComponent> ();
+		this.m_MoveComponent 			= this.GetGameComponent<CMoveComponent> ();
 		this.m_ObjectPoolMemberComponent = this.GetGameComponent<CObjectPoolMemberComponent> ();
-		this.m_MapMemberComponent = this.GetGameComponent<CMapMemberComponent> ();
-		this.m_StoreToolComponent = this.GetGameComponent<CStoreToolComponent> ();
-		this.m_MissionComponent = this.GetGameComponent <CMissionComponent> ();
-		this.m_FollowEndPointComponent = this.GetGameComponent <CFollowObjectEndPointComponent> ();
+		this.m_MapMemberComponent 		= this.GetGameComponent<CMapMemberComponent> ();
+		this.m_StoreToolComponent 		= this.GetGameComponent<CStoreToolComponent> ();
+		this.m_MissionComponent 		= this.GetGameComponent <CMissionComponent> ();
+		this.m_FollowEndPointComponent 	= this.GetGameComponent <CFollowObjectEndPointComponent> ();
+		this.m_MissionListComponent 	= this.GetGameComponent <CMissionListComponent> ();
 	}
 
 	protected override void Start ()
@@ -80,7 +85,7 @@ public partial class CCharacterEntity : CGameEntity, IContext {
 		base.OnApplicationQuit ();
 		// DATA
 		this.m_Data.position = this.m_Transform.position.ToString();
-		this.m_Data.rotation = this.m_Transform.rotation.ToString();
+		this.m_Data.rotation = this.m_MoveComponent.currentRotationAngle;
 		if (this.m_StoreToolComponent.currentToolData != null) {
 			this.m_Data.currentTool = this.m_StoreToolComponent.currentToolData.entityName;
 		} else {

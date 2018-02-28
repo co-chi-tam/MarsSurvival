@@ -19,6 +19,11 @@ public class CToolData : CGameEntityData {
 		get { return this.m_ToolDamage; }
 		set { this.m_ToolDamage = value; }
 	}
+	[SerializeField]	protected float m_EnergyConsume = 5f;
+	public float energyConsume {
+		get { return this.m_EnergyConsume; }
+		set { this.m_EnergyConsume = value; }
+	}
 
 	#endregion
 

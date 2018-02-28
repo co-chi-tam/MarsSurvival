@@ -221,6 +221,7 @@ GameObject:
   - component: {fileID: 4745011088568174}
   - component: {fileID: 33662788382436202}
   - component: {fileID: 23797684544058842}
+  - component: {fileID: 114316144145772568}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -1643,6 +1644,29 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: CMoveAroundComponent+UnityEventVector3, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114316144145772568
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1440293307678932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c4f776a77aff174490abf93ab5313c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsActive: 1
+  m_IsVisible: 0
+  OnVisible:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnInvisible:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &114485491932543646
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1838,6 +1862,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_IsActive: 1
   m_IsCenterMap: 0
+  OnRemoveTile:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: CMapManager+UnityEventTileMap, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  OnLoadTile:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: CMapManager+UnityEventTileMap, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!114 &114792140313455752
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1857,6 +1891,11 @@ MonoBehaviour:
   - {fileID: 114231179665358080}
   - {fileID: 114089512328899008}
   m_IsActive: 1
+  OnApplyDamage:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: CGameEntity+UnityEventFloat, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
   m_OtherEntity: {fileID: 0}
 --- !u!114 &114835255128534822
 MonoBehaviour:
@@ -1876,6 +1915,7 @@ MonoBehaviour:
   m_Top: {fileID: 4739717219247882}
   m_Bottom: {fileID: 4429421886201320}
   m_MoveSpeed: 3
+  m_MoveSpeedThreshold: 1
   m_RotationSpeed: 5
   m_MinDistance: 2
   m_TargetPosition: {x: -21.6, y: 0, z: -1.56}

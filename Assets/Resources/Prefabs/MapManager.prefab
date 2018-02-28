@@ -175,22 +175,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1135095235839828
-GameObject:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4607417996060128}
-  - component: {fileID: 65726771506838492}
-  m_Layer: 29
-  m_Name: GroundWind
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &1146914065665724
 GameObject:
   m_ObjectHideFlags: 1
@@ -382,7 +366,8 @@ GameObject:
   - component: {fileID: 4339306811998352}
   - component: {fileID: 198065868341385672}
   - component: {fileID: 199156371570416172}
-  m_Layer: 31
+  - component: {fileID: 65849438599920548}
+  m_Layer: 29
   m_Name: DustStorm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1068,7 +1053,7 @@ GameObject:
   - component: {fileID: 4976069626285234}
   - component: {fileID: 33779675323418982}
   - component: {fileID: 23209472132786126}
-  - component: {fileID: 64761274702856240}
+  - component: {fileID: 65069195659217162}
   m_Layer: 30
   m_Name: GroundWater
   m_TagString: Untagged
@@ -1795,19 +1780,6 @@ Transform:
   m_Father: {fileID: 4435597906616966}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4607417996060128
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1135095235839828}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.6, y: 5, z: -4.1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4848415246778416}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4618808672412378
 Transform:
   m_ObjectHideFlags: 1
@@ -2024,7 +1996,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4339306811998352}
-  - {fileID: 4607417996060128}
   m_Father: {fileID: 4445974415562058}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3846,20 +3817,6 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: d4409cdb65fa7354e832c0d37f411404, type: 3}
---- !u!64 &64761274702856240
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1869569329576370}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: 23a9869059c215348a9ab8ce25f6ba7c, type: 3}
 --- !u!64 &64806402813800972
 MeshCollider:
   m_ObjectHideFlags: 1
@@ -3902,17 +3859,29 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: d4409cdb65fa7354e832c0d37f411404, type: 3}
---- !u!65 &65726771506838492
+--- !u!65 &65069195659217162
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1135095235839828}
+  m_GameObject: {fileID: 1869569329576370}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 20, y: 5, z: 20}
+  m_Size: {x: 15, y: 2, z: 15}
+  m_Center: {x: 0, y: 1, z: 0}
+--- !u!65 &65849438599920548
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1269103994448854}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 40, y: 20, z: 40}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!82 &82179846437375810
 AudioSource:
@@ -4114,6 +4083,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: CGameEntity+UnityEventFloat, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
+  m_MapItemPercent: 100
   m_RenderObjectComponent: {fileID: 114636342583989958}
 --- !u!114 &114040575200114552
 MonoBehaviour:
@@ -4181,6 +4151,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: CGameEntity+UnityEventFloat, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
+  m_MapItemPercent: 100
   m_RenderObjectComponent: {fileID: 0}
 --- !u!114 &114130965998176164
 MonoBehaviour:
@@ -4285,18 +4256,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnLoaded:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 114221404045055026}
-        m_MethodName: LoadTileMap
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: CTileMapObject+UnityEventTileMap, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   OnRemove:
@@ -4421,6 +4381,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: CGameEntity+UnityEventFloat, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
+  m_MapItemPercent: 100
   m_RenderObjectComponent: {fileID: 114040575200114552}
 --- !u!114 &114334532013158498
 MonoBehaviour:
@@ -4525,6 +4486,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: CGameEntity+UnityEventFloat, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
+  m_MapItemPercent: 100
   m_RenderObjectComponent: {fileID: 114886203134170946}
 --- !u!114 &114370998149580248
 MonoBehaviour:
@@ -4822,7 +4784,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnLoaded:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114221404045055026}
+        m_MethodName: LoadTileMap
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: CTileMapObject+UnityEventTileMap, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   OnRemove:
@@ -4848,6 +4821,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: CGameEntity+UnityEventFloat, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
+  m_MapItemPercent: 100
   m_RenderObjectComponent: {fileID: 114113116579350496}
 --- !u!114 &114606324729142380
 MonoBehaviour:
@@ -4925,6 +4899,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: CGameEntity+UnityEventFloat, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
+  m_MapItemPercent: 100
   m_RenderObjectComponent: {fileID: 114680132402096246}
 --- !u!114 &114627573441181860
 MonoBehaviour:
@@ -5019,6 +4994,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: CGameEntity+UnityEventFloat, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
+  m_MapItemPercent: 100
   m_RenderObjectComponent: {fileID: 114189109197233686}
 --- !u!114 &114650275576176018
 MonoBehaviour:
@@ -5551,6 +5527,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: CGameEntity+UnityEventFloat, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
+  m_MapItemPercent: 100
   m_RenderObjectComponent: {fileID: 114606324729142380}
 --- !u!114 &114886203134170946
 MonoBehaviour:
@@ -6027,7 +6004,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 0.9015551, b: 0.6431373, a: 1}
+      maxColor: {r: 0.9485294, g: 0.79460984, b: 0.3905709, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -6497,7 +6474,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 10
+      scalar: 30
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -12792,14 +12769,15 @@ LODGroup:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1544374278235714}
   serializedVersion: 2
-  m_LocalReferencePoint: {x: 0, y: 0, z: 0}
-  m_Size: 1
+  m_LocalReferencePoint: {x: 0, y: 10, z: 12.5}
+  m_Size: 89.2
   m_FadeMode: 0
   m_AnimateCrossFading: 0
   m_LODs:
   - screenRelativeHeight: 0.05072202
     fadeTransitionWidth: 0
-    renderers: []
+    renderers:
+    - renderer: {fileID: 199156371570416172}
   m_Enabled: 1
 --- !u!205 &205439830121606806
 LODGroup:

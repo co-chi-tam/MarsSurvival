@@ -18,6 +18,11 @@ public class CMoveComponent : CComponent {
 		get { return this.m_MoveSpeed; }
 		set { this.m_MoveSpeed = value; }
 	}
+	[SerializeField]	protected float m_MoveSpeedThreshold = 1f;
+	public float moveSpeedThreshold {
+		get { return this.m_MoveSpeedThreshold; }
+		set { this.m_MoveSpeedThreshold = value; }
+	}
 	[SerializeField]	protected float m_RotationSpeed = 5f;
 	public float rotationSpeed {
 		get { return this.m_RotationSpeed; }
@@ -37,6 +42,15 @@ public class CMoveComponent : CComponent {
 		get { return this.transform.rotation.eulerAngles; }
 		set { this.transform.rotation = Quaternion.Euler (value); }
 	}
+	public float currentRotationAngle {
+		get { return this.m_RotationAngle; }
+		set { 
+			this.m_RotationAngle = value; 
+			var dirRotation = Quaternion.AngleAxis (this.m_RotationAngle, Vector3.up);
+			this.m_Transform.rotation = dirRotation;
+		}
+	}
+
 	[SerializeField]	protected Vector3 m_TargetPosition;
 	public Vector3 targetPosition {
 		get { return this.m_TargetPosition; }
@@ -56,7 +70,7 @@ public class CMoveComponent : CComponent {
 	public UnityEvent OnMove;
 
 	protected Vector3 m_MovePoint;
-	protected float m_RotationPoint;
+	protected float m_RotationAngle;
 	protected Vector3 m_DirNormal;
 
 	#endregion
@@ -67,7 +81,7 @@ public class CMoveComponent : CComponent {
 	{
 		base.Awake ();
 		this.m_PreviousMoveSpeed = this.m_MoveSpeed;
-		this.m_MovePoint = this.m_TargetPosition = this.transform.position;
+		this.SetupPosition (this.transform.position, Quaternion.identity);
 	}
 
 	protected override void Update ()
@@ -82,6 +96,11 @@ public class CMoveComponent : CComponent {
 	#endregion
 
 	#region Main methods
+
+	public virtual void SetupPosition(Vector3 position, Quaternion rotation) {
+		this.transform.position = this.m_MovePoint = this.m_TargetPosition = position;
+		this.transform.rotation = rotation;
+	}
 
 	public virtual void UpdateStepOnGround(float dt) {
 		this.m_DirNormal = Vector3.up;
@@ -108,7 +127,7 @@ public class CMoveComponent : CComponent {
 //											this.m_Transform.rotation, 
 //											combineRot,
 //											this.m_RotationSpeed * dt);
-		var dirRotation = Quaternion.AngleAxis (this.m_RotationPoint, Vector3.up);
+		var dirRotation = Quaternion.AngleAxis (this.m_RotationAngle, Vector3.up);
 		this.m_Transform.rotation = Quaternion.Lerp (
 			this.m_Transform.rotation, 
 			dirRotation,
@@ -117,7 +136,7 @@ public class CMoveComponent : CComponent {
 
 	public virtual void Look (Vector3 position) {
 		var direction = position - this.m_Transform.position;
-		this.m_RotationPoint = Mathf.Atan2 (direction.x, direction.z) * Mathf.Rad2Deg;
+		this.m_RotationAngle = Mathf.Atan2 (direction.x, direction.z) * Mathf.Rad2Deg;
 	}
 
 	public virtual void SetupMove(float dt) {
@@ -125,9 +144,11 @@ public class CMoveComponent : CComponent {
 		var direction = this.m_TargetPosition - this.m_Transform.position;
 		if (direction.sqrMagnitude > this.m_MinDistance * this.m_MinDistance * this.m_MoveSpeed) {
 			// Position
-			this.m_MovePoint = this.m_Transform.position + direction.normalized * this.m_MoveSpeed * dt;
+			this.m_MovePoint = this.m_Transform.position + direction.normalized 
+				* (this.m_MoveSpeed * this.m_MoveSpeedThreshold) 
+				* dt;
 			// Rotation
-			this.m_RotationPoint = Mathf.Atan2 (direction.x, direction.z) * Mathf.Rad2Deg;
+			this.m_RotationAngle = Mathf.Atan2 (direction.x, direction.z) * Mathf.Rad2Deg;
 			// Events
 			if (this.OnMove != null) {
 				this.OnMove.Invoke ();
