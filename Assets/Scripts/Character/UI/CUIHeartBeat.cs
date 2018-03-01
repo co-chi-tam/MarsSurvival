@@ -18,6 +18,11 @@ public class CUIHeartBeat : MonoBehaviour {
 			}
 		}
 	}
+	[SerializeField]	protected float m_SpeedThresholdValue = 1f;
+	public float speedThresholdValue {
+		get { return this.m_SpeedThresholdValue; }
+		set { this.m_SpeedThresholdValue = value; }
+	}
 	[SerializeField]	protected Image m_HeartBeatImage;
 	[SerializeField]	protected AnimationCurve m_HeartBeatCurve;
 
@@ -34,7 +39,7 @@ public class CUIHeartBeat : MonoBehaviour {
 
 	public virtual void UpdateHeartBeat(float dt) {
 		var delta = Mathf.Clamp (this.m_HeartBeatCurve.Evaluate (this.m_Time), 0.1f, 1f);
-		this.m_Time = (this.m_Time + dt * delta) % 1f;
+		this.m_Time = (this.m_Time + dt * delta * this.m_SpeedThresholdValue) % 1f;
 		this.m_HeartBeatImage.fillAmount = this.m_Time;
 		if (this.m_Time < dt) {
 			if (this.OnBeat != null) {

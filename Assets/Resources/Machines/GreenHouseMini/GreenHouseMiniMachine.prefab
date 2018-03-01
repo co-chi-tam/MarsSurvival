@@ -526,7 +526,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1376049691896804}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.9, y: 0, z: 3}
+  m_LocalPosition: {x: 10, y: 0, z: 3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4734288587281020}
@@ -711,7 +711,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1583391847068980}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 10, z: 0}
+  m_LocalPosition: {x: 0, y: 20, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4126497654359312}
@@ -1409,13 +1409,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_IsActive: 0
-  m_UpdateDeltaSpeed: 1
   m_InstanceData: {fileID: 11400000, guid: 3f0db3ae89f2eac4d90216037b03bc70, type: 2}
   m_AutoSaveLoad: 0
   m_SaveFile: GreenHouseMiniMachine
   OnLoad:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114762353910822680}
+        m_MethodName: Init
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   OnSave:
@@ -1423,6 +1433,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  m_UpdateDeltaSpeed: 1
 --- !u!114 &114504133645510670
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1450,6 +1461,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_IsActive: 1
   m_IsCenterMap: 0
+  OnRemoveTile:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: CMapManager+UnityEventTileMap, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  OnLoadTile:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: CMapManager+UnityEventTileMap, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!114 &114670103409477156
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1468,6 +1489,7 @@ MonoBehaviour:
   m_Top: {fileID: 4650037210403102}
   m_Bottom: {fileID: 4957681999109470}
   m_MoveSpeed: 8
+  m_MoveSpeedThreshold: 1
   m_RotationSpeed: 5
   m_MinDistance: 0.1
   m_TargetPosition: {x: 0, y: 0, z: 0}
@@ -1512,6 +1534,11 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 114241283608022498}
   m_IsActive: 0
+  OnApplyDamage:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: CGameEntity+UnityEventFloat, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
   m_HaveEnergy: 1
   m_IsStarted: 0
 --- !u!114 &114778673889243870

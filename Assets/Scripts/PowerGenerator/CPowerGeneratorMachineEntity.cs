@@ -6,7 +6,6 @@ public class CPowerGeneratorMachineEntity : CMachineEntity {
 
 	#region Fields
 
-	protected CDataComponent m_DataComponent;
 	protected CPowerGeneratorMachineData m_PowerGeneratorData;
 	protected CAnimatorComponent m_AnimatorComponent;
 
@@ -51,17 +50,21 @@ public class CPowerGeneratorMachineEntity : CMachineEntity {
 
 	#region Implementation Entity
 
+	public override void Init ()
+	{
+		base.Init ();
+		this.m_PowerGeneratorData = this.m_MachineData as CPowerGeneratorMachineData;
+	}
+
 	protected override void Awake ()
 	{
 		base.Awake ();
 		this.m_AnimatorComponent = this.GetGameComponent<CAnimatorComponent> ();
-		this.m_DataComponent = this.GetGameComponent<CDataComponent> ();
 	}
 
 	protected override void Start ()
 	{
 		base.Start ();
-		this.m_PowerGeneratorData = this.m_DataComponent.Get<CPowerGeneratorMachineData> ();
 	}
 
 	protected override void LateUpdate ()

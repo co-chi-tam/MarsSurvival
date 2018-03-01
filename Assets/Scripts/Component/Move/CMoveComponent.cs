@@ -35,7 +35,11 @@ public class CMoveComponent : CComponent {
 		set { this.m_MinDistance = value; }
 	}
 	public Vector3 currentPosition {
-		get { return this.transform.position; }
+		get { 
+			var pos = this.transform.position; 
+			pos.y = this.m_Top != null ? this.m_Top.position.y : 50f;
+			return pos; 
+		}
 		set { this.transform.position = value; }
 	}
 	public Vector3 currentRotation {

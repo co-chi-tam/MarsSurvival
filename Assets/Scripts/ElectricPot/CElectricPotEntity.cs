@@ -7,7 +7,6 @@ public class CElectricPotEntity : CMachineEntity {
 	#region Fields
 
 	protected CAnimatorComponent m_AnimatorComponent;
-	protected CDataComponent m_DataComponent;
 	protected CElectricPotData m_ElectricPotData;
 
 	public override bool IsActive {
@@ -50,11 +49,16 @@ public class CElectricPotEntity : CMachineEntity {
 
 	#region Implementation Entity
 
+	public override void Init ()
+	{
+		base.Init ();
+		this.m_ElectricPotData = this.m_MachineData as CElectricPotData;
+	}
+
 	protected override void Awake ()
 	{
 		base.Awake ();
 		this.m_AnimatorComponent = this.GetGameComponent<CAnimatorComponent> ();
-		this.m_DataComponent = this.GetGameComponent<CDataComponent> ();
 	}
 
 	protected override void Start ()

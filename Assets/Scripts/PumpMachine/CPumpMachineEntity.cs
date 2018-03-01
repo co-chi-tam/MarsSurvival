@@ -7,7 +7,6 @@ public class CPumpMachineEntity : CMachineEntity {
 	#region Fields
 
 	protected CAnimatorComponent m_AnimatorComponent;
-	protected CDataComponent m_DataComponent;
 
 	public override bool IsActive {
 		get { return this.m_IsActive; }
@@ -29,11 +28,15 @@ public class CPumpMachineEntity : CMachineEntity {
 
 	#region Implementation Entity
 
+	public override void Init ()
+	{
+		base.Init ();
+	}
+
 	protected override void Awake ()
 	{
 		base.Awake ();
 		this.m_AnimatorComponent = this.GetGameComponent<CAnimatorComponent> ();
-		this.m_DataComponent = this.GetGameComponent<CDataComponent> ();
 	}
 
 	protected override void Start ()

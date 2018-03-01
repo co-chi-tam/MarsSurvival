@@ -16,6 +16,11 @@ MonoBehaviour:
   m_Description: Energy generator machine
   m_AvatarPath: Machines/PowerGenerator/EnergyMachine-icon
   m_ModelPath: Machines/PowerGenerator/EnergyMachine
+  m_Position: 20,0,0
+  m_Rotation: 180
+  m_CurrentState: 
+  m_IsActive: 0
+  m_IsStart: 0
   m_MachineName: Energy generator machine
   m_MachineJobs:
   - StartMachine

@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Runtime.Serialization;
+using System.Reflection;
 using UnityEngine;
 
 [Serializable]
-public class CEnergyObjectData {
+public class CEnergyObjectData: ISerializable {
 
 	#region Fields
 
@@ -36,6 +38,26 @@ public class CEnergyObjectData {
 	public CEnergyObjectData () {
 		this.m_EnergyPoint = 100f;
 		this.m_MaxEnergyPoint = 100f;
+	}
+
+	public CEnergyObjectData (SerializationInfo info, StreamingContext context)
+	{
+		foreach (FieldInfo field in this.GetType().GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.FlattenHierarchy | BindingFlags.Instance))
+		{
+			field.SetValue(this, info.GetValue(field.Name, field.FieldType));
+		}
+	}
+
+	#endregion
+
+	#region Getter && Setter
+
+	public virtual void GetObjectData(SerializationInfo info, StreamingContext context)
+	{
+		foreach(FieldInfo field in this.GetType().GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.FlattenHierarchy | BindingFlags.Instance))
+		{
+			info.AddValue(field.Name, field.GetValue(this), field.FieldType);
+		}
 	}
 
 	#endregion

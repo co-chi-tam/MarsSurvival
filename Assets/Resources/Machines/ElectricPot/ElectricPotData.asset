@@ -16,6 +16,11 @@ MonoBehaviour:
   m_Description: Electric pot machine
   m_AvatarPath: Machines/ElectricPot/ElectricPot-icon
   m_ModelPath: Machines/ElectricPot/ElectricPot
+  m_Position: -1.5,0,-11.5
+  m_Rotation: 180
+  m_CurrentState: 
+  m_IsActive: 0
+  m_IsStart: 0
   m_MachineName: Electric pot machine
   m_MachineJobs:
   - StartMachine

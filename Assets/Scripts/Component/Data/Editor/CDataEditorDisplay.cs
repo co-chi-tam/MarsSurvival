@@ -25,7 +25,7 @@ public class CDataEditorDisplay : Editor {
 			if (sampleValue is int
 				|| sampleValue is float
 				|| sampleValue is string) {
-				GUILayout.Label (string.Format ("{0} - {1}", fld.Name, fld.GetValue (valueObj, null)));
+				GUILayout.Label (string.Format ("{0}: {1}", fld.Name, fld.GetValue (valueObj, null)));
 			} else {
 				var fieldConstinues = fld.GetCustomAttributes (typeof(UpdateContinueAttribute), false);
 				if (fieldConstinues.Length > 0) {

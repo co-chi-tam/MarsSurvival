@@ -106,7 +106,7 @@ public class CCharacterData : CGameEntityData {
 	}
 
 	[Header("Tool Fields")]
-	[SerializeField]	protected string m_CurrentTool;
+	[SerializeField]	protected string m_CurrentTool = "Empty";
 	public string currentTool {
 		get { return this.m_CurrentTool; }
 		set { this.m_CurrentTool = value; }

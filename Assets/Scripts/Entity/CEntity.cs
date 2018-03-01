@@ -76,6 +76,10 @@ public class CEntity : MonoBehaviour {
 		}
 	}
 
+	public virtual void SaveEntity() {
+		
+	}
+
 	#endregion
 
 	#region Getter && Setter

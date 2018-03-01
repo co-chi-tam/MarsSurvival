@@ -11,7 +11,7 @@ using UnityEngine.Events;
 using UnityEngine.Events.Utils;
 using Ludiq.Reflection;
 
-public class CDataComponent : CComponent {
+public class CDataComponent : CSaveLoadDataComponent {
 
 	#region Fields
 
@@ -22,18 +22,6 @@ public class CDataComponent : CComponent {
 		get { return this.m_UpdateDeltaSpeed; }
 		set { this.m_UpdateDeltaSpeed = value < 1 ? 1 : value > 999 ? 999 : value; }
 	}
-	[SerializeField]	protected ScriptableObject m_InstanceData;
-	protected ScriptableObject m_CloneData;
-	public ScriptableObject cloneData {
-		get { return this.m_CloneData; }
-		protected set { this.m_CloneData = value; }
-	}
-
-	[Header("Save")]
-	[SerializeField]	protected bool m_AutoSaveLoad = false;
-	[SerializeField]	protected string m_SaveFile = Guid.NewGuid().ToString();
-	public UnityEvent OnLoad;
-	public UnityEvent OnSave;
 
 	protected Dictionary<string, Func<string, object, object, object>> m_UpdateMethods;
 	protected Dictionary<string, Action<object>> m_ValueChanged;
@@ -48,8 +36,6 @@ public class CDataComponent : CComponent {
 
 	protected override void Awake () {
 		base.Awake ();
-		this.m_CloneData = ScriptableObject.Instantiate (this.m_InstanceData);
-
 		this.m_UpdateMethods = new Dictionary<string, Func<string, object, object, object>> ();
 		this.m_UpdateMethods.Add ("None", this.UpdateNothing);
 		this.m_UpdateMethods.Add ("SetValue", this.SetValue);
@@ -64,14 +50,6 @@ public class CDataComponent : CComponent {
 	protected override void Start ()
 	{
 		base.Start ();
-		if (this.m_AutoSaveLoad) {
-//			Debug.Log (this.GetFullSavePath());
-			if (this.Load ()) {
-				if (this.OnLoad != null) {
-					this.OnLoad.Invoke ();
-				}
-			}
-		}
 	}
 
 	protected override void Update ()
@@ -93,43 +71,9 @@ public class CDataComponent : CComponent {
 		}
 	}
 
-	protected override void OnDestroy ()
-	{
-		base.OnDestroy ();
-		if (this.m_AutoSaveLoad) {
-			if (this.Save ()) {
-				if (this.OnSave != null) {
-					this.OnSave.Invoke ();
-				}
-			}
-		}
-	}
-
 	#endregion
 
 	#region Main methods
-
-	public virtual bool Load() {
-		if (File.Exists (this.GetFullSavePath ())) {
-			var fileStream = File.Open (this.GetFullSavePath (), FileMode.OpenOrCreate);
-			var binaryFormt = new BinaryFormatter ();
-			var data = (ScriptableObject) binaryFormt.Deserialize (fileStream);
-			this.m_CloneData = ScriptableObject.Instantiate (data);
-			fileStream.Close ();
-			return true;
-		}
-		return false;
-	}
-
-	public virtual bool Save() {
-		if (this.m_CloneData == null)
-			return false;
-		var fileStream = File.Open (this.GetFullSavePath (), FileMode.OpenOrCreate);
-		var binaryFormt = new BinaryFormatter ();
-		binaryFormt.Serialize (fileStream, this.m_CloneData);
-		fileStream.Close ();
-		return true;
-	}
 
 	protected virtual object UpdateNothing(string name, object value, object updateValue) {
 		return value;
@@ -326,10 +270,6 @@ public class CDataComponent : CComponent {
 		if (fields != null) {
 			fields.SetValue (this.m_CloneData, value, null);
 		}
-	}
-
-	public virtual string GetFullSavePath() {
-		return string.Format ("{0}/{1}.dat", Application.persistentDataPath, this.m_SaveFile);
 	}
 
 	public byte[] ToByteArray<T>(T obj)

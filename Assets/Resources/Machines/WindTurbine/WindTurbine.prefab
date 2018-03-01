@@ -400,7 +400,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1683905188481470}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 10, z: 0}
+  m_LocalPosition: {x: 0, y: 20, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4652133226900342}
@@ -538,7 +538,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1332768968964908}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -23.4, y: 0, z: 13}
+  m_LocalPosition: {x: 25, y: 0, z: -16}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4337681134205856}
@@ -880,6 +880,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_IsActive: 1
   m_IsCenterMap: 0
+  OnRemoveTile:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: CMapManager+UnityEventTileMap, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  OnLoadTile:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: CMapManager+UnityEventTileMap, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!114 &114154345464395124
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -954,6 +964,7 @@ MonoBehaviour:
   m_Top: {fileID: 4174926346397438}
   m_Bottom: {fileID: 4790011543442694}
   m_MoveSpeed: 8
+  m_MoveSpeedThreshold: 1
   m_RotationSpeed: 5
   m_MinDistance: 0.1
   m_TargetPosition: {x: 0, y: 0, z: 0}
@@ -1224,13 +1235,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_IsActive: 0
-  m_UpdateDeltaSpeed: 1
   m_InstanceData: {fileID: 11400000, guid: 565450792ab083241851ab964b3b94e6, type: 2}
   m_AutoSaveLoad: 0
   m_SaveFile: WindTurbine
   OnLoad:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114687305577738578}
+        m_MethodName: Init
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   OnSave:
@@ -1238,6 +1259,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  m_UpdateDeltaSpeed: 1
 --- !u!114 &114687305577738578
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1259,6 +1281,11 @@ MonoBehaviour:
   - {fileID: 114560185643717034}
   - {fileID: 114368347794547082}
   m_IsActive: 0
+  OnApplyDamage:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: CGameEntity+UnityEventFloat, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
   m_HaveEnergy: 1
   m_IsStarted: 0
 --- !u!114 &114758763717594394

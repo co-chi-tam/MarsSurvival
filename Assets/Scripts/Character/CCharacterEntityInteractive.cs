@@ -54,6 +54,10 @@ public partial class CCharacterEntity {
 			this.m_Data.energyPoint -= data.energyConsume;
 		}
 	}
+
+	public virtual void SetEquipTool(string toolName) {
+		this.m_StoreToolComponent.LoadTool (toolName);
+	}
 		
 	#endregion
 

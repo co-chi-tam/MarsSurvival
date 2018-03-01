@@ -73,6 +73,12 @@ public class CHostAdapterComponent : CComponent {
 		}
 	}
 
+	public virtual void InvokeAdapter(string name, CInOutTriggerData data) {
+		if (this.m_AdapterSample == null)
+			return;
+		this.m_AdapterSample.Invoke (name, data);
+	}
+
 	public virtual void Invoke (CAdapterComponent adapter, CInOutTriggerData data) {
 		if (this.m_IsActive == false)
 			return;

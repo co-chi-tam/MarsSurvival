@@ -6,7 +6,6 @@ public class CGreenHouseMiniEntity : CMachineEntity {
 
 	#region Fields
 
-	protected CDataComponent m_DataComponent;
 	protected CGreenHouseMiniData m_GreenHouseData;
 	protected CAnimatorComponent m_AnimatorComponent;
 
@@ -74,11 +73,16 @@ public class CGreenHouseMiniEntity : CMachineEntity {
 
 	#region Implementation Entity
 
+	public override void Init ()
+	{
+		base.Init ();
+		this.m_GreenHouseData = this.m_MachineData as CGreenHouseMiniData;
+	}
+
 	protected override void Awake ()
 	{
 		base.Awake ();
 		this.m_AnimatorComponent = this.GetGameComponent<CAnimatorComponent> ();
-		this.m_DataComponent = this.GetGameComponent<CDataComponent> ();
 	}
 
 	protected override void Start ()

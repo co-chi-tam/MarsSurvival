@@ -1,7 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
+using System.Runtime.Serialization;
+using System.Reflection;
 using UnityEngine;
 
+[Serializable]
 public class CPowerGeneratorMachineData : CMachineData {
 	
 	#region Fields
@@ -23,6 +25,19 @@ public class CPowerGeneratorMachineData : CMachineData {
 		this.m_MachineName = "Energy generate machine";
 	}
 
+	public CPowerGeneratorMachineData (SerializationInfo info, StreamingContext context) : base (info, context)
+	{
+
+	}
+
 	#endregion
 
+	#region Getter && Setter
+
+	public override void GetObjectData(SerializationInfo info, StreamingContext context)
+	{
+		base.GetObjectData (info, context);
+	}
+
+	#endregion
 }

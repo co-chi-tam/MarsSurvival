@@ -20,7 +20,7 @@ MonoBehaviour:
   m_Rotation: 0
   m_CharacterName: Mars001
   m_MoveSpeed: 8
-  m_OxygenPoint: 50
+  m_OxygenPoint: 75
   m_MaxOxygenPoint: 100
   m_EnergyPoint: 100
   m_MaxEnergyPoint: 100
@@ -31,7 +31,7 @@ MonoBehaviour:
   m_HealthPoint: 100
   m_MaxHealthPoint: 100
   m_Items: []
-  m_CurrentTool: Blade
+  m_CurrentTool: Empty
   m_MissionIndex: 0
   m_RewardAbs:
   - itemAmount: 5

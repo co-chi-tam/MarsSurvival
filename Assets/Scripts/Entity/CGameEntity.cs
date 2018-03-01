@@ -25,6 +25,14 @@ public class CGameEntity : CEntity {
 
 	#endregion
 
+	#region Implementation Entity
+
+	public virtual void Init() {
+		
+	}
+
+	#endregion
+
 	#region Main methods
 
 	public virtual void AddEnergy() {

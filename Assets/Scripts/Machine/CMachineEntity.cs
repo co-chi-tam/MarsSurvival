@@ -6,10 +6,12 @@ public partial class CMachineEntity : CGameEntity {
 
 	#region Fields
 
+	protected CDataComponent m_DataComponent;
+	protected CMoveComponent m_MoveComponent;
 	protected CFollowObjectComponent m_FollowObjectComponent;
-	private CMachineData m_MachineData;
+	protected CMachineData m_MachineData;
 
-	[SerializeField]	protected bool m_HaveEnergy;
+	[SerializeField]	protected bool m_HaveEnergy = false;
 	public virtual bool HaveEnergy {
 		get { return this.m_HaveEnergy; }
 		set { this.m_HaveEnergy = value; }
@@ -57,36 +59,65 @@ public partial class CMachineEntity : CGameEntity {
 		}
 	}
 
-	public virtual CRecipeData[] toolRecipes {
-		get { return new CRecipeData[0]; }
-	}
-	public virtual CRecipeData currentRecipe {
-		get { return null; }
-		set {  }
-	}
-	public virtual bool IsProductToolCompleted {
-		get { return false; }
-	}
+//	public virtual CRecipeData[] toolRecipes {
+//		get { return new CRecipeData[0]; }
+//	}
+//	public virtual CRecipeData currentRecipe {
+//		get { return null; }
+//		set {  }
+//	}
+//	public virtual bool IsProductToolCompleted {
+//		get { return false; }
+//	}
 
 	#endregion
 
 	#region Implementation Entity
 
+	public override void Init ()
+	{
+		base.Init ();
+		this.m_MachineData = this.m_DataComponent.Get<CMachineData> ();
+		this.m_MoveComponent.SetupPosition (this.m_MachineData.position.ToV3 (), Quaternion.identity);
+		this.m_MoveComponent.currentRotationAngle = this.m_MachineData.rotation;
+		this.IsActive = this.m_MachineData.isActive;
+		this.IsStarted = this.m_MachineData.isStart;
+	}
+
 	protected override void Awake ()
 	{
 		base.Awake ();
-		this.m_FollowObjectComponent = this.GetGameComponent<CFollowObjectComponent> ();
+		this.m_DataComponent 			= this.GetGameComponent <CDataComponent> ();
+		this.m_MoveComponent 			= this.GetGameComponent<CMoveComponent> ();
+		this.m_FollowObjectComponent 	= this.GetGameComponent<CFollowObjectComponent> ();
 	}
 
 	protected override void Start ()
 	{
 		base.Start ();
-		this.m_MachineData = this.GetGameComponent<CDataComponent> ().Get<CMachineData> ();
+		this.Init ();
+	}
+
+	protected override void LateUpdate ()
+	{
+		base.LateUpdate ();
+		// SAVE VALUE
+		this.SaveEntity ();
 	}
 
 	#endregion
 
 	#region Main methods
+
+	public override void SaveEntity ()
+	{
+		base.SaveEntity ();
+		// DATA
+		this.m_MachineData.position = this.m_MoveComponent.currentPosition.ToString();
+		this.m_MachineData.rotation = this.m_MoveComponent.currentRotationAngle;
+		this.m_MachineData.isActive = this.IsActive;
+		this.m_MachineData.isStart = this.IsStarted;
+	}
 
 	public override void AddEnergy() {
 		base.AddEnergy ();

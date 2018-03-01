@@ -1,7 +1,5 @@
 ﻿using UnityEngine;
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Runtime.Serialization;
 using System.Reflection;
 
@@ -11,6 +9,19 @@ public class CMachineData : CGameEntityData {
 	#region Fields
 
 	[Header("Machine Fields")]
+
+	[SerializeField]	protected bool m_IsActive;
+	public bool isActive {
+		get { return this.m_IsActive; }
+		set { this.m_IsActive = value; }
+	}
+
+	[SerializeField]	protected bool m_IsStart;
+	public bool isStart {
+		get { return this.m_IsStart; }
+		set { this.m_IsStart = value; }
+	}
+
 	[SerializeField]	protected string m_MachineName;
 	public string machineName {
 		get { return this.m_MachineName; }
@@ -43,6 +54,15 @@ public class CMachineData : CGameEntityData {
 	public CMachineData (SerializationInfo info, StreamingContext context) : base (info, context)
 	{
 
+	}
+
+	#endregion
+
+	#region Getter && Setter
+
+	public override void GetObjectData(SerializationInfo info, StreamingContext context)
+	{
+		base.GetObjectData (info, context);
 	}
 
 	#endregion

@@ -16,6 +16,11 @@ MonoBehaviour:
   m_Description: Green House Mini
   m_AvatarPath: Machines/GreenHouseMini/GreenHouseMini-icon
   m_ModelPath: Machines/GreenHouseMini/GreenHouseMini
+  m_Position: 10,0,3
+  m_Rotation: 180
+  m_CurrentState: 
+  m_IsActive: 0
+  m_IsStart: 0
   m_MachineName: Green House Mini
   m_MachineJobs:
   - StartMachine

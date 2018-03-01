@@ -75,7 +75,6 @@ public class CMapManager : CMonoSingleton<CMapManager> {
 	}
 
 	protected virtual void Start() {
-		this.InitMap();
 		if (this.m_AutoSaveLoad) {
 			if (this.Load ()) {
 				Debug.Log (this.GetFullSavePath ());
@@ -90,6 +89,7 @@ public class CMapManager : CMonoSingleton<CMapManager> {
 				this.Load (this.m_InstanceMap.text);
 			}
 		}
+		this.InitMap();
 	}
 
 	protected virtual void LateUpdate() {
@@ -138,6 +138,8 @@ public class CMapManager : CMonoSingleton<CMapManager> {
 	public virtual bool Save() {
 		if (this.m_MapInstance == null)
 			return false;
+		if (Directory.Exists (this.GetSavePath ()) == false) 
+			Directory.CreateDirectory (this.GetSavePath ());
 		var stringJSON = JSON.Dump (this.m_MapInstance);
 		var fileWrite = new StreamWriter (this.GetFullSavePath ());
 		fileWrite.Write (stringJSON);
@@ -332,8 +334,12 @@ public class CMapManager : CMonoSingleton<CMapManager> {
 		planet.transform.position = new Vector3 (pos.x * this.m_PlaceDistance, 0f, pos.y * this.m_PlaceDistance);
 	}
 
+	public virtual string GetSavePath() {
+		return string.Format ("{0}/Save", Application.persistentDataPath);
+	}
+
 	public virtual string GetFullSavePath() {
-		return string.Format ("{0}/{1}.dat", Application.persistentDataPath, this.m_SaveFile);
+		return string.Format ("{0}/{1}.dat", this.GetSavePath(), this.m_SaveFile);
 	}
 
 	#endregion

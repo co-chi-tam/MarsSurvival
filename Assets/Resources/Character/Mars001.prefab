@@ -1406,7 +1406,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1581179911462062}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 5, z: 0}
+  m_LocalPosition: {x: 0, y: 20, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4269342157295882}
@@ -3384,6 +3384,19 @@ MonoBehaviour:
       _target: {fileID: 1833698780043526}
       _component: CCharacterEntity
       _name: InvokeOpenCarrotAbs
+  - m_TriggerName: GetHealthPointPercent
+    OnTriggerInvoke:
+      _parameterTypes: []
+      _target: {fileID: 1833698780043526}
+      _component: CCharacterEntity
+      _name: healthPointPercent
+  - m_TriggerName: SetEquipTool
+    OnTriggerInvoke:
+      _parameterTypes:
+      - System.String
+      _target: {fileID: 1833698780043526}
+      _component: CCharacterEntity
+      _name: SetEquipTool
 --- !u!114 &114903941963965026
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3396,7 +3409,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_IsActive: 0
-  m_UpdateDeltaSpeed: 1
   m_InstanceData: {fileID: 11400000, guid: 8e4d226210d953e408da6daef89e8567, type: 2}
   m_AutoSaveLoad: 0
   m_SaveFile: Mars001
@@ -3421,6 +3433,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  m_UpdateDeltaSpeed: 1
 --- !u!114 &114930840090771548
 MonoBehaviour:
   m_ObjectHideFlags: 1

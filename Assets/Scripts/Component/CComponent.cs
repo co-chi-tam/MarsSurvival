@@ -23,6 +23,10 @@ public class CComponent : MonoBehaviour {
 
 	#region Implementation MonoBehaviour
 
+	protected virtual void OnEnable() {
+		
+	}
+
 	protected virtual void Awake() {
 		this.m_Transform = this.transform;
 	}
@@ -52,6 +56,10 @@ public class CComponent : MonoBehaviour {
 	}
 
 	protected virtual void OnApplicationQuit() {
+
+	}
+
+	protected virtual void OnDisable() {
 
 	}
 

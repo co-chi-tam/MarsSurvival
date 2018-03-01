@@ -39,6 +39,13 @@ public class CGameEntityData : CEntityData {
 		set { this.m_Rotation = value; }
 	} 
 
+	[Header("State")]
+	[SerializeField]	protected string m_CurrentState = string.Empty;
+	public string currentState {
+		get { return this.m_CurrentState; }
+		set { this.m_CurrentState = value; }
+	}
+
 	#endregion
 
 	#region Constructor

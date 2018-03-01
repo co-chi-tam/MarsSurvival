@@ -32,7 +32,8 @@ public partial class CCharacterEntity : CGameEntity, IContext {
 
 	#region Implementation Entity
 
-	public virtual void Init() {
+	public override void Init() {
+		base.Init ();
 		this.m_Data = this.m_DataComponent.Get<CCharacterData>();
 		this.m_MoveComponent.moveSpeed = this.m_Data.moveSpeed;
 		this.m_MoveComponent.SetupPosition (this.m_Data.position.ToV3 (), Quaternion.identity);
@@ -78,13 +79,19 @@ public partial class CCharacterEntity : CGameEntity, IContext {
 			"AnimParam", 
 			this.m_AnimationInt
 		);
+		// SAVE VALUE
+		this.SaveEntity ();
 	}
 
-	protected override void OnApplicationQuit ()
+	#endregion
+
+	#region Main methods
+
+	public override void SaveEntity ()
 	{
-		base.OnApplicationQuit ();
+		base.SaveEntity ();
 		// DATA
-		this.m_Data.position = this.m_Transform.position.ToString();
+		this.m_Data.position = this.m_MoveComponent.currentPosition.ToString();
 		this.m_Data.rotation = this.m_MoveComponent.currentRotationAngle;
 		if (this.m_StoreToolComponent.currentToolData != null) {
 			this.m_Data.currentTool = this.m_StoreToolComponent.currentToolData.entityName;
@@ -92,10 +99,6 @@ public partial class CCharacterEntity : CGameEntity, IContext {
 			this.m_Data.currentTool = string.Empty;
 		}
 	}
-
-	#endregion
-
-	#region Main methods
 
 	public virtual void ApplyMovePosition(float dt) {
 		var movePoint = this.m_Transform.position + this.m_DeltaMovePoint;

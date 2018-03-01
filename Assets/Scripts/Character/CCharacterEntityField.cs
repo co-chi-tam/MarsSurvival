@@ -118,6 +118,27 @@ public partial class CCharacterEntity {
 		}
 	}
 
+	// HEALTH
+	public virtual float healthPoint {
+		get {
+			if (this.m_Data == null)
+				return 0f;
+			return this.m_Data.healthPoint;
+		}
+		set { 
+			if (this.m_Data == null)
+				return; 
+			this.m_Data.healthPoint = value;
+		}
+	}
+	public float healthPointPercent {
+		get { 
+			if (this.m_Data == null)
+				return 1f;
+			return this.m_Data.healthPoint / this.m_Data.maxHealthPoint;
+		}
+	}
+
 	#endregion
 
 	#region More fields

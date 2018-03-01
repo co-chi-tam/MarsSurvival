@@ -16,6 +16,11 @@ MonoBehaviour:
   m_Description: Wind Turbine
   m_AvatarPath: Machines/WindTurbine/WindTurbine-icon
   m_ModelPath: Machines/WindTurbine/WindTurbine
+  m_Position: 25,0,-16
+  m_Rotation: 180
+  m_CurrentState: 
+  m_IsActive: 0
+  m_IsStart: 0
   m_MachineName: WindTurbine
   m_MachineJobs:
   - StartMachine

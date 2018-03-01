@@ -16,6 +16,11 @@ MonoBehaviour:
   m_Description: Pump machine to get water
   m_AvatarPath: Machine/Pump/Pump-icon
   m_ModelPath: Machine/Pump/PumpMachine
+  m_Position: 10,0,-8
+  m_Rotation: 180
+  m_CurrentState: 
+  m_IsActive: 0
+  m_IsStart: 0
   m_MachineName: Pump machine
   m_MachineJobs:
   - StartMachine
