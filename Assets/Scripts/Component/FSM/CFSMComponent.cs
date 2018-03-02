@@ -59,7 +59,7 @@ public class CFSMComponent : CComponent {
 		for (int i = 0; i < this.m_CurrentStates.Length; i++) {
 			var state = this.m_CurrentStates [i];
 			if (state != null) {
-				this.ApplyState (state.GetName (), state); 
+				this.RegisterState (state.GetName (), state); 
 			}
 		}
 		// Condition
@@ -82,15 +82,23 @@ public class CFSMComponent : CComponent {
 
  	#region State
 
-	public virtual void ApplyState(IState fsmState) {
+	public virtual void SetState(string name) {
+		this.m_FSMManager.SetState (name);
+	}
+
+	public virtual string GetState() {
+		return this.m_FSMManager.currentStateName;
+	}
+
+	public virtual void RegisterState(IState fsmState) {
 		this.m_FSMManager.RegisterState (fsmState.GetName(), fsmState);
 	}
 
-	public virtual void ApplyState(string name, IState fsmState) {
+	public virtual void RegisterState(string name, IState fsmState) {
 		this.m_FSMManager.RegisterState (name, fsmState);
 	}
 
-	public virtual void ApplyStates(Dictionary<string, IState> fsmStates) {
+	public virtual void RegisterStates(Dictionary<string, IState> fsmStates) {
 		foreach (var item in fsmStates) {
 			var state = item.Value;
 			this.m_FSMManager.RegisterState (state.GetName(), state);

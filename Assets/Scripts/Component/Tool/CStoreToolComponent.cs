@@ -72,19 +72,7 @@ public class CStoreToolComponent : CComponent {
 	public virtual void LoadTool (CToolData value) {
 		if (value == null)
 			return;
-		for (int i = 0; i < this.m_ReloadTool.Count; i++) {
-			var tool = this.m_ReloadTool [i];
-			tool.gameObject.SetActive (false);
-		}
-		// LOAD TOOL
-		for (int i = 0; i < this.m_InstanceTools.Length; i++) {
-			var data = this.m_InstanceTools [i];
-			if (data.toolData == value) {
-				this.m_CurrentData = data.toolData;
-				this.LoadToolComponent (data.toolPrefab);
-				break;
-			}
-		}
+		this.LoadTool (value.entityName);
 	}
 
 	public virtual void LoadTool (string name) {
@@ -94,6 +82,11 @@ public class CStoreToolComponent : CComponent {
 			var tool = this.m_ReloadTool [i];
 			tool.gameObject.SetActive (false);
 		}
+		if (this.m_CurrentTool != null) {
+			this.m_CurrentTool.gameObject.SetActive (false);
+		}
+		this.m_CurrentTool = null;
+		this.m_CurrentData = null;
 		// LOAD TOOL
 		for (int i = 0; i < this.m_InstanceTools.Length; i++) {
 			var data = this.m_InstanceTools [i];

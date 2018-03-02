@@ -22,6 +22,8 @@ public class CSceneManager : CMonoSingleton<CSceneManager> {
 	public UnityEventString OnLoadScene;
 	public UnityEventString OnEndLoadScene;
 
+	protected WaitForSeconds m_WaitShortTime = new WaitForSeconds (2f);
+
 	public string sceneName {
 		get { return SceneManager.GetActiveScene ().name; }
 	}
@@ -49,6 +51,10 @@ public class CSceneManager : CMonoSingleton<CSceneManager> {
 		}
 	}
 
+	#endregion
+
+	#region Main methods
+
 	public virtual void LoadSceneAsync(string name) {
 		StartCoroutine (this.HandleLoadSceneAsyn (name));
 	}
@@ -57,6 +63,7 @@ public class CSceneManager : CMonoSingleton<CSceneManager> {
 		if (this.OnLoadScene != null) {
 			this.OnLoadScene.Invoke (name);
 		}
+		yield return this.m_WaitShortTime;
 		yield return SceneManager.LoadSceneAsync (name);
 		if (this.OnEndLoadScene != null) {
 			this.OnEndLoadScene.Invoke (name);

@@ -87,9 +87,8 @@ public partial class CCharacterEntity : CGameEntity, IContext {
 
 	#region Main methods
 
-	public override void SaveEntity ()
+	public virtual void SaveEntity ()
 	{
-		base.SaveEntity ();
 		// DATA
 		this.m_Data.position = this.m_MoveComponent.currentPosition.ToString();
 		this.m_Data.rotation = this.m_MoveComponent.currentRotationAngle;

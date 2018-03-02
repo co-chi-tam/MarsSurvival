@@ -26,8 +26,12 @@ public class CSaveLoadDataComponent : CComponent {
 	[Header("Save")]
 	[SerializeField]	protected bool m_AutoSaveLoad = false;
 	[SerializeField]	protected string m_SaveFile = Guid.NewGuid().ToString();
+	public UnityEvent OnBeforeLoad;
 	public UnityEvent OnLoad;
+	public UnityEvent OnBeforeSave;
 	public UnityEvent OnSave;
+	public UnityEvent OnComplete;
+	public UnityEvent OnFail;
 
 	#endregion
 
@@ -35,19 +39,16 @@ public class CSaveLoadDataComponent : CComponent {
 
 	protected override void Awake () {
 		base.Awake ();
-		this.m_CloneData = ScriptableObject.Instantiate (this.m_InstanceData);
+		if (this.m_InstanceData) {
+			this.m_CloneData = ScriptableObject.Instantiate (this.m_InstanceData);
+		}
 	}
 
 	protected override void Start ()
 	{
 		base.Start ();
 		if (this.m_AutoSaveLoad) {
-//			Debug.Log (this.GetFullSavePath());
-			if (this.Load ()) {
-				if (this.OnLoad != null) {
-					this.OnLoad.Invoke ();
-				}
-			}
+			this.Load ();
 		}
 	}
 
@@ -55,11 +56,7 @@ public class CSaveLoadDataComponent : CComponent {
 	{
 		base.OnApplicationPause (value);
 		if (this.m_AutoSaveLoad && value) {
-			if (this.Save ()) {
-				if (this.OnSave != null) {
-					this.OnSave.Invoke ();
-				}
-			}
+			this.Save ();
 		}
 	}
 
@@ -67,11 +64,7 @@ public class CSaveLoadDataComponent : CComponent {
 	{
 		base.OnApplicationFocus (value);
 		if (this.m_AutoSaveLoad && value == false) {
-			if (this.Save ()) {
-				if (this.OnSave != null) {
-					this.OnSave.Invoke ();
-				}
-			}
+			this.Save ();
 		}
 	}
 
@@ -79,11 +72,7 @@ public class CSaveLoadDataComponent : CComponent {
 	{
 		base.OnDisable ();
 		if (this.m_AutoSaveLoad) {
-			if (this.Save ()) {
-				if (this.OnSave != null) {
-					this.OnSave.Invoke ();
-				}
-			}
+			this.Save ();
 		}
 	}
 
@@ -91,14 +80,42 @@ public class CSaveLoadDataComponent : CComponent {
 
 	#region Main methods
 
+	public virtual void DeleteSaveFile() {
+		if (Directory.Exists (this.GetSavePath ())) {
+			var files = Directory.GetFiles (this.GetSavePath ());
+			for (int i = 0; i < files.Length; i++) {
+				File.Delete (files [i]);
+			}
+			if (this.OnComplete != null) {
+				this.OnComplete.Invoke ();
+			}
+		} else {
+			if (this.OnFail != null) {
+				this.OnFail.Invoke ();
+			}
+		}
+	}
+
 	public virtual bool Load() {
 		if (File.Exists (this.GetFullSavePath ())) {
+			if (this.OnBeforeLoad != null) {
+				this.OnBeforeLoad.Invoke ();
+			}
 			var fileStream = File.Open (this.GetFullSavePath (), FileMode.OpenOrCreate);
 			var binaryFormt = new BinaryFormatter ();
 			var data = (ScriptableObject) binaryFormt.Deserialize (fileStream);
 			this.m_CloneData = ScriptableObject.Instantiate (data);
 			fileStream.Close ();
+			if (this.OnLoad != null) {
+				this.OnLoad.Invoke ();
+			}
+			if (this.OnComplete != null) {
+				this.OnComplete.Invoke ();
+			}
 			return true;
+		}
+		if (this.OnFail != null) {
+			this.OnFail.Invoke ();
 		}
 		return false;
 	}
@@ -108,24 +125,32 @@ public class CSaveLoadDataComponent : CComponent {
 			return false;
 		if (Directory.Exists (this.GetSavePath ()) == false) 
 			Directory.CreateDirectory (this.GetSavePath ());
-		var fileStream = File.Open (this.GetFullSavePath (), FileMode.OpenOrCreate);
-		var binaryFormt = new BinaryFormatter ();
-		binaryFormt.Serialize (fileStream, this.m_CloneData);
-		fileStream.Close ();
-		return true;
+		try {
+			if (this.OnBeforeSave != null) {
+				this.OnBeforeSave.Invoke ();
+			}
+			var fileStream = File.Open (this.GetFullSavePath (), FileMode.OpenOrCreate);
+			var binaryFormt = new BinaryFormatter ();
+			binaryFormt.Serialize (fileStream, this.m_CloneData);
+			fileStream.Close ();
+			if (this.OnSave != null) {
+				this.OnSave.Invoke ();
+			}
+			if (this.OnComplete != null) {
+				this.OnComplete.Invoke ();
+			}
+			return true;
+		} catch {
+			if (this.OnFail != null) {
+				this.OnFail.Invoke ();
+			}
+			return false;
+		}
 	}
 
 	#endregion
 
 	#region Getter & Setter
-
-	// SET PROPERTIY
-	public virtual void SetProperty(string name, object value) {
-		var fields = this.m_CloneData.GetType ().GetProperty(name);
-		if (fields != null) {
-			fields.SetValue (this.m_CloneData, value, null);
-		}
-	}
 
 	public virtual string GetSavePath() {
 		return string.Format ("{0}/Save", Application.persistentDataPath);

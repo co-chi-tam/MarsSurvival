@@ -8,6 +8,7 @@ public class CElectricPotEntity : CMachineEntity {
 
 	protected CAnimatorComponent m_AnimatorComponent;
 	protected CElectricPotData m_ElectricPotData;
+	protected CLineEndComponent m_LineEndComponent;
 
 	public override bool IsActive {
 		get { return this.m_IsActive; }
@@ -15,8 +16,7 @@ public class CElectricPotEntity : CMachineEntity {
 	}
 
 	public override bool IsStarted {
-		get {
-			return base.IsStarted; }
+		get { return base.IsStarted; }
 		set { base.IsStarted = value; }
 	}
 
@@ -59,6 +59,7 @@ public class CElectricPotEntity : CMachineEntity {
 	{
 		base.Awake ();
 		this.m_AnimatorComponent = this.GetGameComponent<CAnimatorComponent> ();
+		this.m_LineEndComponent = this.GetGameComponent<CLineEndComponent> ();
 	}
 
 	protected override void Start ()

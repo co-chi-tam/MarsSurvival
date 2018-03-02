@@ -26,8 +26,8 @@ public class CCharacterData : CGameEntityData {
 	// OXYGEN
 	[SerializeField]	protected float m_OxygenPoint = 50f;
 	[Info(valueName = "Oxygen point", valueMin = 0f, valueMax = 9999f)]
-	[UpdateValuePerSecond (updateMethod = "Increase", updateValuePerSecond = 1f)]
-	[UpdateValuePerInvoke (updateName = "LowOxygen", updateMethod = "Decrease", updateValuePerInvoke = 2.5f)]
+	[UpdateValuePerSecond (updateMethod = "Increase", updateValuePerSecond = 2.5f)]
+	[UpdateValuePerInvoke (updateName = "LowOxygen", updateMethod = "Decrease", updateValuePerInvoke = 5f)]
 	public float oxygenPoint {
 		get { return this.m_OxygenPoint; }
 		set { this.m_OxygenPoint = value < 0f ? 0f : value > this.m_MaxOxygenPoint ? this.m_MaxOxygenPoint : value; }
@@ -51,22 +51,6 @@ public class CCharacterData : CGameEntityData {
 	public float maxEnergyPoint {
 		get { return this.m_MaxEnergyPoint; }
 		set { this.m_MaxEnergyPoint = value; }
-	}
-
-	// WATER
-	[SerializeField]	protected float m_WaterPoint = 50f;
-	[Info(valueName = "Water point", valueMin = 0f, valueMax = 9999f)]
-	[UpdateValuePerSecond(updateMethod = "Decrease", updateValuePerSecond = 0.15f)]
-	[UpdateValuePerInvoke(updateName = "AddWater", updateMethod = "Increase", updateValuePerInvoke = 2.5f)]
-	[UpdateValuePerInvoke(updateName = "UpdatePerAttack", updateMethod = "Decrease", updateValuePerInvoke = 2.5f)]
-	public float waterPoint {
-		get { return this.m_WaterPoint; }
-		set { this.m_WaterPoint = value < 0f ? 0f : value > this.m_MaxWaterPoint ? this.m_MaxWaterPoint : value; }
-	}
-	[SerializeField]	protected float m_MaxWaterPoint = 100f;
-	public float maxWaterPoint {
-		get { return this.m_MaxWaterPoint; }
-		set { this.m_MaxWaterPoint = value; }
 	}
 
 	// FOOD
@@ -137,8 +121,6 @@ public class CCharacterData : CGameEntityData {
 		this.m_MaxOxygenPoint 	= 100f;
 		this.m_EnergyPoint 		= 70f;
 		this.m_MaxEnergyPoint 	= 100f;
-		this.m_WaterPoint 		= 50f;
-		this.m_MaxWaterPoint	= 100f;
 		this.m_FoodPoint 		= 75f;
 		this.m_MaxFoodPoint 	= 100f;
 		this.m_Items 			= new List<CItemData> ();

@@ -223,9 +223,9 @@ public partial class CCharacterEntity {
 		if (index >= this.m_MissionListComponent.missionList.Length) {
 			this.m_MissionComponent.data = null;
 		} else {
-			this.m_Data.missionIndex = index;
 			this.m_MissionComponent.data = this.m_MissionListComponent.missionList [index];
 		}
+		this.m_Data.missionIndex = index;
 	}
 
 	#endregion

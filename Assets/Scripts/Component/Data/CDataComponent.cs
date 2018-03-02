@@ -16,7 +16,7 @@ public class CDataComponent : CSaveLoadDataComponent {
 	#region Fields
 
 	[Header("Configs")]
-	[Range(1, 999)]
+	[Range(1, 10)]
 	[SerializeField]	protected int m_UpdateDeltaSpeed = 1;
 	public int updateDeltaSpeed {
 		get { return this.m_UpdateDeltaSpeed; }

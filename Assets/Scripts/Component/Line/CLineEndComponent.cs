@@ -22,6 +22,9 @@ public class CLineEndComponent : CComponent {
 		set { this.m_GroupName = value; }
 	}
 	[SerializeField]	protected CLineTerminalComponent m_RootLine = null;
+	public bool isConnected {
+		get { return this.m_RootLine != null; }
+	}
 
 	[Header("Events")]
 	[Filter(Fields = true, Properties = true, Methods = true)]
@@ -63,6 +66,12 @@ public class CLineEndComponent : CComponent {
 			return true;
 		}
 		return false;
+	}
+
+	public override void Reset ()
+	{
+		base.Reset ();
+		this.m_RootLine = null;
 	}
 
 	#endregion

@@ -7,6 +7,7 @@ public class CPumpMachineEntity : CMachineEntity {
 	#region Fields
 
 	protected CAnimatorComponent m_AnimatorComponent;
+	protected CLineEndComponent m_LineEndComponent;
 
 	public override bool IsActive {
 		get { return this.m_IsActive; }
@@ -14,8 +15,7 @@ public class CPumpMachineEntity : CMachineEntity {
 	}
 
 	public override bool IsStarted {
-		get {
-			return base.IsStarted; }
+		get { return base.IsStarted; }
 		set { base.IsStarted = value; }
 	}
 
@@ -37,6 +37,7 @@ public class CPumpMachineEntity : CMachineEntity {
 	{
 		base.Awake ();
 		this.m_AnimatorComponent = this.GetGameComponent<CAnimatorComponent> ();
+		this.m_LineEndComponent = this.GetGameComponent<CLineEndComponent> ();
 	}
 
 	protected override void Start ()

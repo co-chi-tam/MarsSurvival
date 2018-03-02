@@ -395,6 +395,7 @@ MonoBehaviour:
   - {fileID: 114232728585502964}
   - {fileID: 114553663701071102}
   - {fileID: 114247360030517374}
+  - {fileID: 114538688237194364}
   m_IsActive: 0
   OnApplyDamage:
     m_PersistentCalls:
@@ -519,6 +520,11 @@ MonoBehaviour:
   m_InstanceData: {fileID: 11400000, guid: 5f983c7b63149f74c9bc446fc2ee1253, type: 2}
   m_AutoSaveLoad: 0
   m_SaveFile: MotherBox
+  OnBeforeLoad:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   OnLoad:
     m_PersistentCalls:
       m_Calls:
@@ -535,7 +541,33 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  OnBeforeSave:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 114492498298135436}
+        m_MethodName: SaveEntity
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   OnSave:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnComplete:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnFail:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,

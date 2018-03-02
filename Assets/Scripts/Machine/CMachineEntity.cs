@@ -9,6 +9,7 @@ public partial class CMachineEntity : CGameEntity {
 	protected CDataComponent m_DataComponent;
 	protected CMoveComponent m_MoveComponent;
 	protected CFollowObjectComponent m_FollowObjectComponent;
+	protected CFSMComponent m_FSMComponent;
 	protected CMachineData m_MachineData;
 
 	[SerializeField]	protected bool m_HaveEnergy = false;
@@ -82,6 +83,8 @@ public partial class CMachineEntity : CGameEntity {
 		this.m_MoveComponent.currentRotationAngle = this.m_MachineData.rotation;
 		this.IsActive = this.m_MachineData.isActive;
 		this.IsStarted = this.m_MachineData.isStart;
+		this.HaveEnergy = this.m_MachineData.isHaveEnergy;
+		this.m_FSMComponent.SetState (this.m_MachineData.currentState);
 	}
 
 	protected override void Awake ()
@@ -90,6 +93,7 @@ public partial class CMachineEntity : CGameEntity {
 		this.m_DataComponent 			= this.GetGameComponent <CDataComponent> ();
 		this.m_MoveComponent 			= this.GetGameComponent<CMoveComponent> ();
 		this.m_FollowObjectComponent 	= this.GetGameComponent<CFollowObjectComponent> ();
+		this.m_FSMComponent 			= this.GetGameComponent <CFSMComponent> ();
 	}
 
 	protected override void Start ()
@@ -101,22 +105,20 @@ public partial class CMachineEntity : CGameEntity {
 	protected override void LateUpdate ()
 	{
 		base.LateUpdate ();
-		// SAVE VALUE
-		this.SaveEntity ();
 	}
 
 	#endregion
 
 	#region Main methods
 
-	public override void SaveEntity ()
-	{
-		base.SaveEntity ();
+	public virtual void SaveEntity () {
 		// DATA
 		this.m_MachineData.position = this.m_MoveComponent.currentPosition.ToString();
 		this.m_MachineData.rotation = this.m_MoveComponent.currentRotationAngle;
 		this.m_MachineData.isActive = this.IsActive;
 		this.m_MachineData.isStart = this.IsStarted;
+		this.m_MachineData.isHaveEnergy = this.HaveEnergy;
+		this.m_MachineData.currentState = this.m_FSMComponent.GetState ();
 	}
 
 	public override void AddEnergy() {

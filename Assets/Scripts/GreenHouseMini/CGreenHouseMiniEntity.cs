@@ -8,16 +8,11 @@ public class CGreenHouseMiniEntity : CMachineEntity {
 
 	protected CGreenHouseMiniData m_GreenHouseData;
 	protected CAnimatorComponent m_AnimatorComponent;
+	protected CLineEndComponent m_LineEndComponent;
 
 	public override bool IsActive {
 		get { return this.m_IsActive; }
 		set { this.m_IsActive = value; }
-	}
-
-	public override bool IsStarted {
-		get {
-			return base.IsStarted; }
-		set { base.IsStarted = value; }
 	}
 
 	public override float energyPercent {
@@ -60,6 +55,11 @@ public class CGreenHouseMiniEntity : CMachineEntity {
 		}
 	}
 
+	public override bool IsStarted {
+		get { return base.IsStarted; }
+		set { base.IsStarted = value; }
+	}
+
 	public override bool HaveEnergy {
 		get {
 			if (this.m_GreenHouseData == null)
@@ -83,6 +83,7 @@ public class CGreenHouseMiniEntity : CMachineEntity {
 	{
 		base.Awake ();
 		this.m_AnimatorComponent = this.GetGameComponent<CAnimatorComponent> ();
+		this.m_LineEndComponent = this.GetGameComponent<CLineEndComponent> ();
 	}
 
 	protected override void Start ()

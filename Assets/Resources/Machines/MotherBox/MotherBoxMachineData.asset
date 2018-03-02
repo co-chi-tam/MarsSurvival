@@ -18,7 +18,6 @@ MonoBehaviour:
   m_ModelPath: Machines/MotherBox/MotherBox
   m_Position: 21,0,10
   m_Rotation: 180
-  m_CurrentState: 
   m_IsActive: 0
   m_IsStart: 0
   m_MachineName: MotherBox
@@ -27,10 +26,7 @@ MonoBehaviour:
   - EquipBlade
   - EquipPickaxe
   - EquipExcavatorMini
+  - EquipBareHand
   m_ActiveWithItems:
   - itemAmount: 1
     itemData: {fileID: 11400000, guid: 6bb35f46bd23bcd4babe0ed793626045, type: 2}
-  m_ToolRecipes:
-  - {fileID: 11400000, guid: 76cbb17f696d4b84b922d510a6c4b152, type: 2}
-  m_ProductTime: 0
-  m_TotalProductTime: 60

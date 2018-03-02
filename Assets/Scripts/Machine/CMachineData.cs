@@ -22,6 +22,12 @@ public class CMachineData : CGameEntityData {
 		set { this.m_IsStart = value; }
 	}
 
+	[SerializeField]	protected bool m_IsHaveEnergy;
+	public bool isHaveEnergy {
+		get { return this.m_IsHaveEnergy; }
+		set { this.m_IsHaveEnergy = value; }
+	}
+
 	[SerializeField]	protected string m_MachineName;
 	public string machineName {
 		get { return this.m_MachineName; }
@@ -41,6 +47,13 @@ public class CMachineData : CGameEntityData {
 	public CAmountItem[] activeWithItems {
 		get { return this.m_ActiveWithItems; }
 		set { this.m_ActiveWithItems = value; }
+	}
+
+	[Header ("State")]
+	[SerializeField]	protected string m_CurrentState = "";
+	public string currentState {
+		get { return this.m_CurrentState;}
+		set { this.m_CurrentState = value; }
 	}
 
 	#endregion

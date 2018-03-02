@@ -140,6 +140,8 @@ namespace FSM
 		public void SetState(string name) {
 			if (m_Inited == false)
 				return;
+			if (m_States.ContainsKey (name) == false)
+				return;
 			m_Map = m_FSMLoader.FSMMaps [name];
 			m_CurrentState = EState.StartState;
 		}

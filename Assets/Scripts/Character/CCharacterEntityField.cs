@@ -26,7 +26,7 @@ public partial class CCharacterEntity {
 			return this.m_Data.healthPoint > 0f
 				&& this.m_Data.oxygenPoint > 0f
 				&& this.m_Data.foodPoint > 0f
-				&& this.m_Data.waterPoint > 0f;
+				&& this.m_Data.energyPoint > 0f;
 		}
 	}
 
@@ -53,27 +53,6 @@ public partial class CCharacterEntity {
 				return 1f;
 			return this.m_Data.energyPoint / this.m_Data.maxEnergyPoint;
 		} 
-	}
-
-	// WATER
-	public virtual float waterPoint {
-		get {
-			if (this.m_Data == null)
-				return 0f;
-			return this.m_Data.waterPoint;
-		}
-		set { 
-			if (this.m_Data == null)
-				return; 
-			this.m_Data.waterPoint = value;
-		}
-	}
-	public float waterPointPercent {
-		get { 
-			if (this.m_Data == null)
-				return 1f;
-			return this.m_Data.waterPoint / this.m_Data.maxWaterPoint;
-		}
 	}
 
 	// FOOD

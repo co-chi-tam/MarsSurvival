@@ -1,10 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Advertisements;
 
 public class CAdsComponent : CComponent {
+
+	#region Internal Class
+
+	[Serializable]
+	public class UnityEventFloat: UnityEvent<float> {}
+
+	#endregion
 
 	#region Fields
 
@@ -14,7 +20,7 @@ public class CAdsComponent : CComponent {
 	}
 
 	[Header("Configs")]
-	[SerializeField]	protected string m_GameId = "1718655";
+	[SerializeField]	protected string m_GameId = "xxxxxxx";
 	public string gameId {
 		get { return this.m_GameId; }
 		set { this.m_GameId = value; }
@@ -34,8 +40,15 @@ public class CAdsComponent : CComponent {
 		get { return this.m_AutoShow; }
 		set { this.m_AutoShow = value; }
 	}
+	[SerializeField]	protected float m_Delay = 60f;
+	public float delay {
+		get { return this.m_Delay; }
+		set { this.m_Delay = value; }
+	}
+	protected float m_DelayInterval = 0f;
 
 	[Header("Events")]
+	public UnityEventFloat OnDelay;
 	public UnityEvent OnShowAds;
 	public UnityEvent OnFinishAds;
 	public UnityEvent OnSkipAds;
@@ -56,6 +69,17 @@ public class CAdsComponent : CComponent {
 		}
 	}
 
+	protected override void LateUpdate ()
+	{
+		base.LateUpdate ();
+		if (this.m_DelayInterval >= 0f) {
+			if (this.OnDelay != null) {
+				this.OnDelay.Invoke (1f - (this.m_DelayInterval / this.m_Delay));
+			}
+			this.m_DelayInterval -= Time.deltaTime;
+		}
+	}
+
 	#endregion
 
 	#region Main methods
@@ -71,12 +95,19 @@ public class CAdsComponent : CComponent {
 	public virtual void ShowAds ()
 	{
 		this.InitAds ();
+		if (this.CanShowAd () == false) {
+			if (this.OnFailAds != null) {
+				this.OnFailAds.Invoke ();
+			}
+			return;
+		}
 		ShowOptions options = new ShowOptions();
 		options.resultCallback = HandleShowResult;
 		Advertisement.Show(placementId.ToString(), options);
 		if (this.OnShowAds != null) {
 			this.OnShowAds.Invoke ();
 		}
+		this.m_DelayInterval = this.m_Delay;
 	}
 
 	protected virtual void HandleShowResult (ShowResult result)
@@ -94,6 +125,10 @@ public class CAdsComponent : CComponent {
 				this.OnFailAds.Invoke ();
 			}
 		}
+	}
+
+	public virtual bool CanShowAd() {
+		return Advertisement.IsReady () && this.m_DelayInterval <= 0f;
 	}
 
 	#endregion
