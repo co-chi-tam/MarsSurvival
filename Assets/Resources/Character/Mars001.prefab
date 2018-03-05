@@ -2996,7 +2996,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_IsActive: 1
-  m_DisasterValue: 0.5
+  m_DisasterValue: 0.75
   m_FreeValue: 1
   OnDisasterEnter:
     m_PersistentCalls:

@@ -41,7 +41,7 @@ public class CCharacterData : CGameEntityData {
 	// ENERGY
 	[SerializeField]	protected float m_EnergyPoint = 50f;
 	[Info(valueName = "Energy point", valueMin = 0f, valueMax = 9999f)]
-	[UpdateValuePerSecond(updateMethod = "Decrease", updateValuePerSecond = 0.1f)]
+	[UpdateValuePerSecond(updateMethod = "Decrease", updateValuePerSecond = 0.25f)]
 	[UpdateValuePerInvoke(updateName = "AddEnergy", updateMethod = "Increase", updateValuePerInvoke = 1.5f)]
 	public float energyPoint {
 		get { return this.m_EnergyPoint; }
@@ -56,7 +56,7 @@ public class CCharacterData : CGameEntityData {
 	// FOOD
 	[SerializeField]	protected float m_FoodPoint = 75f;
 	[Info(valueName = "Food point", valueMin = 0f, valueMax = 9999f)]
-	[UpdateValuePerSecond(updateMethod = "Decrease", updateValuePerSecond = 0.12f)]
+	[UpdateValuePerSecond(updateMethod = "Decrease", updateValuePerSecond = 0.2f)]
 	[UpdateValuePerInvoke(updateName = "AddFood", updateMethod = "Increase", updateValuePerInvoke = 2f)]
 	[UpdateValuePerInvoke(updateName = "UpdatePerAttack", updateMethod = "Decrease", updateValuePerInvoke = 2f)]
 	public float foodPoint {
@@ -72,6 +72,7 @@ public class CCharacterData : CGameEntityData {
 	// HEALTH
 	[SerializeField]	protected float m_HealthPoint = 100f;
 	[Info (valueName = "Health point", valueMin = 0, valueMax = 9999f)]
+	[UpdateValuePerSecond(updateMethod = "Increase", updateValuePerSecond = 1f)]
 	public float healthPoint {
 		get { return this.m_HealthPoint; }
 		set { this.m_HealthPoint = value < 0f ? 0f : value > this.m_MaxHealthPoint ? this.m_MaxHealthPoint : value; }

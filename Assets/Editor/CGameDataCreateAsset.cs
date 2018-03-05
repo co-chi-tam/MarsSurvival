@@ -87,17 +87,7 @@ public class CGameDataCreateAsset
 		ScriptableObjectUtility.CreateAsset<CToolData> ();
 	}
 
-	#endregion
-
-	#region Recipe
-
-	[MenuItem("Game Data/Recipe/Recipe Data")]
-	public static void CreateRecipeDataAsset ()
-	{
-		ScriptableObjectUtility.CreateAsset<CRecipeData> ();
-	}
-
-	#endregion
+           	#endregion
 
 	#region Enviroment
 

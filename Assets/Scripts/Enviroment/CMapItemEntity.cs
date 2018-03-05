@@ -7,14 +7,12 @@ public class CMapItemEntity : CItemEntity {
 	#region Fields
 
 	[Header ("Configs")]
-	[SerializeField]	protected float m_MapItemPercent = 100f;
 	[SerializeField]	protected CRenderObjectComponent m_RenderObjectComponent;
 
 	public bool IsActiveInMap {
 		get { 
 			if (this.m_RenderObjectComponent != null) {
-				return Random.Range (0f, 100f) <= this.m_MapItemPercent 
-					&& this.m_RenderObjectComponent.isInvisible;
+				return this.m_RenderObjectComponent.isInvisible;
 			}
 			return true;
 		}

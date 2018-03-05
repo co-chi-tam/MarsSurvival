@@ -13,6 +13,7 @@ public class CDayNightManager : CMonoSingleton<CDayNightManager> {
 		get { return this.m_IsActive; }
 		set { this.m_IsActive = value; }
 	}
+	[SerializeField]	protected float m_StartHour = 8f;
 	[SerializeField]	protected float m_MinusPerDay = 20;
 	public float minusPerDay {
 		get { return this.m_MinusPerDay; }
@@ -102,7 +103,7 @@ public class CDayNightManager : CMonoSingleton<CDayNightManager> {
 	}
 
 	public virtual void Load() {
-		this.m_TimerDayInterval = PlayerPrefs.GetFloat (this.m_WORLD_TIME, this.m_MinusPerDay * 20f);
+		this.m_TimerDayInterval = PlayerPrefs.GetFloat (this.m_WORLD_TIME, this.m_AHour24 * this.m_StartHour);
 		this.m_DaySaved = PlayerPrefs.GetInt (this.m_WORLD_DAY, this.m_DaySaved);
 		this.m_Hour24 = (int)(this.m_TimerDayInterval / this.m_AHour24) % 24;
 		this.m_Date = this.m_Hour24 < 12f ? "AM" : "PM";

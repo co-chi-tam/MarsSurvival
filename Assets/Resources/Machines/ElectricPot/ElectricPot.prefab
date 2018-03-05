@@ -781,6 +781,7 @@ MonoBehaviour:
   m_IsActive: 1
   m_GroupName: EnergyGroup
   m_RootLine: {fileID: 0}
+  m_ActiveEvents: 1
   OnBoolCondition:
     _parameterTypes: []
     _target: {fileID: 1060948510599664}

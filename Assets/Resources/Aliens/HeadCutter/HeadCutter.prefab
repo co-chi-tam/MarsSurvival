@@ -405,6 +405,7 @@ GameObject:
   - component: {fileID: 114768206987699044}
   - component: {fileID: 114896762275703606}
   - component: {fileID: 114810432260054722}
+  - component: {fileID: 114714511492128912}
   - component: {fileID: 114792140313455752}
   m_Layer: 11
   m_Name: HeadCutter
@@ -1865,6 +1866,48 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_IsActive: 1
+--- !u!114 &114714511492128912
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1637514684026408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a9f6087c43bbec4f8f32493462dc0a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsActive: 1
+  OnEnterDay:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: CDayNightComponent+UnityEventInt, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnEnterHour:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: CDayNightComponent+UnityEventInt, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnUpdateHour:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: CDayNightComponent+UnityEventInt, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnEnterDate:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: CDayNightComponent+UnityEventString, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnDay:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnNight:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &114768206987699044
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1877,11 +1920,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_IsActive: 0
-  m_UpdateDeltaSpeed: 1
   m_InstanceData: {fileID: 11400000, guid: 54b5608f992f5d14dba4e93a9f92583f, type: 2}
   m_AutoSaveLoad: 0
   m_SaveFile: 224e4f54-26a7-4dd3-91cf-92ce3e1479e4
+  OnBeforeLoad:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   OnLoad:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnBeforeSave:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
@@ -1891,6 +1943,17 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  OnComplete:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnFail:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  m_UpdateDeltaSpeed: 1
 --- !u!114 &114792140313455752
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1910,6 +1973,11 @@ MonoBehaviour:
   - {fileID: 114701062300255516}
   - {fileID: 114089512328899008}
   m_IsActive: 1
+  OnApplyDamage:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: CGameEntity+UnityEventFloat, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
   m_OtherEntity: {fileID: 0}
 --- !u!114 &114810432260054722
 MonoBehaviour:
@@ -1924,6 +1992,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_IsActive: 1
   m_IsCenterMap: 0
+  OnRemoveTile:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: CMapManager+UnityEventTileMap, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  OnLoadTile:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: CMapManager+UnityEventTileMap, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!114 &114835255128534822
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1942,6 +2020,7 @@ MonoBehaviour:
   m_Top: {fileID: 4739717219247882}
   m_Bottom: {fileID: 4429421886201320}
   m_MoveSpeed: 3
+  m_MoveSpeedThreshold: 1
   m_RotationSpeed: 5
   m_MinDistance: 2
   m_TargetPosition: {x: -21.6, y: 0, z: -1.56}
@@ -1971,12 +2050,61 @@ MonoBehaviour:
   m_Radius: 20
   OnReloadCondition:
     _parameterTypes: []
-    _target: {fileID: 0}
-    _component: CRenderObjectComponent
-    _name: isInvisible
+    _target: {fileID: 114714511492128912}
+    _component: CDayNightComponent
+    _name: IsDark
   OnReload:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114896762275703606}
+        m_MethodName: ApplyRandomPosition
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 114315126459705462}
+        m_MethodName: ApplyAround
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1637514684026408}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnFree:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1637514684026408}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!137 &137009028066511012
