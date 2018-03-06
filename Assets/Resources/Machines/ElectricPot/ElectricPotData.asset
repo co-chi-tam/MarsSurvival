@@ -16,11 +16,11 @@ MonoBehaviour:
   m_Description: Electric pot machine
   m_AvatarPath: Machines/ElectricPot/ElectricPot-icon
   m_ModelPath: Machines/ElectricPot/ElectricPot
-  m_Position: -1.5,0,-11.5
+  m_Position: -1.5,0,-44
   m_Rotation: 180
-  m_CurrentState: 
   m_IsActive: 0
   m_IsStart: 0
+  m_IsHaveEnergy: 0
   m_MachineName: Electric pot machine
   m_MachineJobs:
   - StartMachine
@@ -30,6 +30,7 @@ MonoBehaviour:
   m_ActiveWithItems:
   - itemAmount: 1
     itemData: {fileID: 11400000, guid: 6bb35f46bd23bcd4babe0ed793626045, type: 2}
+  m_CurrentState: 
   m_Energy:
     m_EnergyPoint: 10
     m_MaxEnergyPoint: 10

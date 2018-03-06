@@ -16,4 +16,8 @@ MonoBehaviour:
   m_Description: Excavator Mini
   m_AvatarPath: Tools/ExcavatorMini/ExcavatorMini-icon
   m_ModelPath: Tools/ExcavatorMini/ExcavatorMini
-  m_ToolMethod: Empty
+  m_Position: 0,0,0
+  m_Rotation: 180
+  m_ToolMethod: Attack
+  m_ToolDamage: 15
+  m_EnergyConsume: 5

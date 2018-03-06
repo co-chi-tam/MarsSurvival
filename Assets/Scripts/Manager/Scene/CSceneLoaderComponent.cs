@@ -20,4 +20,8 @@ public class CSceneLoaderComponent : CComponent {
 		this.m_SceneManager.LoadSceneAsync (name);
 	}
 
+	public virtual void LoadSceneAsyncAfterShortTime (string name) {
+		this.m_SceneManager.LoadSceneAsyncAfter (name, 3f);
+	}
+
 }

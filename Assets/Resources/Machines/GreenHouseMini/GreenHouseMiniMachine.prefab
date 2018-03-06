@@ -1421,7 +1421,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_IsActive: 0
   m_InstanceData: {fileID: 11400000, guid: 3f0db3ae89f2eac4d90216037b03bc70, type: 2}
-  m_AutoSaveLoad: 0
+  m_AutoSaveLoad: 1
   m_SaveFile: GreenHouseMiniMachine
   OnBeforeLoad:
     m_PersistentCalls:
@@ -1597,7 +1597,6 @@ MonoBehaviour:
   m_IsActive: 1
   m_GroupName: WaterGroup
   m_RootLine: {fileID: 0}
-  m_ActiveEvents: 1
   OnBoolCondition:
     _parameterTypes: []
     _target: {fileID: 1376049691896804}

@@ -81,6 +81,7 @@ public class CSaveLoadDataComponent : CComponent {
 	#region Main methods
 
 	public virtual void DeleteSaveFile() {
+		// DELETE FILE SAVE
 		if (Directory.Exists (this.GetSavePath ())) {
 			var files = Directory.GetFiles (this.GetSavePath ());
 			for (int i = 0; i < files.Length; i++) {
@@ -94,6 +95,8 @@ public class CSaveLoadDataComponent : CComponent {
 				this.OnFail.Invoke ();
 			}
 		}
+		// DELETE PLAYERPREFS
+		PlayerPrefs.DeleteAll ();
 	}
 
 	public virtual bool Load() {

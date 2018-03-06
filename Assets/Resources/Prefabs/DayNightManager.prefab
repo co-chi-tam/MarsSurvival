@@ -118,7 +118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_IsActive: 1
-  m_StartHour: 18
+  m_StartHour: 8
   m_MinusPerDay: 5
   m_Sun: {fileID: 108662102786880992}
   m_MinIntensity: 0

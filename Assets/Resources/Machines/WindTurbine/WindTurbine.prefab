@@ -1236,7 +1236,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_IsActive: 0
   m_InstanceData: {fileID: 11400000, guid: 565450792ab083241851ab964b3b94e6, type: 2}
-  m_AutoSaveLoad: 0
+  m_AutoSaveLoad: 1
   m_SaveFile: WindTurbine
   OnBeforeLoad:
     m_PersistentCalls:

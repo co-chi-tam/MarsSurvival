@@ -800,6 +800,7 @@ GameObject:
   - component: {fileID: 114640992323890318}
   - component: {fileID: 114053298770876746}
   - component: {fileID: 114789674459119694}
+  - component: {fileID: 114338516534262556}
   - component: {fileID: 114465870578483098}
   m_Layer: 8
   m_Name: Mars001
@@ -2661,6 +2662,19 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: CMissionComponent+UnityEventMission, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114338516534262556
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1833698780043526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51301da6072db8444a8c2c695849df92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsActive: 1
+  m_MainCharacter: {fileID: 114465870578483098}
 --- !u!114 &114442416771596572
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3321,7 +3335,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_IsActive: 0
   m_InstanceData: {fileID: 11400000, guid: 8e4d226210d953e408da6daef89e8567, type: 2}
-  m_AutoSaveLoad: 0
+  m_AutoSaveLoad: 1
   m_SaveFile: Mars001
   OnBeforeLoad:
     m_PersistentCalls:

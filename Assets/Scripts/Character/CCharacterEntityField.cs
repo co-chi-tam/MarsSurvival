@@ -30,6 +30,10 @@ public partial class CCharacterEntity {
 		}
 	}
 
+	public virtual bool IsDeath {
+		get { return !this.IsAlive; }
+	}
+
 	#endregion
 
 	#region Info point

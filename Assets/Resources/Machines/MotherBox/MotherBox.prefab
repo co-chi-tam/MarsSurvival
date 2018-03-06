@@ -518,7 +518,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_IsActive: 0
   m_InstanceData: {fileID: 11400000, guid: 5f983c7b63149f74c9bc446fc2ee1253, type: 2}
-  m_AutoSaveLoad: 0
+  m_AutoSaveLoad: 1
   m_SaveFile: MotherBox
   OnBeforeLoad:
     m_PersistentCalls:

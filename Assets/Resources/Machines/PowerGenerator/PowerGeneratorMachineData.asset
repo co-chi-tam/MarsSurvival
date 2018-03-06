@@ -16,11 +16,11 @@ MonoBehaviour:
   m_Description: Energy generator machine
   m_AvatarPath: Machines/PowerGenerator/EnergyMachine-icon
   m_ModelPath: Machines/PowerGenerator/EnergyMachine
-  m_Position: 20,0,0
+  m_Position: 8,0,0
   m_Rotation: 180
-  m_CurrentState: 
   m_IsActive: 0
   m_IsStart: 0
+  m_IsHaveEnergy: 0
   m_MachineName: Energy generator machine
   m_MachineJobs:
   - StartMachine
@@ -29,6 +29,7 @@ MonoBehaviour:
   m_ActiveWithItems:
   - itemAmount: 1
     itemData: {fileID: 11400000, guid: 6bb35f46bd23bcd4babe0ed793626045, type: 2}
+  m_CurrentState: 
   m_Energy:
     m_EnergyPoint: 100
     m_MaxEnergyPoint: 100

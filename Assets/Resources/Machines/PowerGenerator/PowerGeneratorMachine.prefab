@@ -1568,7 +1568,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_IsActive: 0
   m_InstanceData: {fileID: 11400000, guid: 0e77ff3788a04724ea50095aa39e1933, type: 2}
-  m_AutoSaveLoad: 0
+  m_AutoSaveLoad: 1
   m_SaveFile: PowerGeneratorMachine
   OnBeforeLoad:
     m_PersistentCalls:

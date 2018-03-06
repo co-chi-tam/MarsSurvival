@@ -19,6 +19,7 @@ public class CSceneManager : CMonoSingleton<CSceneManager> {
 	#region Fields
 
 	[Header("Events")]
+	public UnityEventString OnStartScene;
 	public UnityEventString OnLoadScene;
 	public UnityEventString OnEndLoadScene;
 
@@ -39,6 +40,9 @@ public class CSceneManager : CMonoSingleton<CSceneManager> {
 	protected override void Awake ()
 	{
 		base.Awake ();
+		if (this.OnStartScene != null) {
+			this.OnStartScene.Invoke (name);
+		}
 	}
 
 	public virtual void LoadScene(string name) {
@@ -54,6 +58,15 @@ public class CSceneManager : CMonoSingleton<CSceneManager> {
 	#endregion
 
 	#region Main methods
+
+	public virtual void LoadSceneAsyncAfter(string name, float timer) {
+		StartCoroutine (this.HandleLoadSceneAsyn (name, timer));
+	}
+
+	protected virtual IEnumerator HandleLoadSceneAsyn(string name, float timer) {
+		yield return new WaitForSeconds (timer);
+		yield return StartCoroutine (this.HandleLoadSceneAsyn (name));
+	}
 
 	public virtual void LoadSceneAsync(string name) {
 		StartCoroutine (this.HandleLoadSceneAsyn (name));

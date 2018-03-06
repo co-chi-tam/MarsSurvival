@@ -62,12 +62,21 @@ public class CAlienEntity : CGameEntity {
 		);
 	}
 
+	public override void ResetEntity ()
+	{
+		base.ResetEntity ();
+		if (this.m_Data != null) {
+			this.m_Data.healthPoint = this.m_Data.maxHealthPoint;
+		}
+	}
+
 	#endregion
 
 	#region Main methods
 
 	public override void ApplyDamage(float value) {
 		base.ApplyDamage (value);
+		this.m_Data.healthPoint -= value;
 	}
 
 	public override void AttackAnotherEntity() {

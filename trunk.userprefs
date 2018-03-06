@@ -1,12 +1,14 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Component\Line\CLineEndComponent.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Alien\CAlienEntity.cs">
     <Files>
-      <File FileName="Assets\Scripts\ElectricPot\CElectricPotEntity.cs" Line="84" Column="1" />
-      <File FileName="Assets\Scripts\GreenHouseMini\CGreenHouseMiniEntity.cs" Line="67" Column="56" />
-      <File FileName="Assets\Scripts\PumpMachine\CPumpMachineEntity.cs" Line="62" Column="2" />
-      <File FileName="Assets\Scripts\Component\Line\CLineEndComponent.cs" Line="30" Column="1" />
-      <File FileName="Assets\Scripts\Component\Line\CLineTerminalComponent.cs" Line="111" Column="16" />
+      <File FileName="Assets\Scripts\Alien\CAlienEntity.cs" Line="76" Column="14" />
+      <File FileName="Assets\Scripts\Character\CCharacterEntity.cs" Line="106" Column="3" />
+      <File FileName="Assets\Scripts\Character\CCharacterEntityInteractive.cs" Line="52" Column="38" />
+      <File FileName="Assets\Scripts\Enviroment\CMapItemEntity.cs" Line="27" Column="1" />
+      <File FileName="Assets\Scripts\Entity\CGameEntity.cs" Line="46" Column="2" />
+      <File FileName="Assets\Scripts\Enviroment\CMapEnviromentEntity.cs" Line="5" Column="45" />
+      <File FileName="Assets\Scripts\Enviroment\CEnviromentEntity.cs" Line="39" Column="34" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

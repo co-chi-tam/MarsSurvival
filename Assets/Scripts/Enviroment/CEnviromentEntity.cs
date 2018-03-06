@@ -36,7 +36,7 @@ public class CEnviromentEntity : CGameEntity {
 			base.ApplyDamage (value);
 			return;
 		}
-		this.m_Data.currentDamage += value;
+		this.m_Data.currentDamage += 1;
 		if (this.m_Data.currentDamage >= this.m_Data.maximumDamage) {
 			base.ApplyDamage (value);
 		}

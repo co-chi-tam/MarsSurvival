@@ -19,6 +19,19 @@ public class CAlienData : CGameEntityData {
 		set { this.m_AttackSpeed = value; }
 	}
 
+	// HEALTH
+	[SerializeField]	protected float m_HealthPoint = 100f;
+	[Info (valueName = "Health point", valueMin = 0, valueMax = 9999f)]
+	public float healthPoint {
+		get { return this.m_HealthPoint; }
+		set { this.m_HealthPoint = value < 0f ? 0f : value > this.m_MaxHealthPoint ? this.m_MaxHealthPoint : value; }
+	}
+	[SerializeField]	protected float m_MaxHealthPoint = 100f;
+	public float maxHealthPoint {
+		get { return this.m_MaxHealthPoint; }
+		set { this.m_MaxHealthPoint = value; }
+	}
+
 	#endregion
 
 	#region Constructor

@@ -17,7 +17,7 @@ MonoBehaviour:
   m_AvatarPath: Tools/Pickaxe/Pickaxe-icon
   m_ModelPath: Tools/Pickaxe/Pickaxe
   m_Position: 0,0,0
-  m_Rotation: 0,0,0
+  m_Rotation: 0
   m_ToolMethod: Attack
-  m_ToolDamage: 1
+  m_ToolDamage: 10
   m_EnergyConsume: 5

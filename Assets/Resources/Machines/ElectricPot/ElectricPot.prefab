@@ -712,7 +712,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_IsActive: 0
   m_InstanceData: {fileID: 11400000, guid: 9651f0491a49bc3459a9805f8849fd32, type: 2}
-  m_AutoSaveLoad: 0
+  m_AutoSaveLoad: 1
   m_SaveFile: ElectricPot
   OnBeforeLoad:
     m_PersistentCalls:
@@ -781,7 +781,6 @@ MonoBehaviour:
   m_IsActive: 1
   m_GroupName: EnergyGroup
   m_RootLine: {fileID: 0}
-  m_ActiveEvents: 1
   OnBoolCondition:
     _parameterTypes: []
     _target: {fileID: 1060948510599664}
