@@ -1,6 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 public partial class CMachineEntity : CGameEntity {
 
@@ -19,14 +19,26 @@ public partial class CMachineEntity : CGameEntity {
 	}
 
 	[SerializeField]	protected bool m_IsStarted = false;
+	public UnityEventBool OnStarted;
 	public virtual bool IsStarted {
 		get { return this.m_IsStarted; }
-		set { this.m_IsStarted = value; }
+		set { 
+			this.m_IsStarted = value; 
+			if (this.OnStarted != null) {
+				this.OnStarted.Invoke (value);
+			}
+		}
 	}
 
+	public UnityEventBool OnActive;
 	public override bool IsActive {
 		get { return base.IsActive; }
-		set { base.IsActive = value; }
+		set { 
+			base.IsActive = value; 
+			if (this.OnActive != null) {
+				this.OnActive.Invoke (value);
+			}
+		}
 	}
 
 	public bool isFollowing {
@@ -60,17 +72,6 @@ public partial class CMachineEntity : CGameEntity {
 		}
 	}
 
-//	public virtual CRecipeData[] toolRecipes {
-//		get { return new CRecipeData[0]; }
-//	}
-//	public virtual CRecipeData currentRecipe {
-//		get { return null; }
-//		set {  }
-//	}
-//	public virtual bool IsProductToolCompleted {
-//		get { return false; }
-//	}
-
 	#endregion
 
 	#region Implementation Entity
@@ -79,12 +80,16 @@ public partial class CMachineEntity : CGameEntity {
 	{
 		base.Init ();
 		this.m_MachineData = this.m_DataComponent.Get<CMachineData> ();
-		this.m_MoveComponent.SetupPosition (this.m_MachineData.position.ToV3 (), Quaternion.identity);
-		this.m_MoveComponent.currentRotationAngle = this.m_MachineData.rotation;
+		if (this.m_MoveComponent != null) {
+			this.m_MoveComponent.SetupPosition (this.m_MachineData.position.ToV3 (), Quaternion.identity);
+			this.m_MoveComponent.currentRotationAngle = this.m_MachineData.rotation;
+		}
 		this.IsActive = this.m_MachineData.isActive;
 		this.IsStarted = this.m_MachineData.isStart;
 		this.HaveEnergy = this.m_MachineData.isHaveEnergy;
-		this.m_FSMComponent.SetState (this.m_MachineData.currentState);
+		if (this.m_FSMComponent != null) {
+			this.m_FSMComponent.SetState (this.m_MachineData.currentState);
+		}
 	}
 
 	protected override void Awake ()

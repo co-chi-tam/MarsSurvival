@@ -77,7 +77,7 @@ public class CMapManager : CMonoSingleton<CMapManager> {
 	protected virtual void Start() {
 		if (this.m_AutoSaveLoad) {
 			if (this.Load ()) {
-				Debug.Log (this.GetFullSavePath ());
+//				Debug.Log (this.GetFullSavePath ());
 			} else {
 				this.m_MapInstance = new Dictionary<string, CTileMap> ();
 				if (this.m_InstanceMap != null) {

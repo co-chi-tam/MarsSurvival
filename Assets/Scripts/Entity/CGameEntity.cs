@@ -10,6 +10,9 @@ public class CGameEntity : CEntity {
 	[Serializable]
 	public class UnityEventFloat : UnityEvent<float> {}
 
+	[Serializable]
+	public class UnityEventBool : UnityEvent<bool> {}
+
 	#endregion
 
 	#region Fields

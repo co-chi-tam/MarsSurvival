@@ -23,7 +23,7 @@ public class CSceneManager : CMonoSingleton<CSceneManager> {
 	public UnityEventString OnLoadScene;
 	public UnityEventString OnEndLoadScene;
 
-	protected WaitForSeconds m_WaitShortTime = new WaitForSeconds (2f);
+	protected WaitForSeconds m_WaitShortTime = new WaitForSeconds (1f);
 
 	public string sceneName {
 		get { return SceneManager.GetActiveScene ().name; }

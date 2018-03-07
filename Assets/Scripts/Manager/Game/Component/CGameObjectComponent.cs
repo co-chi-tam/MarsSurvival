@@ -8,9 +8,9 @@ public class CGameObjectComponent : CComponent {
 
 	protected CGameManager m_GameManager;
 
-	protected override void Awake ()
+	protected override void Start ()
 	{
-		base.Awake ();
+		base.Start ();
 		this.m_GameManager = CGameManager.GetInstance ();
 	}
 

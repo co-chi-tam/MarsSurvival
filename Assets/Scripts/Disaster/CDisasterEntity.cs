@@ -9,8 +9,7 @@ public class CDisasterEntity : CGameEntity {
 
 	[Header ("Configs")]
 	[SerializeField]	protected float m_MapItemPercent = 100f;
-
-	protected bool m_IsShowing = false;
+	[SerializeField]	protected bool m_IsShowing = false;
 
 	public bool IsActiveInMap {
 		get { 
@@ -24,7 +23,7 @@ public class CDisasterEntity : CGameEntity {
 	#region Main methods
 
 	public virtual void ApplyRenderer() {
-		this.gameObject.SetActive (this.m_IsShowing);
+		this.gameObject.SetActive (true);
 	}	
 
 	#endregion

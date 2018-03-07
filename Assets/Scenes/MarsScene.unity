@@ -114,48 +114,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &33356070
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4445974415562058, guid: 4a1cad661a7624b4e81294bb75427ce9, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4445974415562058, guid: 4a1cad661a7624b4e81294bb75427ce9, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4445974415562058, guid: 4a1cad661a7624b4e81294bb75427ce9, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4445974415562058, guid: 4a1cad661a7624b4e81294bb75427ce9, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4445974415562058, guid: 4a1cad661a7624b4e81294bb75427ce9, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4445974415562058, guid: 4a1cad661a7624b4e81294bb75427ce9, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4445974415562058, guid: 4a1cad661a7624b4e81294bb75427ce9, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4445974415562058, guid: 4a1cad661a7624b4e81294bb75427ce9, type: 2}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 4a1cad661a7624b4e81294bb75427ce9, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1001 &423649892
 Prefab:
   m_ObjectHideFlags: 0
@@ -910,12 +868,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: Cinemachine.CinemachineBrain+BrainEvent, Assembly-CSharp-firstpass,
-      Version=1.0.6639.16607, Culture=neutral, PublicKeyToken=null
+      Version=1.0.6640.15550, Culture=neutral, PublicKeyToken=null
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: Cinemachine.CinemachineBrain+VcamEvent, Assembly-CSharp-firstpass,
-      Version=1.0.6639.16607, Culture=neutral, PublicKeyToken=null
+      Version=1.0.6640.15550, Culture=neutral, PublicKeyToken=null
 --- !u!1 &1958330375
 GameObject:
   m_ObjectHideFlags: 0
@@ -1003,4 +961,46 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b70a1508e9af8f642befc1a87dd6e823, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1001 &2092602445
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4445974415562058, guid: 4a1cad661a7624b4e81294bb75427ce9, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4445974415562058, guid: 4a1cad661a7624b4e81294bb75427ce9, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4445974415562058, guid: 4a1cad661a7624b4e81294bb75427ce9, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4445974415562058, guid: 4a1cad661a7624b4e81294bb75427ce9, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4445974415562058, guid: 4a1cad661a7624b4e81294bb75427ce9, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4445974415562058, guid: 4a1cad661a7624b4e81294bb75427ce9, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4445974415562058, guid: 4a1cad661a7624b4e81294bb75427ce9, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4445974415562058, guid: 4a1cad661a7624b4e81294bb75427ce9, type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 4a1cad661a7624b4e81294bb75427ce9, type: 2}
   m_IsPrefabParent: 0
