@@ -20,7 +20,7 @@ public class CPhysicDetectComponent : CComponent {
 	}
 
 	[Header("Detect")]
-	[SerializeField]	protected LayerMask m_DetectLayerMask = -1;
+	[SerializeField]	protected LayerMask m_DetectLayerMask = 0;
 	[SerializeField]	protected int m_ColliderCount;
 	public int colliderCount {
 		get { return this.m_ColliderCount; }

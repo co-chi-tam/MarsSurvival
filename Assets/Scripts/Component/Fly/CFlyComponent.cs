@@ -43,15 +43,15 @@ public class CFlyComponent : CComponent {
 	protected Vector3 m_FlyVector3 = new Vector3 (0f, 0f, 0f);
 	public Vector3 flyVector3 {
 		get { 
-			this.m_FlyVector3.x = this.m_Pitch;
-			this.m_FlyVector3.y = this.m_Yaw;
+			this.m_FlyVector3.x = this.m_Yaw;
+			this.m_FlyVector3.y = this.m_Pitch;
 			this.m_FlyVector3.z = this.m_Roll;
 			return this.m_FlyVector3;
 		} 
 		set { 
-			this.m_Pitch = value.x;
-			this.m_Yaw 	= value.y;
-			this.m_Roll = value.z;
+			this.m_Yaw 	= value.x;
+			this.m_Pitch = value.z;
+			this.m_Roll = value.x;
 			this.m_FlyVector3 = value;
 		}
 	}
@@ -68,19 +68,27 @@ public class CFlyComponent : CComponent {
 	protected virtual void Update()
 	{        
 		base.Update ();
+		if (this.m_IsActive == false)
+			return;
+		this.FlyForward (Time.deltaTime);
+	}
 
+	#endregion
+
+	#region Main methods
+
+	public virtual void FlyForward(float dt) {
 		var addRot = Quaternion.identity;
 
-		var pitchVal = this.m_Pitch * (Time.deltaTime * this.m_RotationSpeed);
-		var yawVal = this.m_Yaw * (Time.deltaTime * this.m_RotationSpeed);
-		var rollVal = this.m_Roll * (Time.deltaTime * this.m_RotationSpeed);
+		var pitchVal = this.m_Pitch * (dt * this.m_RotationSpeed);
+		var yawVal = this.m_Yaw * (dt * this.m_RotationSpeed);
+		var rollVal = this.m_Roll * (dt * this.m_RotationSpeed);
 		addRot.eulerAngles = new Vector3 (-pitchVal, yawVal, -rollVal);
 
 		this.m_Transform.rotation *= addRot;
 		Vector3 addPos = Vector3.forward;
-
 		addPos = this.m_Transform.rotation * addPos;
-		this.m_Transform.position += addPos * (Time.deltaTime * this.m_AmbientSpeed);
+		this.m_Transform.position += addPos * (dt * this.m_AmbientSpeed);
 	}
 
 	#endregion

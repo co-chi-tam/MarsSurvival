@@ -33,6 +33,8 @@ public class CSceneManager : CMonoSingleton<CSceneManager> {
 		get { return SceneManager.GetActiveScene (); }
 	}
 
+	protected bool m_IsSceneLoading = false;
+
 	#endregion
 
 	#region Implementation Component
@@ -45,6 +47,10 @@ public class CSceneManager : CMonoSingleton<CSceneManager> {
 		}
 	}
 
+	#endregion
+
+	#region Main methods
+
 	public virtual void LoadScene(string name) {
 		if (this.OnLoadScene != null) {
 			this.OnLoadScene.Invoke (name);
@@ -54,10 +60,6 @@ public class CSceneManager : CMonoSingleton<CSceneManager> {
 			this.OnEndLoadScene.Invoke (name);
 		}
 	}
-
-	#endregion
-
-	#region Main methods
 
 	public virtual void LoadSceneAsyncAfter(string name, float timer) {
 		StartCoroutine (this.HandleLoadSceneAsyn (name, timer));
@@ -73,6 +75,10 @@ public class CSceneManager : CMonoSingleton<CSceneManager> {
 	}
 
 	protected virtual IEnumerator HandleLoadSceneAsyn(string name) {
+		if (this.m_IsSceneLoading) {
+			yield break;
+		}
+		this.m_IsSceneLoading = true;
 		if (this.OnLoadScene != null) {
 			this.OnLoadScene.Invoke (name);
 		}
@@ -81,6 +87,7 @@ public class CSceneManager : CMonoSingleton<CSceneManager> {
 		if (this.OnEndLoadScene != null) {
 			this.OnEndLoadScene.Invoke (name);
 		}
+		this.m_IsSceneLoading = false;
 	}
 
 	#endregion

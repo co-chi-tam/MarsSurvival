@@ -133,4 +133,14 @@ public class CGameDataCreateAsset
 
 	#endregion
 
+	#region Spaceship
+
+	[MenuItem("Game Data/Spaceship/Empty Data")]
+	public static void CreateSpaceshipDataAsset ()
+	{
+		ScriptableObjectUtility.CreateAsset<CSpaceshipData> ();
+	}
+
+	#endregion
+
 }
