@@ -1,9 +1,12 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Manager\Scene\CSceneManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\AnimatorStateMachineUtil\Examples\Scripts\VerticalMovement.cs">
     <Files>
-      <File FileName="Assets\Scripts\Manager\Game\CGameSwitchScene.cs" Line="20" Column="34" />
-      <File FileName="Assets\Scripts\Manager\Scene\CSceneManager.cs" Line="83" Column="35" />
+      <File FileName="Assets\Scripts\Manager\Game\CGameSwitchScene.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Manager\Scene\CSceneManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Component\Tool\CStoreToolComponent.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Util\CDayNightLight.cs" Line="1" Column="1" />
+      <File FileName="Assets\AnimatorStateMachineUtil\Examples\Scripts\VerticalMovement.cs" Line="20" Column="19" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -14,6 +14,11 @@ public class CToolData : CGameEntityData {
 		get { return this.m_ToolMethod; }
 		set { this.m_ToolMethod = value; }
 	}
+	[SerializeField]	protected string m_ToolPosition = "RightHand";
+	public string toolPosition {
+		get { return this.m_ToolPosition; }
+		set { this.m_ToolPosition = value; }
+	}
 	[SerializeField]	protected float m_ToolDamage = 1f;
 	public float toolDamage {
 		get { return this.m_ToolDamage; }

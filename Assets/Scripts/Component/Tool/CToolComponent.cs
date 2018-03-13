@@ -14,6 +14,11 @@ public class CToolComponent : CComponent {
 		get { return this.m_ToolActiveName; }
 		set { this.m_ToolActiveName = value; }
 	}
+	[SerializeField]	protected string m_ToolPositionName = "RightHand";
+	public string toolPositionName {
+		get { return this.m_ToolPositionName; }
+		set { this.m_ToolPositionName = value; }
+	}
 
 	[Header("Events")]
 	public UnityEvent OnUse;

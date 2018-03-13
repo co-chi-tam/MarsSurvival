@@ -868,12 +868,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: Cinemachine.CinemachineBrain+BrainEvent, Assembly-CSharp-firstpass,
-      Version=1.0.6640.15550, Culture=neutral, PublicKeyToken=null
+      Version=1.0.6646.16185, Culture=neutral, PublicKeyToken=null
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: Cinemachine.CinemachineBrain+VcamEvent, Assembly-CSharp-firstpass,
-      Version=1.0.6640.15550, Culture=neutral, PublicKeyToken=null
+      Version=1.0.6646.16185, Culture=neutral, PublicKeyToken=null
 --- !u!1 &1958330375
 GameObject:
   m_ObjectHideFlags: 0

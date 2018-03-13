@@ -45,6 +45,7 @@ public class CSceneManager : CMonoSingleton<CSceneManager> {
 		if (this.OnStartScene != null) {
 			this.OnStartScene.Invoke (name);
 		}
+		DontDestroyOnLoad (gameObject);
 	}
 
 	#endregion

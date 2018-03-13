@@ -24,8 +24,6 @@ MonoBehaviour:
   m_MaxOxygenPoint: 100
   m_EnergyPoint: 100
   m_MaxEnergyPoint: 100
-  m_WaterPoint: 100
-  m_MaxWaterPoint: 100
   m_FoodPoint: 100
   m_MaxFoodPoint: 100
   m_HealthPoint: 100

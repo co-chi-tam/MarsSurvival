@@ -8,7 +8,6 @@ public class CToolEntity : CGameEntity {
 
 	protected CDataComponent m_DataComponent;
 	protected CToolComponent m_ToolComponent;
-
 	protected CToolData m_Data;
 
 	#endregion
@@ -27,6 +26,7 @@ public class CToolEntity : CGameEntity {
 		base.Start ();
 		this.m_Data = this.m_DataComponent.Get<CToolData> ();
 		this.m_ToolComponent.toolActiveName = this.m_Data.toolMethod;
+		this.m_ToolComponent.toolPositionName = this.m_Data.toolPosition;
 	}
 
 	#endregion

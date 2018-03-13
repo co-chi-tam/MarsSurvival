@@ -19,5 +19,6 @@ MonoBehaviour:
   m_Position: 0,0,0
   m_Rotation: 180
   m_ToolMethod: Attack
+  m_ToolPosition: RightHand
   m_ToolDamage: 20
   m_EnergyConsume: 5

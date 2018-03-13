@@ -833,6 +833,16 @@ MonoBehaviour:
       PublicKeyToken=null
   m_HaveEnergy: 1
   m_IsStarted: 0
+  OnStarted:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: CGameEntity+UnityEventBool, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  OnActive:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: CGameEntity+UnityEventBool, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!114 &114253254550399936
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1303,7 +1313,7 @@ LODGroup:
   m_FadeMode: 0
   m_AnimateCrossFading: 0
   m_LODs:
-  - screenRelativeHeight: 0.049211968
+  - screenRelativeHeight: 0.026593516
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 23385160512164938}

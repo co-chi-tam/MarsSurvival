@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using Ludiq.Reflection;
 
 public class CAdapterComponent : CComponent {
@@ -22,6 +23,9 @@ public class CAdapterComponent : CComponent {
 	public Dictionary<string, CInOutTriggerData> dataSamples {
 		get { return this.m_DataSamples; }
 	}
+
+	[Header("Events")]
+	public UnityEvent OnInvoke;
 
 	#endregion
 
@@ -52,6 +56,9 @@ public class CAdapterComponent : CComponent {
 		if (this.m_DataSamples.ContainsKey (name) == false)
 			return;
 		this.m_DataSamples [name].OnTriggerInvoke.InvokeOrSet (value.OnTriggerInvoke.Get ());
+		if (this.OnInvoke != null) {
+			this.OnInvoke.Invoke ();
+		}
 	}
 
 	public virtual void Invoke(CInOutTriggerData value) {
@@ -59,6 +66,9 @@ public class CAdapterComponent : CComponent {
 			Debug.LogError ("HOST IS EMPTY.");
 		} else {
 			this.m_Host.Invoke (this, value);
+			if (this.OnInvoke != null) {
+				this.OnInvoke.Invoke ();
+			}
 		}
 	}
 

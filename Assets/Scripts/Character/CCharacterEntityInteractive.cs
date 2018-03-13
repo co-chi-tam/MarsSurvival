@@ -121,6 +121,10 @@ public partial class CCharacterEntity {
 
 	#region Machine Entity
 
+	public virtual void InvokeRepairMachine() {
+		
+	}
+
 	protected virtual void OnMachineCollectItems () {
 		var machine = this.m_OtherEntity as CMachineEntity;
 		var items = machine.itemCollects;

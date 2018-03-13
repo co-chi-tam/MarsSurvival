@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -6,10 +7,25 @@ using Ludiq.Reflection;
 
 public class CStoreToolComponent : CComponent {
 
+	#region Internal class
+
+	[Serializable]	
+	public class CToolPositions
+	{
+		public string toolPositionName;
+		public GameObject toolPosition;
+	}
+
+	#endregion
+
 	#region Fields
 
 	[Header("Configs")]
-	[SerializeField]	protected Transform m_ToolPosition;
+	[SerializeField]	protected CToolPositions[] m_ToolPositions;
+	public CToolPositions[] toolPositions {
+		get { return this.m_ToolPositions; }
+		set { this.m_ToolPositions = value; }
+	}
 	[SerializeField]	protected CToolData m_CurrentData;
 	public CToolData currentToolData {
 		get { return this.m_CurrentData; }
@@ -116,7 +132,7 @@ public class CStoreToolComponent : CComponent {
 		}
 		// INSTANTIATE
 		var toolInstance = Instantiate (value);
-		var holdToolPosition = this.m_ToolPosition != null ? this.m_ToolPosition : this.transform;
+		var holdToolPosition = this.GetToolPosition (value.toolPositionName);
 		this.m_CurrentTool = toolInstance;
 		toolInstance.transform.SetParent (holdToolPosition);
 		toolInstance.transform.localPosition = Vector3.zero;
@@ -129,6 +145,14 @@ public class CStoreToolComponent : CComponent {
 		if (this.OnLoaded != null) {
 			this.OnLoaded.Invoke ();
 		}
+	}
+
+	public virtual Transform GetToolPosition(string name) {
+		for (int i = 0; i < this.m_ToolPositions.Length; i++) {
+			if (this.m_ToolPositions [i].toolPositionName == name)
+				return this.m_ToolPositions [i].toolPosition.transform;
+		}
+		return this.m_Transform;
 	}
 
 	#endregion
